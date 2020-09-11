@@ -5,6 +5,7 @@
 package org.apache.camel.component.twilio;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -16,13 +17,17 @@ import org.apache.camel.spi.UriParams;
 @UriParams
 @Configurer
 public final class QueueMemberEndpointConfiguration extends TwilioConfiguration {
-    @UriParam(description = "The SID of the Account that created the resource(s) to fetch")
+    @UriParam
+    @ApiParam(apiMethods = "fetcher,reader,updater", description = "The SID of the Account that created the resource(s) to fetch")
     private String pathAccountSid;
-    @UriParam(description = "The Call SID of the resource(s) to fetch")
+    @UriParam
+    @ApiParam(apiMethods = "fetcher,updater", description = "The Call SID of the resource(s) to fetch")
     private String pathCallSid;
-    @UriParam(description = "The SID of the Queue in which to find the members")
+    @UriParam
+    @ApiParam(apiMethods = "fetcher,reader,updater", description = "The SID of the Queue in which to find the members")
     private String pathQueueSid;
-    @UriParam(description = "The absolute URL of the Queue resource")
+    @UriParam
+    @ApiParam(apiMethods = "updater", description = "The absolute URL of the Queue resource")
     private java.net.URI url;
 
     public String getPathAccountSid() {

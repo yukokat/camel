@@ -5,6 +5,7 @@
 package org.apache.camel.component.twilio;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -16,19 +17,26 @@ import org.apache.camel.spi.UriParams;
 @UriParams
 @Configurer
 public final class MessageEndpointConfiguration extends TwilioConfiguration {
-    @UriParam(description = "The text of the message you want to send. Can be up to 1,600 characters in length.")
+    @UriParam
+    @ApiParam(apiMethods = "creator,updater", description = "The text of the message you want to send. Can be up to 1,600 characters in length.")
     private String body;
-    @UriParam(description = "The phone number that initiated the message")
+    @UriParam
+    @ApiParam(apiMethods = "creator", description = "The phone number that initiated the message")
     private com.twilio.type.PhoneNumber from;
-    @UriParam(description = "The URL of the media to send with the message")
+    @UriParam
+    @ApiParam(apiMethods = "creator", description = "The URL of the media to send with the message")
     private java.util.List<java.net.URI> mediaUrl;
-    @UriParam(description = "The SID of the Messaging Service you want to associate with the message")
+    @UriParam
+    @ApiParam(apiMethods = "creator", description = "The SID of the Messaging Service you want to associate with the message")
     private String messagingServiceSid;
-    @UriParam(description = "The SID of the Account that will create the resource")
+    @UriParam
+    @ApiParam(apiMethods = "creator,deleter,fetcher,reader,updater", description = "The SID of the Account that will create the resource")
     private String pathAccountSid;
-    @UriParam(description = "The unique string that identifies the resource")
+    @UriParam
+    @ApiParam(apiMethods = "deleter,fetcher,updater", description = "The unique string that identifies the resource")
     private String pathSid;
-    @UriParam(description = "The destination phone number")
+    @UriParam
+    @ApiParam(apiMethods = "creator", description = "The destination phone number")
     private com.twilio.type.PhoneNumber to;
 
     public String getBody() {

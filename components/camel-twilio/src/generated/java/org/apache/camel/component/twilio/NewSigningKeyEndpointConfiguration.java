@@ -5,6 +5,7 @@
 package org.apache.camel.component.twilio;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -16,7 +17,8 @@ import org.apache.camel.spi.UriParams;
 @UriParams
 @Configurer
 public final class NewSigningKeyEndpointConfiguration extends TwilioConfiguration {
-    @UriParam(description = "The SID of the Account that will be responsible for the new Key resource")
+    @UriParam
+    @ApiParam(apiMethods = "creator", description = "The SID of the Account that will be responsible for the new Key resource")
     private String pathAccountSid;
 
     public String getPathAccountSid() {

@@ -21,9 +21,9 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 import org.apache.camel.tooling.model.ComponentModel.ComponentOptionModel;
@@ -102,18 +102,28 @@ public final class JsonMapper {
         JsonObject mprap = (JsonObject) obj.get("apiProperties");
         if (mprap != null) {
             for (Map.Entry<String, Object> entry : mprap.entrySet()) {
-                String key = entry.getKey();
                 JsonObject mp = (JsonObject) entry.getValue();
-                if (mp.isEmpty()) {
-                    model.getApiOptions().put(key, Collections.EMPTY_LIST);
-                } else {
-                    mp.forEach((k, v) -> {
-                        String mk = k;
-                        JsonObject mo = (JsonObject) v;
-                        ComponentModel.ApiOptionModel option = new ComponentModel.ApiOptionModel();
-                        parseOption(mo, option, mk);
-                        model.addApiOption(key, option);
-                    });
+                ApiModel am = new ApiModel();
+                am.setName(mp.getString("apiName"));
+                am.setDescription(mp.getString("description"));
+                JsonObject mm = (JsonObject) obj.get("methods");
+                if (mm != null) {
+                    for (Map.Entry<String, Object> mentry : mprap.entrySet()) {
+                        JsonObject mmp = (JsonObject) mentry.getValue();
+                        ApiMethodModel amm = new ApiMethodModel();
+                        am.addMethod(amm);
+                        amm.setName(mmp.getString("apiMethodName"));
+                        amm.setDescription(mmp.getString("description"));
+                        JsonObject properties = (JsonObject) obj.get("properties");
+                        if (properties != null) {
+                            for (Map.Entry<String, Object> pentry : properties.entrySet()) {
+                                JsonObject prop = (JsonObject) pentry.getValue();
+                                ComponentModel.ApiOptionModel option = new ComponentModel.ApiOptionModel();
+                                parseOption(prop, option, pentry.getKey());
+                                amm.addApiOptionModel(option);
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -169,7 +179,7 @@ public final class JsonMapper {
         wrapper.put("componentProperties", asJsonObject(model.getComponentOptions()));
         wrapper.put("properties", asJsonObject(model.getEndpointOptions()));
         if (!model.getApiOptions().isEmpty()) {
-            wrapper.put("apiProperties", asJsonObject(model.getApiOptions()));
+            wrapper.put("apiProperties", apiModelAsJsonObject(model.getApiOptions()));
         }
         return wrapper;
     }
@@ -398,10 +408,28 @@ public final class JsonMapper {
         return json;
     }
 
-    public static JsonObject asJsonObject(Map<String, List<ComponentModel.ApiOptionModel>> options) {
-        JsonObject json = new JsonObject();
-        options.forEach((k, v) -> json.put(k, asJsonObject(v)));
-        return json;
+    public static JsonObject apiModelAsJsonObject(List<ApiModel> model) {
+        JsonObject root = new JsonObject();
+        model.forEach(a -> {
+            JsonObject json = new JsonObject();
+            root.put(a.getName(), json);
+            json.put("apiName", a.getName());
+            if (a.getDescription() != null) {
+                json.put("description", a.getDescription());
+            }
+            Map<String, JsonObject> methods = new TreeMap<>();
+            json.put("methods", methods);
+            a.getMethods().forEach(m -> {
+                JsonObject mJson = new JsonObject();
+                mJson.put("apiMethodName", m.getName());
+                if (m.getDescription() != null) {
+                    mJson.put("description", m.getDescription());
+                }
+                mJson.put("properties", asJsonObject(m.getOptions()));
+                methods.put(m.getName(), mJson);
+            });
+        });
+        return root;
     }
 
     public static JsonObject asJsonObject(BaseOptionModel option) {

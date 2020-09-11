@@ -5,6 +5,7 @@
 package org.apache.camel.component.twilio;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -16,9 +17,11 @@ import org.apache.camel.spi.UriParams;
 @UriParams
 @Configurer
 public final class ShortCodeEndpointConfiguration extends TwilioConfiguration {
-    @UriParam(description = "The SID of the Account that created the resource(s) to fetch")
+    @UriParam
+    @ApiParam(apiMethods = "fetcher,reader,updater", description = "The SID of the Account that created the resource(s) to fetch")
     private String pathAccountSid;
-    @UriParam(description = "The unique string that identifies this resource")
+    @UriParam
+    @ApiParam(apiMethods = "fetcher,updater", description = "The unique string that identifies this resource")
     private String pathSid;
 
     public String getPathAccountSid() {

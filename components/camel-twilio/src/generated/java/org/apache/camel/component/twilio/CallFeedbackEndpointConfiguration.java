@@ -5,6 +5,7 @@
 package org.apache.camel.component.twilio;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -16,11 +17,14 @@ import org.apache.camel.spi.UriParams;
 @UriParams
 @Configurer
 public final class CallFeedbackEndpointConfiguration extends TwilioConfiguration {
-    @UriParam(description = "The unique sid that identifies this account")
+    @UriParam
+    @ApiParam(apiMethods = "creator,fetcher,updater", description = "The unique sid that identifies this account")
     private String pathAccountSid;
-    @UriParam(description = "The call sid that uniquely identifies the call")
+    @UriParam
+    @ApiParam(apiMethods = "creator,fetcher,updater", description = "The call sid that uniquely identifies the call")
     private String pathCallSid;
-    @UriParam(description = "The call quality expressed as an integer from 1 to 5")
+    @UriParam
+    @ApiParam(apiMethods = "creator,updater", description = "The call quality expressed as an integer from 1 to 5")
     private Integer qualityScore;
 
     public String getPathAccountSid() {

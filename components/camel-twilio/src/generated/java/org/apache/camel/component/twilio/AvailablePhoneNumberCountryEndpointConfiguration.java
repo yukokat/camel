@@ -5,6 +5,7 @@
 package org.apache.camel.component.twilio;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -16,9 +17,11 @@ import org.apache.camel.spi.UriParams;
 @UriParams
 @Configurer
 public final class AvailablePhoneNumberCountryEndpointConfiguration extends TwilioConfiguration {
-    @UriParam(description = "The SID of the Account requesting the available phone number Country resource")
+    @UriParam
+    @ApiParam(apiMethods = "fetcher,reader", description = "The SID of the Account requesting the available phone number Country resource")
     private String pathAccountSid;
-    @UriParam(description = "The ISO country code of the country to fetch available phone number information about")
+    @UriParam
+    @ApiParam(apiMethods = "fetcher", description = "The ISO country code of the country to fetch available phone number information about")
     private String pathCountryCode;
 
     public String getPathAccountSid() {

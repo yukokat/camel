@@ -5,6 +5,7 @@
 package org.apache.camel.component.twilio;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -16,15 +17,20 @@ import org.apache.camel.spi.UriParams;
 @UriParams
 @Configurer
 public final class SipCredentialEndpointConfiguration extends TwilioConfiguration {
-    @UriParam(description = "The password will not be returned in the response")
+    @UriParam
+    @ApiParam(apiMethods = "creator", description = "The password will not be returned in the response")
     private String password;
-    @UriParam(description = "The unique id of the Account that is responsible for this resource")
+    @UriParam
+    @ApiParam(apiMethods = "creator,deleter,fetcher,reader,updater", description = "The unique id of the Account that is responsible for this resource")
     private String pathAccountSid;
-    @UriParam(description = "The unique id that identifies the credential list to include the created credential")
+    @UriParam
+    @ApiParam(apiMethods = "creator,deleter,fetcher,reader,updater", description = "The unique id that identifies the credential list to include the created credential")
     private String pathCredentialListSid;
-    @UriParam(description = "The unique id that identifies the resource to delete")
+    @UriParam
+    @ApiParam(apiMethods = "deleter,fetcher,updater", description = "The unique id that identifies the resource to delete")
     private String pathSid;
-    @UriParam(description = "The username for this credential")
+    @UriParam
+    @ApiParam(apiMethods = "creator", description = "The username for this credential")
     private String username;
 
     public String getPassword() {

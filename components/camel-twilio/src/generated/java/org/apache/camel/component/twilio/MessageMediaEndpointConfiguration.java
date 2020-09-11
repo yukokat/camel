@@ -5,6 +5,7 @@
 package org.apache.camel.component.twilio;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -16,11 +17,14 @@ import org.apache.camel.spi.UriParams;
 @UriParams
 @Configurer
 public final class MessageMediaEndpointConfiguration extends TwilioConfiguration {
-    @UriParam(description = "The SID of the Account that created the resource(s) to delete")
+    @UriParam
+    @ApiParam(apiMethods = "deleter,fetcher,reader", description = "The SID of the Account that created the resource(s) to delete")
     private String pathAccountSid;
-    @UriParam(description = "The SID of the Message resource that this Media resource belongs to")
+    @UriParam
+    @ApiParam(apiMethods = "deleter,fetcher,reader", description = "The SID of the Message resource that this Media resource belongs to")
     private String pathMessageSid;
-    @UriParam(description = "The unique string that identifies this resource")
+    @UriParam
+    @ApiParam(apiMethods = "deleter,fetcher", description = "The unique string that identifies this resource")
     private String pathSid;
 
     public String getPathAccountSid() {

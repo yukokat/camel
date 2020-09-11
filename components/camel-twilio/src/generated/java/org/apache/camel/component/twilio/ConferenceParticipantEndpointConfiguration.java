@@ -5,6 +5,7 @@
 package org.apache.camel.component.twilio;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -16,15 +17,20 @@ import org.apache.camel.spi.UriParams;
 @UriParams
 @Configurer
 public final class ConferenceParticipantEndpointConfiguration extends TwilioConfiguration {
-    @UriParam(description = "The phone number, Client identifier, or username portion of SIP address that made this call.")
+    @UriParam
+    @ApiParam(apiMethods = "creator", description = "The phone number, Client identifier, or username portion of SIP address that made this call.")
     private com.twilio.type.PhoneNumber from;
-    @UriParam(description = "The SID of the Account that will create the resource")
+    @UriParam
+    @ApiParam(apiMethods = "creator,deleter,fetcher,reader,updater", description = "The SID of the Account that will create the resource")
     private String pathAccountSid;
-    @UriParam(description = "The Call SID or URL encoded label of the participant to delete")
+    @UriParam
+    @ApiParam(apiMethods = "deleter,fetcher,updater", description = "The Call SID or URL encoded label of the participant to delete")
     private String pathCallSid;
-    @UriParam(description = "The SID of the participant's conference")
+    @UriParam
+    @ApiParam(apiMethods = "creator,deleter,fetcher,reader,updater", description = "The SID of the participant's conference")
     private String pathConferenceSid;
-    @UriParam(description = "The phone number, SIP address or Client identifier that received this call.")
+    @UriParam
+    @ApiParam(apiMethods = "creator", description = "The phone number, SIP address or Client identifier that received this call.")
     private com.twilio.type.PhoneNumber to;
 
     public com.twilio.type.PhoneNumber getFrom() {

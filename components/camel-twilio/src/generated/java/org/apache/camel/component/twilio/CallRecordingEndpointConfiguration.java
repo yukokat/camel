@@ -5,6 +5,7 @@
 package org.apache.camel.component.twilio;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -16,13 +17,17 @@ import org.apache.camel.spi.UriParams;
 @UriParams
 @Configurer
 public final class CallRecordingEndpointConfiguration extends TwilioConfiguration {
-    @UriParam(description = "The SID of the Account that will create the resource")
+    @UriParam
+    @ApiParam(apiMethods = "creator,deleter,fetcher,reader,updater", description = "The SID of the Account that will create the resource")
     private String pathAccountSid;
-    @UriParam(description = "The SID of the Call to associate the resource with")
+    @UriParam
+    @ApiParam(apiMethods = "creator,deleter,fetcher,reader,updater", description = "The SID of the Call to associate the resource with")
     private String pathCallSid;
-    @UriParam(description = "The unique string that identifies the resource")
+    @UriParam
+    @ApiParam(apiMethods = "deleter,fetcher,updater", description = "The unique string that identifies the resource")
     private String pathSid;
-    @UriParam(description = "The new status of the recording")
+    @UriParam
+    @ApiParam(apiMethods = "updater", description = "The new status of the recording")
     private com.twilio.rest.api.v2010.account.call.Recording.Status status;
 
     public String getPathAccountSid() {

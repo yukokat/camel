@@ -5,6 +5,7 @@
 package org.apache.camel.component.twilio;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -16,21 +17,29 @@ import org.apache.camel.spi.UriParams;
 @UriParams
 @Configurer
 public final class AddressEndpointConfiguration extends TwilioConfiguration {
-    @UriParam(description = "The city of the new address")
+    @UriParam
+    @ApiParam(apiMethods = "creator", description = "The city of the new address")
     private String city;
-    @UriParam(description = "The name to associate with the new address")
+    @UriParam
+    @ApiParam(apiMethods = "creator", description = "The name to associate with the new address")
     private String customerName;
-    @UriParam(description = "The ISO country code of the new address")
+    @UriParam
+    @ApiParam(apiMethods = "creator", description = "The ISO country code of the new address")
     private String isoCountry;
-    @UriParam(description = "The SID of the Account that will be responsible for the new Address resource")
+    @UriParam
+    @ApiParam(apiMethods = "creator,deleter,fetcher,reader,updater", description = "The SID of the Account that will be responsible for the new Address resource")
     private String pathAccountSid;
-    @UriParam(description = "The unique string that identifies the resource")
+    @UriParam
+    @ApiParam(apiMethods = "deleter,fetcher,updater", description = "The unique string that identifies the resource")
     private String pathSid;
-    @UriParam(description = "The postal code of the new address")
+    @UriParam
+    @ApiParam(apiMethods = "creator", description = "The postal code of the new address")
     private String postalCode;
-    @UriParam(description = "The state or region of the new address")
+    @UriParam
+    @ApiParam(apiMethods = "creator", description = "The state or region of the new address")
     private String region;
-    @UriParam(description = "The number and street address of the new address")
+    @UriParam
+    @ApiParam(apiMethods = "creator", description = "The number and street address of the new address")
     private String street;
 
     public String getCity() {

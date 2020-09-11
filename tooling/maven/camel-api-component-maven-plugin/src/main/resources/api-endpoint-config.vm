@@ -37,6 +37,7 @@
 package ${componentPackage};
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -50,9 +51,11 @@ import org.apache.camel.spi.UriParams;
 public final class $configName extends ${componentName}Configuration {
 #foreach( $parameter in $parameters.entrySet() )
 #if( $helper.hasDoc($parameter.Value) )
-    @UriParam(description = "$helper.getDoc($parameter.Value)")
+    @UriParam
+    @ApiParam(apiMethods = "$helper.getApiMethods($models, $parameter.Value)", description = "$helper.getDoc($parameter.Value)")
 #else
     @UriParam
+    @ApiParam(apiMethods = "$helper.getApiMethods($models, $parameter.Value)")
 #end
     private $helper.getCanonicalName($parameter.Value) $parameter.Key;
 #end

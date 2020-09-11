@@ -5,6 +5,7 @@
 package org.apache.camel.component.twilio;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -16,15 +17,20 @@ import org.apache.camel.spi.UriParams;
 @UriParams
 @Configurer
 public final class SipIpAccessControlListIpAddressEndpointConfiguration extends TwilioConfiguration {
-    @UriParam(description = "A human readable descriptive text for this resource, up to 64 characters long.")
+    @UriParam
+    @ApiParam(apiMethods = "creator", description = "A human readable descriptive text for this resource, up to 64 characters long.")
     private String friendlyName;
-    @UriParam(description = "An IP address in dotted decimal notation from which you want to accept traffic. Any SIP requests from this IP address will be allowed by Twilio. IPv4 only supported today.")
+    @UriParam
+    @ApiParam(apiMethods = "creator", description = "An IP address in dotted decimal notation from which you want to accept traffic. Any SIP requests from this IP address will be allowed by Twilio. IPv4 only supported today.")
     private String ipAddress;
-    @UriParam(description = "The unique sid that identifies this account")
+    @UriParam
+    @ApiParam(apiMethods = "creator,deleter,fetcher,reader,updater", description = "The unique sid that identifies this account")
     private String pathAccountSid;
-    @UriParam(description = "The IpAccessControlList Sid with which to associate the created IpAddress resource")
+    @UriParam
+    @ApiParam(apiMethods = "creator,deleter,fetcher,reader,updater", description = "The IpAccessControlList Sid with which to associate the created IpAddress resource")
     private String pathIpAccessControlListSid;
-    @UriParam(description = "A string that identifies the resource to delete")
+    @UriParam
+    @ApiParam(apiMethods = "deleter,fetcher,updater", description = "A string that identifies the resource to delete")
     private String pathSid;
 
     public String getFriendlyName() {

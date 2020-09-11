@@ -5,6 +5,7 @@
 package org.apache.camel.component.twilio;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -16,9 +17,11 @@ import org.apache.camel.spi.UriParams;
 @UriParams
 @Configurer
 public final class ApplicationEndpointConfiguration extends TwilioConfiguration {
-    @UriParam(description = "The SID of the Account that will create the resource")
+    @UriParam
+    @ApiParam(apiMethods = "creator,deleter,fetcher,reader,updater", description = "The SID of the Account that will create the resource")
     private String pathAccountSid;
-    @UriParam(description = "The unique string that identifies the resource")
+    @UriParam
+    @ApiParam(apiMethods = "deleter,fetcher,updater", description = "The unique string that identifies the resource")
     private String pathSid;
 
     public String getPathAccountSid() {

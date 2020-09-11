@@ -5,6 +5,7 @@
 package org.apache.camel.component.twilio;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -16,13 +17,17 @@ import org.apache.camel.spi.UriParams;
 @UriParams
 @Configurer
 public final class CallFeedbackSummaryEndpointConfiguration extends TwilioConfiguration {
-    @UriParam(description = "Only include feedback given on or before this date")
+    @UriParam
+    @ApiParam(apiMethods = "creator", description = "Only include feedback given on or before this date")
     private org.joda.time.LocalDate endDate;
-    @UriParam(description = "The unique sid that identifies this account")
+    @UriParam
+    @ApiParam(apiMethods = "creator,deleter,fetcher", description = "The unique sid that identifies this account")
     private String pathAccountSid;
-    @UriParam(description = "A string that uniquely identifies this feedback summary resource")
+    @UriParam
+    @ApiParam(apiMethods = "deleter,fetcher", description = "A string that uniquely identifies this feedback summary resource")
     private String pathSid;
-    @UriParam(description = "Only include feedback given on or after this date")
+    @UriParam
+    @ApiParam(apiMethods = "creator", description = "Only include feedback given on or after this date")
     private org.joda.time.LocalDate startDate;
 
     public org.joda.time.LocalDate getEndDate() {

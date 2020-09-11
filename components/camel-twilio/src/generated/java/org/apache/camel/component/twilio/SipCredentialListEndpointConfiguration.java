@@ -5,6 +5,7 @@
 package org.apache.camel.component.twilio;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -16,11 +17,14 @@ import org.apache.camel.spi.UriParams;
 @UriParams
 @Configurer
 public final class SipCredentialListEndpointConfiguration extends TwilioConfiguration {
-    @UriParam(description = "Human readable descriptive text")
+    @UriParam
+    @ApiParam(apiMethods = "creator,updater", description = "Human readable descriptive text")
     private String friendlyName;
-    @UriParam(description = "The unique id of the Account that is responsible for this resource")
+    @UriParam
+    @ApiParam(apiMethods = "creator,deleter,fetcher,reader,updater", description = "The unique id of the Account that is responsible for this resource")
     private String pathAccountSid;
-    @UriParam(description = "Delete by unique credential list Sid")
+    @UriParam
+    @ApiParam(apiMethods = "deleter,fetcher,updater", description = "Delete by unique credential list Sid")
     private String pathSid;
 
     public String getFriendlyName() {

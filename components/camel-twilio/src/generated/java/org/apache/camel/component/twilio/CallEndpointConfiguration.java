@@ -5,6 +5,7 @@
 package org.apache.camel.component.twilio;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -16,19 +17,26 @@ import org.apache.camel.spi.UriParams;
 @UriParams
 @Configurer
 public final class CallEndpointConfiguration extends TwilioConfiguration {
-    @UriParam(description = "The SID of the Application resource that will handle the call")
+    @UriParam
+    @ApiParam(apiMethods = "creator", description = "The SID of the Application resource that will handle the call")
     private String applicationSid;
-    @UriParam(description = "Twilio number from which to originate the call")
+    @UriParam
+    @ApiParam(apiMethods = "creator", description = "Twilio number from which to originate the call")
     private com.twilio.type.Endpoint from;
-    @UriParam(description = "The SID of the Account that will create the resource")
+    @UriParam
+    @ApiParam(apiMethods = "creator,deleter,fetcher,reader,updater", description = "The SID of the Account that will create the resource")
     private String pathAccountSid;
-    @UriParam(description = "The unique string that identifies this resource")
+    @UriParam
+    @ApiParam(apiMethods = "deleter,fetcher,updater", description = "The unique string that identifies this resource")
     private String pathSid;
-    @UriParam(description = "Phone number, SIP address, or client identifier to call")
+    @UriParam
+    @ApiParam(apiMethods = "creator", description = "Phone number, SIP address, or client identifier to call")
     private com.twilio.type.Endpoint to;
-    @UriParam(description = "TwiML instructions for the call")
+    @UriParam
+    @ApiParam(apiMethods = "creator", description = "TwiML instructions for the call")
     private com.twilio.type.Twiml twiml;
-    @UriParam(description = "The absolute URL that returns TwiML for this call")
+    @UriParam
+    @ApiParam(apiMethods = "creator", description = "The absolute URL that returns TwiML for this call")
     private java.net.URI url;
 
     public String getApplicationSid() {

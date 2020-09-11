@@ -5,6 +5,7 @@
 package org.apache.camel.component.twilio;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -16,9 +17,11 @@ import org.apache.camel.spi.UriParams;
 @UriParams
 @Configurer
 public final class SigningKeyEndpointConfiguration extends TwilioConfiguration {
-    @UriParam(description = "The account_sid")
+    @UriParam
+    @ApiParam(apiMethods = "deleter,fetcher,reader,updater", description = "The account_sid")
     private String pathAccountSid;
-    @UriParam(description = "The sid")
+    @UriParam
+    @ApiParam(apiMethods = "deleter,fetcher,updater", description = "The sid")
     private String pathSid;
 
     public String getPathAccountSid() {

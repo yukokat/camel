@@ -22,6 +22,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.StringJoiner;
 import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -295,6 +296,21 @@ public abstract class AbstractApiMethodGeneratorMojo extends AbstractApiMethodBa
         } else {
             return getCanonicalName(clazz) + ".class";
         }
+    }
+
+    public static String getApiMethods(List<ApiMethodParser.ApiMethodModel> models, ApiMethodArg argument) {
+        String key = argument.getName();
+        StringJoiner sj = new StringJoiner(",");
+        models.forEach(p -> {
+            boolean match = p.getArguments().stream().anyMatch(a -> a.getName().equals(key));
+            if (match) {
+                if (sj.length() == 0 || !sj.toString().contains(p.getName())) {
+                    sj.add(p.getName());
+                }
+            }
+        });
+        // TODO: if no explicit then it should maybe match all methods?
+        return sj.toString();
     }
 
     public static String getTestName(ApiMethodParser.ApiMethodModel model) {

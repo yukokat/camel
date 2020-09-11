@@ -18,8 +18,6 @@ package org.apache.camel.tooling.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 public class ComponentModel extends ArtifactModel<ComponentModel.ComponentOptionModel> {
@@ -37,7 +35,7 @@ public class ComponentModel extends ArtifactModel<ComponentModel.ComponentOption
     protected boolean lenientProperties;
     protected String verifiers;
     protected final List<EndpointOptionModel> endpointOptions = new ArrayList<>();
-    protected final Map<String, List<ApiOptionModel>> apiOptions = new TreeMap<>(); // lets sort by API names
+    protected final List<ApiModel> apiOptions = new ArrayList<>();
 
     public ComponentModel() {
     }
@@ -171,13 +169,8 @@ public class ComponentModel extends ArtifactModel<ComponentModel.ComponentOption
                 .collect(Collectors.toList());
     }
 
-    public Map<String, List<ApiOptionModel>> getApiOptions() {
+    public List<ApiModel> getApiOptions() {
         return apiOptions;
-    }
-
-    public void addApiOption(String apiName, ApiOptionModel option) {
-        List<ApiOptionModel> list = apiOptions.computeIfAbsent(apiName, k -> new ArrayList<>());
-        list.add(option);
     }
 
     public static class ComponentOptionModel extends BaseOptionModel {

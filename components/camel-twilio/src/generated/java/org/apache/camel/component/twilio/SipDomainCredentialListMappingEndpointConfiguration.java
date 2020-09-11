@@ -5,6 +5,7 @@
 package org.apache.camel.component.twilio;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -16,13 +17,17 @@ import org.apache.camel.spi.UriParams;
 @UriParams
 @Configurer
 public final class SipDomainCredentialListMappingEndpointConfiguration extends TwilioConfiguration {
-    @UriParam(description = "A string that identifies the CredentialList resource to map to the SIP domain")
+    @UriParam
+    @ApiParam(apiMethods = "creator", description = "A string that identifies the CredentialList resource to map to the SIP domain")
     private String credentialListSid;
-    @UriParam(description = "The unique sid that identifies this account")
+    @UriParam
+    @ApiParam(apiMethods = "creator,deleter,fetcher,reader", description = "The unique sid that identifies this account")
     private String pathAccountSid;
-    @UriParam(description = "A string that identifies the SIP Domain for which the CredentialList resource will be mapped")
+    @UriParam
+    @ApiParam(apiMethods = "creator,deleter,fetcher,reader", description = "A string that identifies the SIP Domain for which the CredentialList resource will be mapped")
     private String pathDomainSid;
-    @UriParam(description = "A string that identifies the resource to delete")
+    @UriParam
+    @ApiParam(apiMethods = "deleter,fetcher", description = "A string that identifies the resource to delete")
     private String pathSid;
 
     public String getCredentialListSid() {

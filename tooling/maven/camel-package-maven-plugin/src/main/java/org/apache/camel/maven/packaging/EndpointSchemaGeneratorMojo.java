@@ -50,6 +50,7 @@ import java.util.stream.Stream;
 import org.apache.camel.Category;
 import org.apache.camel.maven.packaging.generics.ClassUtil;
 import org.apache.camel.maven.packaging.generics.GenericsUtil;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.Metadata;
 import org.apache.camel.spi.UriEndpoint;
@@ -57,6 +58,8 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 import org.apache.camel.spi.UriPath;
 import org.apache.camel.spi.annotations.Component;
+import org.apache.camel.tooling.model.ApiMethodModel;
+import org.apache.camel.tooling.model.ApiModel;
 import org.apache.camel.tooling.model.BaseOptionModel;
 import org.apache.camel.tooling.model.ComponentModel;
 import org.apache.camel.tooling.model.ComponentModel.ComponentOptionModel;
@@ -96,7 +99,6 @@ public class EndpointSchemaGeneratorMojo extends AbstractGeneratorMojo {
 
     public static final DotName URI_ENDPOINT = DotName.createSimple(UriEndpoint.class.getName());
     public static final DotName COMPONENT = DotName.createSimple(Component.class.getName());
-    public static final DotName URI_PARAMS = DotName.createSimple(UriParams.class.getName());
     public static final DotName API_PARAMS = DotName.createSimple(ApiParams.class.getName());
 
     private static final String HEADER_FILTER_STRATEGY_JAVADOC
@@ -970,6 +972,7 @@ public class EndpointSchemaGeneratorMojo extends AbstractGeneratorMojo {
                 }
 
                 UriParam param = fieldElement.getAnnotation(UriParam.class);
+                ApiParam apiParam = fieldElement.getAnnotation(ApiParam.class);
                 fieldName = fieldElement.getName();
                 if (param != null) {
                     String name = prefix + (Strings.isNullOrEmpty(param.name()) ? fieldName : param.name());
@@ -1094,9 +1097,19 @@ public class EndpointSchemaGeneratorMojo extends AbstractGeneratorMojo {
                         if (componentOption) {
                             option.setKind("property");
                             componentModel.addComponentOption((ComponentOptionModel) option);
-                        } else if (apiOption) {
+                        } else if (apiOption && apiParam != null) {
                             option.setKind("parameter");
-                            componentModel.addApiOption(apiName, (ApiOptionModel) option);
+                            ApiModel api = new ApiModel();
+                            api.setName(apiName);
+                            String[] methods = apiParam.apiMethods().split(",");
+                            for (String method : methods) {
+                                ApiMethodModel apiMethod = new ApiMethodModel();
+                                apiMethod.setName(method);
+                                apiMethod.setDescription(apiParam.description());
+                                apiMethod.addApiOptionModel((ApiOptionModel) option);
+                                api.addMethod(apiMethod);
+                            }
+                            componentModel.getApiOptions().add(api);
                         } else {
                             option.setKind("parameter");
                             if (componentModel.getEndpointOptions().stream().noneMatch(opt -> name.equals(opt.getName()))) {
@@ -1110,9 +1123,6 @@ public class EndpointSchemaGeneratorMojo extends AbstractGeneratorMojo {
             if (apiOption) {
                 // do not check super classes for api options as we only check one level (to include new options and not common)
                 // if there are no options added then add the api name as empty option so we have it marked
-                if (!componentModel.getApiOptions().containsKey(apiName)) {
-                    componentModel.getApiOptions().put(apiName, Collections.EMPTY_LIST);
-                }
                 break;
             }
 
