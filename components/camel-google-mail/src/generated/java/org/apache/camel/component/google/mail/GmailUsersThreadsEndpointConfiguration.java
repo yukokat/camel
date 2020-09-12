@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for com.google.api.services.gmail.Gmail$Users$Threads
+ * Camel endpoint configuration for {@link com.google.api.services.gmail.Gmail$Users$Threads}.
  */
-@ApiParams(apiName = "threads", apiMethods = {@ApiMethod(methodName = "delete"), @ApiMethod(methodName = "get"), @ApiMethod(methodName = "list"), @ApiMethod(methodName = "modify"), @ApiMethod(methodName = "trash"), @ApiMethod(methodName = "untrash")})
+@ApiParams(apiName = "threads", description = "The threads collection of methods",
+           apiMethods = {@ApiMethod(methodName = "delete"), @ApiMethod(methodName = "get"), @ApiMethod(methodName = "list"), @ApiMethod(methodName = "modify"), @ApiMethod(methodName = "trash"), @ApiMethod(methodName = "untrash")})
 @UriParams
 @Configurer
 public final class GmailUsersThreadsEndpointConfiguration extends GoogleMailConfiguration {

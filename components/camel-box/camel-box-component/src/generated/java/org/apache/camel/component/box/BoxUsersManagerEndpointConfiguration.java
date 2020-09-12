@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for org.apache.camel.component.box.api.BoxUsersManager
+ * Camel endpoint configuration for {@link org.apache.camel.component.box.api.BoxUsersManager}.
  */
-@ApiParams(apiName = "users", apiMethods = {@ApiMethod(methodName = "addUserEmailAlias"), @ApiMethod(methodName = "createAppUser"), @ApiMethod(methodName = "createEnterpriseUser"), @ApiMethod(methodName = "deleteUser"), @ApiMethod(methodName = "deleteUserEmailAlias"), @ApiMethod(methodName = "getAllEnterpriseOrExternalUsers"), @ApiMethod(methodName = "getCurrentUser"), @ApiMethod(methodName = "getUserEmailAlias"), @ApiMethod(methodName = "getUserInfo"), @ApiMethod(methodName = "moveFolderToUser"), @ApiMethod(methodName = "updateUserInfo")})
+@ApiParams(apiName = "users", description = "Box Users Manager",
+           apiMethods = {@ApiMethod(methodName = "addUserEmailAlias"), @ApiMethod(methodName = "createAppUser"), @ApiMethod(methodName = "createEnterpriseUser"), @ApiMethod(methodName = "deleteUser"), @ApiMethod(methodName = "deleteUserEmailAlias"), @ApiMethod(methodName = "getAllEnterpriseOrExternalUsers"), @ApiMethod(methodName = "getCurrentUser"), @ApiMethod(methodName = "getUserEmailAlias"), @ApiMethod(methodName = "getUserInfo"), @ApiMethod(methodName = "moveFolderToUser"), @ApiMethod(methodName = "updateUserInfo")})
 @UriParams
 @Configurer
 public final class BoxUsersManagerEndpointConfiguration extends BoxConfiguration {

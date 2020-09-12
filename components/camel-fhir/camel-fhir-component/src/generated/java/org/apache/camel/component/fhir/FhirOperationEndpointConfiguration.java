@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for org.apache.camel.component.fhir.api.FhirOperation
+ * Camel endpoint configuration for {@link org.apache.camel.component.fhir.api.FhirOperation}.
  */
-@ApiParams(apiName = "operation", apiMethods = {@ApiMethod(methodName = "onInstance"), @ApiMethod(methodName = "onInstanceVersion"), @ApiMethod(methodName = "onServer"), @ApiMethod(methodName = "onType"), @ApiMethod(methodName = "processMessage")})
+@ApiParams(apiName = "operation", description = "",
+           apiMethods = {@ApiMethod(methodName = "onInstance"), @ApiMethod(methodName = "onInstanceVersion"), @ApiMethod(methodName = "onServer"), @ApiMethod(methodName = "onType"), @ApiMethod(methodName = "processMessage")})
 @UriParams
 @Configurer
 public final class FhirOperationEndpointConfiguration extends FhirConfiguration {

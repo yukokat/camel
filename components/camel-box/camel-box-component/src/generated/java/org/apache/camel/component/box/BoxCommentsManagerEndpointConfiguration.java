@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for org.apache.camel.component.box.api.BoxCommentsManager
+ * Camel endpoint configuration for {@link org.apache.camel.component.box.api.BoxCommentsManager}.
  */
-@ApiParams(apiName = "comments", apiMethods = {@ApiMethod(methodName = "addFileComment"), @ApiMethod(methodName = "changeCommentMessage"), @ApiMethod(methodName = "deleteComment"), @ApiMethod(methodName = "getCommentInfo"), @ApiMethod(methodName = "getFileComments"), @ApiMethod(methodName = "replyToComment")})
+@ApiParams(apiName = "comments", description = "Box Comments Manager",
+           apiMethods = {@ApiMethod(methodName = "addFileComment"), @ApiMethod(methodName = "changeCommentMessage"), @ApiMethod(methodName = "deleteComment"), @ApiMethod(methodName = "getCommentInfo"), @ApiMethod(methodName = "getFileComments"), @ApiMethod(methodName = "replyToComment")})
 @UriParams
 @Configurer
 public final class BoxCommentsManagerEndpointConfiguration extends BoxConfiguration {

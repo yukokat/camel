@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for com.google.api.services.gmail.Gmail$Users
+ * Camel endpoint configuration for {@link com.google.api.services.gmail.Gmail$Users}.
  */
-@ApiParams(apiName = "users", apiMethods = {@ApiMethod(methodName = "getProfile"), @ApiMethod(methodName = "stop"), @ApiMethod(methodName = "watch")})
+@ApiParams(apiName = "users", description = "The users collection of methods",
+           apiMethods = {@ApiMethod(methodName = "getProfile"), @ApiMethod(methodName = "stop"), @ApiMethod(methodName = "watch")})
 @UriParams
 @Configurer
 public final class GmailUsersEndpointConfiguration extends GoogleMailConfiguration {

@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for org.apache.camel.component.box.api.BoxEventLogsManager
+ * Camel endpoint configuration for {@link org.apache.camel.component.box.api.BoxEventLogsManager}.
  */
-@ApiParams(apiName = "event-logs", apiMethods = {@ApiMethod(methodName = "getEnterpriseEvents")})
+@ApiParams(apiName = "event-logs", description = "Box Event Logs Manager",
+           apiMethods = {@ApiMethod(methodName = "getEnterpriseEvents")})
 @UriParams
 @Configurer
 public final class BoxEventLogsManagerEndpointConfiguration extends BoxConfiguration {

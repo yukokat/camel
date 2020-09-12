@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for com.google.api.services.drive.Drive$Files
+ * Camel endpoint configuration for {@link com.google.api.services.drive.Drive$Files}.
  */
-@ApiParams(apiName = "drive-files", apiMethods = {@ApiMethod(methodName = "copy"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "emptyTrash"), @ApiMethod(methodName = "export"), @ApiMethod(methodName = "generateIds"), @ApiMethod(methodName = "get"), @ApiMethod(methodName = "insert"), @ApiMethod(methodName = "list"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "touch"), @ApiMethod(methodName = "trash"), @ApiMethod(methodName = "untrash"), @ApiMethod(methodName = "update"), @ApiMethod(methodName = "watch")})
+@ApiParams(apiName = "drive-files", description = "The files collection of methods",
+           apiMethods = {@ApiMethod(methodName = "copy"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "emptyTrash"), @ApiMethod(methodName = "export"), @ApiMethod(methodName = "generateIds"), @ApiMethod(methodName = "get"), @ApiMethod(methodName = "insert"), @ApiMethod(methodName = "list"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "touch"), @ApiMethod(methodName = "trash"), @ApiMethod(methodName = "untrash"), @ApiMethod(methodName = "update"), @ApiMethod(methodName = "watch")})
 @UriParams
 @Configurer
 public final class DriveFilesEndpointConfiguration extends GoogleDriveConfiguration {

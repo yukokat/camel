@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for org.apache.camel.component.box.api.BoxCollaborationsManager
+ * Camel endpoint configuration for {@link org.apache.camel.component.box.api.BoxCollaborationsManager}.
  */
-@ApiParams(apiName = "collaborations", apiMethods = {@ApiMethod(methodName = "addFolderCollaboration"), @ApiMethod(methodName = "addFolderCollaborationByEmail"), @ApiMethod(methodName = "deleteCollaboration"), @ApiMethod(methodName = "getCollaborationInfo"), @ApiMethod(methodName = "getFolderCollaborations"), @ApiMethod(methodName = "getPendingCollaborations"), @ApiMethod(methodName = "updateCollaborationInfo")})
+@ApiParams(apiName = "collaborations", description = "Box Collaborations Manager Provides operations to manage Box collaborations",
+           apiMethods = {@ApiMethod(methodName = "addFolderCollaboration"), @ApiMethod(methodName = "addFolderCollaborationByEmail"), @ApiMethod(methodName = "deleteCollaboration"), @ApiMethod(methodName = "getCollaborationInfo"), @ApiMethod(methodName = "getFolderCollaborations"), @ApiMethod(methodName = "getPendingCollaborations"), @ApiMethod(methodName = "updateCollaborationInfo")})
 @UriParams
 @Configurer
 public final class BoxCollaborationsManagerEndpointConfiguration extends BoxConfiguration {

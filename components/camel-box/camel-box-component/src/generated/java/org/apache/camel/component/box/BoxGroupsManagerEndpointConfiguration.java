@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for org.apache.camel.component.box.api.BoxGroupsManager
+ * Camel endpoint configuration for {@link org.apache.camel.component.box.api.BoxGroupsManager}.
  */
-@ApiParams(apiName = "groups", apiMethods = {@ApiMethod(methodName = "addGroupMembership"), @ApiMethod(methodName = "createGroup"), @ApiMethod(methodName = "deleteGroup"), @ApiMethod(methodName = "deleteGroupMembership"), @ApiMethod(methodName = "getAllGroups"), @ApiMethod(methodName = "getGroupInfo"), @ApiMethod(methodName = "getGroupMembershipInfo"), @ApiMethod(methodName = "getGroupMemberships"), @ApiMethod(methodName = "updateGroupInfo"), @ApiMethod(methodName = "updateGroupMembershipInfo")})
+@ApiParams(apiName = "groups", description = "Box Groups Manager",
+           apiMethods = {@ApiMethod(methodName = "addGroupMembership"), @ApiMethod(methodName = "createGroup"), @ApiMethod(methodName = "deleteGroup"), @ApiMethod(methodName = "deleteGroupMembership"), @ApiMethod(methodName = "getAllGroups"), @ApiMethod(methodName = "getGroupInfo"), @ApiMethod(methodName = "getGroupMembershipInfo"), @ApiMethod(methodName = "getGroupMemberships"), @ApiMethod(methodName = "updateGroupInfo"), @ApiMethod(methodName = "updateGroupMembershipInfo")})
 @UriParams
 @Configurer
 public final class BoxGroupsManagerEndpointConfiguration extends BoxConfiguration {

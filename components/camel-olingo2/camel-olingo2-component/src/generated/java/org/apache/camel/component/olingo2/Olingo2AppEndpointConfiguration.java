@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for org.apache.camel.component.olingo2.api.Olingo2App
+ * Camel endpoint configuration for {@link org.apache.camel.component.olingo2.api.Olingo2App}.
  */
-@ApiParams(apiName = "DEFAULT", apiMethods = {@ApiMethod(methodName = "batch"), @ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "merge"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "read"), @ApiMethod(methodName = "update"), @ApiMethod(methodName = "uread")})
+@ApiParams(apiName = "DEFAULT", description = "",
+           apiMethods = {@ApiMethod(methodName = "batch"), @ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "merge"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "read"), @ApiMethod(methodName = "update"), @ApiMethod(methodName = "uread")})
 @UriParams
 @Configurer
 public final class Olingo2AppEndpointConfiguration extends Olingo2Configuration {

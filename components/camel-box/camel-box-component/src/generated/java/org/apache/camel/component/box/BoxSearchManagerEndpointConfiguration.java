@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for org.apache.camel.component.box.api.BoxSearchManager
+ * Camel endpoint configuration for {@link org.apache.camel.component.box.api.BoxSearchManager}.
  */
-@ApiParams(apiName = "search", apiMethods = {@ApiMethod(methodName = "searchFolder")})
+@ApiParams(apiName = "search", description = "Box Search Manager",
+           apiMethods = {@ApiMethod(methodName = "searchFolder")})
 @UriParams
 @Configurer
 public final class BoxSearchManagerEndpointConfiguration extends BoxConfiguration {

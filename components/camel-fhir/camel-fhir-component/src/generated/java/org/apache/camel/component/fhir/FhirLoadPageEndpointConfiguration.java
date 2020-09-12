@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for org.apache.camel.component.fhir.api.FhirLoadPage
+ * Camel endpoint configuration for {@link org.apache.camel.component.fhir.api.FhirLoadPage}.
  */
-@ApiParams(apiName = "load-page", apiMethods = {@ApiMethod(methodName = "byUrl"), @ApiMethod(methodName = "next"), @ApiMethod(methodName = "previous")})
+@ApiParams(apiName = "load-page", description = "",
+           apiMethods = {@ApiMethod(methodName = "byUrl"), @ApiMethod(methodName = "next"), @ApiMethod(methodName = "previous")})
 @UriParams
 @Configurer
 public final class FhirLoadPageEndpointConfiguration extends FhirConfiguration {

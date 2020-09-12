@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for org.apache.camel.component.box.api.BoxTasksManager
+ * Camel endpoint configuration for {@link org.apache.camel.component.box.api.BoxTasksManager}.
  */
-@ApiParams(apiName = "tasks", apiMethods = {@ApiMethod(methodName = "addAssignmentToTask"), @ApiMethod(methodName = "addFileTask"), @ApiMethod(methodName = "deleteTask"), @ApiMethod(methodName = "deleteTaskAssignment"), @ApiMethod(methodName = "getFileTasks"), @ApiMethod(methodName = "getTaskAssignmentInfo"), @ApiMethod(methodName = "getTaskAssignments"), @ApiMethod(methodName = "getTaskInfo"), @ApiMethod(methodName = "updateTaskInfo")})
+@ApiParams(apiName = "tasks", description = "Box Tasks Manager",
+           apiMethods = {@ApiMethod(methodName = "addAssignmentToTask"), @ApiMethod(methodName = "addFileTask"), @ApiMethod(methodName = "deleteTask"), @ApiMethod(methodName = "deleteTaskAssignment"), @ApiMethod(methodName = "getFileTasks"), @ApiMethod(methodName = "getTaskAssignmentInfo"), @ApiMethod(methodName = "getTaskAssignments"), @ApiMethod(methodName = "getTaskInfo"), @ApiMethod(methodName = "updateTaskInfo")})
 @UriParams
 @Configurer
 public final class BoxTasksManagerEndpointConfiguration extends BoxConfiguration {

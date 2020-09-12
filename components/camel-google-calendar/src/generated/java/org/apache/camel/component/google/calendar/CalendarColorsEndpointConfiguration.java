@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for com.google.api.services.calendar.Calendar$Colors
+ * Camel endpoint configuration for {@link com.google.api.services.calendar.Calendar$Colors}.
  */
-@ApiParams(apiName = "colors", apiMethods = {@ApiMethod(methodName = "get")})
+@ApiParams(apiName = "colors", description = "The colors collection of methods",
+           apiMethods = {@ApiMethod(methodName = "get")})
 @UriParams
 @Configurer
 public final class CalendarColorsEndpointConfiguration extends GoogleCalendarConfiguration {

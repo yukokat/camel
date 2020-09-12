@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for org.apache.camel.component.fhir.api.FhirTransaction
+ * Camel endpoint configuration for {@link org.apache.camel.component.fhir.api.FhirTransaction}.
  */
-@ApiParams(apiName = "transaction", apiMethods = {@ApiMethod(methodName = "withBundle"), @ApiMethod(methodName = "withResources")})
+@ApiParams(apiName = "transaction", description = "API for sending a transaction (collection of resources) to the server to be executed as a single unit",
+           apiMethods = {@ApiMethod(methodName = "withBundle"), @ApiMethod(methodName = "withResources")})
 @UriParams
 @Configurer
 public final class FhirTransactionEndpointConfiguration extends FhirConfiguration {

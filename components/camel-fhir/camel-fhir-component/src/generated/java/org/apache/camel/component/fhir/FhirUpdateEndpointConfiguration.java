@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for org.apache.camel.component.fhir.api.FhirUpdate
+ * Camel endpoint configuration for {@link org.apache.camel.component.fhir.api.FhirUpdate}.
  */
-@ApiParams(apiName = "update", apiMethods = {@ApiMethod(methodName = "resource"), @ApiMethod(methodName = "resourceBySearchUrl")})
+@ApiParams(apiName = "update", description = "API for the update operation, which performs a logical delete on a server resource /",
+           apiMethods = {@ApiMethod(methodName = "resource"), @ApiMethod(methodName = "resourceBySearchUrl")})
 @UriParams
 @Configurer
 public final class FhirUpdateEndpointConfiguration extends FhirConfiguration {

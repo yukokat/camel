@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for org.apache.camel.component.fhir.api.FhirHistory
+ * Camel endpoint configuration for {@link org.apache.camel.component.fhir.api.FhirHistory}.
  */
-@ApiParams(apiName = "history", apiMethods = {@ApiMethod(methodName = "onInstance"), @ApiMethod(methodName = "onServer"), @ApiMethod(methodName = "onType")})
+@ApiParams(apiName = "history", description = "",
+           apiMethods = {@ApiMethod(methodName = "onInstance"), @ApiMethod(methodName = "onServer"), @ApiMethod(methodName = "onType")})
 @UriParams
 @Configurer
 public final class FhirHistoryEndpointConfiguration extends FhirConfiguration {

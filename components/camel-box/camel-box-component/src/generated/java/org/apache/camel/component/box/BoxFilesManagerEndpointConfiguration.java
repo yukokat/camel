@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for org.apache.camel.component.box.api.BoxFilesManager
+ * Camel endpoint configuration for {@link org.apache.camel.component.box.api.BoxFilesManager}.
  */
-@ApiParams(apiName = "files", apiMethods = {@ApiMethod(methodName = "checkUpload"), @ApiMethod(methodName = "copyFile"), @ApiMethod(methodName = "createFileMetadata"), @ApiMethod(methodName = "createFileSharedLink"), @ApiMethod(methodName = "deleteFile"), @ApiMethod(methodName = "deleteFileMetadata"), @ApiMethod(methodName = "deleteFileVersion"), @ApiMethod(methodName = "downloadFile"), @ApiMethod(methodName = "downloadPreviousFileVersion"), @ApiMethod(methodName = "getDownloadURL"), @ApiMethod(methodName = "getFileInfo"), @ApiMethod(methodName = "getFileMetadata"), @ApiMethod(methodName = "getFilePreviewLink"), @ApiMethod(methodName = "getFileThumbnail"), @ApiMethod(methodName = "getFileVersions"), @ApiMethod(methodName = "moveFile"), @ApiMethod(methodName = "promoteFileVersion"), @ApiMethod(methodName = "renameFile"), @ApiMethod(methodName = "updateFileInfo"), @ApiMethod(methodName = "updateFileMetadata"), @ApiMethod(methodName = "uploadFile"), @ApiMethod(methodName = "uploadNewFileVersion")})
+@ApiParams(apiName = "files", description = "Box Files Manager",
+           apiMethods = {@ApiMethod(methodName = "checkUpload"), @ApiMethod(methodName = "copyFile"), @ApiMethod(methodName = "createFileMetadata"), @ApiMethod(methodName = "createFileSharedLink"), @ApiMethod(methodName = "deleteFile"), @ApiMethod(methodName = "deleteFileMetadata"), @ApiMethod(methodName = "deleteFileVersion"), @ApiMethod(methodName = "downloadFile"), @ApiMethod(methodName = "downloadPreviousFileVersion"), @ApiMethod(methodName = "getDownloadURL"), @ApiMethod(methodName = "getFileInfo"), @ApiMethod(methodName = "getFileMetadata"), @ApiMethod(methodName = "getFilePreviewLink"), @ApiMethod(methodName = "getFileThumbnail"), @ApiMethod(methodName = "getFileVersions"), @ApiMethod(methodName = "moveFile"), @ApiMethod(methodName = "promoteFileVersion"), @ApiMethod(methodName = "renameFile"), @ApiMethod(methodName = "updateFileInfo"), @ApiMethod(methodName = "updateFileMetadata"), @ApiMethod(methodName = "uploadFile"), @ApiMethod(methodName = "uploadNewFileVersion")})
 @UriParams
 @Configurer
 public final class BoxFilesManagerEndpointConfiguration extends BoxConfiguration {

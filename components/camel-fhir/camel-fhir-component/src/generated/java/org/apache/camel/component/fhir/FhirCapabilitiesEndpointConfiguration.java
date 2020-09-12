@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for org.apache.camel.component.fhir.api.FhirCapabilities
+ * Camel endpoint configuration for {@link org.apache.camel.component.fhir.api.FhirCapabilities}.
  */
-@ApiParams(apiName = "capabilities", apiMethods = {@ApiMethod(methodName = "ofType")})
+@ApiParams(apiName = "capabilities", description = "",
+           apiMethods = {@ApiMethod(methodName = "ofType")})
 @UriParams
 @Configurer
 public final class FhirCapabilitiesEndpointConfiguration extends FhirConfiguration {

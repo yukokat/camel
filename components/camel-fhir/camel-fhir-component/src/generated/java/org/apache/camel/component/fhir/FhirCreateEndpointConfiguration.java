@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for org.apache.camel.component.fhir.api.FhirCreate
+ * Camel endpoint configuration for {@link org.apache.camel.component.fhir.api.FhirCreate}.
  */
-@ApiParams(apiName = "create", apiMethods = {@ApiMethod(methodName = "resource")})
+@ApiParams(apiName = "create", description = "API for the create operation, which creates a new resource instance on the server /",
+           apiMethods = {@ApiMethod(methodName = "resource")})
 @UriParams
 @Configurer
 public final class FhirCreateEndpointConfiguration extends FhirConfiguration {

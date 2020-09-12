@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for org.apache.camel.component.fhir.api.FhirPatch
+ * Camel endpoint configuration for {@link org.apache.camel.component.fhir.api.FhirPatch}.
  */
-@ApiParams(apiName = "patch", apiMethods = {@ApiMethod(methodName = "patchById"), @ApiMethod(methodName = "patchByUrl")})
+@ApiParams(apiName = "patch", description = "API for the patch operation, which performs a logical patch on a server resource /",
+           apiMethods = {@ApiMethod(methodName = "patchById"), @ApiMethod(methodName = "patchByUrl")})
 @UriParams
 @Configurer
 public final class FhirPatchEndpointConfiguration extends FhirConfiguration {

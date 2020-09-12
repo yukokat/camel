@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for com.google.api.services.gmail.Gmail$Users$Messages
+ * Camel endpoint configuration for {@link com.google.api.services.gmail.Gmail$Users$Messages}.
  */
-@ApiParams(apiName = "messages", apiMethods = {@ApiMethod(methodName = "attachments"), @ApiMethod(methodName = "batchDelete"), @ApiMethod(methodName = "batchModify"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "get"), @ApiMethod(methodName = "gmailImport"), @ApiMethod(methodName = "insert"), @ApiMethod(methodName = "list"), @ApiMethod(methodName = "modify"), @ApiMethod(methodName = "send"), @ApiMethod(methodName = "trash"), @ApiMethod(methodName = "untrash")})
+@ApiParams(apiName = "messages", description = "The messages collection of methods",
+           apiMethods = {@ApiMethod(methodName = "attachments"), @ApiMethod(methodName = "batchDelete"), @ApiMethod(methodName = "batchModify"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "get"), @ApiMethod(methodName = "gmailImport"), @ApiMethod(methodName = "insert"), @ApiMethod(methodName = "list"), @ApiMethod(methodName = "modify"), @ApiMethod(methodName = "send"), @ApiMethod(methodName = "trash"), @ApiMethod(methodName = "untrash")})
 @UriParams
 @Configurer
 public final class GmailUsersMessagesEndpointConfiguration extends GoogleMailConfiguration {

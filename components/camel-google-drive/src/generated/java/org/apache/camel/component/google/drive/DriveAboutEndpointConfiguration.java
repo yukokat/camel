@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for com.google.api.services.drive.Drive$About
+ * Camel endpoint configuration for {@link com.google.api.services.drive.Drive$About}.
  */
-@ApiParams(apiName = "drive-about", apiMethods = {@ApiMethod(methodName = "get")})
+@ApiParams(apiName = "drive-about", description = "The about collection of methods",
+           apiMethods = {@ApiMethod(methodName = "get")})
 @UriParams
 @Configurer
 public final class DriveAboutEndpointConfiguration extends GoogleDriveConfiguration {

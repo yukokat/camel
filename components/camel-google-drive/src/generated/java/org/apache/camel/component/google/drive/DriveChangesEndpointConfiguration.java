@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for com.google.api.services.drive.Drive$Changes
+ * Camel endpoint configuration for {@link com.google.api.services.drive.Drive$Changes}.
  */
-@ApiParams(apiName = "drive-changes", apiMethods = {@ApiMethod(methodName = "get"), @ApiMethod(methodName = "getStartPageToken"), @ApiMethod(methodName = "list"), @ApiMethod(methodName = "watch")})
+@ApiParams(apiName = "drive-changes", description = "The changes collection of methods",
+           apiMethods = {@ApiMethod(methodName = "get"), @ApiMethod(methodName = "getStartPageToken"), @ApiMethod(methodName = "list"), @ApiMethod(methodName = "watch")})
 @UriParams
 @Configurer
 public final class DriveChangesEndpointConfiguration extends GoogleDriveConfiguration {

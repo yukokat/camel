@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for org.apache.camel.component.as2.api.AS2ClientManager
+ * Camel endpoint configuration for {@link org.apache.camel.component.as2.api.AS2ClientManager}.
  */
-@ApiParams(apiName = "client", apiMethods = {@ApiMethod(methodName = "send")})
+@ApiParams(apiName = "client", description = "Sends EDI Messages over HTTP /",
+           apiMethods = {@ApiMethod(methodName = "send")})
 @UriParams
 @Configurer
 public final class AS2ClientManagerEndpointConfiguration extends AS2Configuration {

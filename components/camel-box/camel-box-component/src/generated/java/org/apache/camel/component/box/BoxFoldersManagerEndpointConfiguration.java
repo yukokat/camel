@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for org.apache.camel.component.box.api.BoxFoldersManager
+ * Camel endpoint configuration for {@link org.apache.camel.component.box.api.BoxFoldersManager}.
  */
-@ApiParams(apiName = "folders", apiMethods = {@ApiMethod(methodName = "copyFolder"), @ApiMethod(methodName = "createFolder"), @ApiMethod(methodName = "createFolderSharedLink"), @ApiMethod(methodName = "deleteFolder"), @ApiMethod(methodName = "getFolder"), @ApiMethod(methodName = "getFolderInfo"), @ApiMethod(methodName = "getFolderItems"), @ApiMethod(methodName = "getRootFolder"), @ApiMethod(methodName = "moveFolder"), @ApiMethod(methodName = "renameFolder"), @ApiMethod(methodName = "updateFolderInfo")})
+@ApiParams(apiName = "folders", description = "Box Folders Manager",
+           apiMethods = {@ApiMethod(methodName = "copyFolder"), @ApiMethod(methodName = "createFolder"), @ApiMethod(methodName = "createFolderSharedLink"), @ApiMethod(methodName = "deleteFolder"), @ApiMethod(methodName = "getFolder"), @ApiMethod(methodName = "getFolderInfo"), @ApiMethod(methodName = "getFolderItems"), @ApiMethod(methodName = "getRootFolder"), @ApiMethod(methodName = "moveFolder"), @ApiMethod(methodName = "renameFolder"), @ApiMethod(methodName = "updateFolderInfo")})
 @UriParams
 @Configurer
 public final class BoxFoldersManagerEndpointConfiguration extends BoxConfiguration {

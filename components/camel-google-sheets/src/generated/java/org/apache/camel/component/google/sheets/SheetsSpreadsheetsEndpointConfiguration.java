@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for com.google.api.services.sheets.v4.Sheets$Spreadsheets
+ * Camel endpoint configuration for {@link com.google.api.services.sheets.v4.Sheets$Spreadsheets}.
  */
-@ApiParams(apiName = "spreadsheets", apiMethods = {@ApiMethod(methodName = "batchUpdate"), @ApiMethod(methodName = "create"), @ApiMethod(methodName = "developerMetadata"), @ApiMethod(methodName = "get"), @ApiMethod(methodName = "getByDataFilter"), @ApiMethod(methodName = "sheets"), @ApiMethod(methodName = "values")})
+@ApiParams(apiName = "spreadsheets", description = "The spreadsheets collection of methods",
+           apiMethods = {@ApiMethod(methodName = "batchUpdate"), @ApiMethod(methodName = "create"), @ApiMethod(methodName = "developerMetadata"), @ApiMethod(methodName = "get"), @ApiMethod(methodName = "getByDataFilter"), @ApiMethod(methodName = "sheets"), @ApiMethod(methodName = "values")})
 @UriParams
 @Configurer
 public final class SheetsSpreadsheetsEndpointConfiguration extends GoogleSheetsConfiguration {

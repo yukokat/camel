@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for com.google.api.services.calendar.Calendar$Settings
+ * Camel endpoint configuration for {@link com.google.api.services.calendar.Calendar$Settings}.
  */
-@ApiParams(apiName = "settings", apiMethods = {@ApiMethod(methodName = "get"), @ApiMethod(methodName = "list"), @ApiMethod(methodName = "watch")})
+@ApiParams(apiName = "settings", description = "The settings collection of methods",
+           apiMethods = {@ApiMethod(methodName = "get"), @ApiMethod(methodName = "list"), @ApiMethod(methodName = "watch")})
 @UriParams
 @Configurer
 public final class CalendarSettingsEndpointConfiguration extends GoogleCalendarConfiguration {
