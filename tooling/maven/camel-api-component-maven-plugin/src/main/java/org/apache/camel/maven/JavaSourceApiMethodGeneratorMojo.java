@@ -114,6 +114,7 @@ public class JavaSourceApiMethodGeneratorMojo extends AbstractApiMethodGenerator
                         SignatureModel model = new SignatureModel();
                         model.setApiDescription(parser.getApiDescription());
                         model.setSignature(method);
+                        model.setMethodDescription(parser.getMethodDescriptions().get(name));
                         Map<String, String> params = parser.getParameters().get(name);
                         model.setParameters(params);
                         result.put(method, model);

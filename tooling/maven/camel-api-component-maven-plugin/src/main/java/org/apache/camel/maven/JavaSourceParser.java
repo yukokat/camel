@@ -46,6 +46,7 @@ public class JavaSourceParser {
     private Map<String, Map<String, String>> parameters = new LinkedHashMap<>();
     private String errorMessage;
     private String apiDescription;
+    private final Map<String, String> methodDescriptions = new HashMap<>();
 
     public synchronized void parse(InputStream in, String innerClass) throws Exception {
         JavaClassSource rootClazz = (JavaClassSource) Roaster.parse(in);
@@ -60,10 +61,12 @@ public class JavaSourceParser {
             }
         }
 
-        String doc = getClassJavadocRaw(clazz);
+        String rawClass = clazz.toUnformattedString();
+        String doc = getClassJavadocRaw(clazz, rawClass);
         apiDescription = sanitizeJavaDocValue(doc, true);
         if (apiDescription == null || apiDescription.isEmpty()) {
-            doc = getClassJavadocRaw(rootClazz);
+            rawClass = rootClazz.toUnformattedString();
+            doc = getClassJavadocRaw(rootClazz, rawClass);
             apiDescription = sanitizeJavaDocValue(doc, true);
         }
         if (apiDescription != null && apiDescription.indexOf('.') > 0) {
@@ -75,6 +78,16 @@ public class JavaSourceParser {
             if (!ms.isPublic() || ms.isConstructor()) {
                 continue;
             }
+
+            doc = getMethodJavadocRaw(ms, rawClass);
+            doc = sanitizeJavaDocValue(doc, true);
+            if (doc != null && doc.indexOf('.') > 0) {
+                doc = StringHelper.before(doc, ".");
+            }
+            if (doc != null && !doc.isEmpty()) {
+                methodDescriptions.put(ms.getName(), doc);
+            }
+
             String signature = ms.toSignature();
             // roaster signatures has return values at end
             // public create(String, AddressRequest) : Result
@@ -240,15 +253,29 @@ public class JavaSourceParser {
      * Gets the class javadoc raw (incl line breaks and tags etc). The roaster API returns the javadoc with line breaks
      * and others removed
      */
-    private static String getClassJavadocRaw(JavaClassSource clazz) {
+    private static String getClassJavadocRaw(JavaClassSource clazz, String rawClass) {
         Object obj = clazz.getJavaDoc().getInternal();
         ASTNode node = (ASTNode) obj;
         int pos = node.getStartPosition();
         int len = node.getLength();
         if (pos > 0 && len > 0) {
-            String txt = clazz.toUnformattedString();
-            String doc = txt.substring(pos, pos + len);
-            return doc;
+            return rawClass.substring(pos, pos + len);
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * Gets the method javadoc raw (incl line breaks and tags etc). The roaster API returns the javadoc with line breaks
+     * and others removed
+     */
+    private static String getMethodJavadocRaw(MethodSource ms, String rawClass) {
+        Object obj = ms.getJavaDoc().getInternal();
+        ASTNode node = (ASTNode) obj;
+        int pos = node.getStartPosition();
+        int len = node.getLength();
+        if (pos > 0 && len > 0) {
+            return rawClass.substring(pos, pos + len);
         } else {
             return null;
         }
@@ -298,6 +325,7 @@ public class JavaSourceParser {
         methods.clear();
         methodText.clear();
         parameters.clear();
+        methodDescriptions.clear();
         errorMessage = null;
         apiDescription = null;
     }
@@ -322,4 +350,7 @@ public class JavaSourceParser {
         return apiDescription;
     }
 
+    public Map<String, String> getMethodDescriptions() {
+        return methodDescriptions;
+    }
 }

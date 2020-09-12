@@ -390,7 +390,6 @@ public abstract class AbstractApiMethodGeneratorMojo extends AbstractApiMethodBa
         sb.append("{");
         for (int i = 0; i < methods.size(); i++) {
             String method = methods.get(i);
-            // TODO: Add description and signature
             sb.append("@ApiMethod(methodName = \"").append(method).append("\")");
             if (i < methods.size() - 1) {
                 sb.append(", ");

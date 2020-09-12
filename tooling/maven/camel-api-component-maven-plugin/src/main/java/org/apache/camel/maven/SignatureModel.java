@@ -25,6 +25,7 @@ public class SignatureModel {
 
     private String apiName;
     private String apiDescription;
+    private String methodDescription;
     private String signature;
     private Map<String, String> parameters;
 
@@ -42,6 +43,14 @@ public class SignatureModel {
 
     public void setApiDescription(String apiDescription) {
         this.apiDescription = apiDescription;
+    }
+
+    public String getMethodDescription() {
+        return methodDescription;
+    }
+
+    public void setMethodDescription(String methodDescription) {
+        this.methodDescription = methodDescription;
     }
 
     public String getSignature() {

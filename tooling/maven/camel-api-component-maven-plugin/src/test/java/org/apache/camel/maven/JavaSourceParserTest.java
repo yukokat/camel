@@ -124,4 +124,14 @@ public class JavaSourceParserTest {
         assertEquals("Provides methods to create, delete, find, and update Customer objects", desc);
     }
 
+    @Test
+    public void testMethodJavadoc() throws Exception {
+        final JavaSourceParser parser = new JavaSourceParser();
+
+        parser.parse(JavaSourceParserTest.class.getResourceAsStream("/DisputeGateway.java"), null);
+
+        String desc = parser.getMethodDescriptions().get("addFileEvidence");
+        assertEquals("Add File Evidence to a Dispute, given an ID and a FileEvidenceRequest File evidence request", desc);
+    }
+
 }
