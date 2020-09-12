@@ -5,6 +5,8 @@
 package org.apache.camel.component.google.drive;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,13 +14,15 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for com.google.api.services.drive.Drive$Realtime
  */
-@ApiParams(apiName = "drive-realtime", apiMethods = "get,update")
+@ApiParams(apiName = "drive-realtime", apiMethods = {@ApiMethod(methodName = "get"), @ApiMethod(methodName = "update")})
 @UriParams
 @Configurer
 public final class DriveRealtimeEndpointConfiguration extends GoogleDriveConfiguration {
-    @UriParam(description = "The ID of the file that the Realtime API data model is associated with")
+    @UriParam
+    @ApiParam(apiMethods = "get,update", description = "The ID of the file that the Realtime API data model is associated with")
     private String fileId;
-    @UriParam(description = "The media HTTP content or null if none")
+    @UriParam
+    @ApiParam(apiMethods = "update", description = "The media HTTP content or null if none")
     private com.google.api.client.http.AbstractInputStreamContent mediaContent;
 
     public String getFileId() {

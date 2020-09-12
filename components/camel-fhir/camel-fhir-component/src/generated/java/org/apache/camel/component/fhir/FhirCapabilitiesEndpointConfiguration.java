@@ -5,6 +5,8 @@
 package org.apache.camel.component.fhir;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,13 +14,15 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for org.apache.camel.component.fhir.api.FhirCapabilities
  */
-@ApiParams(apiName = "capabilities", apiMethods = "ofType")
+@ApiParams(apiName = "capabilities", apiMethods = {@ApiMethod(methodName = "ofType")})
 @UriParams
 @Configurer
 public final class FhirCapabilitiesEndpointConfiguration extends FhirConfiguration {
     @UriParam
+    @ApiParam(apiMethods = "ofType")
     private java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters,Object> extraParameters;
     @UriParam
+    @ApiParam(apiMethods = "ofType")
     private Class<org.hl7.fhir.instance.model.api.IBaseConformance> type;
 
     public java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters,Object> getExtraParameters() {

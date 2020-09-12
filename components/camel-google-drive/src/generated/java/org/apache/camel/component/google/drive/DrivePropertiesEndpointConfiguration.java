@@ -5,6 +5,8 @@
 package org.apache.camel.component.google.drive;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,15 +14,18 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for com.google.api.services.drive.Drive$Properties
  */
-@ApiParams(apiName = "drive-properties", apiMethods = "delete,get,insert,list,patch,update")
+@ApiParams(apiName = "drive-properties", apiMethods = {@ApiMethod(methodName = "delete"), @ApiMethod(methodName = "get"), @ApiMethod(methodName = "insert"), @ApiMethod(methodName = "list"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "update")})
 @UriParams
 @Configurer
 public final class DrivePropertiesEndpointConfiguration extends GoogleDriveConfiguration {
-    @UriParam(description = "The com.google.api.services.drive.model.Property")
+    @UriParam
+    @ApiParam(apiMethods = "insert,patch,update", description = "The com.google.api.services.drive.model.Property")
     private com.google.api.services.drive.model.Property content;
-    @UriParam(description = "The ID of the file")
+    @UriParam
+    @ApiParam(apiMethods = "delete,get,insert,list,patch,update", description = "The ID of the file")
     private String fileId;
-    @UriParam(description = "The key of the property")
+    @UriParam
+    @ApiParam(apiMethods = "delete,get,patch,update", description = "The key of the property")
     private String propertyKey;
 
     public com.google.api.services.drive.model.Property getContent() {

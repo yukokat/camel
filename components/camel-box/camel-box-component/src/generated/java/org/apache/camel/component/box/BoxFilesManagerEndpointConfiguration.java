@@ -5,6 +5,8 @@
 package org.apache.camel.component.box;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,69 +14,99 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for org.apache.camel.component.box.api.BoxFilesManager
  */
-@ApiParams(apiName = "files", apiMethods = "checkUpload,copyFile,createFileMetadata,createFileSharedLink,deleteFile,deleteFileMetadata,deleteFileVersion,downloadFile,downloadPreviousFileVersion,getDownloadURL,getFileInfo,getFileMetadata,getFilePreviewLink,getFileThumbnail,getFileVersions,moveFile,promoteFileVersion,renameFile,updateFileInfo,updateFileMetadata,uploadFile,uploadNewFileVersion")
+@ApiParams(apiName = "files", apiMethods = {@ApiMethod(methodName = "checkUpload"), @ApiMethod(methodName = "copyFile"), @ApiMethod(methodName = "createFileMetadata"), @ApiMethod(methodName = "createFileSharedLink"), @ApiMethod(methodName = "deleteFile"), @ApiMethod(methodName = "deleteFileMetadata"), @ApiMethod(methodName = "deleteFileVersion"), @ApiMethod(methodName = "downloadFile"), @ApiMethod(methodName = "downloadPreviousFileVersion"), @ApiMethod(methodName = "getDownloadURL"), @ApiMethod(methodName = "getFileInfo"), @ApiMethod(methodName = "getFileMetadata"), @ApiMethod(methodName = "getFilePreviewLink"), @ApiMethod(methodName = "getFileThumbnail"), @ApiMethod(methodName = "getFileVersions"), @ApiMethod(methodName = "moveFile"), @ApiMethod(methodName = "promoteFileVersion"), @ApiMethod(methodName = "renameFile"), @ApiMethod(methodName = "updateFileInfo"), @ApiMethod(methodName = "updateFileMetadata"), @ApiMethod(methodName = "uploadFile"), @ApiMethod(methodName = "uploadNewFileVersion")})
 @UriParams
 @Configurer
 public final class BoxFilesManagerEndpointConfiguration extends BoxConfiguration {
-    @UriParam(description = "The access level of the shared link")
+    @UriParam
+    @ApiParam(apiMethods = "createFileSharedLink", description = "The access level of the shared link")
     private com.box.sdk.BoxSharedLink.Access access;
-    @UriParam(description = "If the file name is already used, call the uploadNewVersion instead.")
+    @UriParam
+    @ApiParam(apiMethods = "uploadFile", description = "If the file name is already used, call the uploadNewVersion instead.")
     private Boolean check;
-    @UriParam(description = "A stream containing contents of the file to upload")
+    @UriParam
+    @ApiParam(apiMethods = "uploadFile", description = "A stream containing contents of the file to upload")
     private java.io.InputStream content;
-    @UriParam(description = "The content created date that will be given to the uploaded file")
+    @UriParam
+    @ApiParam(apiMethods = "uploadFile", description = "The content created date that will be given to the uploaded file")
     private java.util.Date created;
-    @UriParam(description = "The id of the destination folder")
+    @UriParam
+    @ApiParam(apiMethods = "copyFile,moveFile", description = "The id of the destination folder")
     private String destinationFolderId;
-    @UriParam(description = "The information fields to retrieve; if null all information fields are retrieved.")
+    @UriParam
+    @ApiParam(apiMethods = "getFileInfo", description = "The information fields to retrieve; if null all information fields are retrieved.")
     private String[] fields;
-    @UriParam(description = "A stream containing contents of the file to upload")
+    @UriParam
+    @ApiParam(apiMethods = "uploadNewFileVersion", description = "A stream containing contents of the file to upload")
     private java.io.InputStream fileContent;
-    @UriParam(description = "The id of file to copy")
+    @UriParam
+    @ApiParam(apiMethods = "copyFile,createFileMetadata,createFileSharedLink,deleteFile,deleteFileMetadata,deleteFileVersion,downloadFile,downloadPreviousFileVersion,getDownloadURL,getFileInfo,getFileMetadata,getFilePreviewLink,getFileThumbnail,getFileVersions,moveFile,promoteFileVersion,renameFile,updateFileInfo,updateFileMetadata,uploadNewFileVersion", description = "The id of file to copy")
     private String fileId;
-    @UriParam(description = "The name to give the uploaded file")
+    @UriParam
+    @ApiParam(apiMethods = "checkUpload,uploadFile", description = "The name to give the uploaded file")
     private String fileName;
-    @UriParam(description = "The size of the file's content used for monitoring the upload's progress")
+    @UriParam
+    @ApiParam(apiMethods = "uploadNewFileVersion", description = "The size of the file's content used for monitoring the upload's progress")
     private Long fileSize;
-    @UriParam(description = "Either PNG of JPG")
+    @UriParam
+    @ApiParam(apiMethods = "getFileThumbnail", description = "Either PNG of JPG")
     private com.box.sdk.BoxFile.ThumbnailFileType fileType;
-    @UriParam(description = "The updated information")
+    @UriParam
+    @ApiParam(apiMethods = "updateFileInfo", description = "The updated information")
     private com.box.sdk.BoxFile.Info info;
-    @UriParam(description = "A listener for monitoring the download's progress; if null the download's progress will not be monitored.")
+    @UriParam
+    @ApiParam(apiMethods = "downloadFile,downloadPreviousFileVersion,uploadFile,uploadNewFileVersion", description = "A listener for monitoring the download's progress; if null the download's progress will not be monitored.")
     private com.box.sdk.ProgressListener listener;
-    @UriParam(description = "Maximum height")
+    @UriParam
+    @ApiParam(apiMethods = "getFileThumbnail", description = "Maximum height")
     private Integer maxHeight;
-    @UriParam(description = "Maximum width")
+    @UriParam
+    @ApiParam(apiMethods = "getFileThumbnail", description = "Maximum width")
     private Integer maxWidth;
-    @UriParam(description = "The new metadata values")
+    @UriParam
+    @ApiParam(apiMethods = "createFileMetadata,updateFileMetadata", description = "The new metadata values")
     private com.box.sdk.Metadata metadata;
-    @UriParam(description = "Minimum height")
+    @UriParam
+    @ApiParam(apiMethods = "getFileThumbnail", description = "Minimum height")
     private Integer minHeight;
-    @UriParam(description = "Minimum width")
+    @UriParam
+    @ApiParam(apiMethods = "getFileThumbnail", description = "Minimum width")
     private Integer minWidth;
-    @UriParam(description = "The content modified date that will be given to the uploaded file")
+    @UriParam
+    @ApiParam(apiMethods = "uploadFile,uploadNewFileVersion", description = "The content modified date that will be given to the uploaded file")
     private java.util.Date modified;
-    @UriParam(description = "The new name of file")
+    @UriParam
+    @ApiParam(apiMethods = "renameFile", description = "The new name of file")
     private String newFileName;
-    @UriParam(description = "The new name for copied file; if newName is null, the copied file has same name as the original.")
+    @UriParam
+    @ApiParam(apiMethods = "copyFile,moveFile", description = "The new name for copied file; if newName is null, the copied file has same name as the original.")
     private String newName;
-    @UriParam(description = "The stream to which the file contents will be written")
+    @UriParam
+    @ApiParam(apiMethods = "downloadFile,downloadPreviousFileVersion", description = "The stream to which the file contents will be written")
     private java.io.OutputStream output;
-    @UriParam(description = "The id of parent folder")
+    @UriParam
+    @ApiParam(apiMethods = "checkUpload,uploadFile", description = "The id of parent folder")
     private String parentFolderId;
-    @UriParam(description = "The permissions of the created link; if permissions is null then the created shared link is create with default permissions.")
+    @UriParam
+    @ApiParam(apiMethods = "createFileSharedLink", description = "The permissions of the created link; if permissions is null then the created shared link is create with default permissions.")
     private com.box.sdk.BoxSharedLink.Permissions permissions;
-    @UriParam(description = "The byte offset in file at which to stop the download; if null the entire contents of file will be downloaded.")
+    @UriParam
+    @ApiParam(apiMethods = "downloadFile", description = "The byte offset in file at which to stop the download; if null the entire contents of file will be downloaded.")
     private Long rangeEnd;
-    @UriParam(description = "The byte offset in file at which to start the download; if null the entire contents of file will be downloaded.")
+    @UriParam
+    @ApiParam(apiMethods = "downloadFile", description = "The byte offset in file at which to start the download; if null the entire contents of file will be downloaded.")
     private Long rangeStart;
-    @UriParam(description = "The size of the file's content used for monitoring the upload's progress")
+    @UriParam
+    @ApiParam(apiMethods = "checkUpload,uploadFile", description = "The size of the file's content used for monitoring the upload's progress")
     private Long size;
-    @UriParam(description = "The metadata template type name; if null the global properties template type is used.")
+    @UriParam
+    @ApiParam(apiMethods = "createFileMetadata,getFileMetadata", description = "The metadata template type name; if null the global properties template type is used.")
     private String typeName;
-    @UriParam(description = "The date and time at which time the created shared link will expire; if unsharedDate is null then a non-expiring link is created.")
+    @UriParam
+    @ApiParam(apiMethods = "createFileSharedLink", description = "The date and time at which time the created shared link will expire; if unsharedDate is null then a non-expiring link is created.")
     private java.util.Date unshareDate;
-    @UriParam(description = "The version of file to delete; initial version of file has value of 0, second version of file is 1 and so on.")
+    @UriParam
+    @ApiParam(apiMethods = "deleteFileVersion,downloadPreviousFileVersion,promoteFileVersion", description = "The version of file to delete; initial version of file has value of 0, second version of file is 1 and so on.")
     private Integer version;
 
     public com.box.sdk.BoxSharedLink.Access getAccess() {

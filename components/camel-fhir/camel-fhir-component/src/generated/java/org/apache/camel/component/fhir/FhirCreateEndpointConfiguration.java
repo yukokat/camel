@@ -5,6 +5,8 @@
 package org.apache.camel.component.fhir;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,19 +14,24 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for org.apache.camel.component.fhir.api.FhirCreate
  */
-@ApiParams(apiName = "create", apiMethods = "resource")
+@ApiParams(apiName = "create", apiMethods = {@ApiMethod(methodName = "resource")})
 @UriParams
 @Configurer
 public final class FhirCreateEndpointConfiguration extends FhirConfiguration {
-    @UriParam(description = "See ExtraParameters for a full list of parameters that can be passed, may be NULL")
+    @UriParam
+    @ApiParam(apiMethods = "resource", description = "See ExtraParameters for a full list of parameters that can be passed, may be NULL")
     private java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters,Object> extraParameters;
-    @UriParam(description = "Add a Prefer header to the request, which requests that the server include or suppress the resource body as a part of the result. If a resource is returned by the server it will be parsed an accessible to the client via MethodOutcome#getResource() , may be null")
+    @UriParam
+    @ApiParam(apiMethods = "resource", description = "Add a Prefer header to the request, which requests that the server include or suppress the resource body as a part of the result. If a resource is returned by the server it will be parsed an accessible to the client via MethodOutcome#getResource() , may be null")
     private ca.uhn.fhir.rest.api.PreferReturnEnum preferReturn;
-    @UriParam(description = "The resource to create")
+    @UriParam
+    @ApiParam(apiMethods = "resource", description = "The resource to create")
     private org.hl7.fhir.instance.model.api.IBaseResource resource;
-    @UriParam(description = "The resource to create")
+    @UriParam
+    @ApiParam(apiMethods = "resource", description = "The resource to create")
     private String resourceAsString;
-    @UriParam(description = "The search URL to use. The format of this URL should be of the form ResourceTypeParameters, for example: Patientname=Smith&amp;identifier=13.2.4.11.4%7C847366, may be null")
+    @UriParam
+    @ApiParam(apiMethods = "resource", description = "The search URL to use. The format of this URL should be of the form ResourceTypeParameters, for example: Patientname=Smith&amp;identifier=13.2.4.11.4%7C847366, may be null")
     private String url;
 
     public java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters,Object> getExtraParameters() {

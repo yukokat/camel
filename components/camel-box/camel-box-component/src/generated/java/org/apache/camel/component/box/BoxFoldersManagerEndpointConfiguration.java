@@ -5,6 +5,8 @@
 package org.apache.camel.component.box;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,37 +14,51 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for org.apache.camel.component.box.api.BoxFoldersManager
  */
-@ApiParams(apiName = "folders", apiMethods = "copyFolder,createFolder,createFolderSharedLink,deleteFolder,getFolder,getFolderInfo,getFolderItems,getRootFolder,moveFolder,renameFolder,updateFolderInfo")
+@ApiParams(apiName = "folders", apiMethods = {@ApiMethod(methodName = "copyFolder"), @ApiMethod(methodName = "createFolder"), @ApiMethod(methodName = "createFolderSharedLink"), @ApiMethod(methodName = "deleteFolder"), @ApiMethod(methodName = "getFolder"), @ApiMethod(methodName = "getFolderInfo"), @ApiMethod(methodName = "getFolderItems"), @ApiMethod(methodName = "getRootFolder"), @ApiMethod(methodName = "moveFolder"), @ApiMethod(methodName = "renameFolder"), @ApiMethod(methodName = "updateFolderInfo")})
 @UriParams
 @Configurer
 public final class BoxFoldersManagerEndpointConfiguration extends BoxConfiguration {
-    @UriParam(description = "The access level of the shared link")
+    @UriParam
+    @ApiParam(apiMethods = "createFolderSharedLink", description = "The access level of the shared link")
     private com.box.sdk.BoxSharedLink.Access access;
-    @UriParam(description = "The id of the destination folder")
+    @UriParam
+    @ApiParam(apiMethods = "copyFolder,moveFolder", description = "The id of the destination folder")
     private String destinationFolderId;
-    @UriParam(description = "The information fields to retrieve; if null all information fields are retrieved.")
+    @UriParam
+    @ApiParam(apiMethods = "getFolderInfo,getFolderItems", description = "The information fields to retrieve; if null all information fields are retrieved.")
     private String[] fields;
-    @UriParam(description = "The id of folder to copy")
+    @UriParam
+    @ApiParam(apiMethods = "copyFolder,createFolderSharedLink,deleteFolder,getFolderInfo,getFolderItems,moveFolder,renameFolder,updateFolderInfo", description = "The id of folder to copy")
     private String folderId;
-    @UriParam(description = "The name of created folder")
+    @UriParam
+    @ApiParam(apiMethods = "createFolder", description = "The name of created folder")
     private String folderName;
-    @UriParam(description = "The updated information")
+    @UriParam
+    @ApiParam(apiMethods = "updateFolderInfo", description = "The updated information")
     private com.box.sdk.BoxFolder.Info info;
-    @UriParam(description = "The maximum number of children to retrieve after the offset; if null all child items are retrieved.")
+    @UriParam
+    @ApiParam(apiMethods = "getFolderItems", description = "The maximum number of children to retrieve after the offset; if null all child items are retrieved.")
     private Long limit;
-    @UriParam(description = "The new name of folder")
+    @UriParam
+    @ApiParam(apiMethods = "renameFolder", description = "The new name of folder")
     private String newFolderName;
-    @UriParam(description = "The new name for copied folder; if newName is null, the copied folder has same name as the original.")
+    @UriParam
+    @ApiParam(apiMethods = "copyFolder,moveFolder", description = "The new name for copied folder; if newName is null, the copied folder has same name as the original.")
     private String newName;
-    @UriParam(description = "The index of first child item to retrieve; if null all child items are retrieved.")
+    @UriParam
+    @ApiParam(apiMethods = "getFolderItems", description = "The index of first child item to retrieve; if null all child items are retrieved.")
     private Long offset;
-    @UriParam(description = "The id of parent folder")
+    @UriParam
+    @ApiParam(apiMethods = "createFolder", description = "The id of parent folder")
     private String parentFolderId;
-    @UriParam(description = "Sequence of Box folder names from parent folder to returned folder")
+    @UriParam
+    @ApiParam(apiMethods = "createFolder,getFolder", description = "Sequence of Box folder names from parent folder to returned folder")
     private String[] path;
-    @UriParam(description = "The permissions of the created link; if permissions is null then the created shared link is create with default permissions.")
+    @UriParam
+    @ApiParam(apiMethods = "createFolderSharedLink", description = "The permissions of the created link; if permissions is null then the created shared link is create with default permissions.")
     private com.box.sdk.BoxSharedLink.Permissions permissions;
-    @UriParam(description = "The date and time at which time the created shared link will expire; if unsharedDate is null then a non-expiring link is created.")
+    @UriParam
+    @ApiParam(apiMethods = "createFolderSharedLink", description = "The date and time at which time the created shared link will expire; if unsharedDate is null then a non-expiring link is created.")
     private java.util.Date unshareDate;
 
     public com.box.sdk.BoxSharedLink.Access getAccess() {

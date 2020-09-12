@@ -5,6 +5,8 @@
 package org.apache.camel.component.google.drive;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,17 +14,21 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for com.google.api.services.drive.Drive$Permissions
  */
-@ApiParams(apiName = "drive-permissions", apiMethods = "delete,get,getIdForEmail,insert,list,patch,update")
+@ApiParams(apiName = "drive-permissions", apiMethods = {@ApiMethod(methodName = "delete"), @ApiMethod(methodName = "get"), @ApiMethod(methodName = "getIdForEmail"), @ApiMethod(methodName = "insert"), @ApiMethod(methodName = "list"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "update")})
 @UriParams
 @Configurer
 public final class DrivePermissionsEndpointConfiguration extends GoogleDriveConfiguration {
-    @UriParam(description = "The com.google.api.services.drive.model.Permission")
+    @UriParam
+    @ApiParam(apiMethods = "insert,patch,update", description = "The com.google.api.services.drive.model.Permission")
     private com.google.api.services.drive.model.Permission content;
-    @UriParam(description = "The email address for which to return a permission ID")
+    @UriParam
+    @ApiParam(apiMethods = "getIdForEmail", description = "The email address for which to return a permission ID")
     private String email;
-    @UriParam(description = "The ID for the file or Team Drive")
+    @UriParam
+    @ApiParam(apiMethods = "delete,get,insert,list,patch,update", description = "The ID for the file or Team Drive")
     private String fileId;
-    @UriParam(description = "The ID for the permission")
+    @UriParam
+    @ApiParam(apiMethods = "delete,get,patch,update", description = "The ID for the permission")
     private String permissionId;
 
     public com.google.api.services.drive.model.Permission getContent() {

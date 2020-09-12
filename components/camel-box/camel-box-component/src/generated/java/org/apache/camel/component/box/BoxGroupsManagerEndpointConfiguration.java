@@ -5,6 +5,8 @@
 package org.apache.camel.component.box;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,33 +14,45 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for org.apache.camel.component.box.api.BoxGroupsManager
  */
-@ApiParams(apiName = "groups", apiMethods = "addGroupMembership,createGroup,deleteGroup,deleteGroupMembership,getAllGroups,getGroupInfo,getGroupMembershipInfo,getGroupMemberships,updateGroupInfo,updateGroupMembershipInfo")
+@ApiParams(apiName = "groups", apiMethods = {@ApiMethod(methodName = "addGroupMembership"), @ApiMethod(methodName = "createGroup"), @ApiMethod(methodName = "deleteGroup"), @ApiMethod(methodName = "deleteGroupMembership"), @ApiMethod(methodName = "getAllGroups"), @ApiMethod(methodName = "getGroupInfo"), @ApiMethod(methodName = "getGroupMembershipInfo"), @ApiMethod(methodName = "getGroupMemberships"), @ApiMethod(methodName = "updateGroupInfo"), @ApiMethod(methodName = "updateGroupMembershipInfo")})
 @UriParams
 @Configurer
 public final class BoxGroupsManagerEndpointConfiguration extends BoxConfiguration {
-    @UriParam(description = "The description of the new group")
+    @UriParam
+    @ApiParam(apiMethods = "createGroup", description = "The description of the new group")
     private String description;
-    @UriParam(description = "The external_sync_identifier of the new group")
+    @UriParam
+    @ApiParam(apiMethods = "createGroup", description = "The external_sync_identifier of the new group")
     private String externalSyncIdentifier;
-    @UriParam(description = "The id of group")
+    @UriParam
+    @ApiParam(apiMethods = "addGroupMembership,deleteGroup,getGroupInfo,getGroupMemberships,updateGroupInfo", description = "The id of group")
     private String groupId;
-    @UriParam(description = "The updated information")
+    @UriParam
+    @ApiParam(apiMethods = "updateGroupInfo", description = "The updated information")
     private com.box.sdk.BoxGroup.Info groupInfo;
-    @UriParam(description = "The id of group membership to delete")
+    @UriParam
+    @ApiParam(apiMethods = "deleteGroupMembership,getGroupMembershipInfo,updateGroupMembershipInfo", description = "The id of group membership to delete")
     private String groupMembershipId;
-    @UriParam(description = "The updated information")
+    @UriParam
+    @ApiParam(apiMethods = "updateGroupMembershipInfo", description = "The updated information")
     private com.box.sdk.BoxGroupMembership.Info info;
-    @UriParam(description = "The invitibility_level of the new group")
+    @UriParam
+    @ApiParam(apiMethods = "createGroup", description = "The invitibility_level of the new group")
     private String invitabilityLevel;
-    @UriParam(description = "The member_viewability_level of the new group")
+    @UriParam
+    @ApiParam(apiMethods = "createGroup", description = "The member_viewability_level of the new group")
     private String memberViewabilityLevel;
-    @UriParam(description = "The name of the new group")
+    @UriParam
+    @ApiParam(apiMethods = "createGroup", description = "The name of the new group")
     private String name;
-    @UriParam(description = "The provenance of the new group")
+    @UriParam
+    @ApiParam(apiMethods = "createGroup", description = "The provenance of the new group")
     private String provenance;
-    @UriParam(description = "The role of the user in this group. Can be null to assign the default role.")
+    @UriParam
+    @ApiParam(apiMethods = "addGroupMembership", description = "The role of the user in this group. Can be null to assign the default role.")
     private com.box.sdk.BoxGroupMembership.Role role;
-    @UriParam(description = "The id of user to be added to group")
+    @UriParam
+    @ApiParam(apiMethods = "addGroupMembership", description = "The id of user to be added to group")
     private String userId;
 
     public String getDescription() {

@@ -5,6 +5,8 @@
 package org.apache.camel.component.braintree;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,23 +14,30 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for com.braintreegateway.SubscriptionGateway
  */
-@ApiParams(apiName = "subscription", apiMethods = "cancel,create,delete,find,retryCharge,search,update")
+@ApiParams(apiName = "subscription", apiMethods = {@ApiMethod(methodName = "cancel"), @ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "find"), @ApiMethod(methodName = "retryCharge"), @ApiMethod(methodName = "search"), @ApiMethod(methodName = "update")})
 @UriParams
 @Configurer
 public final class SubscriptionGatewayEndpointConfiguration extends BraintreeConfiguration {
     @UriParam
+    @ApiParam(apiMethods = "retryCharge")
     private java.math.BigDecimal amount;
     @UriParam
+    @ApiParam(apiMethods = "delete")
     private String customerId;
-    @UriParam(description = "Of the Subscription to cancel")
+    @UriParam
+    @ApiParam(apiMethods = "cancel,delete,find,update", description = "Of the Subscription to cancel")
     private String id;
-    @UriParam(description = "The request")
+    @UriParam
+    @ApiParam(apiMethods = "create,update", description = "The request")
     private com.braintreegateway.SubscriptionRequest request;
-    @UriParam(description = "The SubscriptionSearchRequest")
+    @UriParam
+    @ApiParam(apiMethods = "search", description = "The SubscriptionSearchRequest")
     private com.braintreegateway.SubscriptionSearchRequest searchRequest;
     @UriParam
+    @ApiParam(apiMethods = "retryCharge")
     private Boolean submitForSettlement;
     @UriParam
+    @ApiParam(apiMethods = "retryCharge")
     private String subscriptionId;
 
     public java.math.BigDecimal getAmount() {

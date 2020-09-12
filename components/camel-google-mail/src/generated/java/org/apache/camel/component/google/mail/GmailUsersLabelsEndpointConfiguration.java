@@ -5,6 +5,8 @@
 package org.apache.camel.component.google.mail;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,15 +14,18 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for com.google.api.services.gmail.Gmail$Users$Labels
  */
-@ApiParams(apiName = "labels", apiMethods = "create,delete,get,list,patch,update")
+@ApiParams(apiName = "labels", apiMethods = {@ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "get"), @ApiMethod(methodName = "list"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "update")})
 @UriParams
 @Configurer
 public final class GmailUsersLabelsEndpointConfiguration extends GoogleMailConfiguration {
-    @UriParam(description = "The com.google.api.services.gmail.model.Label")
+    @UriParam
+    @ApiParam(apiMethods = "create,patch,update", description = "The com.google.api.services.gmail.model.Label")
     private com.google.api.services.gmail.model.Label content;
-    @UriParam(description = "The ID of the label to delete")
+    @UriParam
+    @ApiParam(apiMethods = "delete,get,patch,update", description = "The ID of the label to delete")
     private String id;
-    @UriParam(description = "The user's email address. The special value me can be used to indicate the authenticated user. default: me")
+    @UriParam
+    @ApiParam(apiMethods = "create,delete,get,list,patch,update", description = "The user's email address. The special value me can be used to indicate the authenticated user. default: me")
     private String userId;
 
     public com.google.api.services.gmail.model.Label getContent() {

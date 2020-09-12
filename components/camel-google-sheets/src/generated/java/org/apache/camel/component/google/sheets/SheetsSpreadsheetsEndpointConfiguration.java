@@ -5,6 +5,8 @@
 package org.apache.camel.component.google.sheets;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,17 +14,21 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for com.google.api.services.sheets.v4.Sheets$Spreadsheets
  */
-@ApiParams(apiName = "spreadsheets", apiMethods = "batchUpdate,create,developerMetadata,get,getByDataFilter,sheets,values")
+@ApiParams(apiName = "spreadsheets", apiMethods = {@ApiMethod(methodName = "batchUpdate"), @ApiMethod(methodName = "create"), @ApiMethod(methodName = "developerMetadata"), @ApiMethod(methodName = "get"), @ApiMethod(methodName = "getByDataFilter"), @ApiMethod(methodName = "sheets"), @ApiMethod(methodName = "values")})
 @UriParams
 @Configurer
 public final class SheetsSpreadsheetsEndpointConfiguration extends GoogleSheetsConfiguration {
-    @UriParam(description = "The com.google.api.services.sheets.v4.model.BatchUpdateSpreadsheetRequest")
+    @UriParam
+    @ApiParam(apiMethods = "batchUpdate", description = "The com.google.api.services.sheets.v4.model.BatchUpdateSpreadsheetRequest")
     private com.google.api.services.sheets.v4.model.BatchUpdateSpreadsheetRequest batchUpdateSpreadsheetRequest;
-    @UriParam(description = "The com.google.api.services.sheets.v4.model.Spreadsheet")
+    @UriParam
+    @ApiParam(apiMethods = "create", description = "The com.google.api.services.sheets.v4.model.Spreadsheet")
     private com.google.api.services.sheets.v4.model.Spreadsheet content;
-    @UriParam(description = "The com.google.api.services.sheets.v4.model.GetSpreadsheetByDataFilterRequest")
+    @UriParam
+    @ApiParam(apiMethods = "getByDataFilter", description = "The com.google.api.services.sheets.v4.model.GetSpreadsheetByDataFilterRequest")
     private com.google.api.services.sheets.v4.model.GetSpreadsheetByDataFilterRequest getSpreadsheetByDataFilterRequest;
-    @UriParam(description = "The spreadsheet to apply the updates to")
+    @UriParam
+    @ApiParam(apiMethods = "batchUpdate,get,getByDataFilter", description = "The spreadsheet to apply the updates to")
     private String spreadsheetId;
 
     public com.google.api.services.sheets.v4.model.BatchUpdateSpreadsheetRequest getBatchUpdateSpreadsheetRequest() {

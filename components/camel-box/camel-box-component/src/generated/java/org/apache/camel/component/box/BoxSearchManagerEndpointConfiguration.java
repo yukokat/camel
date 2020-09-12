@@ -5,6 +5,8 @@
 package org.apache.camel.component.box;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,13 +14,15 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for org.apache.camel.component.box.api.BoxSearchManager
  */
-@ApiParams(apiName = "search", apiMethods = "searchFolder")
+@ApiParams(apiName = "search", apiMethods = {@ApiMethod(methodName = "searchFolder")})
 @UriParams
 @Configurer
 public final class BoxSearchManagerEndpointConfiguration extends BoxConfiguration {
-    @UriParam(description = "The id of folder searched")
+    @UriParam
+    @ApiParam(apiMethods = "searchFolder", description = "The id of folder searched")
     private String folderId;
-    @UriParam(description = "The search query")
+    @UriParam
+    @ApiParam(apiMethods = "searchFolder", description = "The search query")
     private String query;
 
     public String getFolderId() {

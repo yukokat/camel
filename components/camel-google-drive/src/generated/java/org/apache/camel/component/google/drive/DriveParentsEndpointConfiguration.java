@@ -5,6 +5,8 @@
 package org.apache.camel.component.google.drive;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,15 +14,18 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for com.google.api.services.drive.Drive$Parents
  */
-@ApiParams(apiName = "drive-parents", apiMethods = "delete,get,insert,list")
+@ApiParams(apiName = "drive-parents", apiMethods = {@ApiMethod(methodName = "delete"), @ApiMethod(methodName = "get"), @ApiMethod(methodName = "insert"), @ApiMethod(methodName = "list")})
 @UriParams
 @Configurer
 public final class DriveParentsEndpointConfiguration extends GoogleDriveConfiguration {
-    @UriParam(description = "The com.google.api.services.drive.model.ParentReference")
+    @UriParam
+    @ApiParam(apiMethods = "insert", description = "The com.google.api.services.drive.model.ParentReference")
     private com.google.api.services.drive.model.ParentReference content;
-    @UriParam(description = "The ID of the file")
+    @UriParam
+    @ApiParam(apiMethods = "delete,get,insert,list", description = "The ID of the file")
     private String fileId;
-    @UriParam(description = "The ID of the parent")
+    @UriParam
+    @ApiParam(apiMethods = "delete,get", description = "The ID of the parent")
     private String parentId;
 
     public com.google.api.services.drive.model.ParentReference getContent() {

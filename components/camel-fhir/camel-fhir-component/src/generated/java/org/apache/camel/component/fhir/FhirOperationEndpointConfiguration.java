@@ -5,6 +5,8 @@
 package org.apache.camel.component.fhir;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,33 +14,45 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for org.apache.camel.component.fhir.api.FhirOperation
  */
-@ApiParams(apiName = "operation", apiMethods = "onInstance,onInstanceVersion,onServer,onType,processMessage")
+@ApiParams(apiName = "operation", apiMethods = {@ApiMethod(methodName = "onInstance"), @ApiMethod(methodName = "onInstanceVersion"), @ApiMethod(methodName = "onServer"), @ApiMethod(methodName = "onType"), @ApiMethod(methodName = "processMessage")})
 @UriParams
 @Configurer
 public final class FhirOperationEndpointConfiguration extends FhirConfiguration {
     @UriParam
+    @ApiParam(apiMethods = "processMessage")
     private Boolean asynchronous;
     @UriParam
+    @ApiParam(apiMethods = "onInstance,onInstanceVersion,onServer,onType,processMessage")
     private java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters,Object> extraParameters;
     @UriParam
+    @ApiParam(apiMethods = "onInstance,onInstanceVersion")
     private org.hl7.fhir.instance.model.api.IIdType id;
     @UriParam
+    @ApiParam(apiMethods = "processMessage")
     private org.hl7.fhir.instance.model.api.IBaseBundle msgBundle;
     @UriParam
+    @ApiParam(apiMethods = "onInstance,onInstanceVersion,onServer,onType")
     private String name;
     @UriParam
+    @ApiParam(apiMethods = "onInstance,onInstanceVersion,onServer,onType")
     private Class<org.hl7.fhir.instance.model.api.IBaseParameters> outputParameterType;
     @UriParam
+    @ApiParam(apiMethods = "onInstance,onInstanceVersion,onServer,onType")
     private org.hl7.fhir.instance.model.api.IBaseParameters parameters;
     @UriParam
+    @ApiParam(apiMethods = "onType")
     private Class<org.hl7.fhir.instance.model.api.IBaseResource> resourceType;
     @UriParam
+    @ApiParam(apiMethods = "processMessage")
     private String respondToUri;
     @UriParam
+    @ApiParam(apiMethods = "processMessage")
     private Class<org.hl7.fhir.instance.model.api.IBaseBundle> responseClass;
     @UriParam
+    @ApiParam(apiMethods = "onInstance,onInstanceVersion,onServer,onType")
     private Class<org.hl7.fhir.instance.model.api.IBaseResource> returnType;
     @UriParam
+    @ApiParam(apiMethods = "onInstance,onInstanceVersion,onServer,onType")
     private Boolean useHttpGet;
 
     public Boolean getAsynchronous() {

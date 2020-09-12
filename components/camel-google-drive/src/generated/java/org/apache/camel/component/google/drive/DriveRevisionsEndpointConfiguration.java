@@ -5,6 +5,8 @@
 package org.apache.camel.component.google.drive;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,15 +14,18 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for com.google.api.services.drive.Drive$Revisions
  */
-@ApiParams(apiName = "drive-revisions", apiMethods = "delete,get,list,patch,update")
+@ApiParams(apiName = "drive-revisions", apiMethods = {@ApiMethod(methodName = "delete"), @ApiMethod(methodName = "get"), @ApiMethod(methodName = "list"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "update")})
 @UriParams
 @Configurer
 public final class DriveRevisionsEndpointConfiguration extends GoogleDriveConfiguration {
-    @UriParam(description = "The com.google.api.services.drive.model.Revision")
+    @UriParam
+    @ApiParam(apiMethods = "patch,update", description = "The com.google.api.services.drive.model.Revision")
     private com.google.api.services.drive.model.Revision content;
-    @UriParam(description = "The ID of the file")
+    @UriParam
+    @ApiParam(apiMethods = "delete,get,list,patch,update", description = "The ID of the file")
     private String fileId;
-    @UriParam(description = "The ID of the revision")
+    @UriParam
+    @ApiParam(apiMethods = "delete,get,patch,update", description = "The ID of the revision")
     private String revisionId;
 
     public com.google.api.services.drive.model.Revision getContent() {

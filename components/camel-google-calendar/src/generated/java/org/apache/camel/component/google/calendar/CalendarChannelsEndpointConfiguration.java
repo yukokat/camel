@@ -5,6 +5,8 @@
 package org.apache.camel.component.google.calendar;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,11 +14,12 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for com.google.api.services.calendar.Calendar$Channels
  */
-@ApiParams(apiName = "channels", apiMethods = "stop")
+@ApiParams(apiName = "channels", apiMethods = {@ApiMethod(methodName = "stop")})
 @UriParams
 @Configurer
 public final class CalendarChannelsEndpointConfiguration extends GoogleCalendarConfiguration {
-    @UriParam(description = "The com.google.api.services.calendar.model.Channel")
+    @UriParam
+    @ApiParam(apiMethods = "stop", description = "The com.google.api.services.calendar.model.Channel")
     private com.google.api.services.calendar.model.Channel contentChannel;
 
     public com.google.api.services.calendar.model.Channel getContentChannel() {

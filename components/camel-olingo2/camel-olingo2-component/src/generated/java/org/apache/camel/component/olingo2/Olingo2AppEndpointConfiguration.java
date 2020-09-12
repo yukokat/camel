@@ -5,6 +5,8 @@
 package org.apache.camel.component.olingo2;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,23 +14,30 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for org.apache.camel.component.olingo2.api.Olingo2App
  */
-@ApiParams(apiName = "DEFAULT", apiMethods = "batch,create,delete,merge,patch,read,update,uread")
+@ApiParams(apiName = "DEFAULT", apiMethods = {@ApiMethod(methodName = "batch"), @ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "merge"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "read"), @ApiMethod(methodName = "update"), @ApiMethod(methodName = "uread")})
 @UriParams
 @Configurer
 public final class Olingo2AppEndpointConfiguration extends Olingo2Configuration {
     @UriParam
+    @ApiParam(apiMethods = "batch,create,merge,patch,update")
     private Object data;
     @UriParam
+    @ApiParam(apiMethods = "batch,create,merge,patch,read,update,uread")
     private org.apache.olingo.odata2.api.edm.Edm edm;
     @UriParam
+    @ApiParam(apiMethods = "batch,create,delete,merge,patch,read,update,uread")
     private java.util.Map<String,String> endpointHttpHeaders;
     @UriParam
+    @ApiParam(apiMethods = "")
     private String keyPredicate;
     @UriParam
+    @ApiParam(apiMethods = "read,uread")
     private java.util.Map<String,String> queryParams;
     @UriParam
+    @ApiParam(apiMethods = "create,delete,merge,patch,read,update,uread")
     private String resourcePath;
     @UriParam
+    @ApiParam(apiMethods = "batch,create,delete,merge,patch,read,update,uread")
     private org.apache.camel.component.olingo2.api.Olingo2ResponseHandler responseHandler;
 
     public Object getData() {

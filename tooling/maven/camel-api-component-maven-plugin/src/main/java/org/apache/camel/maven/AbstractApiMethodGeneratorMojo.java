@@ -188,10 +188,10 @@ public abstract class AbstractApiMethodGeneratorMojo extends AbstractApiMethodBa
 
         // TODO: we should include alias information as well
 
-        String apiMethodNames = models.stream().map(ApiMethodParser.ApiMethodModel::getName)
+        List<String> apiMethodNames = models.stream().map(ApiMethodParser.ApiMethodModel::getName)
                 .distinct()
                 .sorted()
-                .collect(Collectors.joining(","));
+                .collect(Collectors.toList());
         context.put("apiMethods", apiMethodNames);
         context.put("configName", getConfigName());
         context.put("componentName", componentName);
@@ -371,6 +371,21 @@ public abstract class AbstractApiMethodGeneratorMojo extends AbstractApiMethodBa
             return "DEFAULT";
         }
         return apiName;
+    }
+
+    public String getApiMethods(List<String> methods) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("{");
+        for (int i = 0; i < methods.size(); i++) {
+            String method = methods.get(i);
+            // TODO: Add description and signature
+            sb.append("@ApiMethod(methodName = \"").append(method).append("\")");
+            if (i < methods.size() - 1) {
+                sb.append(", ");
+            }
+        }
+        sb.append("}");
+        return sb.toString();
     }
 
     public static String getDefaultArgValue(Class<?> aClass) {

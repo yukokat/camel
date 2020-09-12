@@ -5,6 +5,8 @@
 package org.apache.camel.component.google.calendar;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,13 +14,15 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for com.google.api.services.calendar.Calendar$Settings
  */
-@ApiParams(apiName = "settings", apiMethods = "get,list,watch")
+@ApiParams(apiName = "settings", apiMethods = {@ApiMethod(methodName = "get"), @ApiMethod(methodName = "list"), @ApiMethod(methodName = "watch")})
 @UriParams
 @Configurer
 public final class CalendarSettingsEndpointConfiguration extends GoogleCalendarConfiguration {
-    @UriParam(description = "The com.google.api.services.calendar.model.Channel")
+    @UriParam
+    @ApiParam(apiMethods = "watch", description = "The com.google.api.services.calendar.model.Channel")
     private com.google.api.services.calendar.model.Channel contentChannel;
-    @UriParam(description = "The id of the user setting")
+    @UriParam
+    @ApiParam(apiMethods = "get", description = "The id of the user setting")
     private String setting;
 
     public com.google.api.services.calendar.model.Channel getContentChannel() {

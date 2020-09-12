@@ -5,6 +5,8 @@
 package org.apache.camel.component.braintree;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,17 +14,21 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for com.braintreegateway.PaymentMethodGateway
  */
-@ApiParams(apiName = "paymentMethod", apiMethods = "create,delete,find,grant,revoke,update")
+@ApiParams(apiName = "paymentMethod", apiMethods = {@ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "find"), @ApiMethod(methodName = "grant"), @ApiMethod(methodName = "revoke"), @ApiMethod(methodName = "update")})
 @UriParams
 @Configurer
 public final class PaymentMethodGatewayEndpointConfiguration extends BraintreeConfiguration {
     @UriParam
+    @ApiParam(apiMethods = "delete")
     private com.braintreegateway.PaymentMethodDeleteRequest deleteRequest;
     @UriParam
+    @ApiParam(apiMethods = "grant")
     private com.braintreegateway.PaymentMethodGrantRequest grantRequest;
     @UriParam
+    @ApiParam(apiMethods = "create,update")
     private com.braintreegateway.PaymentMethodRequest request;
     @UriParam
+    @ApiParam(apiMethods = "delete,find,grant,revoke,update")
     private String token;
 
     public com.braintreegateway.PaymentMethodDeleteRequest getDeleteRequest() {

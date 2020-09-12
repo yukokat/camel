@@ -5,6 +5,8 @@
 package org.apache.camel.component.braintree;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,15 +14,18 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for com.braintreegateway.CreditCardVerificationGateway
  */
-@ApiParams(apiName = "creditCardVerification", apiMethods = "create,find,search")
+@ApiParams(apiName = "creditCardVerification", apiMethods = {@ApiMethod(methodName = "create"), @ApiMethod(methodName = "find"), @ApiMethod(methodName = "search")})
 @UriParams
 @Configurer
 public final class CreditCardVerificationGatewayEndpointConfiguration extends BraintreeConfiguration {
     @UriParam
+    @ApiParam(apiMethods = "find")
     private String id;
     @UriParam
+    @ApiParam(apiMethods = "search")
     private com.braintreegateway.CreditCardVerificationSearchRequest query;
     @UriParam
+    @ApiParam(apiMethods = "create")
     private com.braintreegateway.CreditCardVerificationRequest request;
 
     public String getId() {

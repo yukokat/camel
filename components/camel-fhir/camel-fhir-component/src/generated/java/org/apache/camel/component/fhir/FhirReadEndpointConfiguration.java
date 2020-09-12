@@ -5,6 +5,8 @@
 package org.apache.camel.component.fhir;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,35 +14,48 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for org.apache.camel.component.fhir.api.FhirRead
  */
-@ApiParams(apiName = "read", apiMethods = "resourceById,resourceByUrl")
+@ApiParams(apiName = "read", apiMethods = {@ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceByUrl")})
 @UriParams
 @Configurer
 public final class FhirReadEndpointConfiguration extends FhirConfiguration {
     @UriParam
+    @ApiParam(apiMethods = "resourceById,resourceByUrl")
     private java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters,Object> extraParameters;
     @UriParam
+    @ApiParam(apiMethods = "resourceByUrl")
     private org.hl7.fhir.instance.model.api.IIdType iUrl;
     @UriParam
+    @ApiParam(apiMethods = "resourceById")
     private org.hl7.fhir.instance.model.api.IIdType id;
     @UriParam
+    @ApiParam(apiMethods = "resourceById,resourceByUrl")
     private String ifVersionMatches;
     @UriParam
+    @ApiParam(apiMethods = "resourceById")
     private Long longId;
     @UriParam
+    @ApiParam(apiMethods = "resourceById,resourceByUrl")
     private Class<org.hl7.fhir.instance.model.api.IBaseResource> resource;
     @UriParam
+    @ApiParam(apiMethods = "resourceById,resourceByUrl")
     private String resourceClass;
     @UriParam
+    @ApiParam(apiMethods = "resourceById,resourceByUrl")
     private Boolean returnNull;
     @UriParam
+    @ApiParam(apiMethods = "resourceById,resourceByUrl")
     private org.hl7.fhir.instance.model.api.IBaseResource returnResource;
     @UriParam
+    @ApiParam(apiMethods = "resourceById")
     private String stringId;
     @UriParam
+    @ApiParam(apiMethods = "resourceById,resourceByUrl")
     private Boolean throwError;
     @UriParam
+    @ApiParam(apiMethods = "resourceByUrl")
     private String url;
     @UriParam
+    @ApiParam(apiMethods = "resourceById")
     private String version;
 
     public java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters,Object> getExtraParameters() {

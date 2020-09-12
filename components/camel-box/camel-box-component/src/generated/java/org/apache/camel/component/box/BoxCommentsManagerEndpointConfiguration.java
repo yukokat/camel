@@ -5,6 +5,8 @@
 package org.apache.camel.component.box;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,15 +14,18 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for org.apache.camel.component.box.api.BoxCommentsManager
  */
-@ApiParams(apiName = "comments", apiMethods = "addFileComment,changeCommentMessage,deleteComment,getCommentInfo,getFileComments,replyToComment")
+@ApiParams(apiName = "comments", apiMethods = {@ApiMethod(methodName = "addFileComment"), @ApiMethod(methodName = "changeCommentMessage"), @ApiMethod(methodName = "deleteComment"), @ApiMethod(methodName = "getCommentInfo"), @ApiMethod(methodName = "getFileComments"), @ApiMethod(methodName = "replyToComment")})
 @UriParams
 @Configurer
 public final class BoxCommentsManagerEndpointConfiguration extends BoxConfiguration {
-    @UriParam(description = "The id of comment to change")
+    @UriParam
+    @ApiParam(apiMethods = "changeCommentMessage,deleteComment,getCommentInfo,replyToComment", description = "The id of comment to change")
     private String commentId;
-    @UriParam(description = "The id of file to rename")
+    @UriParam
+    @ApiParam(apiMethods = "addFileComment,getFileComments", description = "The id of file to rename")
     private String fileId;
-    @UriParam(description = "The comment's message")
+    @UriParam
+    @ApiParam(apiMethods = "addFileComment,changeCommentMessage,replyToComment", description = "The comment's message")
     private String message;
 
     public String getCommentId() {

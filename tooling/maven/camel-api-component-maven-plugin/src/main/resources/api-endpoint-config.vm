@@ -37,6 +37,7 @@
 package ${componentPackage};
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
 import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
@@ -45,7 +46,7 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for $proxyType.Name
  */
-@ApiParams(apiName = "$helper.getApiName($apiName)", apiMethods = "$apiMethods")
+@ApiParams(apiName = "$helper.getApiName($apiName)", apiMethods = $helper.getApiMethods($apiMethods))
 @UriParams
 @Configurer
 public final class $configName extends ${componentName}Configuration {

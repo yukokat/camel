@@ -5,6 +5,8 @@
 package org.apache.camel.component.fhir;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,15 +14,18 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for org.apache.camel.component.fhir.api.FhirValidate
  */
-@ApiParams(apiName = "validate", apiMethods = "resource")
+@ApiParams(apiName = "validate", apiMethods = {@ApiMethod(methodName = "resource")})
 @UriParams
 @Configurer
 public final class FhirValidateEndpointConfiguration extends FhirConfiguration {
     @UriParam
+    @ApiParam(apiMethods = "resource")
     private java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters,Object> extraParameters;
     @UriParam
+    @ApiParam(apiMethods = "resource")
     private org.hl7.fhir.instance.model.api.IBaseResource resource;
     @UriParam
+    @ApiParam(apiMethods = "resource")
     private String resourceAsString;
 
     public java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters,Object> getExtraParameters() {

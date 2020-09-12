@@ -5,6 +5,8 @@
 package org.apache.camel.component.box;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,33 +14,45 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for org.apache.camel.component.box.api.BoxUsersManager
  */
-@ApiParams(apiName = "users", apiMethods = "addUserEmailAlias,createAppUser,createEnterpriseUser,deleteUser,deleteUserEmailAlias,getAllEnterpriseOrExternalUsers,getCurrentUser,getUserEmailAlias,getUserInfo,moveFolderToUser,updateUserInfo")
+@ApiParams(apiName = "users", apiMethods = {@ApiMethod(methodName = "addUserEmailAlias"), @ApiMethod(methodName = "createAppUser"), @ApiMethod(methodName = "createEnterpriseUser"), @ApiMethod(methodName = "deleteUser"), @ApiMethod(methodName = "deleteUserEmailAlias"), @ApiMethod(methodName = "getAllEnterpriseOrExternalUsers"), @ApiMethod(methodName = "getCurrentUser"), @ApiMethod(methodName = "getUserEmailAlias"), @ApiMethod(methodName = "getUserInfo"), @ApiMethod(methodName = "moveFolderToUser"), @ApiMethod(methodName = "updateUserInfo")})
 @UriParams
 @Configurer
 public final class BoxUsersManagerEndpointConfiguration extends BoxConfiguration {
-    @UriParam(description = "The email address to add as an alias")
+    @UriParam
+    @ApiParam(apiMethods = "addUserEmailAlias", description = "The email address to add as an alias")
     private String email;
-    @UriParam(description = "The id of the email alias to delete")
+    @UriParam
+    @ApiParam(apiMethods = "deleteUserEmailAlias", description = "The id of the email alias to delete")
     private String emailAliasId;
-    @UriParam(description = "The fields to retrieve. Leave this out for the standard fields.")
+    @UriParam
+    @ApiParam(apiMethods = "getAllEnterpriseOrExternalUsers", description = "The fields to retrieve. Leave this out for the standard fields.")
     private String[] fields;
-    @UriParam(description = "The filter term to lookup users by (login for external, login or name for managed); if null all managed users are returned.")
+    @UriParam
+    @ApiParam(apiMethods = "getAllEnterpriseOrExternalUsers", description = "The filter term to lookup users by (login for external, login or name for managed); if null all managed users are returned.")
     private String filterTerm;
-    @UriParam(description = "Whether or not this user should be deleted even if they still own files")
+    @UriParam
+    @ApiParam(apiMethods = "deleteUser", description = "Whether or not this user should be deleted even if they still own files")
     private Boolean force;
-    @UriParam(description = "The updated information")
+    @UriParam
+    @ApiParam(apiMethods = "updateUserInfo", description = "The updated information")
     private com.box.sdk.BoxUser.Info info;
-    @UriParam(description = "The email address the user will use to login")
+    @UriParam
+    @ApiParam(apiMethods = "createEnterpriseUser", description = "The email address the user will use to login")
     private String login;
-    @UriParam(description = "The name of the user")
+    @UriParam
+    @ApiParam(apiMethods = "createAppUser,createEnterpriseUser", description = "The name of the user")
     private String name;
-    @UriParam(description = "Whether or not to send an email notification to the user that their account has been deleted")
+    @UriParam
+    @ApiParam(apiMethods = "deleteUser", description = "Whether or not to send an email notification to the user that their account has been deleted")
     private Boolean notifyUser;
-    @UriParam(description = "Additional user information")
+    @UriParam
+    @ApiParam(apiMethods = "createAppUser,createEnterpriseUser", description = "Additional user information")
     private com.box.sdk.CreateUserParams params;
-    @UriParam(description = "The user id of the user whose files will be the source for this operation")
+    @UriParam
+    @ApiParam(apiMethods = "moveFolderToUser", description = "The user id of the user whose files will be the source for this operation")
     private String sourceUserId;
-    @UriParam(description = "The id of user")
+    @UriParam
+    @ApiParam(apiMethods = "addUserEmailAlias,deleteUser,deleteUserEmailAlias,getUserEmailAlias,getUserInfo,moveFolderToUser,updateUserInfo", description = "The id of user")
     private String userId;
 
     public String getEmail() {

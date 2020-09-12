@@ -5,6 +5,8 @@
 package org.apache.camel.component.google.sheets;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,27 +14,36 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for com.google.api.services.sheets.v4.Sheets$Spreadsheets$Values
  */
-@ApiParams(apiName = "data", apiMethods = "append,batchClear,batchClearByDataFilter,batchGet,batchGetByDataFilter,batchUpdate,batchUpdateByDataFilter,clear,get,update")
+@ApiParams(apiName = "data", apiMethods = {@ApiMethod(methodName = "append"), @ApiMethod(methodName = "batchClear"), @ApiMethod(methodName = "batchClearByDataFilter"), @ApiMethod(methodName = "batchGet"), @ApiMethod(methodName = "batchGetByDataFilter"), @ApiMethod(methodName = "batchUpdate"), @ApiMethod(methodName = "batchUpdateByDataFilter"), @ApiMethod(methodName = "clear"), @ApiMethod(methodName = "get"), @ApiMethod(methodName = "update")})
 @UriParams
 @Configurer
 public final class SheetsSpreadsheetsValuesEndpointConfiguration extends GoogleSheetsConfiguration {
-    @UriParam(description = "The com.google.api.services.sheets.v4.model.BatchClearValuesRequest")
+    @UriParam
+    @ApiParam(apiMethods = "batchClear", description = "The com.google.api.services.sheets.v4.model.BatchClearValuesRequest")
     private com.google.api.services.sheets.v4.model.BatchClearValuesRequest batchClearValuesRequest;
-    @UriParam(description = "The com.google.api.services.sheets.v4.model.BatchGetValuesByDataFilterRequest")
+    @UriParam
+    @ApiParam(apiMethods = "batchGetByDataFilter", description = "The com.google.api.services.sheets.v4.model.BatchGetValuesByDataFilterRequest")
     private com.google.api.services.sheets.v4.model.BatchGetValuesByDataFilterRequest batchGetValuesByDataFilterRequest;
-    @UriParam(description = "The com.google.api.services.sheets.v4.model.BatchUpdateValuesByDataFilterRequest")
+    @UriParam
+    @ApiParam(apiMethods = "batchUpdateByDataFilter", description = "The com.google.api.services.sheets.v4.model.BatchUpdateValuesByDataFilterRequest")
     private com.google.api.services.sheets.v4.model.BatchUpdateValuesByDataFilterRequest batchUpdateValuesByDataFilterRequest;
-    @UriParam(description = "The com.google.api.services.sheets.v4.model.BatchUpdateValuesRequest")
+    @UriParam
+    @ApiParam(apiMethods = "batchUpdate", description = "The com.google.api.services.sheets.v4.model.BatchUpdateValuesRequest")
     private com.google.api.services.sheets.v4.model.BatchUpdateValuesRequest batchUpdateValuesRequest;
-    @UriParam(description = "The com.google.api.services.sheets.v4.model.ClearValuesRequest")
+    @UriParam
+    @ApiParam(apiMethods = "clear", description = "The com.google.api.services.sheets.v4.model.ClearValuesRequest")
     private com.google.api.services.sheets.v4.model.ClearValuesRequest clearValuesRequest;
-    @UriParam(description = "The com.google.api.services.sheets.v4.model.BatchClearValuesByDataFilterRequest")
+    @UriParam
+    @ApiParam(apiMethods = "batchClearByDataFilter", description = "The com.google.api.services.sheets.v4.model.BatchClearValuesByDataFilterRequest")
     private com.google.api.services.sheets.v4.model.BatchClearValuesByDataFilterRequest content;
-    @UriParam(description = "The A1 notation of a range to search for a logical table of data. Values will be appended after the last row of the table.")
+    @UriParam
+    @ApiParam(apiMethods = "append,clear,get,update", description = "The A1 notation of a range to search for a logical table of data. Values will be appended after the last row of the table.")
     private String range;
-    @UriParam(description = "The ID of the spreadsheet to update")
+    @UriParam
+    @ApiParam(apiMethods = "append,batchClear,batchClearByDataFilter,batchGet,batchGetByDataFilter,batchUpdate,batchUpdateByDataFilter,clear,get,update", description = "The ID of the spreadsheet to update")
     private String spreadsheetId;
-    @UriParam(description = "The com.google.api.services.sheets.v4.model.ValueRange")
+    @UriParam
+    @ApiParam(apiMethods = "append,update", description = "The com.google.api.services.sheets.v4.model.ValueRange")
     private com.google.api.services.sheets.v4.model.ValueRange values;
 
     public com.google.api.services.sheets.v4.model.BatchClearValuesRequest getBatchClearValuesRequest() {

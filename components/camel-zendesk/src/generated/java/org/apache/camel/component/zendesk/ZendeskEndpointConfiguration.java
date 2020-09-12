@@ -5,6 +5,8 @@
 package org.apache.camel.component.zendesk;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,239 +14,354 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for org.zendesk.client.v2.Zendesk
  */
-@ApiParams(apiName = "DEFAULT", apiMethods = "addTagToOrganisations,addTagToTicket,addTagToTopics,associateAttachmentsToArticle,changeUserPassword,createArticle,createArticleTranslation,createAutomation,createCategory,createCategoryTranslation,createComment,createDynamicContentItem,createDynamicContentItemVariant,createForum,createGroup,createGroupMembership,createMacro,createOrUpdateUser,createOrUpdateUsers,createOrUpdateUsersAsync,createOrganization,createOrganizationMembership,createOrganizationMemberships,createOrganizationMembershipsAsync,createOrganizations,createOrganizationsAsync,createPermissionGroup,createRequest,createSatisfactionRating,createSection,createSectionTranslation,createTarget,createTicket,createTicketAsync,createTicketField,createTicketForm,createTicketFromTweet,createTickets,createTicketsAsync,createTopic,createTrigger,createUpload,createUploadArticle,createUser,createUserIdentity,createUserSegment,createUsers,createUsersAsync,deleteArticle,deleteArticleAttachment,deleteAttachment,deleteAutomation,deleteCategory,deleteDynamicContentItem,deleteDynamicContentItemVariant,deleteForum,deleteGroup,deleteGroupMembership,deleteOrganization,deleteOrganizationMembership,deleteOrganizationMemberships,deletePermissionGroup,deleteSection,deleteSuspendedTicket,deleteTarget,deleteTicket,deleteTicketField,deleteTickets,deleteTopic,deleteTranslation,deleteTrigger,deleteUpload,deleteUser,deleteUserIdentity,deleteUserSegment,getArticle,getArticleFromSearch,getArticleSubscriptions,getArticleTranslations,getArticles,getArticlesFromAllLabels,getArticlesFromAnyLabels,getArticlesFromPage,getArticlesIncrementally,getAssignableGroupMemberships,getAssignableGroups,getAttachment,getAttachmentsFromArticle,getAuthenticatedUser,getAutoCompleteOrganizations,getAutomation,getAutomations,getBrands,getCCRequests,getCategories,getCategory,getCategoryTranslations,getComplianceDeletionStatuses,getCurrentUser,getCustomAgentRoles,getDeletedTickets,getDynamicContentItem,getDynamicContentItemVariant,getDynamicContentItemVariants,getDynamicContentItems,getForum,getForums,getGroup,getGroupMembership,getGroupMembershipByUser,getGroupMemberships,getGroupOrganization,getGroupUsers,getGroups,getHelpCenterLocales,getHolidaysForSchedule,getIncrementalTicketsResult,getJobStatus,getJobStatusAsync,getJobStatuses,getJobStatusesAsync,getMacro,getMacros,getOpenRequests,getOrganization,getOrganizationFields,getOrganizationMembership,getOrganizationMembershipByUser,getOrganizationMembershipForUser,getOrganizationMemberships,getOrganizationMembershipsForOrg,getOrganizationMembershipsForUser,getOrganizationTickets,getOrganizationUsers,getOrganizations,getOrganizationsIncrementally,getPermissionGroup,getPermissionGroups,getRecentTickets,getRequest,getRequestComment,getRequestComments,getRequests,getSatisfactionRating,getSatisfactionRatings,getSchedule,getSchedules,getSearchResults,getSection,getSectionSubscriptions,getSectionTranslations,getSections,getSolvedRequests,getSuspendedTickets,getTarget,getTargets,getTicket,getTicketAudit,getTicketAudits,getTicketCollaborators,getTicketComments,getTicketField,getTicketFields,getTicketForm,getTicketForms,getTicketIncidents,getTicketMetric,getTicketMetricByTicket,getTicketMetrics,getTickets,getTicketsByExternalId,getTicketsFromSearch,getTicketsIncrementally,getTopic,getTopics,getTopicsByUser,getTrigger,getTriggers,getTwitterMonitors,getUser,getUserCCDTickets,getUserFields,getUserIdentities,getUserIdentity,getUserRelatedInfo,getUserRequestedTickets,getUserRequests,getUserSegment,getUserSegments,getUserSegmentsApplicable,getUserSubscriptions,getUsers,getUsersByRole,getUsersIncrementally,importTicket,importTopic,lookupOrganizationsByExternalId,lookupUserByEmail,lookupUserByExternalId,macrosShowChangesToTicket,macrosShowTicketAfterChanges,makePrivateTicketAudit,markTicketAsSpam,mergeUsers,notifyApp,permanentlyDeleteTicket,permanentlyDeleteTickets,permanentlyDeleteUser,queueCreateTicketAsync,removeTagFromOrganisations,removeTagFromTicket,removeTagFromTopics,requestVerifyUserIdentity,resetUserPassword,setGroupMembershipAsDefault,setOrganizationMembershipAsDefault,setTagOnOrganisations,setTagOnTicket,setTagOnTopics,setUserPrimaryIdentity,suspendUser,trustTicketAudit,unsuspendUser,updateArticle,updateArticleTranslation,updateAutomation,updateCategory,updateCategoryTranslation,updateDynamicContentItem,updateDynamicContentItemVariant,updateForum,updateGroup,updateInstallation,updateMacro,updateOrganization,updateOrganizations,updateOrganizationsAsync,updatePermissionGroup,updateRequest,updateSection,updateSectionTranslation,updateTicket,updateTicketField,updateTickets,updateTicketsAsync,updateTopic,updateTrigger,updateUser,updateUserIdentity,updateUserSegment,updateUsers,updateUsersAsync,verifyUserIdentity")
+@ApiParams(apiName = "DEFAULT", apiMethods = {@ApiMethod(methodName = "addTagToOrganisations"), @ApiMethod(methodName = "addTagToTicket"), @ApiMethod(methodName = "addTagToTopics"), @ApiMethod(methodName = "associateAttachmentsToArticle"), @ApiMethod(methodName = "changeUserPassword"), @ApiMethod(methodName = "createArticle"), @ApiMethod(methodName = "createArticleTranslation"), @ApiMethod(methodName = "createAutomation"), @ApiMethod(methodName = "createCategory"), @ApiMethod(methodName = "createCategoryTranslation"), @ApiMethod(methodName = "createComment"), @ApiMethod(methodName = "createDynamicContentItem"), @ApiMethod(methodName = "createDynamicContentItemVariant"), @ApiMethod(methodName = "createForum"), @ApiMethod(methodName = "createGroup"), @ApiMethod(methodName = "createGroupMembership"), @ApiMethod(methodName = "createMacro"), @ApiMethod(methodName = "createOrUpdateUser"), @ApiMethod(methodName = "createOrUpdateUsers"), @ApiMethod(methodName = "createOrUpdateUsersAsync"), @ApiMethod(methodName = "createOrganization"), @ApiMethod(methodName = "createOrganizationMembership"), @ApiMethod(methodName = "createOrganizationMemberships"), @ApiMethod(methodName = "createOrganizationMembershipsAsync"), @ApiMethod(methodName = "createOrganizations"), @ApiMethod(methodName = "createOrganizationsAsync"), @ApiMethod(methodName = "createPermissionGroup"), @ApiMethod(methodName = "createRequest"), @ApiMethod(methodName = "createSatisfactionRating"), @ApiMethod(methodName = "createSection"), @ApiMethod(methodName = "createSectionTranslation"), @ApiMethod(methodName = "createTarget"), @ApiMethod(methodName = "createTicket"), @ApiMethod(methodName = "createTicketAsync"), @ApiMethod(methodName = "createTicketField"), @ApiMethod(methodName = "createTicketForm"), @ApiMethod(methodName = "createTicketFromTweet"), @ApiMethod(methodName = "createTickets"), @ApiMethod(methodName = "createTicketsAsync"), @ApiMethod(methodName = "createTopic"), @ApiMethod(methodName = "createTrigger"), @ApiMethod(methodName = "createUpload"), @ApiMethod(methodName = "createUploadArticle"), @ApiMethod(methodName = "createUser"), @ApiMethod(methodName = "createUserIdentity"), @ApiMethod(methodName = "createUserSegment"), @ApiMethod(methodName = "createUsers"), @ApiMethod(methodName = "createUsersAsync"), @ApiMethod(methodName = "deleteArticle"), @ApiMethod(methodName = "deleteArticleAttachment"), @ApiMethod(methodName = "deleteAttachment"), @ApiMethod(methodName = "deleteAutomation"), @ApiMethod(methodName = "deleteCategory"), @ApiMethod(methodName = "deleteDynamicContentItem"), @ApiMethod(methodName = "deleteDynamicContentItemVariant"), @ApiMethod(methodName = "deleteForum"), @ApiMethod(methodName = "deleteGroup"), @ApiMethod(methodName = "deleteGroupMembership"), @ApiMethod(methodName = "deleteOrganization"), @ApiMethod(methodName = "deleteOrganizationMembership"), @ApiMethod(methodName = "deleteOrganizationMemberships"), @ApiMethod(methodName = "deletePermissionGroup"), @ApiMethod(methodName = "deleteSection"), @ApiMethod(methodName = "deleteSuspendedTicket"), @ApiMethod(methodName = "deleteTarget"), @ApiMethod(methodName = "deleteTicket"), @ApiMethod(methodName = "deleteTicketField"), @ApiMethod(methodName = "deleteTickets"), @ApiMethod(methodName = "deleteTopic"), @ApiMethod(methodName = "deleteTranslation"), @ApiMethod(methodName = "deleteTrigger"), @ApiMethod(methodName = "deleteUpload"), @ApiMethod(methodName = "deleteUser"), @ApiMethod(methodName = "deleteUserIdentity"), @ApiMethod(methodName = "deleteUserSegment"), @ApiMethod(methodName = "getArticle"), @ApiMethod(methodName = "getArticleFromSearch"), @ApiMethod(methodName = "getArticleSubscriptions"), @ApiMethod(methodName = "getArticleTranslations"), @ApiMethod(methodName = "getArticles"), @ApiMethod(methodName = "getArticlesFromAllLabels"), @ApiMethod(methodName = "getArticlesFromAnyLabels"), @ApiMethod(methodName = "getArticlesFromPage"), @ApiMethod(methodName = "getArticlesIncrementally"), @ApiMethod(methodName = "getAssignableGroupMemberships"), @ApiMethod(methodName = "getAssignableGroups"), @ApiMethod(methodName = "getAttachment"), @ApiMethod(methodName = "getAttachmentsFromArticle"), @ApiMethod(methodName = "getAuthenticatedUser"), @ApiMethod(methodName = "getAutoCompleteOrganizations"), @ApiMethod(methodName = "getAutomation"), @ApiMethod(methodName = "getAutomations"), @ApiMethod(methodName = "getBrands"), @ApiMethod(methodName = "getCCRequests"), @ApiMethod(methodName = "getCategories"), @ApiMethod(methodName = "getCategory"), @ApiMethod(methodName = "getCategoryTranslations"), @ApiMethod(methodName = "getComplianceDeletionStatuses"), @ApiMethod(methodName = "getCurrentUser"), @ApiMethod(methodName = "getCustomAgentRoles"), @ApiMethod(methodName = "getDeletedTickets"), @ApiMethod(methodName = "getDynamicContentItem"), @ApiMethod(methodName = "getDynamicContentItemVariant"), @ApiMethod(methodName = "getDynamicContentItemVariants"), @ApiMethod(methodName = "getDynamicContentItems"), @ApiMethod(methodName = "getForum"), @ApiMethod(methodName = "getForums"), @ApiMethod(methodName = "getGroup"), @ApiMethod(methodName = "getGroupMembership"), @ApiMethod(methodName = "getGroupMembershipByUser"), @ApiMethod(methodName = "getGroupMemberships"), @ApiMethod(methodName = "getGroupOrganization"), @ApiMethod(methodName = "getGroupUsers"), @ApiMethod(methodName = "getGroups"), @ApiMethod(methodName = "getHelpCenterLocales"), @ApiMethod(methodName = "getHolidaysForSchedule"), @ApiMethod(methodName = "getIncrementalTicketsResult"), @ApiMethod(methodName = "getJobStatus"), @ApiMethod(methodName = "getJobStatusAsync"), @ApiMethod(methodName = "getJobStatuses"), @ApiMethod(methodName = "getJobStatusesAsync"), @ApiMethod(methodName = "getMacro"), @ApiMethod(methodName = "getMacros"), @ApiMethod(methodName = "getOpenRequests"), @ApiMethod(methodName = "getOrganization"), @ApiMethod(methodName = "getOrganizationFields"), @ApiMethod(methodName = "getOrganizationMembership"), @ApiMethod(methodName = "getOrganizationMembershipByUser"), @ApiMethod(methodName = "getOrganizationMembershipForUser"), @ApiMethod(methodName = "getOrganizationMemberships"), @ApiMethod(methodName = "getOrganizationMembershipsForOrg"), @ApiMethod(methodName = "getOrganizationMembershipsForUser"), @ApiMethod(methodName = "getOrganizationTickets"), @ApiMethod(methodName = "getOrganizationUsers"), @ApiMethod(methodName = "getOrganizations"), @ApiMethod(methodName = "getOrganizationsIncrementally"), @ApiMethod(methodName = "getPermissionGroup"), @ApiMethod(methodName = "getPermissionGroups"), @ApiMethod(methodName = "getRecentTickets"), @ApiMethod(methodName = "getRequest"), @ApiMethod(methodName = "getRequestComment"), @ApiMethod(methodName = "getRequestComments"), @ApiMethod(methodName = "getRequests"), @ApiMethod(methodName = "getSatisfactionRating"), @ApiMethod(methodName = "getSatisfactionRatings"), @ApiMethod(methodName = "getSchedule"), @ApiMethod(methodName = "getSchedules"), @ApiMethod(methodName = "getSearchResults"), @ApiMethod(methodName = "getSection"), @ApiMethod(methodName = "getSectionSubscriptions"), @ApiMethod(methodName = "getSectionTranslations"), @ApiMethod(methodName = "getSections"), @ApiMethod(methodName = "getSolvedRequests"), @ApiMethod(methodName = "getSuspendedTickets"), @ApiMethod(methodName = "getTarget"), @ApiMethod(methodName = "getTargets"), @ApiMethod(methodName = "getTicket"), @ApiMethod(methodName = "getTicketAudit"), @ApiMethod(methodName = "getTicketAudits"), @ApiMethod(methodName = "getTicketCollaborators"), @ApiMethod(methodName = "getTicketComments"), @ApiMethod(methodName = "getTicketField"), @ApiMethod(methodName = "getTicketFields"), @ApiMethod(methodName = "getTicketForm"), @ApiMethod(methodName = "getTicketForms"), @ApiMethod(methodName = "getTicketIncidents"), @ApiMethod(methodName = "getTicketMetric"), @ApiMethod(methodName = "getTicketMetricByTicket"), @ApiMethod(methodName = "getTicketMetrics"), @ApiMethod(methodName = "getTickets"), @ApiMethod(methodName = "getTicketsByExternalId"), @ApiMethod(methodName = "getTicketsFromSearch"), @ApiMethod(methodName = "getTicketsIncrementally"), @ApiMethod(methodName = "getTopic"), @ApiMethod(methodName = "getTopics"), @ApiMethod(methodName = "getTopicsByUser"), @ApiMethod(methodName = "getTrigger"), @ApiMethod(methodName = "getTriggers"), @ApiMethod(methodName = "getTwitterMonitors"), @ApiMethod(methodName = "getUser"), @ApiMethod(methodName = "getUserCCDTickets"), @ApiMethod(methodName = "getUserFields"), @ApiMethod(methodName = "getUserIdentities"), @ApiMethod(methodName = "getUserIdentity"), @ApiMethod(methodName = "getUserRelatedInfo"), @ApiMethod(methodName = "getUserRequestedTickets"), @ApiMethod(methodName = "getUserRequests"), @ApiMethod(methodName = "getUserSegment"), @ApiMethod(methodName = "getUserSegments"), @ApiMethod(methodName = "getUserSegmentsApplicable"), @ApiMethod(methodName = "getUserSubscriptions"), @ApiMethod(methodName = "getUsers"), @ApiMethod(methodName = "getUsersByRole"), @ApiMethod(methodName = "getUsersIncrementally"), @ApiMethod(methodName = "importTicket"), @ApiMethod(methodName = "importTopic"), @ApiMethod(methodName = "lookupOrganizationsByExternalId"), @ApiMethod(methodName = "lookupUserByEmail"), @ApiMethod(methodName = "lookupUserByExternalId"), @ApiMethod(methodName = "macrosShowChangesToTicket"), @ApiMethod(methodName = "macrosShowTicketAfterChanges"), @ApiMethod(methodName = "makePrivateTicketAudit"), @ApiMethod(methodName = "markTicketAsSpam"), @ApiMethod(methodName = "mergeUsers"), @ApiMethod(methodName = "notifyApp"), @ApiMethod(methodName = "permanentlyDeleteTicket"), @ApiMethod(methodName = "permanentlyDeleteTickets"), @ApiMethod(methodName = "permanentlyDeleteUser"), @ApiMethod(methodName = "queueCreateTicketAsync"), @ApiMethod(methodName = "removeTagFromOrganisations"), @ApiMethod(methodName = "removeTagFromTicket"), @ApiMethod(methodName = "removeTagFromTopics"), @ApiMethod(methodName = "requestVerifyUserIdentity"), @ApiMethod(methodName = "resetUserPassword"), @ApiMethod(methodName = "setGroupMembershipAsDefault"), @ApiMethod(methodName = "setOrganizationMembershipAsDefault"), @ApiMethod(methodName = "setTagOnOrganisations"), @ApiMethod(methodName = "setTagOnTicket"), @ApiMethod(methodName = "setTagOnTopics"), @ApiMethod(methodName = "setUserPrimaryIdentity"), @ApiMethod(methodName = "suspendUser"), @ApiMethod(methodName = "trustTicketAudit"), @ApiMethod(methodName = "unsuspendUser"), @ApiMethod(methodName = "updateArticle"), @ApiMethod(methodName = "updateArticleTranslation"), @ApiMethod(methodName = "updateAutomation"), @ApiMethod(methodName = "updateCategory"), @ApiMethod(methodName = "updateCategoryTranslation"), @ApiMethod(methodName = "updateDynamicContentItem"), @ApiMethod(methodName = "updateDynamicContentItemVariant"), @ApiMethod(methodName = "updateForum"), @ApiMethod(methodName = "updateGroup"), @ApiMethod(methodName = "updateInstallation"), @ApiMethod(methodName = "updateMacro"), @ApiMethod(methodName = "updateOrganization"), @ApiMethod(methodName = "updateOrganizations"), @ApiMethod(methodName = "updateOrganizationsAsync"), @ApiMethod(methodName = "updatePermissionGroup"), @ApiMethod(methodName = "updateRequest"), @ApiMethod(methodName = "updateSection"), @ApiMethod(methodName = "updateSectionTranslation"), @ApiMethod(methodName = "updateTicket"), @ApiMethod(methodName = "updateTicketField"), @ApiMethod(methodName = "updateTickets"), @ApiMethod(methodName = "updateTicketsAsync"), @ApiMethod(methodName = "updateTopic"), @ApiMethod(methodName = "updateTrigger"), @ApiMethod(methodName = "updateUser"), @ApiMethod(methodName = "updateUserIdentity"), @ApiMethod(methodName = "updateUserSegment"), @ApiMethod(methodName = "updateUsers"), @ApiMethod(methodName = "updateUsersAsync"), @ApiMethod(methodName = "verifyUserIdentity")})
 @UriParams
 @Configurer
 public final class ZendeskEndpointConfiguration extends ZendeskConfiguration {
     @UriParam
+    @ApiParam(apiMethods = "createArticle,deleteArticle,updateArticle")
     private org.zendesk.client.v2.model.hc.Article article;
     @UriParam
+    @ApiParam(apiMethods = "deleteArticleAttachment")
     private org.zendesk.client.v2.model.hc.ArticleAttachments articleAttachments;
     @UriParam
+    @ApiParam(apiMethods = "createArticleTranslation,getArticleSubscriptions,getArticleTranslations,getAttachmentsFromArticle,updateArticleTranslation")
     private Long articleId;
     @UriParam
+    @ApiParam(apiMethods = "createUploadArticle")
     private Long articleId0;
     @UriParam
+    @ApiParam(apiMethods = "deleteAttachment,getAttachment")
     private org.zendesk.client.v2.model.Attachment attachment;
     @UriParam
+    @ApiParam(apiMethods = "associateAttachmentsToArticle")
     private java.util.List<org.zendesk.client.v2.model.Attachment> attachments;
     @UriParam
+    @ApiParam(apiMethods = "getTicketAudit,makePrivateTicketAudit,trustTicketAudit")
     private org.zendesk.client.v2.model.Audit audit;
     @UriParam
+    @ApiParam(apiMethods = "getTicketAudit,makePrivateTicketAudit,trustTicketAudit")
     private Long auditId;
     @UriParam
+    @ApiParam(apiMethods = "createAutomation,updateAutomation")
     private org.zendesk.client.v2.model.Automation automation;
     @UriParam
+    @ApiParam(apiMethods = "updateAutomation")
     private Long automationId;
     @UriParam
+    @ApiParam(apiMethods = "deleteAutomation")
     private Long automationId0;
     @UriParam
+    @ApiParam(apiMethods = "createCategory,deleteCategory,getArticles,getSections,updateCategory")
     private org.zendesk.client.v2.model.hc.Category category;
     @UriParam
+    @ApiParam(apiMethods = "createCategoryTranslation,getCategoryTranslations,updateCategoryTranslation")
     private Long categoryId;
     @UriParam
+    @ApiParam(apiMethods = "getForums")
     private Long category_id;
     @UriParam
+    @ApiParam(apiMethods = "createComment,getRequestComment")
     private org.zendesk.client.v2.model.Comment comment;
     @UriParam
+    @ApiParam(apiMethods = "getRequestComment")
     private Long commentId;
     @UriParam
+    @ApiParam(apiMethods = "createUpload")
     private byte[] content;
     @UriParam
+    @ApiParam(apiMethods = "createUpload")
     private String contentType;
     @UriParam
+    @ApiParam(apiMethods = "lookupUserByEmail")
     private String email;
     @UriParam
+    @ApiParam(apiMethods = "getTicketsIncrementally")
     private java.util.Date endTime;
     @UriParam
+    @ApiParam(apiMethods = "getTicketsByExternalId,lookupOrganizationsByExternalId,lookupUserByExternalId")
     private String externalId;
     @UriParam
+    @ApiParam(apiMethods = "createTicketField,deleteTicketField,updateTicketField")
     private org.zendesk.client.v2.model.Field field;
     @UriParam
+    @ApiParam(apiMethods = "createUploadArticle")
     private java.io.File file;
     @UriParam
+    @ApiParam(apiMethods = "createUpload")
     private String fileName;
     @UriParam
+    @ApiParam(apiMethods = "createForum,deleteForum,updateForum")
     private org.zendesk.client.v2.model.Forum forum;
     @UriParam
+    @ApiParam(apiMethods = "getTopics")
     private Long forum_id;
     @UriParam
+    @ApiParam(apiMethods = "createGroup,deleteGroup,updateGroup")
     private org.zendesk.client.v2.model.Group group;
     @UriParam
+    @ApiParam(apiMethods = "createGroupMembership,deleteGroupMembership,setGroupMembershipAsDefault")
     private org.zendesk.client.v2.model.GroupMembership groupMembership;
     @UriParam
+    @ApiParam(apiMethods = "getAssignableGroupMemberships,getGroupMemberships")
     private Long group_id;
     @UriParam
+    @ApiParam(apiMethods = "deleteGroupMembership,getGroupMembership")
     private Long group_membership_id;
     @UriParam
+    @ApiParam(apiMethods = "addTagToOrganisations,addTagToTicket,addTagToTopics,deleteArticleAttachment,deleteAttachment,deleteGroup,deleteGroupMembership,deleteOrganization,deleteOrganizationMembership,deleteOrganizationMemberships,deletePermissionGroup,deleteSuspendedTicket,deleteTicket,deleteTicketField,deleteTickets,deleteUser,deleteUserSegment,getArticle,getAttachment,getAutomation,getCategory,getDynamicContentItem,getDynamicContentItemVariant,getForum,getGroup,getGroupMembership,getGroupUsers,getOrganization,getOrganizationMembership,getOrganizationMembershipForUser,getOrganizationUsers,getPermissionGroup,getRequest,getRequestComments,getSatisfactionRating,getSection,getTarget,getTicket,getTicketAudit,getTicketCollaborators,getTicketComments,getTicketField,getTicketForm,getTicketIncidents,getTicketMetric,getTicketMetricByTicket,getTickets,getTopic,getTopics,getTrigger,getUser,getUserRequests,getUserSegment,getUserSegments,makePrivateTicketAudit,markTicketAsSpam,permanentlyDeleteTicket,permanentlyDeleteTickets,permanentlyDeleteUser,removeTagFromOrganisations,removeTagFromTicket,removeTagFromTopics,resetUserPassword,setTagOnOrganisations,setTagOnTicket,setTagOnTopics,suspendUser,trustTicketAudit,unsuspendUser")
     private Long id;
     @UriParam
+    @ApiParam(apiMethods = "associateAttachmentsToArticle")
     private String idArticle;
     @UriParam
+    @ApiParam(apiMethods = "createUserIdentity,deleteUserIdentity,getUserIdentity,requestVerifyUserIdentity,setUserPrimaryIdentity,updateUserIdentity,verifyUserIdentity")
     private org.zendesk.client.v2.model.Identity identity;
     @UriParam
+    @ApiParam(apiMethods = "deleteUserIdentity,getUserIdentity,requestVerifyUserIdentity,setUserPrimaryIdentity,verifyUserIdentity")
     private Long identityId;
     @UriParam
+    @ApiParam(apiMethods = "deleteOrganizationMemberships,deleteTickets,getTickets,getTopics,permanentlyDeleteTickets")
     private long[] ids;
     @UriParam
+    @ApiParam(apiMethods = "getTicketsByExternalId")
     private Boolean includeArchived;
     @UriParam
+    @ApiParam(apiMethods = "createUploadArticle")
     private Boolean inline;
     @UriParam
+    @ApiParam(apiMethods = "updateInstallation")
     private Integer installationId;
     @UriParam
+    @ApiParam(apiMethods = "createDynamicContentItem,deleteDynamicContentItem,getDynamicContentItemVariants,updateDynamicContentItem")
     private org.zendesk.client.v2.model.dynamic.DynamicContentItem item;
     @UriParam
+    @ApiParam(apiMethods = "createDynamicContentItemVariant,deleteDynamicContentItemVariant,getDynamicContentItemVariant,updateDynamicContentItemVariant")
     private Long itemId;
     @UriParam
+    @ApiParam(apiMethods = "notifyApp,updateInstallation")
     private String json;
     @UriParam
+    @ApiParam(apiMethods = "getArticlesFromAllLabels,getArticlesFromAnyLabels")
     private java.util.List<String> labels;
     @UriParam
+    @ApiParam(apiMethods = "getArticleSubscriptions,getArticles,getSectionSubscriptions,updateArticleTranslation,updateCategoryTranslation,updateSectionTranslation")
     private String locale;
     @UriParam
+    @ApiParam(apiMethods = "createMacro,updateMacro")
     private org.zendesk.client.v2.model.Macro macro;
     @UriParam
+    @ApiParam(apiMethods = "getMacro,macrosShowChangesToTicket,macrosShowTicketAfterChanges")
     private Long macroId;
     @UriParam
+    @ApiParam(apiMethods = "updateMacro")
     private Long macroId0;
     @UriParam
+    @ApiParam(apiMethods = "createTicketFromTweet")
     private Long monitorId;
     @UriParam
+    @ApiParam(apiMethods = "getAutoCompleteOrganizations")
     private String name;
     @UriParam
+    @ApiParam(apiMethods = "changeUserPassword")
     private String newPassword;
     @UriParam
+    @ApiParam(apiMethods = "createArticle")
     private Boolean notifySubscribers;
     @UriParam
+    @ApiParam(apiMethods = "changeUserPassword")
     private String oldPassword;
     @UriParam
+    @ApiParam(apiMethods = "getTicketComments")
     private org.zendesk.client.v2.model.SortOrder order;
     @UriParam
+    @ApiParam(apiMethods = "createOrganization,deleteOrganization,updateOrganization")
     private org.zendesk.client.v2.model.Organization organization;
     @UriParam
+    @ApiParam(apiMethods = "getOrganizationTickets")
     private Long organizationId;
     @UriParam
+    @ApiParam(apiMethods = "createOrganizations,createOrganizationsAsync,updateOrganizations,updateOrganizationsAsync")
     private java.util.List<org.zendesk.client.v2.model.Organization> organizationList;
     @UriParam
+    @ApiParam(apiMethods = "createOrganizationMembership,deleteOrganizationMembership,setOrganizationMembershipAsDefault")
     private org.zendesk.client.v2.model.OrganizationMembership organizationMembership;
     @UriParam
+    @ApiParam(apiMethods = "createOrganizationMemberships,createOrganizationMembershipsAsync")
     private java.util.List<org.zendesk.client.v2.model.OrganizationMembership> organizationMembershipList;
     @UriParam
+    @ApiParam(apiMethods = "createOrganizationMemberships")
     private org.zendesk.client.v2.model.OrganizationMembership[] organizationMemberships;
     @UriParam
+    @ApiParam(apiMethods = "getOrganizationMembershipsForOrg")
     private Long organization_id;
     @UriParam
+    @ApiParam(apiMethods = "deleteOrganizationMembership,getGroupOrganization")
     private Long organization_membership_id;
     @UriParam
+    @ApiParam(apiMethods = "createOrganizations,updateOrganizations")
     private org.zendesk.client.v2.model.Organization[] organizations;
     @UriParam
+    @ApiParam(apiMethods = "getArticlesFromPage")
     private Integer page;
     @UriParam
+    @ApiParam(apiMethods = "getSearchResults")
     private String parameters;
     @UriParam
+    @ApiParam(apiMethods = "getSearchResults")
     private java.util.Map<String,Object> params;
     @UriParam
+    @ApiParam(apiMethods = "resetUserPassword")
     private String password;
     @UriParam
+    @ApiParam(apiMethods = "createPermissionGroup,deletePermissionGroup,updatePermissionGroup")
     private org.zendesk.client.v2.model.hc.PermissionGroup permissionGroup;
     @UriParam
+    @ApiParam(apiMethods = "getSearchResults")
     private String query;
     @UriParam
+    @ApiParam(apiMethods = "createRequest,getRequestComment,getRequestComments,updateRequest")
     private org.zendesk.client.v2.model.Request request;
     @UriParam
+    @ApiParam(apiMethods = "getRequestComment")
     private Long requestId;
     @UriParam
+    @ApiParam(apiMethods = "getUsersByRole")
     private String role;
     @UriParam
+    @ApiParam(apiMethods = "getUsersByRole")
     private String[] roles;
     @UriParam
+    @ApiParam(apiMethods = "createSatisfactionRating")
     private org.zendesk.client.v2.model.SatisfactionRating satisfactionRating;
     @UriParam
+    @ApiParam(apiMethods = "getHolidaysForSchedule,getSchedule")
     private org.zendesk.client.v2.model.schedules.Schedule schedule;
     @UriParam
+    @ApiParam(apiMethods = "getHolidaysForSchedule,getSchedule")
     private Long scheduleId;
     @UriParam
+    @ApiParam(apiMethods = "getArticleFromSearch,getTicketsFromSearch")
     private String searchTerm;
     @UriParam
+    @ApiParam(apiMethods = "createSection,deleteSection,getArticles,updateSection")
     private org.zendesk.client.v2.model.hc.Section section;
     @UriParam
+    @ApiParam(apiMethods = "createSectionTranslation,getArticleFromSearch,getSectionSubscriptions,getSectionTranslations,updateSectionTranslation")
     private Long sectionId;
     @UriParam
+    @ApiParam(apiMethods = "getDeletedTickets,getSearchResults")
     private String sortBy;
     @UriParam
+    @ApiParam(apiMethods = "getDeletedTickets,getSearchResults")
     private org.zendesk.client.v2.model.SortOrder sortOrder;
     @UriParam
+    @ApiParam(apiMethods = "getArticlesIncrementally,getOrganizationsIncrementally,getTicketsIncrementally,getUsersIncrementally")
     private java.util.Date startTime;
     @UriParam
+    @ApiParam(apiMethods = "getJobStatus,getJobStatusAsync")
     private org.zendesk.client.v2.model.JobStatus status;
     @UriParam
+    @ApiParam(apiMethods = "getJobStatuses,getJobStatusesAsync")
     private java.util.List<org.zendesk.client.v2.model.JobStatus> statuses;
     @UriParam
+    @ApiParam(apiMethods = "deleteSuspendedTicket")
     private org.zendesk.client.v2.model.SuspendedTicket suspendedTicket;
     @UriParam
+    @ApiParam(apiMethods = "addTagToOrganisations,addTagToTicket,addTagToTopics,removeTagFromOrganisations,removeTagFromTicket,removeTagFromTopics,setTagOnOrganisations,setTagOnTicket,setTagOnTopics")
     private String[] tags;
     @UriParam
+    @ApiParam(apiMethods = "createTarget")
     private org.zendesk.client.v2.model.targets.Target target;
     @UriParam
+    @ApiParam(apiMethods = "deleteTarget")
     private Long targetId;
     @UriParam
+    @ApiParam(apiMethods = "createSatisfactionRating,createTicket,createTicketAsync,deleteTicket,getTicketAudit,getTicketAudits,makePrivateTicketAudit,markTicketAsSpam,permanentlyDeleteTicket,queueCreateTicketAsync,trustTicketAudit,updateTicket")
     private org.zendesk.client.v2.model.Ticket ticket;
     @UriParam
+    @ApiParam(apiMethods = "createTicketForm")
     private org.zendesk.client.v2.model.TicketForm ticketForm;
     @UriParam
+    @ApiParam(apiMethods = "createComment,createSatisfactionRating,getTicketAudit,macrosShowTicketAfterChanges,makePrivateTicketAudit,trustTicketAudit")
     private Long ticketId;
     @UriParam
+    @ApiParam(apiMethods = "getTicketAudits")
     private Long ticketId0;
     @UriParam
+    @ApiParam(apiMethods = "importTicket")
     private org.zendesk.client.v2.model.TicketImport ticketImport;
     @UriParam
+    @ApiParam(apiMethods = "createTickets,createTicketsAsync,updateTickets,updateTicketsAsync")
     private java.util.List<org.zendesk.client.v2.model.Ticket> ticketList;
     @UriParam
+    @ApiParam(apiMethods = "createTickets,updateTickets")
     private org.zendesk.client.v2.model.Ticket[] tickets;
     @UriParam
+    @ApiParam(apiMethods = "createUpload,deleteUpload")
     private String token;
     @UriParam
+    @ApiParam(apiMethods = "createTopic,deleteTopic,importTopic,updateTopic")
     private org.zendesk.client.v2.model.Topic topic;
     @UriParam
+    @ApiParam(apiMethods = "createArticleTranslation,createCategoryTranslation,createSectionTranslation,deleteTranslation,updateArticleTranslation,updateCategoryTranslation,updateSectionTranslation")
     private org.zendesk.client.v2.model.hc.Translation translation;
     @UriParam
+    @ApiParam(apiMethods = "deleteTranslation")
     private Long translationId;
     @UriParam
+    @ApiParam(apiMethods = "createTrigger,updateTrigger")
     private org.zendesk.client.v2.model.Trigger trigger;
     @UriParam
+    @ApiParam(apiMethods = "deleteTrigger")
     private Long triggerId;
     @UriParam
+    @ApiParam(apiMethods = "updateTrigger")
     private Long triggerId0;
     @UriParam
+    @ApiParam(apiMethods = "createTicketFromTweet")
     private Long tweetId;
     @UriParam
+    @ApiParam(apiMethods = "getSearchResults")
     private Class<?> type;
     @UriParam
+    @ApiParam(apiMethods = "getIncrementalTicketsResult")
     private Long unixEpochTime;
     @UriParam
+    @ApiParam(apiMethods = "deleteUpload")
     private org.zendesk.client.v2.model.Attachment.Upload upload;
     @UriParam
+    @ApiParam(apiMethods = "changeUserPassword,createOrUpdateUser,createUser,createUserIdentity,deleteUser,deleteUserIdentity,getUserIdentities,getUserIdentity,getUserRequests,getUserSubscriptions,permanentlyDeleteUser,requestVerifyUserIdentity,resetUserPassword,setUserPrimaryIdentity,updateUser,updateUserIdentity,verifyUserIdentity")
     private org.zendesk.client.v2.model.User user;
     @UriParam
+    @ApiParam(apiMethods = "createUserIdentity,deleteUserIdentity,getComplianceDeletionStatuses,getUserCCDTickets,getUserIdentities,getUserIdentity,getUserRelatedInfo,getUserRequestedTickets,requestVerifyUserIdentity,setUserPrimaryIdentity,updateUserIdentity,verifyUserIdentity")
     private Long userId;
     @UriParam
+    @ApiParam(apiMethods = "getUserSubscriptions")
     private Long userId0;
     @UriParam
+    @ApiParam(apiMethods = "mergeUsers")
     private Long userIdThatWillBeMerged;
     @UriParam
+    @ApiParam(apiMethods = "mergeUsers")
     private Long userIdThatWillRemain;
     @UriParam
+    @ApiParam(apiMethods = "createUsers,createUsersAsync")
     private java.util.List<org.zendesk.client.v2.model.User> userList;
     @UriParam
+    @ApiParam(apiMethods = "createUserSegment,deleteUserSegment,getSections,getTopics,updateUserSegment")
     private org.zendesk.client.v2.model.hc.UserSegment userSegment;
     @UriParam
+    @ApiParam(apiMethods = "createGroupMembership,createOrganizationMembership,deleteGroupMembership,deleteOrganizationMembership,getGroupMembership,getGroupMembershipByUser,getGroupOrganization,getOrganizationMembershipByUser,getOrganizationMembershipForUser,getOrganizationMembershipsForUser,getTopicsByUser,setGroupMembershipAsDefault,setOrganizationMembershipAsDefault")
     private Long user_id;
     @UriParam
+    @ApiParam(apiMethods = "createOrUpdateUsers,createUsers,updateUsers")
     private org.zendesk.client.v2.model.User[] users;
     @UriParam
+    @ApiParam(apiMethods = "createOrUpdateUsers,createOrUpdateUsersAsync,updateUsers,updateUsersAsync")
     private java.util.List<org.zendesk.client.v2.model.User> usersList;
     @UriParam
+    @ApiParam(apiMethods = "createDynamicContentItemVariant,deleteDynamicContentItemVariant,updateDynamicContentItemVariant")
     private org.zendesk.client.v2.model.dynamic.DynamicContentItemVariant variant;
 
     public org.zendesk.client.v2.model.hc.Article getArticle() {

@@ -5,6 +5,8 @@
 package org.apache.camel.component.as2;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,43 +14,60 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for org.apache.camel.component.as2.api.AS2ClientManager
  */
-@ApiParams(apiName = "client", apiMethods = "send")
+@ApiParams(apiName = "client", apiMethods = {@ApiMethod(methodName = "send")})
 @UriParams
 @Configurer
 public final class AS2ClientManagerEndpointConfiguration extends AS2Configuration {
-    @UriParam(description = "AS2 name of sender")
+    @UriParam
+    @ApiParam(apiMethods = "send", description = "AS2 name of sender")
     private String as2From;
-    @UriParam(description = "The structure of AS2 to send; see AS2MessageStructure")
+    @UriParam
+    @ApiParam(apiMethods = "send", description = "The structure of AS2 to send; see AS2MessageStructure")
     private org.apache.camel.component.as2.api.AS2MessageStructure as2MessageStructure;
-    @UriParam(description = "AS2 name of recipient")
+    @UriParam
+    @ApiParam(apiMethods = "send", description = "AS2 name of recipient")
     private String as2To;
-    @UriParam(description = "The algorithm used to compress the message or null if sending EDI message uncompressed")
+    @UriParam
+    @ApiParam(apiMethods = "send", description = "The algorithm used to compress the message or null if sending EDI message uncompressed")
     private org.apache.camel.component.as2.api.AS2CompressionAlgorithm compressionAlgorithm;
-    @UriParam(description = "An RFC2822 address to request a receipt or null if no receipt requested")
+    @UriParam
+    @ApiParam(apiMethods = "send", description = "An RFC2822 address to request a receipt or null if no receipt requested")
     private String dispositionNotificationTo;
-    @UriParam(description = "EDI message to transport")
+    @UriParam
+    @ApiParam(apiMethods = "send", description = "EDI message to transport")
     private String ediMessage;
-    @UriParam(description = "The content typw of EDI message")
+    @UriParam
+    @ApiParam(apiMethods = "send", description = "The content typw of EDI message")
     private org.apache.http.entity.ContentType ediMessageContentType;
-    @UriParam(description = "The transfer encoding used to transport EDI message")
+    @UriParam
+    @ApiParam(apiMethods = "send", description = "The transfer encoding used to transport EDI message")
     private String ediMessageTransferEncoding;
-    @UriParam(description = "The algorithm used to encrypt the message or null if sending EDI message unencrypted")
+    @UriParam
+    @ApiParam(apiMethods = "send", description = "The algorithm used to encrypt the message or null if sending EDI message unencrypted")
     private org.apache.camel.component.as2.api.AS2EncryptionAlgorithm encryptingAlgorithm;
-    @UriParam(description = "The chain of certificates used to encrypt the message or null if sending EDI message unencrypted")
+    @UriParam
+    @ApiParam(apiMethods = "send", description = "The chain of certificates used to encrypt the message or null if sending EDI message unencrypted")
     private java.security.cert.Certificate[] encryptingCertificateChain;
-    @UriParam(description = "RFC2822 address of sender")
+    @UriParam
+    @ApiParam(apiMethods = "send", description = "RFC2822 address of sender")
     private String from;
-    @UriParam(description = "Resource location to deliver message")
+    @UriParam
+    @ApiParam(apiMethods = "send", description = "Resource location to deliver message")
     private String requestUri;
-    @UriParam(description = "The senders list of signing algorithms for signing receipt, in preferred order, or null if requesting an unsigned receipt.")
+    @UriParam
+    @ApiParam(apiMethods = "send", description = "The senders list of signing algorithms for signing receipt, in preferred order, or null if requesting an unsigned receipt.")
     private String[] signedReceiptMicAlgorithms;
-    @UriParam(description = "The algorithm used to sign the message or null if sending EDI message unsigned")
+    @UriParam
+    @ApiParam(apiMethods = "send", description = "The algorithm used to sign the message or null if sending EDI message unsigned")
     private org.apache.camel.component.as2.api.AS2SignatureAlgorithm signingAlgorithm;
-    @UriParam(description = "The chain of certificates used to sign the message or null if sending EDI message unsigned")
+    @UriParam
+    @ApiParam(apiMethods = "send", description = "The chain of certificates used to sign the message or null if sending EDI message unsigned")
     private java.security.cert.Certificate[] signingCertificateChain;
-    @UriParam(description = "The private key used to sign EDI message")
+    @UriParam
+    @ApiParam(apiMethods = "send", description = "The private key used to sign EDI message")
     private java.security.PrivateKey signingPrivateKey;
-    @UriParam(description = "Message subject")
+    @UriParam
+    @ApiParam(apiMethods = "send", description = "Message subject")
     private String subject;
 
     public String getAs2From() {

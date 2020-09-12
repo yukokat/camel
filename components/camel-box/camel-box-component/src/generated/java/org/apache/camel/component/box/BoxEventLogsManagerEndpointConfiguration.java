@@ -5,6 +5,8 @@
 package org.apache.camel.component.box;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,17 +14,21 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for org.apache.camel.component.box.api.BoxEventLogsManager
  */
-@ApiParams(apiName = "event-logs", apiMethods = "getEnterpriseEvents")
+@ApiParams(apiName = "event-logs", apiMethods = {@ApiMethod(methodName = "getEnterpriseEvents")})
 @UriParams
 @Configurer
 public final class BoxEventLogsManagerEndpointConfiguration extends BoxConfiguration {
-    @UriParam(description = "The lower bound on the timestamp of the events returned")
+    @UriParam
+    @ApiParam(apiMethods = "getEnterpriseEvents", description = "The lower bound on the timestamp of the events returned")
     private java.util.Date after;
-    @UriParam(description = "The upper bound on the timestamp of the events returned")
+    @UriParam
+    @ApiParam(apiMethods = "getEnterpriseEvents", description = "The upper bound on the timestamp of the events returned")
     private java.util.Date before;
-    @UriParam(description = "The starting position of the event stream. May be null in which case all events within bounds returned.")
+    @UriParam
+    @ApiParam(apiMethods = "getEnterpriseEvents", description = "The starting position of the event stream. May be null in which case all events within bounds returned.")
     private String position;
-    @UriParam(description = "An optional list of event types to filter by")
+    @UriParam
+    @ApiParam(apiMethods = "getEnterpriseEvents", description = "An optional list of event types to filter by")
     private com.box.sdk.BoxEvent.Type[] types;
 
     public java.util.Date getAfter() {

@@ -5,6 +5,8 @@
 package org.apache.camel.component.google.calendar;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,17 +14,21 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for com.google.api.services.calendar.Calendar$Acl
  */
-@ApiParams(apiName = "acl", apiMethods = "delete,get,insert,list,patch,update,watch")
+@ApiParams(apiName = "acl", apiMethods = {@ApiMethod(methodName = "delete"), @ApiMethod(methodName = "get"), @ApiMethod(methodName = "insert"), @ApiMethod(methodName = "list"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "update"), @ApiMethod(methodName = "watch")})
 @UriParams
 @Configurer
 public final class CalendarAclEndpointConfiguration extends GoogleCalendarConfiguration {
-    @UriParam(description = "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword.")
+    @UriParam
+    @ApiParam(apiMethods = "delete,get,insert,list,patch,update,watch", description = "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword.")
     private String calendarId;
-    @UriParam(description = "The com.google.api.services.calendar.model.AclRule")
+    @UriParam
+    @ApiParam(apiMethods = "insert,patch,update", description = "The com.google.api.services.calendar.model.AclRule")
     private com.google.api.services.calendar.model.AclRule content;
-    @UriParam(description = "The com.google.api.services.calendar.model.Channel")
+    @UriParam
+    @ApiParam(apiMethods = "watch", description = "The com.google.api.services.calendar.model.Channel")
     private com.google.api.services.calendar.model.Channel contentChannel;
-    @UriParam(description = "ACL rule identifier")
+    @UriParam
+    @ApiParam(apiMethods = "delete,get,patch,update", description = "ACL rule identifier")
     private String ruleId;
 
     public String getCalendarId() {

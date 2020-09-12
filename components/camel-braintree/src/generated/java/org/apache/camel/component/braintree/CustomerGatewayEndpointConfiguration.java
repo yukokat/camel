@@ -5,6 +5,8 @@
 package org.apache.camel.component.braintree;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,17 +14,21 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for com.braintreegateway.CustomerGateway
  */
-@ApiParams(apiName = "customer", apiMethods = "all,create,delete,find,search,update")
+@ApiParams(apiName = "customer", apiMethods = {@ApiMethod(methodName = "all"), @ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "find"), @ApiMethod(methodName = "search"), @ApiMethod(methodName = "update")})
 @UriParams
 @Configurer
 public final class CustomerGatewayEndpointConfiguration extends BraintreeConfiguration {
-    @UriParam(description = "The id of the association filter to use")
+    @UriParam
+    @ApiParam(apiMethods = "find", description = "The id of the association filter to use")
     private String associationFilterId;
-    @UriParam(description = "The id of the Customer")
+    @UriParam
+    @ApiParam(apiMethods = "delete,find,update", description = "The id of the Customer")
     private String id;
-    @UriParam(description = "The request query to use for search")
+    @UriParam
+    @ApiParam(apiMethods = "search", description = "The request query to use for search")
     private com.braintreegateway.CustomerSearchRequest query;
-    @UriParam(description = "The request")
+    @UriParam
+    @ApiParam(apiMethods = "create,update", description = "The request")
     private com.braintreegateway.CustomerRequest request;
 
     public String getAssociationFilterId() {

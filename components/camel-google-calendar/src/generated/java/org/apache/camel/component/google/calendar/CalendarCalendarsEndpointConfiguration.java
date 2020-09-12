@@ -5,6 +5,8 @@
 package org.apache.camel.component.google.calendar;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,13 +14,15 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for com.google.api.services.calendar.Calendar$Calendars
  */
-@ApiParams(apiName = "calendars", apiMethods = "clear,delete,get,insert,patch,update")
+@ApiParams(apiName = "calendars", apiMethods = {@ApiMethod(methodName = "clear"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "get"), @ApiMethod(methodName = "insert"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "update")})
 @UriParams
 @Configurer
 public final class CalendarCalendarsEndpointConfiguration extends GoogleCalendarConfiguration {
-    @UriParam(description = "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword.")
+    @UriParam
+    @ApiParam(apiMethods = "clear,delete,get,patch,update", description = "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword.")
     private String calendarId;
-    @UriParam(description = "The com.google.api.services.calendar.model.Calendar")
+    @UriParam
+    @ApiParam(apiMethods = "insert,patch,update", description = "The com.google.api.services.calendar.model.Calendar")
     private com.google.api.services.calendar.model.Calendar content;
 
     public String getCalendarId() {

@@ -5,6 +5,8 @@
 package org.apache.camel.component.google.mail;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,15 +14,18 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for com.google.api.services.gmail.Gmail$Users$Threads
  */
-@ApiParams(apiName = "threads", apiMethods = "delete,get,list,modify,trash,untrash")
+@ApiParams(apiName = "threads", apiMethods = {@ApiMethod(methodName = "delete"), @ApiMethod(methodName = "get"), @ApiMethod(methodName = "list"), @ApiMethod(methodName = "modify"), @ApiMethod(methodName = "trash"), @ApiMethod(methodName = "untrash")})
 @UriParams
 @Configurer
 public final class GmailUsersThreadsEndpointConfiguration extends GoogleMailConfiguration {
-    @UriParam(description = "The com.google.api.services.gmail.model.ModifyThreadRequest")
+    @UriParam
+    @ApiParam(apiMethods = "modify", description = "The com.google.api.services.gmail.model.ModifyThreadRequest")
     private com.google.api.services.gmail.model.ModifyThreadRequest content;
-    @UriParam(description = "ID of the Thread to delete")
+    @UriParam
+    @ApiParam(apiMethods = "delete,get,modify,trash,untrash", description = "ID of the Thread to delete")
     private String id;
-    @UriParam(description = "The user's email address. The special value me can be used to indicate the authenticated user. default: me")
+    @UriParam
+    @ApiParam(apiMethods = "delete,get,list,modify,trash,untrash", description = "The user's email address. The special value me can be used to indicate the authenticated user. default: me")
     private String userId;
 
     public com.google.api.services.gmail.model.ModifyThreadRequest getContent() {

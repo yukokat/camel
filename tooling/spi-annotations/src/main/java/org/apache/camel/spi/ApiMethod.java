@@ -23,28 +23,27 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Used for annotating a {@link UriParam} parameter that its for use by API based endpoints.
- *
- * The information from this annotation provides additional information such as which API method(s) the parameter
- * supports.
+ * Represents an API method as part of a parent API.
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Target({ ElementType.FIELD })
-public @interface ApiParam {
+public @interface ApiMethod {
 
     /**
-     * The API methods (separated by comma) that the API provides of this configuration class.
-     *
-     * This is only applicable for API based components where configurations are separated by API names and methods
-     * (grouping).
+     * The name of the api method.
      */
-    String apiMethods();
-
-    // TODO: We need an array of api methods and description
+    String methodName();
 
     /**
-     * Returns a description of this parameter.
+     * Returns the method signature of this api method.
+     * <p/>
+     * This is used for documentation and tooling only.
+     */
+    String signature() default "";
+
+    /**
+     * Returns a description of this api method.
      * <p/>
      * This is used for documentation and tooling only.
      */

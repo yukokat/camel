@@ -5,6 +5,8 @@
 package org.apache.camel.component.fhir;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,23 +14,30 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for org.apache.camel.component.fhir.api.FhirUpdate
  */
-@ApiParams(apiName = "update", apiMethods = "resource,resourceBySearchUrl")
+@ApiParams(apiName = "update", apiMethods = {@ApiMethod(methodName = "resource"), @ApiMethod(methodName = "resourceBySearchUrl")})
 @UriParams
 @Configurer
 public final class FhirUpdateEndpointConfiguration extends FhirConfiguration {
     @UriParam
+    @ApiParam(apiMethods = "resource,resourceBySearchUrl")
     private java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters,Object> extraParameters;
     @UriParam
+    @ApiParam(apiMethods = "resource")
     private org.hl7.fhir.instance.model.api.IIdType id;
     @UriParam
+    @ApiParam(apiMethods = "resource,resourceBySearchUrl")
     private ca.uhn.fhir.rest.api.PreferReturnEnum preferReturn;
     @UriParam
+    @ApiParam(apiMethods = "resource,resourceBySearchUrl")
     private org.hl7.fhir.instance.model.api.IBaseResource resource;
     @UriParam
+    @ApiParam(apiMethods = "resource,resourceBySearchUrl")
     private String resourceAsString;
     @UriParam
+    @ApiParam(apiMethods = "resource")
     private String stringId;
     @UriParam
+    @ApiParam(apiMethods = "resourceBySearchUrl")
     private String url;
 
     public java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters,Object> getExtraParameters() {

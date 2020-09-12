@@ -5,6 +5,8 @@
 package org.apache.camel.component.box;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,21 +14,27 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for org.apache.camel.component.box.api.BoxCollaborationsManager
  */
-@ApiParams(apiName = "collaborations", apiMethods = "addFolderCollaboration,addFolderCollaborationByEmail,deleteCollaboration,getCollaborationInfo,getFolderCollaborations,getPendingCollaborations,updateCollaborationInfo")
+@ApiParams(apiName = "collaborations", apiMethods = {@ApiMethod(methodName = "addFolderCollaboration"), @ApiMethod(methodName = "addFolderCollaborationByEmail"), @ApiMethod(methodName = "deleteCollaboration"), @ApiMethod(methodName = "getCollaborationInfo"), @ApiMethod(methodName = "getFolderCollaborations"), @ApiMethod(methodName = "getPendingCollaborations"), @ApiMethod(methodName = "updateCollaborationInfo")})
 @UriParams
 @Configurer
 public final class BoxCollaborationsManagerEndpointConfiguration extends BoxConfiguration {
-    @UriParam(description = "The id of comment to change")
+    @UriParam
+    @ApiParam(apiMethods = "deleteCollaboration,getCollaborationInfo,updateCollaborationInfo", description = "The id of comment to change")
     private String collaborationId;
-    @UriParam(description = "The collaborator to add")
+    @UriParam
+    @ApiParam(apiMethods = "addFolderCollaboration", description = "The collaborator to add")
     private com.box.sdk.BoxCollaborator collaborator;
-    @UriParam(description = "The email address of the collaborator to add")
+    @UriParam
+    @ApiParam(apiMethods = "addFolderCollaborationByEmail", description = "The email address of the collaborator to add")
     private String email;
-    @UriParam(description = "The id of folder to add collaboration to")
+    @UriParam
+    @ApiParam(apiMethods = "addFolderCollaboration,addFolderCollaborationByEmail,getFolderCollaborations", description = "The id of folder to add collaboration to")
     private String folderId;
     @UriParam
+    @ApiParam(apiMethods = "updateCollaborationInfo")
     private com.box.sdk.BoxCollaboration.Info info;
-    @UriParam(description = "The role of the collaborator")
+    @UriParam
+    @ApiParam(apiMethods = "addFolderCollaboration,addFolderCollaborationByEmail", description = "The role of the collaborator")
     private com.box.sdk.BoxCollaboration.Role role;
 
     public String getCollaborationId() {

@@ -5,6 +5,8 @@
 package org.apache.camel.component.google.drive;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,13 +14,15 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for com.google.api.services.drive.Drive$Changes
  */
-@ApiParams(apiName = "drive-changes", apiMethods = "get,getStartPageToken,list,watch")
+@ApiParams(apiName = "drive-changes", apiMethods = {@ApiMethod(methodName = "get"), @ApiMethod(methodName = "getStartPageToken"), @ApiMethod(methodName = "list"), @ApiMethod(methodName = "watch")})
 @UriParams
 @Configurer
 public final class DriveChangesEndpointConfiguration extends GoogleDriveConfiguration {
-    @UriParam(description = "The ID of the change")
+    @UriParam
+    @ApiParam(apiMethods = "get", description = "The ID of the change")
     private String changeId;
-    @UriParam(description = "The com.google.api.services.drive.model.Channel")
+    @UriParam
+    @ApiParam(apiMethods = "watch", description = "The com.google.api.services.drive.model.Channel")
     private com.google.api.services.drive.model.Channel contentChannel;
 
     public String getChangeId() {

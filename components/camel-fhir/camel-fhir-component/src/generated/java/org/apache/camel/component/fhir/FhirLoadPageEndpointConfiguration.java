@@ -5,6 +5,8 @@
 package org.apache.camel.component.fhir;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,17 +14,21 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for org.apache.camel.component.fhir.api.FhirLoadPage
  */
-@ApiParams(apiName = "load-page", apiMethods = "byUrl,next,previous")
+@ApiParams(apiName = "load-page", apiMethods = {@ApiMethod(methodName = "byUrl"), @ApiMethod(methodName = "next"), @ApiMethod(methodName = "previous")})
 @UriParams
 @Configurer
 public final class FhirLoadPageEndpointConfiguration extends FhirConfiguration {
     @UriParam
+    @ApiParam(apiMethods = "next,previous")
     private org.hl7.fhir.instance.model.api.IBaseBundle bundle;
     @UriParam
+    @ApiParam(apiMethods = "byUrl,next,previous")
     private java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters,Object> extraParameters;
     @UriParam
+    @ApiParam(apiMethods = "byUrl")
     private Class<org.hl7.fhir.instance.model.api.IBaseBundle> returnType;
     @UriParam
+    @ApiParam(apiMethods = "byUrl")
     private String url;
 
     public org.hl7.fhir.instance.model.api.IBaseBundle getBundle() {

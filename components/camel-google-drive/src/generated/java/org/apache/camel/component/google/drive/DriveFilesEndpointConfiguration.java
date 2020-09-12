@@ -5,6 +5,8 @@
 package org.apache.camel.component.google.drive;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,19 +14,24 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for com.google.api.services.drive.Drive$Files
  */
-@ApiParams(apiName = "drive-files", apiMethods = "copy,delete,emptyTrash,export,generateIds,get,insert,list,patch,touch,trash,untrash,update,watch")
+@ApiParams(apiName = "drive-files", apiMethods = {@ApiMethod(methodName = "copy"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "emptyTrash"), @ApiMethod(methodName = "export"), @ApiMethod(methodName = "generateIds"), @ApiMethod(methodName = "get"), @ApiMethod(methodName = "insert"), @ApiMethod(methodName = "list"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "touch"), @ApiMethod(methodName = "trash"), @ApiMethod(methodName = "untrash"), @ApiMethod(methodName = "update"), @ApiMethod(methodName = "watch")})
 @UriParams
 @Configurer
 public final class DriveFilesEndpointConfiguration extends GoogleDriveConfiguration {
-    @UriParam(description = "The com.google.api.services.drive.model.File")
+    @UriParam
+    @ApiParam(apiMethods = "copy,insert,patch,update", description = "The com.google.api.services.drive.model.File")
     private com.google.api.services.drive.model.File content;
-    @UriParam(description = "The com.google.api.services.drive.model.Channel")
+    @UriParam
+    @ApiParam(apiMethods = "watch", description = "The com.google.api.services.drive.model.Channel")
     private com.google.api.services.drive.model.Channel contentChannel;
-    @UriParam(description = "The ID of the file to copy")
+    @UriParam
+    @ApiParam(apiMethods = "copy,delete,export,get,patch,touch,trash,untrash,update,watch", description = "The ID of the file to copy")
     private String fileId;
-    @UriParam(description = "The media HTTP content or null if none")
+    @UriParam
+    @ApiParam(apiMethods = "insert,update", description = "The media HTTP content or null if none")
     private com.google.api.client.http.AbstractInputStreamContent mediaContent;
-    @UriParam(description = "The MIME type of the format requested for this export")
+    @UriParam
+    @ApiParam(apiMethods = "export", description = "The MIME type of the format requested for this export")
     private String mimeType;
 
     public com.google.api.services.drive.model.File getContent() {

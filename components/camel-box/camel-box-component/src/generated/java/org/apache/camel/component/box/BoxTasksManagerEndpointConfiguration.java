@@ -5,6 +5,8 @@
 package org.apache.camel.component.box;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,25 +14,33 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for org.apache.camel.component.box.api.BoxTasksManager
  */
-@ApiParams(apiName = "tasks", apiMethods = "addAssignmentToTask,addFileTask,deleteTask,deleteTaskAssignment,getFileTasks,getTaskAssignmentInfo,getTaskAssignments,getTaskInfo,updateTaskInfo")
+@ApiParams(apiName = "tasks", apiMethods = {@ApiMethod(methodName = "addAssignmentToTask"), @ApiMethod(methodName = "addFileTask"), @ApiMethod(methodName = "deleteTask"), @ApiMethod(methodName = "deleteTaskAssignment"), @ApiMethod(methodName = "getFileTasks"), @ApiMethod(methodName = "getTaskAssignmentInfo"), @ApiMethod(methodName = "getTaskAssignments"), @ApiMethod(methodName = "getTaskInfo"), @ApiMethod(methodName = "updateTaskInfo")})
 @UriParams
 @Configurer
 public final class BoxTasksManagerEndpointConfiguration extends BoxConfiguration {
-    @UriParam(description = "The action the task assignee will be prompted to do")
+    @UriParam
+    @ApiParam(apiMethods = "addFileTask", description = "The action the task assignee will be prompted to do")
     private com.box.sdk.BoxTask.Action action;
-    @UriParam(description = "The user to assign to task")
+    @UriParam
+    @ApiParam(apiMethods = "addAssignmentToTask", description = "The user to assign to task")
     private com.box.sdk.BoxUser assignTo;
-    @UriParam(description = "The day at which this task is due")
+    @UriParam
+    @ApiParam(apiMethods = "addFileTask", description = "The day at which this task is due")
     private java.util.Date dueAt;
-    @UriParam(description = "The id of file to add task to")
+    @UriParam
+    @ApiParam(apiMethods = "addFileTask,getFileTasks", description = "The id of file to add task to")
     private String fileId;
-    @UriParam(description = "The updated information")
+    @UriParam
+    @ApiParam(apiMethods = "updateTaskInfo", description = "The updated information")
     private com.box.sdk.BoxTask.Info info;
-    @UriParam(description = "An optional message to include with the task")
+    @UriParam
+    @ApiParam(apiMethods = "addFileTask", description = "An optional message to include with the task")
     private String message;
-    @UriParam(description = "The id of task assignment to delete")
+    @UriParam
+    @ApiParam(apiMethods = "deleteTaskAssignment,getTaskAssignmentInfo", description = "The id of task assignment to delete")
     private String taskAssignmentId;
-    @UriParam(description = "The id of task to add assignment for")
+    @UriParam
+    @ApiParam(apiMethods = "addAssignmentToTask,deleteTask,getTaskAssignments,getTaskInfo,updateTaskInfo", description = "The id of task to add assignment for")
     private String taskId;
 
     public com.box.sdk.BoxTask.Action getAction() {

@@ -150,35 +150,6 @@ with the following path and query parameters:
 | *useFixedDelay* (scheduler) | Controls if fixed delay or fixed rate is used. See ScheduledExecutorService in JDK for details. | true | boolean
 | *sslContextParameters* (security) | To configure security using SSLContextParameters |  | SSLContextParameters
 |===
-
-
-
-
-=== Query API Parameters (1 APIs):
-
-The Olingo2 endpoint is an API based component and has additional parameters based on which API name and method in use.
-The API name and method is located in the endpoint URI as the apiName/methodName path parameters:
-
-----
-olingo2:apiName/methodName
-----
-
-The following lists each API name and method and its additional parameters.
-
-
-==== DEFAULT
-
-[width="100%",cols="2,5,3",options="header"]
-|===
-| Name | Description | Type
-| *data* |  | Object
-| *edm* |  | Edm
-| *endpointHttpHeaders* |  | Map
-| *keyPredicate* |  | String
-| *queryParams* |  | Map
-| *resourcePath* |  | String
-| *responseHandler* |  | Olingo2ResponseHandler
-|===
 // endpoint options: END
 
 == Producer Endpoints

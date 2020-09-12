@@ -5,6 +5,8 @@
 package org.apache.camel.component.google.drive;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,15 +14,18 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for com.google.api.services.drive.Drive$Comments
  */
-@ApiParams(apiName = "drive-comments", apiMethods = "delete,get,insert,list,patch,update")
+@ApiParams(apiName = "drive-comments", apiMethods = {@ApiMethod(methodName = "delete"), @ApiMethod(methodName = "get"), @ApiMethod(methodName = "insert"), @ApiMethod(methodName = "list"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "update")})
 @UriParams
 @Configurer
 public final class DriveCommentsEndpointConfiguration extends GoogleDriveConfiguration {
-    @UriParam(description = "The ID of the comment")
+    @UriParam
+    @ApiParam(apiMethods = "delete,get,patch,update", description = "The ID of the comment")
     private String commentId;
-    @UriParam(description = "The com.google.api.services.drive.model.Comment")
+    @UriParam
+    @ApiParam(apiMethods = "insert,patch,update", description = "The com.google.api.services.drive.model.Comment")
     private com.google.api.services.drive.model.Comment content;
-    @UriParam(description = "The ID of the file")
+    @UriParam
+    @ApiParam(apiMethods = "delete,get,insert,list,patch,update", description = "The ID of the file")
     private String fileId;
 
     public String getCommentId() {

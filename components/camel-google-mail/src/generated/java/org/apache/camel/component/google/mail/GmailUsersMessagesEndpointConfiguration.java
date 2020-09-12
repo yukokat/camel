@@ -5,6 +5,8 @@
 package org.apache.camel.component.google.mail;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,23 +14,30 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for com.google.api.services.gmail.Gmail$Users$Messages
  */
-@ApiParams(apiName = "messages", apiMethods = "attachments,batchDelete,batchModify,delete,get,gmailImport,insert,list,modify,send,trash,untrash")
+@ApiParams(apiName = "messages", apiMethods = {@ApiMethod(methodName = "attachments"), @ApiMethod(methodName = "batchDelete"), @ApiMethod(methodName = "batchModify"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "get"), @ApiMethod(methodName = "gmailImport"), @ApiMethod(methodName = "insert"), @ApiMethod(methodName = "list"), @ApiMethod(methodName = "modify"), @ApiMethod(methodName = "send"), @ApiMethod(methodName = "trash"), @ApiMethod(methodName = "untrash")})
 @UriParams
 @Configurer
 public final class GmailUsersMessagesEndpointConfiguration extends GoogleMailConfiguration {
-    @UriParam(description = "The com.google.api.services.gmail.model.BatchDeleteMessagesRequest")
+    @UriParam
+    @ApiParam(apiMethods = "batchDelete", description = "The com.google.api.services.gmail.model.BatchDeleteMessagesRequest")
     private com.google.api.services.gmail.model.BatchDeleteMessagesRequest batchDeleteMessagesRequest;
-    @UriParam(description = "The com.google.api.services.gmail.model.BatchModifyMessagesRequest")
+    @UriParam
+    @ApiParam(apiMethods = "batchModify", description = "The com.google.api.services.gmail.model.BatchModifyMessagesRequest")
     private com.google.api.services.gmail.model.BatchModifyMessagesRequest batchModifyMessagesRequest;
-    @UriParam(description = "The com.google.api.services.gmail.model.Message media metadata or null if none")
+    @UriParam
+    @ApiParam(apiMethods = "gmailImport,insert,send", description = "The com.google.api.services.gmail.model.Message media metadata or null if none")
     private com.google.api.services.gmail.model.Message content;
-    @UriParam(description = "The ID of the message to delete")
+    @UriParam
+    @ApiParam(apiMethods = "delete,get,modify,trash,untrash", description = "The ID of the message to delete")
     private String id;
-    @UriParam(description = "The media HTTP content or null if none")
+    @UriParam
+    @ApiParam(apiMethods = "gmailImport,insert,send", description = "The media HTTP content or null if none")
     private com.google.api.client.http.AbstractInputStreamContent mediaContent;
-    @UriParam(description = "The com.google.api.services.gmail.model.ModifyMessageRequest")
+    @UriParam
+    @ApiParam(apiMethods = "modify", description = "The com.google.api.services.gmail.model.ModifyMessageRequest")
     private com.google.api.services.gmail.model.ModifyMessageRequest modifyMessageRequest;
-    @UriParam(description = "The user's email address. The special value me can be used to indicate the authenticated user. default: me")
+    @UriParam
+    @ApiParam(apiMethods = "batchDelete,batchModify,delete,get,gmailImport,insert,list,modify,send,trash,untrash", description = "The user's email address. The special value me can be used to indicate the authenticated user. default: me")
     private String userId;
 
     public com.google.api.services.gmail.model.BatchDeleteMessagesRequest getBatchDeleteMessagesRequest() {

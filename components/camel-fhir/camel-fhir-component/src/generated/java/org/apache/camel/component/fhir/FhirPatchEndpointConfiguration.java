@@ -5,6 +5,8 @@
 package org.apache.camel.component.fhir;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,21 +14,27 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for org.apache.camel.component.fhir.api.FhirPatch
  */
-@ApiParams(apiName = "patch", apiMethods = "patchById,patchByUrl")
+@ApiParams(apiName = "patch", apiMethods = {@ApiMethod(methodName = "patchById"), @ApiMethod(methodName = "patchByUrl")})
 @UriParams
 @Configurer
 public final class FhirPatchEndpointConfiguration extends FhirConfiguration {
-    @UriParam(description = "See ExtraParameters for a full list of parameters that can be passed, may be NULL")
+    @UriParam
+    @ApiParam(apiMethods = "patchById,patchByUrl", description = "See ExtraParameters for a full list of parameters that can be passed, may be NULL")
     private java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters,Object> extraParameters;
-    @UriParam(description = "The resource ID to patch")
+    @UriParam
+    @ApiParam(apiMethods = "patchById", description = "The resource ID to patch")
     private org.hl7.fhir.instance.model.api.IIdType id;
-    @UriParam(description = "The body of the patch document serialized in either XML or JSON which conforms to http://jsonpatch.com/ or http://tools.ietf.org/html/rfc5261")
+    @UriParam
+    @ApiParam(apiMethods = "patchById,patchByUrl", description = "The body of the patch document serialized in either XML or JSON which conforms to http://jsonpatch.com/ or http://tools.ietf.org/html/rfc5261")
     private String patchBody;
-    @UriParam(description = "Add a Prefer header to the request, which requests that the server include or suppress the resource body as a part of the result. If a resource is returned by the server it will be parsed an accessible to the client via MethodOutcome#getResource()")
+    @UriParam
+    @ApiParam(apiMethods = "patchById,patchByUrl", description = "Add a Prefer header to the request, which requests that the server include or suppress the resource body as a part of the result. If a resource is returned by the server it will be parsed an accessible to the client via MethodOutcome#getResource()")
     private ca.uhn.fhir.rest.api.PreferReturnEnum preferReturn;
-    @UriParam(description = "The resource ID to patch")
+    @UriParam
+    @ApiParam(apiMethods = "patchById", description = "The resource ID to patch")
     private String stringId;
-    @UriParam(description = "The search URL to use. The format of this URL should be of the form ResourceTypeParameters, for example: Patientname=Smith&amp;identifier=13.2.4.11.4%7C847366")
+    @UriParam
+    @ApiParam(apiMethods = "patchByUrl", description = "The search URL to use. The format of this URL should be of the form ResourceTypeParameters, for example: Patientname=Smith&amp;identifier=13.2.4.11.4%7C847366")
     private String url;
 
     public java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters,Object> getExtraParameters() {

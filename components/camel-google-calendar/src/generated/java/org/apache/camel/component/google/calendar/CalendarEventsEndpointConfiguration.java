@@ -5,6 +5,8 @@
 package org.apache.camel.component.google.calendar;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,21 +14,27 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for com.google.api.services.calendar.Calendar$Events
  */
-@ApiParams(apiName = "events", apiMethods = "calendarImport,delete,get,insert,instances,list,move,patch,quickAdd,update,watch")
+@ApiParams(apiName = "events", apiMethods = {@ApiMethod(methodName = "calendarImport"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "get"), @ApiMethod(methodName = "insert"), @ApiMethod(methodName = "instances"), @ApiMethod(methodName = "list"), @ApiMethod(methodName = "move"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "quickAdd"), @ApiMethod(methodName = "update"), @ApiMethod(methodName = "watch")})
 @UriParams
 @Configurer
 public final class CalendarEventsEndpointConfiguration extends GoogleCalendarConfiguration {
-    @UriParam(description = "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword.")
+    @UriParam
+    @ApiParam(apiMethods = "calendarImport,delete,get,insert,instances,list,move,patch,quickAdd,update,watch", description = "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword.")
     private String calendarId;
-    @UriParam(description = "The com.google.api.services.calendar.model.Event")
+    @UriParam
+    @ApiParam(apiMethods = "calendarImport,insert,patch,update", description = "The com.google.api.services.calendar.model.Event")
     private com.google.api.services.calendar.model.Event content;
-    @UriParam(description = "The com.google.api.services.calendar.model.Channel")
+    @UriParam
+    @ApiParam(apiMethods = "watch", description = "The com.google.api.services.calendar.model.Channel")
     private com.google.api.services.calendar.model.Channel contentChannel;
-    @UriParam(description = "Calendar identifier of the target calendar where the event is to be moved to")
+    @UriParam
+    @ApiParam(apiMethods = "move", description = "Calendar identifier of the target calendar where the event is to be moved to")
     private String destination;
-    @UriParam(description = "Event identifier")
+    @UriParam
+    @ApiParam(apiMethods = "delete,get,instances,move,patch,update", description = "Event identifier")
     private String eventId;
-    @UriParam(description = "The text describing the event to be created")
+    @UriParam
+    @ApiParam(apiMethods = "quickAdd", description = "The text describing the event to be created")
     private String text;
 
     public String getCalendarId() {

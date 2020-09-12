@@ -5,6 +5,8 @@
 package org.apache.camel.component.braintree;
 
 import org.apache.camel.spi.Configurer;
+import org.apache.camel.spi.ApiMethod;
+import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
@@ -12,15 +14,18 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel EndpointConfiguration for com.braintreegateway.AddressGateway
  */
-@ApiParams(apiName = "address", apiMethods = "create,delete,find,update")
+@ApiParams(apiName = "address", apiMethods = {@ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "find"), @ApiMethod(methodName = "update")})
 @UriParams
 @Configurer
 public final class AddressGatewayEndpointConfiguration extends BraintreeConfiguration {
-    @UriParam(description = "The id of the Customer")
+    @UriParam
+    @ApiParam(apiMethods = "create,delete,find,update", description = "The id of the Customer")
     private String customerId;
-    @UriParam(description = "The id of the Address to delete")
+    @UriParam
+    @ApiParam(apiMethods = "delete,find,update", description = "The id of the Address to delete")
     private String id;
-    @UriParam(description = "The request object")
+    @UriParam
+    @ApiParam(apiMethods = "create,update", description = "The request object")
     private com.braintreegateway.AddressRequest request;
 
     public String getCustomerId() {
