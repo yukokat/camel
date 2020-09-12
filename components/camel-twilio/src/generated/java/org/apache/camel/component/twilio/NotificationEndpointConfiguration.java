@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for com.twilio.rest.api.v2010.account.Notification
+ * Camel endpoint configuration for {@link com.twilio.rest.api.v2010.account.Notification}.
  */
-@ApiParams(apiName = "notification", apiMethods = {@ApiMethod(methodName = "fetcher"), @ApiMethod(methodName = "reader")})
+@ApiParams(apiName = "notification", description = "",
+           apiMethods = {@ApiMethod(methodName = "fetcher"), @ApiMethod(methodName = "reader")})
 @UriParams
 @Configurer
 public final class NotificationEndpointConfiguration extends TwilioConfiguration {

@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for com.twilio.rest.api.v2010.account.ShortCode
+ * Camel endpoint configuration for {@link com.twilio.rest.api.v2010.account.ShortCode}.
  */
-@ApiParams(apiName = "short-code", apiMethods = {@ApiMethod(methodName = "fetcher"), @ApiMethod(methodName = "reader"), @ApiMethod(methodName = "updater")})
+@ApiParams(apiName = "short-code", description = "",
+           apiMethods = {@ApiMethod(methodName = "fetcher"), @ApiMethod(methodName = "reader"), @ApiMethod(methodName = "updater")})
 @UriParams
 @Configurer
 public final class ShortCodeEndpointConfiguration extends TwilioConfiguration {

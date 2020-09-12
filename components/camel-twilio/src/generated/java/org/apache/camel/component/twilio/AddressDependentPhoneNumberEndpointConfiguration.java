@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for com.twilio.rest.api.v2010.account.address.DependentPhoneNumber
+ * Camel endpoint configuration for {@link com.twilio.rest.api.v2010.account.address.DependentPhoneNumber}.
  */
-@ApiParams(apiName = "address-dependent-phone-number", apiMethods = {@ApiMethod(methodName = "reader")})
+@ApiParams(apiName = "address-dependent-phone-number", description = "",
+           apiMethods = {@ApiMethod(methodName = "reader")})
 @UriParams
 @Configurer
 public final class AddressDependentPhoneNumberEndpointConfiguration extends TwilioConfiguration {

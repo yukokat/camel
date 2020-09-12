@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for com.braintreegateway.DiscountGateway
+ * Camel endpoint configuration for {@link com.braintreegateway.DiscountGateway}.
  */
-@ApiParams(apiName = "discount", apiMethods = {@ApiMethod(methodName = "all")})
+@ApiParams(apiName = "discount", description = "",
+           apiMethods = {@ApiMethod(methodName = "all")})
 @UriParams
 @Configurer
 public final class DiscountGatewayEndpointConfiguration extends BraintreeConfiguration {

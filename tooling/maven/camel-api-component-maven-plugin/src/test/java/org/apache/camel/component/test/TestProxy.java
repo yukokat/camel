@@ -20,6 +20,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * This is the test API.
+ */
 public class TestProxy {
 
     /**

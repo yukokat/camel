@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for com.braintreegateway.SettlementBatchSummaryGateway
+ * Camel endpoint configuration for {@link com.braintreegateway.SettlementBatchSummaryGateway}.
  */
-@ApiParams(apiName = "settlementBatchSummary", apiMethods = {@ApiMethod(methodName = "generate")})
+@ApiParams(apiName = "settlementBatchSummary", description = "",
+           apiMethods = {@ApiMethod(methodName = "generate")})
 @UriParams
 @Configurer
 public final class SettlementBatchSummaryGatewayEndpointConfiguration extends BraintreeConfiguration {

@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for com.twilio.rest.api.v2010.account.sip.ipaccesscontrollist.IpAddress
+ * Camel endpoint configuration for {@link com.twilio.rest.api.v2010.account.sip.ipaccesscontrollist.IpAddress}.
  */
-@ApiParams(apiName = "sip-ip-access-control-list-ip-address", apiMethods = {@ApiMethod(methodName = "creator"), @ApiMethod(methodName = "deleter"), @ApiMethod(methodName = "fetcher"), @ApiMethod(methodName = "reader"), @ApiMethod(methodName = "updater")})
+@ApiParams(apiName = "sip-ip-access-control-list-ip-address", description = "",
+           apiMethods = {@ApiMethod(methodName = "creator"), @ApiMethod(methodName = "deleter"), @ApiMethod(methodName = "fetcher"), @ApiMethod(methodName = "reader"), @ApiMethod(methodName = "updater")})
 @UriParams
 @Configurer
 public final class SipIpAccessControlListIpAddressEndpointConfiguration extends TwilioConfiguration {

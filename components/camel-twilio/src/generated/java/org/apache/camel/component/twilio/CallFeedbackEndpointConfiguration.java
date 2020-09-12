@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for com.twilio.rest.api.v2010.account.call.Feedback
+ * Camel endpoint configuration for {@link com.twilio.rest.api.v2010.account.call.Feedback}.
  */
-@ApiParams(apiName = "call-feedback", apiMethods = {@ApiMethod(methodName = "creator"), @ApiMethod(methodName = "fetcher"), @ApiMethod(methodName = "updater")})
+@ApiParams(apiName = "call-feedback", description = "",
+           apiMethods = {@ApiMethod(methodName = "creator"), @ApiMethod(methodName = "fetcher"), @ApiMethod(methodName = "updater")})
 @UriParams
 @Configurer
 public final class CallFeedbackEndpointConfiguration extends TwilioConfiguration {

@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for com.twilio.rest.api.v2010.account.Transcription
+ * Camel endpoint configuration for {@link com.twilio.rest.api.v2010.account.Transcription}.
  */
-@ApiParams(apiName = "transcription", apiMethods = {@ApiMethod(methodName = "deleter"), @ApiMethod(methodName = "fetcher"), @ApiMethod(methodName = "reader")})
+@ApiParams(apiName = "transcription", description = "",
+           apiMethods = {@ApiMethod(methodName = "deleter"), @ApiMethod(methodName = "fetcher"), @ApiMethod(methodName = "reader")})
 @UriParams
 @Configurer
 public final class TranscriptionEndpointConfiguration extends TwilioConfiguration {

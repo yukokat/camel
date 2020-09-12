@@ -108,4 +108,20 @@ public class JavaSourceParserTest {
         parser.reset();
     }
 
+    @Test
+    public void testClassJavadoc() throws Exception {
+        final JavaSourceParser parser = new JavaSourceParser();
+
+        parser.parse(JavaSourceParserTest.class.getResourceAsStream("/DisputeGateway.java"), null);
+
+        String desc = parser.getApiDescription();
+        assertEquals("Provides methods to interact with Dispute objects", desc);
+
+        parser.reset();
+        parser.parse(JavaSourceParserTest.class.getResourceAsStream("/CustomGateway.java"), null);
+
+        desc = parser.getApiDescription();
+        assertEquals("Provides methods to create, delete, find, and update Customer objects", desc);
+    }
+
 }

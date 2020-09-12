@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for com.braintreegateway.MerchantAccountGateway
+ * Camel endpoint configuration for {@link com.braintreegateway.MerchantAccountGateway}.
  */
-@ApiParams(apiName = "merchantAccount", apiMethods = {@ApiMethod(methodName = "all"), @ApiMethod(methodName = "create"), @ApiMethod(methodName = "createForCurrency"), @ApiMethod(methodName = "fetchMerchantAccounts"), @ApiMethod(methodName = "find"), @ApiMethod(methodName = "update")})
+@ApiParams(apiName = "merchantAccount", description = "",
+           apiMethods = {@ApiMethod(methodName = "all"), @ApiMethod(methodName = "create"), @ApiMethod(methodName = "createForCurrency"), @ApiMethod(methodName = "fetchMerchantAccounts"), @ApiMethod(methodName = "find"), @ApiMethod(methodName = "update")})
 @UriParams
 @Configurer
 public final class MerchantAccountGatewayEndpointConfiguration extends BraintreeConfiguration {

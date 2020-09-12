@@ -53,6 +53,9 @@ public abstract class AbstractApiMethodGeneratorMojo extends AbstractApiMethodBa
     @Parameter
     protected String apiName;
 
+    @Parameter
+    protected String apiDescription;
+
     /**
      * Method alias patterns for all APIs.
      */
@@ -88,6 +91,8 @@ public abstract class AbstractApiMethodGeneratorMojo extends AbstractApiMethodBa
         Map<String, Map<String, String>> parameters = new HashMap<>();
         List<SignatureModel> data = getSignatureList();
         for (SignatureModel model : data) {
+            // we get the api description via the method signature (not ideal but that's the way of the old parser API)
+            this.apiDescription = model.getApiDescription();
             signatures.add(model.getSignature());
             String method = StringHelper.before(model.getSignature(), "(");
             if (method != null && method.contains(" ")) {
@@ -99,7 +104,6 @@ public abstract class AbstractApiMethodGeneratorMojo extends AbstractApiMethodBa
         }
         parser.setSignatures(signatures);
         parser.setParameters(parameters);
-
         parser.setClassLoader(getProjectClassLoader());
 
         // parse signatures
@@ -185,6 +189,7 @@ public abstract class AbstractApiMethodGeneratorMojo extends AbstractApiMethodBa
     private VelocityContext getEndpointContext(List<ApiMethodParser.ApiMethodModel> models) throws MojoExecutionException {
         VelocityContext context = getCommonContext(models);
         context.put("apiName", apiName);
+        context.put("apiDescription", apiDescription);
 
         // TODO: we should include alias information as well
 
@@ -371,6 +376,13 @@ public abstract class AbstractApiMethodGeneratorMojo extends AbstractApiMethodBa
             return "DEFAULT";
         }
         return apiName;
+    }
+
+    public String getApiDescription(String apiDescription) {
+        if (apiDescription == null) {
+            return "";
+        }
+        return apiDescription;
     }
 
     public String getApiMethods(List<String> methods) {

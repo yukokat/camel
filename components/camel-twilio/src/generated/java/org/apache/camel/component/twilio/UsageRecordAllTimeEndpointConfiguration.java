@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for com.twilio.rest.api.v2010.account.usage.record.AllTime
+ * Camel endpoint configuration for {@link com.twilio.rest.api.v2010.account.usage.record.AllTime}.
  */
-@ApiParams(apiName = "usage-record-all-time", apiMethods = {@ApiMethod(methodName = "reader")})
+@ApiParams(apiName = "usage-record-all-time", description = "",
+           apiMethods = {@ApiMethod(methodName = "reader")})
 @UriParams
 @Configurer
 public final class UsageRecordAllTimeEndpointConfiguration extends TwilioConfiguration {

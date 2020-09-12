@@ -23,8 +23,26 @@ import java.util.Map;
  */
 public class SignatureModel {
 
+    private String apiName;
+    private String apiDescription;
     private String signature;
     private Map<String, String> parameters;
+
+    public String getApiName() {
+        return apiName;
+    }
+
+    public void setApiName(String apiName) {
+        this.apiName = apiName;
+    }
+
+    public String getApiDescription() {
+        return apiDescription;
+    }
+
+    public void setApiDescription(String apiDescription) {
+        this.apiDescription = apiDescription;
+    }
 
     public String getSignature() {
         return signature;

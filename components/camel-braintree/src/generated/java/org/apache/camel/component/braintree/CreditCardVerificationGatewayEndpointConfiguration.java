@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for com.braintreegateway.CreditCardVerificationGateway
+ * Camel endpoint configuration for {@link com.braintreegateway.CreditCardVerificationGateway}.
  */
-@ApiParams(apiName = "creditCardVerification", apiMethods = {@ApiMethod(methodName = "create"), @ApiMethod(methodName = "find"), @ApiMethod(methodName = "search")})
+@ApiParams(apiName = "creditCardVerification", description = "",
+           apiMethods = {@ApiMethod(methodName = "create"), @ApiMethod(methodName = "find"), @ApiMethod(methodName = "search")})
 @UriParams
 @Configurer
 public final class CreditCardVerificationGatewayEndpointConfiguration extends BraintreeConfiguration {

@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for com.braintreegateway.CustomerGateway
+ * Camel endpoint configuration for {@link com.braintreegateway.CustomerGateway}.
  */
-@ApiParams(apiName = "customer", apiMethods = {@ApiMethod(methodName = "all"), @ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "find"), @ApiMethod(methodName = "search"), @ApiMethod(methodName = "update")})
+@ApiParams(apiName = "customer", description = "Provides methods to create, delete, find, and update Customer objects",
+           apiMethods = {@ApiMethod(methodName = "all"), @ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "find"), @ApiMethod(methodName = "search"), @ApiMethod(methodName = "update")})
 @UriParams
 @Configurer
 public final class CustomerGatewayEndpointConfiguration extends BraintreeConfiguration {

@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for com.twilio.rest.api.v2010.account.NewKey
+ * Camel endpoint configuration for {@link com.twilio.rest.api.v2010.account.NewKey}.
  */
-@ApiParams(apiName = "new-key", apiMethods = {@ApiMethod(methodName = "creator")})
+@ApiParams(apiName = "new-key", description = "",
+           apiMethods = {@ApiMethod(methodName = "creator")})
 @UriParams
 @Configurer
 public final class NewKeyEndpointConfiguration extends TwilioConfiguration {

@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for com.twilio.rest.api.v2010.account.recording.addonresult.Payload
+ * Camel endpoint configuration for {@link com.twilio.rest.api.v2010.account.recording.addonresult.Payload}.
  */
-@ApiParams(apiName = "recording-add-on-result-payload", apiMethods = {@ApiMethod(methodName = "deleter"), @ApiMethod(methodName = "fetcher"), @ApiMethod(methodName = "reader")})
+@ApiParams(apiName = "recording-add-on-result-payload", description = "",
+           apiMethods = {@ApiMethod(methodName = "deleter"), @ApiMethod(methodName = "fetcher"), @ApiMethod(methodName = "reader")})
 @UriParams
 @Configurer
 public final class RecordingAddOnResultPayloadEndpointConfiguration extends TwilioConfiguration {

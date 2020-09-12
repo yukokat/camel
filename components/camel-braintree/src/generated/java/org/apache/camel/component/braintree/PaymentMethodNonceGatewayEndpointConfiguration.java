@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for com.braintreegateway.PaymentMethodNonceGateway
+ * Camel endpoint configuration for {@link com.braintreegateway.PaymentMethodNonceGateway}.
  */
-@ApiParams(apiName = "paymentMethodNonce", apiMethods = {@ApiMethod(methodName = "create"), @ApiMethod(methodName = "find")})
+@ApiParams(apiName = "paymentMethodNonce", description = "",
+           apiMethods = {@ApiMethod(methodName = "create"), @ApiMethod(methodName = "find")})
 @UriParams
 @Configurer
 public final class PaymentMethodNonceGatewayEndpointConfiguration extends BraintreeConfiguration {

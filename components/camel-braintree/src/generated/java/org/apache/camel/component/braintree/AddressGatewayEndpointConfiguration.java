@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for com.braintreegateway.AddressGateway
+ * Camel endpoint configuration for {@link com.braintreegateway.AddressGateway}.
  */
-@ApiParams(apiName = "address", apiMethods = {@ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "find"), @ApiMethod(methodName = "update")})
+@ApiParams(apiName = "address", description = "Provides methods to create, delete, find, and update Address objects",
+           apiMethods = {@ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "find"), @ApiMethod(methodName = "update")})
 @UriParams
 @Configurer
 public final class AddressGatewayEndpointConfiguration extends BraintreeConfiguration {

@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for com.braintreegateway.DocumentUploadGateway
+ * Camel endpoint configuration for {@link com.braintreegateway.DocumentUploadGateway}.
  */
-@ApiParams(apiName = "documentUpload", apiMethods = {@ApiMethod(methodName = "create")})
+@ApiParams(apiName = "documentUpload", description = "",
+           apiMethods = {@ApiMethod(methodName = "create")})
 @UriParams
 @Configurer
 public final class DocumentUploadGatewayEndpointConfiguration extends BraintreeConfiguration {

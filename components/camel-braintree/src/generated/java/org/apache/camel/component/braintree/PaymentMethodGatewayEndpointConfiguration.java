@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for com.braintreegateway.PaymentMethodGateway
+ * Camel endpoint configuration for {@link com.braintreegateway.PaymentMethodGateway}.
  */
-@ApiParams(apiName = "paymentMethod", apiMethods = {@ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "find"), @ApiMethod(methodName = "grant"), @ApiMethod(methodName = "revoke"), @ApiMethod(methodName = "update")})
+@ApiParams(apiName = "paymentMethod", description = "",
+           apiMethods = {@ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "find"), @ApiMethod(methodName = "grant"), @ApiMethod(methodName = "revoke"), @ApiMethod(methodName = "update")})
 @UriParams
 @Configurer
 public final class PaymentMethodGatewayEndpointConfiguration extends BraintreeConfiguration {

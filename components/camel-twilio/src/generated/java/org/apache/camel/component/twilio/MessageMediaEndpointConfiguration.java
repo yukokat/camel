@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for com.twilio.rest.api.v2010.account.message.Media
+ * Camel endpoint configuration for {@link com.twilio.rest.api.v2010.account.message.Media}.
  */
-@ApiParams(apiName = "message-media", apiMethods = {@ApiMethod(methodName = "deleter"), @ApiMethod(methodName = "fetcher"), @ApiMethod(methodName = "reader")})
+@ApiParams(apiName = "message-media", description = "",
+           apiMethods = {@ApiMethod(methodName = "deleter"), @ApiMethod(methodName = "fetcher"), @ApiMethod(methodName = "reader")})
 @UriParams
 @Configurer
 public final class MessageMediaEndpointConfiguration extends TwilioConfiguration {

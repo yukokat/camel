@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for com.twilio.rest.api.v2010.account.availablephonenumbercountry.TollFree
+ * Camel endpoint configuration for {@link com.twilio.rest.api.v2010.account.availablephonenumbercountry.TollFree}.
  */
-@ApiParams(apiName = "available-phone-number-country-toll-free", apiMethods = {@ApiMethod(methodName = "reader")})
+@ApiParams(apiName = "available-phone-number-country-toll-free", description = "",
+           apiMethods = {@ApiMethod(methodName = "reader")})
 @UriParams
 @Configurer
 public final class AvailablePhoneNumberCountryTollFreeEndpointConfiguration extends TwilioConfiguration {

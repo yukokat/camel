@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for com.braintreegateway.PlanGateway
+ * Camel endpoint configuration for {@link com.braintreegateway.PlanGateway}.
  */
-@ApiParams(apiName = "plan", apiMethods = {@ApiMethod(methodName = "all")})
+@ApiParams(apiName = "plan", description = "",
+           apiMethods = {@ApiMethod(methodName = "all")})
 @UriParams
 @Configurer
 public final class PlanGatewayEndpointConfiguration extends BraintreeConfiguration {

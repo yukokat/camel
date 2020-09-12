@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for com.braintreegateway.TransactionGateway
+ * Camel endpoint configuration for {@link com.braintreegateway.TransactionGateway}.
  */
-@ApiParams(apiName = "transaction", apiMethods = {@ApiMethod(methodName = "cancelRelease"), @ApiMethod(methodName = "cloneTransaction"), @ApiMethod(methodName = "credit"), @ApiMethod(methodName = "find"), @ApiMethod(methodName = "holdInEscrow"), @ApiMethod(methodName = "refund"), @ApiMethod(methodName = "releaseFromEscrow"), @ApiMethod(methodName = "sale"), @ApiMethod(methodName = "search"), @ApiMethod(methodName = "submitForPartialSettlement"), @ApiMethod(methodName = "submitForSettlement"), @ApiMethod(methodName = "updateDetails"), @ApiMethod(methodName = "voidTransaction")})
+@ApiParams(apiName = "transaction", description = "Provides methods to interact with Transactions",
+           apiMethods = {@ApiMethod(methodName = "cancelRelease"), @ApiMethod(methodName = "cloneTransaction"), @ApiMethod(methodName = "credit"), @ApiMethod(methodName = "find"), @ApiMethod(methodName = "holdInEscrow"), @ApiMethod(methodName = "refund"), @ApiMethod(methodName = "releaseFromEscrow"), @ApiMethod(methodName = "sale"), @ApiMethod(methodName = "search"), @ApiMethod(methodName = "submitForPartialSettlement"), @ApiMethod(methodName = "submitForSettlement"), @ApiMethod(methodName = "updateDetails"), @ApiMethod(methodName = "voidTransaction")})
 @UriParams
 @Configurer
 public final class TransactionGatewayEndpointConfiguration extends BraintreeConfiguration {

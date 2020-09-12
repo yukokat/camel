@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for com.braintreegateway.AddOnGateway
+ * Camel endpoint configuration for {@link com.braintreegateway.AddOnGateway}.
  */
-@ApiParams(apiName = "addOn", apiMethods = {@ApiMethod(methodName = "all")})
+@ApiParams(apiName = "addOn", description = "",
+           apiMethods = {@ApiMethod(methodName = "all")})
 @UriParams
 @Configurer
 public final class AddOnGatewayEndpointConfiguration extends BraintreeConfiguration {

@@ -40,6 +40,13 @@ public @interface ApiParams {
     String apiName() default "";
 
     /**
+     * Returns a description of the API.
+     * <p/>
+     * This is used for documentation and tooling only.
+     */
+    String description() default "";
+
+    /**
      * The API methods that the API provides of this configuration class.
      */
     ApiMethod[] apiMethods();

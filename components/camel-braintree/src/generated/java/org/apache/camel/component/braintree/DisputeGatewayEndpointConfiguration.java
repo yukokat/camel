@@ -12,9 +12,10 @@ import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriParams;
 
 /**
- * Camel EndpointConfiguration for com.braintreegateway.DisputeGateway
+ * Camel endpoint configuration for {@link com.braintreegateway.DisputeGateway}.
  */
-@ApiParams(apiName = "dispute", apiMethods = {@ApiMethod(methodName = "accept"), @ApiMethod(methodName = "addFileEvidence"), @ApiMethod(methodName = "addTextEvidence"), @ApiMethod(methodName = "finalize"), @ApiMethod(methodName = "find"), @ApiMethod(methodName = "removeEvidence"), @ApiMethod(methodName = "search")})
+@ApiParams(apiName = "dispute", description = "Provides methods to interact with Dispute objects",
+           apiMethods = {@ApiMethod(methodName = "accept"), @ApiMethod(methodName = "addFileEvidence"), @ApiMethod(methodName = "addTextEvidence"), @ApiMethod(methodName = "finalize"), @ApiMethod(methodName = "find"), @ApiMethod(methodName = "removeEvidence"), @ApiMethod(methodName = "search")})
 @UriParams
 @Configurer
 public final class DisputeGatewayEndpointConfiguration extends BraintreeConfiguration {

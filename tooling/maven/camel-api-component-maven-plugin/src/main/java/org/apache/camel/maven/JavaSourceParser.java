@@ -24,7 +24,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
 
+import org.apache.camel.util.StringHelper;
 import org.jboss.forge.roaster.Roaster;
+import org.jboss.forge.roaster._shade.org.eclipse.jdt.core.dom.ASTNode;
 import org.jboss.forge.roaster.model.JavaDocTag;
 import org.jboss.forge.roaster.model.Type;
 import org.jboss.forge.roaster.model.source.JavaClassSource;
@@ -43,6 +45,7 @@ public class JavaSourceParser {
     private Map<String, String> methodText = new HashMap<>();
     private Map<String, Map<String, String>> parameters = new LinkedHashMap<>();
     private String errorMessage;
+    private String apiDescription;
 
     public synchronized void parse(InputStream in, String innerClass) throws Exception {
         JavaClassSource rootClazz = (JavaClassSource) Roaster.parse(in);
@@ -55,6 +58,16 @@ public class JavaSourceParser {
                 errorMessage = "Cannot find inner class " + innerClass + " in class: " + rootClazz.getQualifiedName();
                 return;
             }
+        }
+
+        String doc = getClassJavadocRaw(clazz);
+        apiDescription = sanitizeJavaDocValue(doc, true);
+        if (apiDescription == null || apiDescription.isEmpty()) {
+            doc = getClassJavadocRaw(rootClazz);
+            apiDescription = sanitizeJavaDocValue(doc, true);
+        }
+        if (apiDescription != null && apiDescription.indexOf('.') > 0) {
+            apiDescription = StringHelper.before(apiDescription, ".");
         }
 
         for (MethodSource ms : clazz.getMethods()) {
@@ -216,21 +229,43 @@ public class JavaSourceParser {
             String key = tag.getValue();
             if (key.startsWith(name)) {
                 String desc = key.substring(name.length());
-                desc = sanitizeJavaDocValue(desc);
+                desc = sanitizeJavaDocValue(desc, false);
                 return desc;
             }
         }
         return "";
     }
 
-    private static String sanitizeJavaDocValue(String desc) {
-        // remove leading - and whitespaces
+    /**
+     * Gets the class javadoc raw (incl line breaks and tags etc). The roaster API returns the javadoc with line breaks
+     * and others removed
+     */
+    private static String getClassJavadocRaw(JavaClassSource clazz) {
+        Object obj = clazz.getJavaDoc().getInternal();
+        ASTNode node = (ASTNode) obj;
+        int pos = node.getStartPosition();
+        int len = node.getLength();
+        if (pos > 0 && len > 0) {
+            String txt = clazz.toUnformattedString();
+            String doc = txt.substring(pos, pos + len);
+            return doc;
+        } else {
+            return null;
+        }
+    }
+
+    private static String sanitizeJavaDocValue(String desc, boolean summary) {
+        if (desc == null) {
+            return null;
+        }
+
+        // remove leading - or / and whitespaces
         desc = desc.trim();
-        while (desc.startsWith("-")) {
+        while (desc.startsWith("-") || desc.startsWith("/")) {
             desc = desc.substring(1);
             desc = desc.trim();
         }
-        desc = sanitizeDescription(desc, false);
+        desc = sanitizeDescription(desc, summary);
         if (desc != null && !desc.isEmpty()) {
             // upper case first letter
             char ch = desc.charAt(0);
@@ -264,6 +299,7 @@ public class JavaSourceParser {
         methodText.clear();
         parameters.clear();
         errorMessage = null;
+        apiDescription = null;
     }
 
     public String getErrorMessage() {
@@ -280,6 +316,10 @@ public class JavaSourceParser {
 
     public Map<String, Map<String, String>> getParameters() {
         return parameters;
+    }
+
+    public String getApiDescription() {
+        return apiDescription;
     }
 
 }
