@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.twilio.rest.api.v2010.account.sip.IpAccessControlList}.
  */
 @ApiParams(apiName = "sip-ip-access-control-list", description = "",
-           apiMethods = {@ApiMethod(methodName = "creator", description="}"), @ApiMethod(methodName = "creator", description="}"), @ApiMethod(methodName = "deleter", description="}"), @ApiMethod(methodName = "deleter", description="}"), @ApiMethod(methodName = "fetcher", description="}"), @ApiMethod(methodName = "fetcher", description="}"), @ApiMethod(methodName = "reader", description="}"), @ApiMethod(methodName = "reader", description="}"), @ApiMethod(methodName = "updater", description="}"), @ApiMethod(methodName = "updater", description="}")})
+           apiMethods = {@ApiMethod(methodName = "creator", description="Create a IpAccessControlListCreator to execute create"), @ApiMethod(methodName = "deleter", description="Create a IpAccessControlListDeleter to execute delete"), @ApiMethod(methodName = "fetcher", description="Create a IpAccessControlListFetcher to execute fetch"), @ApiMethod(methodName = "reader", description="Create a IpAccessControlListReader to execute read"), @ApiMethod(methodName = "updater", description="Create a IpAccessControlListUpdater to execute update"), })
 @UriParams
 @Configurer
 public final class SipIpAccessControlListEndpointConfiguration extends TwilioConfiguration {

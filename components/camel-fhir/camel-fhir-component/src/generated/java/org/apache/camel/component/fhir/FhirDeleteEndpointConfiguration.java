@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link org.apache.camel.component.fhir.api.FhirDelete}.
  */
 @ApiParams(apiName = "delete", description = "API for the delete operation, which performs a logical delete on a server resource",
-           apiMethods = {@ApiMethod(methodName = "resource", description="Deletes the given resource"), @ApiMethod(methodName = "resourceById", description="Deletes the resource by resource type e"), @ApiMethod(methodName = "resourceById", description="Deletes the resource by resource type e"), @ApiMethod(methodName = "resourceConditionalByUrl", description="Specifies that the delete should be performed as a conditional delete against a given search URL")})
+           apiMethods = {@ApiMethod(methodName = "resource", description="Deletes the given resource"), @ApiMethod(methodName = "resourceById", description="Deletes the resource by resource type e"), @ApiMethod(methodName = "resourceConditionalByUrl", description="Specifies that the delete should be performed as a conditional delete against a given search URL")})
 @UriParams
 @Configurer
 public final class FhirDeleteEndpointConfiguration extends FhirConfiguration {

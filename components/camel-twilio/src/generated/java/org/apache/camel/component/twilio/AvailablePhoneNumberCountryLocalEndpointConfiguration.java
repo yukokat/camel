@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.twilio.rest.api.v2010.account.availablephonenumbercountry.Local}.
  */
 @ApiParams(apiName = "available-phone-number-country-local", description = "",
-           apiMethods = {@ApiMethod(methodName = "reader", description="}"), @ApiMethod(methodName = "reader", description="}")})
+           apiMethods = {@ApiMethod(methodName = "reader", description="Create a LocalReader to execute read"), })
 @UriParams
 @Configurer
 public final class AvailablePhoneNumberCountryLocalEndpointConfiguration extends TwilioConfiguration {

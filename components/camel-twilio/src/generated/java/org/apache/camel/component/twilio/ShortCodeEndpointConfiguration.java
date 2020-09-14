@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.twilio.rest.api.v2010.account.ShortCode}.
  */
 @ApiParams(apiName = "short-code", description = "",
-           apiMethods = {@ApiMethod(methodName = "fetcher", description="}"), @ApiMethod(methodName = "fetcher", description="}"), @ApiMethod(methodName = "reader", description="}"), @ApiMethod(methodName = "reader", description="}"), @ApiMethod(methodName = "updater", description="}"), @ApiMethod(methodName = "updater", description="}")})
+           apiMethods = {@ApiMethod(methodName = "fetcher", description="Create a ShortCodeFetcher to execute fetch"), @ApiMethod(methodName = "reader", description="Create a ShortCodeReader to execute read"), @ApiMethod(methodName = "updater", description="Create a ShortCodeUpdater to execute update"), })
 @UriParams
 @Configurer
 public final class ShortCodeEndpointConfiguration extends TwilioConfiguration {

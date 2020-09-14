@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.google.api.services.drive.Drive$Realtime}.
  */
 @ApiParams(apiName = "drive-realtime", description = "The realtime collection of methods",
-           apiMethods = {@ApiMethod(methodName = "get", description="Exports the contents of the Realtime API data model associated with this file as JSON"), @ApiMethod(methodName = "update", description="Overwrites the Realtime API data model associated with this file with the provided JSON data model"), @ApiMethod(methodName = "update", description="Overwrites the Realtime API data model associated with this file with the provided JSON data model")})
+           apiMethods = {@ApiMethod(methodName = "get", description="Exports the contents of the Realtime API data model associated with this file as JSON"), @ApiMethod(methodName = "update", description="Overwrites the Realtime API data model associated with this file with the provided JSON data model"), })
 @UriParams
 @Configurer
 public final class DriveRealtimeEndpointConfiguration extends GoogleDriveConfiguration {

@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.twilio.rest.api.v2010.account.Call}.
  */
 @ApiParams(apiName = "call", description = "",
-           apiMethods = {@ApiMethod(methodName = "creator", description="}"), @ApiMethod(methodName = "creator", description="}"), @ApiMethod(methodName = "creator", description="}"), @ApiMethod(methodName = "creator", description="}"), @ApiMethod(methodName = "creator", description="}"), @ApiMethod(methodName = "creator", description="}"), @ApiMethod(methodName = "deleter", description="}"), @ApiMethod(methodName = "deleter", description="}"), @ApiMethod(methodName = "fetcher", description="}"), @ApiMethod(methodName = "fetcher", description="}"), @ApiMethod(methodName = "reader", description="}"), @ApiMethod(methodName = "reader", description="}"), @ApiMethod(methodName = "updater", description="}"), @ApiMethod(methodName = "updater", description="}")})
+           apiMethods = {@ApiMethod(methodName = "creator", description="Create a CallCreator to execute create"), @ApiMethod(methodName = "deleter", description="Create a CallDeleter to execute delete"), @ApiMethod(methodName = "fetcher", description="Create a CallFetcher to execute fetch"), @ApiMethod(methodName = "reader", description="Create a CallReader to execute read"), @ApiMethod(methodName = "updater", description="Create a CallUpdater to execute update"), })
 @UriParams
 @Configurer
 public final class CallEndpointConfiguration extends TwilioConfiguration {

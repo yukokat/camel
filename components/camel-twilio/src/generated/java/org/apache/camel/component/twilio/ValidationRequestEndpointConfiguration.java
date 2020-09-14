@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.twilio.rest.api.v2010.account.ValidationRequest}.
  */
 @ApiParams(apiName = "validation-request", description = "",
-           apiMethods = {@ApiMethod(methodName = "creator", description="}"), @ApiMethod(methodName = "creator", description="}")})
+           apiMethods = {@ApiMethod(methodName = "creator", description="Create a ValidationRequestCreator to execute create"), })
 @UriParams
 @Configurer
 public final class ValidationRequestEndpointConfiguration extends TwilioConfiguration {

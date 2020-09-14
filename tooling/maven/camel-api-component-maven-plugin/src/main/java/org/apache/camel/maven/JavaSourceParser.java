@@ -286,9 +286,9 @@ public class JavaSourceParser {
             return null;
         }
 
-        // remove leading/trailing - or / and whitespaces
+        // remove leading/trailing garbage
         desc = desc.trim();
-        while (desc.startsWith("-") || desc.startsWith("/")) {
+        while (desc.startsWith("\n") || desc.startsWith("}") || desc.startsWith("-") || desc.startsWith("/")) {
             desc = desc.substring(1);
             desc = desc.trim();
         }

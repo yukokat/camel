@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.twilio.rest.api.v2010.account.incomingphonenumber.Mobile}.
  */
 @ApiParams(apiName = "incoming-phone-number-mobile", description = "",
-           apiMethods = {@ApiMethod(methodName = "creator", description="}"), @ApiMethod(methodName = "creator", description="}"), @ApiMethod(methodName = "reader", description="}"), @ApiMethod(methodName = "reader", description="}")})
+           apiMethods = {@ApiMethod(methodName = "creator", description="Create a MobileCreator to execute create"), @ApiMethod(methodName = "reader", description="Create a MobileReader to execute read"), })
 @UriParams
 @Configurer
 public final class IncomingPhoneNumberMobileEndpointConfiguration extends TwilioConfiguration {

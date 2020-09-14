@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.twilio.rest.api.v2010.account.ConnectApp}.
  */
 @ApiParams(apiName = "connect-app", description = "",
-           apiMethods = {@ApiMethod(methodName = "deleter", description="}"), @ApiMethod(methodName = "deleter", description="}"), @ApiMethod(methodName = "fetcher", description="}"), @ApiMethod(methodName = "fetcher", description="}"), @ApiMethod(methodName = "reader", description="}"), @ApiMethod(methodName = "reader", description="}"), @ApiMethod(methodName = "updater", description="}"), @ApiMethod(methodName = "updater", description="}")})
+           apiMethods = {@ApiMethod(methodName = "deleter", description="Create a ConnectAppDeleter to execute delete"), @ApiMethod(methodName = "fetcher", description="Create a ConnectAppFetcher to execute fetch"), @ApiMethod(methodName = "reader", description="Create a ConnectAppReader to execute read"), @ApiMethod(methodName = "updater", description="Create a ConnectAppUpdater to execute update"), })
 @UriParams
 @Configurer
 public final class ConnectAppEndpointConfiguration extends TwilioConfiguration {

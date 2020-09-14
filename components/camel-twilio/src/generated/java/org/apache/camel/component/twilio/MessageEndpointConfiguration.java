@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.twilio.rest.api.v2010.account.Message}.
  */
 @ApiParams(apiName = "message", description = "",
-           apiMethods = {@ApiMethod(methodName = "creator", description="}"), @ApiMethod(methodName = "creator", description="}"), @ApiMethod(methodName = "creator", description="}"), @ApiMethod(methodName = "creator", description="}"), @ApiMethod(methodName = "creator", description="}"), @ApiMethod(methodName = "creator", description="}"), @ApiMethod(methodName = "creator", description="}"), @ApiMethod(methodName = "creator", description="}"), @ApiMethod(methodName = "deleter", description="}"), @ApiMethod(methodName = "deleter", description="}"), @ApiMethod(methodName = "fetcher", description="}"), @ApiMethod(methodName = "fetcher", description="}"), @ApiMethod(methodName = "reader", description="}"), @ApiMethod(methodName = "reader", description="}"), @ApiMethod(methodName = "updater", description="}"), @ApiMethod(methodName = "updater", description="}")})
+           apiMethods = {@ApiMethod(methodName = "creator", description="Create a MessageCreator to execute create"), @ApiMethod(methodName = "deleter", description="Create a MessageDeleter to execute delete"), @ApiMethod(methodName = "fetcher", description="Create a MessageFetcher to execute fetch"), @ApiMethod(methodName = "reader", description="Create a MessageReader to execute read"), @ApiMethod(methodName = "updater", description="Create a MessageUpdater to execute update"), })
 @UriParams
 @Configurer
 public final class MessageEndpointConfiguration extends TwilioConfiguration {

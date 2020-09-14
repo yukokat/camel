@@ -20,8 +20,10 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.StringJoiner;
 import java.util.TreeMap;
 import java.util.regex.Matcher;
@@ -380,19 +382,27 @@ public abstract class AbstractApiMethodGeneratorMojo extends AbstractApiMethodBa
     public String getApiMethods(List<ApiMethodParser.ApiMethodModel> models) {
         // TODO: we should include alias information as well
         // TODO: and signature as well
-        // TODO: sort and unique
+
+        models.sort((o1, o2) -> o1.getName().compareToIgnoreCase(o2.getName()));
+
+        // avoid duplicate methods as we only want them listed once
+        Set<String> names = new HashSet<>();
+
         StringBuilder sb = new StringBuilder();
         sb.append("{");
         for (int i = 0; i < models.size(); i++) {
             ApiMethodParser.ApiMethodModel model = models.get(i);
-            String desc = model.getDescription();
-            sb.append("@ApiMethod(methodName = \"").append(model.getName()).append("\"");
-            if (desc != null) {
-                sb.append(", description=\"").append(desc).append("\"");
-            }
-            sb.append(")");
-            if (i < models.size() - 1) {
-                sb.append(", ");
+            String name = model.getName();
+            if (names.add(name)) {
+                String desc = model.getDescription();
+                sb.append("@ApiMethod(methodName = \"").append(model.getName()).append("\"");
+                if (desc != null) {
+                    sb.append(", description=\"").append(desc).append("\"");
+                }
+                sb.append(")");
+                if (i < models.size() - 1) {
+                    sb.append(", ");
+                }
             }
         }
         sb.append("}");

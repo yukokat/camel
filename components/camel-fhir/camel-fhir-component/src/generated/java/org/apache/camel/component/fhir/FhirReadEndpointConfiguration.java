@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link org.apache.camel.component.fhir.api.FhirRead}.
  */
 @ApiParams(apiName = "read", description = "API method for read operations",
-           apiMethods = {@ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceByUrl"), @ApiMethod(methodName = "resourceByUrl"), @ApiMethod(methodName = "resourceByUrl"), @ApiMethod(methodName = "resourceByUrl")})
+           apiMethods = {@ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceByUrl"), })
 @UriParams
 @Configurer
 public final class FhirReadEndpointConfiguration extends FhirConfiguration {

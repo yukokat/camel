@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.twilio.rest.api.v2010.account.Queue}.
  */
 @ApiParams(apiName = "queue", description = "",
-           apiMethods = {@ApiMethod(methodName = "creator", description="}"), @ApiMethod(methodName = "creator", description="}"), @ApiMethod(methodName = "deleter", description="}"), @ApiMethod(methodName = "deleter", description="}"), @ApiMethod(methodName = "fetcher", description="}"), @ApiMethod(methodName = "fetcher", description="}"), @ApiMethod(methodName = "reader", description="}"), @ApiMethod(methodName = "reader", description="}"), @ApiMethod(methodName = "updater", description="}"), @ApiMethod(methodName = "updater", description="}")})
+           apiMethods = {@ApiMethod(methodName = "creator", description="Create a QueueCreator to execute create"), @ApiMethod(methodName = "deleter", description="Create a QueueDeleter to execute delete"), @ApiMethod(methodName = "fetcher", description="Create a QueueFetcher to execute fetch"), @ApiMethod(methodName = "reader", description="Create a QueueReader to execute read"), @ApiMethod(methodName = "updater", description="Create a QueueUpdater to execute update"), })
 @UriParams
 @Configurer
 public final class QueueEndpointConfiguration extends TwilioConfiguration {

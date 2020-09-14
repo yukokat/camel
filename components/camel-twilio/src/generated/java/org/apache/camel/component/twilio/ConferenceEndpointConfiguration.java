@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.twilio.rest.api.v2010.account.Conference}.
  */
 @ApiParams(apiName = "conference", description = "",
-           apiMethods = {@ApiMethod(methodName = "fetcher", description="}"), @ApiMethod(methodName = "fetcher", description="}"), @ApiMethod(methodName = "reader", description="}"), @ApiMethod(methodName = "reader", description="}"), @ApiMethod(methodName = "updater", description="}"), @ApiMethod(methodName = "updater", description="}")})
+           apiMethods = {@ApiMethod(methodName = "fetcher", description="Create a ConferenceFetcher to execute fetch"), @ApiMethod(methodName = "reader", description="Create a ConferenceReader to execute read"), @ApiMethod(methodName = "updater", description="Create a ConferenceUpdater to execute update"), })
 @UriParams
 @Configurer
 public final class ConferenceEndpointConfiguration extends TwilioConfiguration {
