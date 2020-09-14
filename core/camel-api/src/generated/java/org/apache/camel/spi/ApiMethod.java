@@ -36,14 +36,15 @@ public @interface ApiMethod {
     String methodName();
 
     /**
-     * Returns the method signature of this api method.
+     * Returns the method signature(s) of this api method. A method may have one or more signatures, such as for
+     * overloaded methhods.
      * <p/>
      * This is used for documentation and tooling only.
      */
-    String signature() default "";
+    String[] signatures() default "";
 
     /**
-     * Returns a description of this api method.
+     * Returns a description of this api method or api parameter.
      * <p/>
      * This is used for documentation and tooling only.
      */

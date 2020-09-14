@@ -34,14 +34,9 @@ import java.lang.annotation.Target;
 public @interface ApiParam {
 
     /**
-     * The API methods (separated by comma) that the API provides of this configuration class.
-     *
-     * This is only applicable for API based components where configurations are separated by API names and methods
-     * (grouping).
+     * The API methods that the API provides of this configuration class.
      */
-    String apiMethods();
-
-    // TODO: We need an array of api methods and description
+    ApiMethod[] apiMethods();
 
     /**
      * Returns a description of this parameter.

@@ -24,7 +24,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.StringJoiner;
 import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -297,19 +296,28 @@ public abstract class AbstractApiMethodGeneratorMojo extends AbstractApiMethodBa
         }
     }
 
-    public static String getApiMethods(List<ApiMethodParser.ApiMethodModel> models, ApiMethodArg argument) {
+    public static String getApiMethodsForParam(List<ApiMethodParser.ApiMethodModel> models, ApiMethodArg argument) {
+        StringBuilder sb = new StringBuilder();
+
         String key = argument.getName();
-        StringJoiner sj = new StringJoiner(",");
         models.forEach(p -> {
-            boolean match = p.getArguments().stream().anyMatch(a -> a.getName().equals(key));
-            if (match) {
-                if (sj.length() == 0 || !sj.toString().contains(p.getName())) {
-                    sj.add(p.getName());
+            ApiMethodArg match = p.getArguments().stream().filter(a -> a.getName().equals(key)).findFirst().orElse(null);
+            if (match != null) {
+                String desc = match.getDescription();
+                sb.append("@ApiMethod(methodName = \"").append(p.getName()).append("\"");
+                if (desc != null) {
+                    sb.append(", description=\"").append(desc).append("\"");
                 }
+                sb.append(")");
+                sb.append(", ");
             }
         });
+        String answer = sb.toString();
+        if (answer.endsWith(", ")) {
+            answer = answer.substring(0, answer.length() - 2);
+        }
         // TODO: if no explicit then it should maybe match all methods?
-        return sj.toString();
+        return "{" + answer + "}";
     }
 
     public static String getTestName(ApiMethodParser.ApiMethodModel model) {
