@@ -286,10 +286,14 @@ public class JavaSourceParser {
             return null;
         }
 
-        // remove leading - or / and whitespaces
+        // remove leading/trailing - or / and whitespaces
         desc = desc.trim();
         while (desc.startsWith("-") || desc.startsWith("/")) {
             desc = desc.substring(1);
+            desc = desc.trim();
+        }
+        while (desc.endsWith("-") || desc.endsWith("/")) {
+            desc = desc.substring(0, desc.length() - 1);
             desc = desc.trim();
         }
         desc = sanitizeDescription(desc, summary);

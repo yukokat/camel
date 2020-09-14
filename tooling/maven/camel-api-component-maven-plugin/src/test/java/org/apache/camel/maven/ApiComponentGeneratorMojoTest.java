@@ -25,7 +25,7 @@ import org.apache.velocity.VelocityContext;
 import org.junit.jupiter.api.Test;
 
 /**
- * Tests {@link ApiComponentGeneratorMojo}
+ * Tests {@link ApiComponentGeneratorMojo} for signature file and javadoc
  */
 public class ApiComponentGeneratorMojoTest extends AbstractGeneratorMojoTest {
 

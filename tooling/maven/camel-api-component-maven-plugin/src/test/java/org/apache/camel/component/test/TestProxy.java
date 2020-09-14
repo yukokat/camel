@@ -69,15 +69,11 @@ public class TestProxy {
         return "Greetings " + name1 + ", " + name2;
     }
 
-    public final String greetAll(final String[] names) {
-        StringBuilder builder = new StringBuilder("Greetings ");
-        for (String name : names) {
-            builder.append(name).append(", ");
-        }
-        builder.delete(builder.length() - 2, builder.length());
-        return builder.toString();
-    }
-
+    /**
+     * Greeting method for all
+     *
+     * @param names the names to greet
+     */
     public final String greetAll(List<String> names) {
         StringBuilder builder = new StringBuilder("Greetings ");
         for (String name : names) {
@@ -87,9 +83,9 @@ public class TestProxy {
         return builder.toString();
     }
 
-    public final String greetWildcard(String... names) {
+    public final String greetWildcard(String... wildcardNames) {
         StringBuilder builder = new StringBuilder("Greetings ");
-        for (String name : names) {
+        for (String name : wildcardNames) {
             builder.append(name).append(", ");
         }
         builder.delete(builder.length() - 2, builder.length());

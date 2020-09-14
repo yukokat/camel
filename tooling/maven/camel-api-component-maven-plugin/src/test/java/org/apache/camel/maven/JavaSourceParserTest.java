@@ -84,12 +84,12 @@ public class JavaSourceParserTest {
         final JavaSourceParser parser = new JavaSourceParser();
 
         parser.parse(new FileInputStream("src/test/java/org/apache/camel/component/test/TestProxy.java"), null);
-        assertEquals(11, parser.getMethods().size());
+        assertEquals(10, parser.getMethods().size());
 
         // varargs is transformed to an array type as that is what works
         assertEquals(
-                "public java.lang.String greetWildcard(String[] names)",
-                parser.getMethods().get(7));
+                "public java.lang.String greetWildcard(String[] wildcardNames)",
+                parser.getMethods().get(6));
         parser.reset();
     }
 
