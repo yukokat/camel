@@ -128,9 +128,10 @@ public abstract class AbstractGeneratorMojo extends AbstractMojo {
         URL[] urls = project.getTestClasspathElements().stream()
                 .map(File::new)
                 .map(ThrowingHelper.wrapAsFunction(e -> e.toURI().toURL()))
-                .peek(url -> System.out.println("Adding project path " + url))
+                .peek(url -> log.debug("Adding project path " + url))
                 .toArray(URL[]::new);
 
+        // if there are no urls then its because we are testing ourselves, then add the urls for source so java source parser can find them
         if (urls.length == 0) {
             urls = new URL[] { new URL("file:src/main/java/"), new URL("file:src/test/java/") };
         }

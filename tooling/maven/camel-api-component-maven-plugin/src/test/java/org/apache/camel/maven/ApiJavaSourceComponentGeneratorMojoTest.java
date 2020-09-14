@@ -17,11 +17,8 @@
 package org.apache.camel.maven;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.apache.camel.component.test.TestProxy;
-import org.apache.velocity.VelocityContext;
 import org.junit.jupiter.api.Test;
 
 /**
