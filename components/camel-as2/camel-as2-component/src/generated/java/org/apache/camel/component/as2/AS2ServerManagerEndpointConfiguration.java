@@ -14,7 +14,7 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel endpoint configuration for {@link org.apache.camel.component.as2.api.AS2ServerManager}.
  */
-@ApiParams(apiName = "server", description = "Receives EDI Messages over HTTP /",
+@ApiParams(apiName = "server", description = "Receives EDI Messages over HTTP",
            apiMethods = {@ApiMethod(methodName = "listen")})
 @UriParams
 @Configurer

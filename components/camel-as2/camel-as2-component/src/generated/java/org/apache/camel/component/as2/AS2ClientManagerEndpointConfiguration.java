@@ -14,7 +14,7 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel endpoint configuration for {@link org.apache.camel.component.as2.api.AS2ClientManager}.
  */
-@ApiParams(apiName = "client", description = "Sends EDI Messages over HTTP /",
+@ApiParams(apiName = "client", description = "Sends EDI Messages over HTTP",
            apiMethods = {@ApiMethod(methodName = "send", description="Send ediMessage to trading partner")})
 @UriParams
 @Configurer
