@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link org.apache.camel.component.fhir.api.FhirPatch}.
  */
 @ApiParams(apiName = "patch", description = "API for the patch operation, which performs a logical patch on a server resource /",
-           apiMethods = {@ApiMethod(methodName = "patchById"), @ApiMethod(methodName = "patchByUrl")})
+           apiMethods = {@ApiMethod(methodName = "patchById", description="Applies the patch to the given resource ID"), @ApiMethod(methodName = "patchById", description="Applies the patch to the given resource ID"), @ApiMethod(methodName = "patchByUrl", description="Specifies that the update should be performed as a conditional create against a given search URL")})
 @UriParams
 @Configurer
 public final class FhirPatchEndpointConfiguration extends FhirConfiguration {

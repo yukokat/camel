@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.braintreegateway.SubscriptionGateway}.
  */
 @ApiParams(apiName = "subscription", description = "Provides methods to interact with Subscriptions",
-           apiMethods = {@ApiMethod(methodName = "cancel"), @ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "find"), @ApiMethod(methodName = "retryCharge"), @ApiMethod(methodName = "search"), @ApiMethod(methodName = "update")})
+           apiMethods = {@ApiMethod(methodName = "cancel", description="Cancels the Subscription with the given id"), @ApiMethod(methodName = "create", description="Creates a Subscription"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "find", description="Finds a Subscription by id"), @ApiMethod(methodName = "retryCharge"), @ApiMethod(methodName = "retryCharge"), @ApiMethod(methodName = "retryCharge"), @ApiMethod(methodName = "retryCharge"), @ApiMethod(methodName = "search", description="Search for a Subscription"), @ApiMethod(methodName = "update", description="Updates a Subscription")})
 @UriParams
 @Configurer
 public final class SubscriptionGatewayEndpointConfiguration extends BraintreeConfiguration {

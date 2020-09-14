@@ -67,6 +67,7 @@ public abstract class ApiMethodParser<T> {
     private final Class<T> proxyType;
     private List<String> signatures;
     private Map<String, Map<String, String>> parameters;
+    private final Map<String, String> descriptions = new HashMap<>();
     private ClassLoader classLoader = ApiMethodParser.class.getClassLoader();
 
     public ApiMethodParser(Class<T> proxyType) {
@@ -84,6 +85,14 @@ public abstract class ApiMethodParser<T> {
     public final void setSignatures(List<String> signatures) {
         this.signatures = new ArrayList<>();
         this.signatures.addAll(signatures);
+    }
+
+    public Map<String, String> getDescriptions() {
+        return descriptions;
+    }
+
+    public void setDescriptions(Map<String, String> descriptions) {
+        this.descriptions.putAll(descriptions);
     }
 
     public Map<String, Map<String, String>> getParameters() {
@@ -187,7 +196,7 @@ public abstract class ApiMethodParser<T> {
             } catch (NoSuchMethodException e) {
                 throw new IllegalArgumentException("Method not found [" + signature + "] in type " + proxyType.getName());
             }
-            result.add(new ApiMethodModel(name, resultType, arguments, method));
+            result.add(new ApiMethodModel(name, resultType, arguments, method, descriptions.get(name)));
         }
 
         // allow derived classes to post process
@@ -325,23 +334,27 @@ public abstract class ApiMethodParser<T> {
         private final Class<?> resultType;
         private final List<ApiMethodArg> arguments;
         private final Method method;
+        private final String description;
 
         private String uniqueName;
 
-        protected ApiMethodModel(String name, Class<?> resultType, List<ApiMethodArg> arguments, Method method) {
+        protected ApiMethodModel(String name, Class<?> resultType, List<ApiMethodArg> arguments, Method method,
+                                 String description) {
             this.name = name;
             this.resultType = resultType;
             this.arguments = arguments;
             this.method = method;
+            this.description = description;
         }
 
         protected ApiMethodModel(String uniqueName, String name, Class<?> resultType, List<ApiMethodArg> arguments,
-                                 Method method) {
+                                 Method method, String description) {
             this.name = name;
             this.uniqueName = uniqueName;
             this.resultType = resultType;
             this.arguments = arguments;
             this.method = method;
+            this.description = description;
         }
 
         public String getUniqueName() {
@@ -362,6 +375,10 @@ public abstract class ApiMethodParser<T> {
 
         public List<ApiMethodArg> getArguments() {
             return arguments;
+        }
+
+        public String getDescription() {
+            return description;
         }
 
         @Override

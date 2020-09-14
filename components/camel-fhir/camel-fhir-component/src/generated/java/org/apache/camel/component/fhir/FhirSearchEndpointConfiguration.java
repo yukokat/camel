@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link org.apache.camel.component.fhir.api.FhirSearch}.
  */
 @ApiParams(apiName = "search", description = "API to search for resources matching a given set of criteria",
-           apiMethods = {@ApiMethod(methodName = "searchByUrl")})
+           apiMethods = {@ApiMethod(methodName = "searchByUrl", description="Perform a search directly by URL")})
 @UriParams
 @Configurer
 public final class FhirSearchEndpointConfiguration extends FhirConfiguration {

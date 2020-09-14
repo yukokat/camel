@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.google.api.services.drive.Drive$Properties}.
  */
 @ApiParams(apiName = "drive-properties", description = "The properties collection of methods",
-           apiMethods = {@ApiMethod(methodName = "delete"), @ApiMethod(methodName = "get"), @ApiMethod(methodName = "insert"), @ApiMethod(methodName = "list"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "update")})
+           apiMethods = {@ApiMethod(methodName = "delete", description="Deletes a property"), @ApiMethod(methodName = "get", description="Gets a property by its key"), @ApiMethod(methodName = "insert", description="Adds a property to a file, or updates it if it already exists"), @ApiMethod(methodName = "list", description="Lists a file's properties"), @ApiMethod(methodName = "patch", description="Updates a property, or adds it if it doesn't exist"), @ApiMethod(methodName = "update", description="Updates a property, or adds it if it doesn't exist")})
 @UriParams
 @Configurer
 public final class DrivePropertiesEndpointConfiguration extends GoogleDriveConfiguration {

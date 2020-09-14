@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.twilio.rest.api.v2010.account.usage.record.Daily}.
  */
 @ApiParams(apiName = "usage-record-daily", description = "",
-           apiMethods = {@ApiMethod(methodName = "reader")})
+           apiMethods = {@ApiMethod(methodName = "reader", description="}"), @ApiMethod(methodName = "reader", description="}")})
 @UriParams
 @Configurer
 public final class UsageRecordDailyEndpointConfiguration extends TwilioConfiguration {

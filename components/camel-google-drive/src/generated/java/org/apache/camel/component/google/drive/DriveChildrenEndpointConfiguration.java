@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.google.api.services.drive.Drive$Children}.
  */
 @ApiParams(apiName = "drive-children", description = "The children collection of methods",
-           apiMethods = {@ApiMethod(methodName = "delete"), @ApiMethod(methodName = "get"), @ApiMethod(methodName = "insert"), @ApiMethod(methodName = "list")})
+           apiMethods = {@ApiMethod(methodName = "delete", description="Removes a child from a folder"), @ApiMethod(methodName = "get", description="Gets a specific child reference"), @ApiMethod(methodName = "insert", description="Inserts a file into a folder"), @ApiMethod(methodName = "list", description="Lists a folder's children")})
 @UriParams
 @Configurer
 public final class DriveChildrenEndpointConfiguration extends GoogleDriveConfiguration {

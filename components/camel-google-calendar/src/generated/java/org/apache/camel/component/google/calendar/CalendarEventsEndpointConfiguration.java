@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.google.api.services.calendar.Calendar$Events}.
  */
 @ApiParams(apiName = "events", description = "The events collection of methods",
-           apiMethods = {@ApiMethod(methodName = "calendarImport"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "get"), @ApiMethod(methodName = "insert"), @ApiMethod(methodName = "instances"), @ApiMethod(methodName = "list"), @ApiMethod(methodName = "move"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "quickAdd"), @ApiMethod(methodName = "update"), @ApiMethod(methodName = "watch")})
+           apiMethods = {@ApiMethod(methodName = "calendarImport", description="Imports an event"), @ApiMethod(methodName = "delete", description="Deletes an event"), @ApiMethod(methodName = "get", description="Returns an event"), @ApiMethod(methodName = "insert", description="Creates an event"), @ApiMethod(methodName = "instances", description="Returns instances of the specified recurring event"), @ApiMethod(methodName = "list", description="Returns events on the specified calendar"), @ApiMethod(methodName = "move", description="Moves an event to another calendar, i"), @ApiMethod(methodName = "patch", description="Updates an event"), @ApiMethod(methodName = "quickAdd", description="Creates an event based on a simple text string"), @ApiMethod(methodName = "update", description="Updates an event"), @ApiMethod(methodName = "watch", description="Watch for changes to Events resources")})
 @UriParams
 @Configurer
 public final class CalendarEventsEndpointConfiguration extends GoogleCalendarConfiguration {

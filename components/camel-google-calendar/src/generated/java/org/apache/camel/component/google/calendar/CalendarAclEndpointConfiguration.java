@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.google.api.services.calendar.Calendar$Acl}.
  */
 @ApiParams(apiName = "acl", description = "The acl collection of methods",
-           apiMethods = {@ApiMethod(methodName = "delete"), @ApiMethod(methodName = "get"), @ApiMethod(methodName = "insert"), @ApiMethod(methodName = "list"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "update"), @ApiMethod(methodName = "watch")})
+           apiMethods = {@ApiMethod(methodName = "delete", description="Deletes an access control rule"), @ApiMethod(methodName = "get", description="Returns an access control rule"), @ApiMethod(methodName = "insert", description="Creates an access control rule"), @ApiMethod(methodName = "list", description="Returns the rules in the access control list for the calendar"), @ApiMethod(methodName = "patch", description="Updates an access control rule"), @ApiMethod(methodName = "update", description="Updates an access control rule"), @ApiMethod(methodName = "watch", description="Watch for changes to ACL resources")})
 @UriParams
 @Configurer
 public final class CalendarAclEndpointConfiguration extends GoogleCalendarConfiguration {

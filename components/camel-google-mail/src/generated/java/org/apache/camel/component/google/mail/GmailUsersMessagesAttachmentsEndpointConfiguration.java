@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.google.api.services.gmail.Gmail$Users$Messages$Attachments}.
  */
 @ApiParams(apiName = "attachments", description = "The attachments collection of methods",
-           apiMethods = {@ApiMethod(methodName = "get")})
+           apiMethods = {@ApiMethod(methodName = "get", description="Gets the specified message attachment")})
 @UriParams
 @Configurer
 public final class GmailUsersMessagesAttachmentsEndpointConfiguration extends GoogleMailConfiguration {

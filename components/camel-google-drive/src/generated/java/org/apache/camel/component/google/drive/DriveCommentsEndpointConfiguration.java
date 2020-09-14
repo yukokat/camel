@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.google.api.services.drive.Drive$Comments}.
  */
 @ApiParams(apiName = "drive-comments", description = "The comments collection of methods",
-           apiMethods = {@ApiMethod(methodName = "delete"), @ApiMethod(methodName = "get"), @ApiMethod(methodName = "insert"), @ApiMethod(methodName = "list"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "update")})
+           apiMethods = {@ApiMethod(methodName = "delete", description="Deletes a comment"), @ApiMethod(methodName = "get", description="Gets a comment by ID"), @ApiMethod(methodName = "insert", description="Creates a new comment on the given file"), @ApiMethod(methodName = "list", description="Lists a file's comments"), @ApiMethod(methodName = "patch", description="Updates an existing comment"), @ApiMethod(methodName = "update", description="Updates an existing comment")})
 @UriParams
 @Configurer
 public final class DriveCommentsEndpointConfiguration extends GoogleDriveConfiguration {

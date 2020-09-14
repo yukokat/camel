@@ -26,7 +26,6 @@ import java.util.StringJoiner;
 import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 import org.apache.camel.support.component.ApiMethodArg;
 import org.apache.camel.support.component.ApiMethodParser;
@@ -99,8 +98,11 @@ public abstract class AbstractApiMethodGeneratorMojo extends AbstractApiMethodBa
                 method = StringHelper.after(method, " ");
             }
             if (method != null) {
+                System.out.println("parameters " + method);
                 parameters.put(method, model.getParameters());
             }
+            System.out.println(method + " -> " + model.getMethodDescription());
+            parser.getDescriptions().put(method, model.getMethodDescription());
         }
         parser.setSignatures(signatures);
         parser.setParameters(parameters);
@@ -190,14 +192,6 @@ public abstract class AbstractApiMethodGeneratorMojo extends AbstractApiMethodBa
         VelocityContext context = getCommonContext(models);
         context.put("apiName", apiName);
         context.put("apiDescription", apiDescription);
-
-        // TODO: we should include alias information as well
-
-        List<String> apiMethodNames = models.stream().map(ApiMethodParser.ApiMethodModel::getName)
-                .distinct()
-                .sorted()
-                .collect(Collectors.toList());
-        context.put("apiMethods", apiMethodNames);
         context.put("configName", getConfigName());
         context.put("componentName", componentName);
         context.put("componentPackage", componentPackage);
@@ -385,13 +379,21 @@ public abstract class AbstractApiMethodGeneratorMojo extends AbstractApiMethodBa
         return apiDescription;
     }
 
-    public String getApiMethods(List<String> methods) {
+    public String getApiMethods(List<ApiMethodParser.ApiMethodModel> models) {
+        // TODO: we should include alias information as well
+        // TODO: and signature as well
+        // TODO: sort and unique
         StringBuilder sb = new StringBuilder();
         sb.append("{");
-        for (int i = 0; i < methods.size(); i++) {
-            String method = methods.get(i);
-            sb.append("@ApiMethod(methodName = \"").append(method).append("\")");
-            if (i < methods.size() - 1) {
+        for (int i = 0; i < models.size(); i++) {
+            ApiMethodParser.ApiMethodModel model = models.get(i);
+            String desc = model.getDescription();
+            sb.append("@ApiMethod(methodName = \"").append(model.getName()).append("\"");
+            if (desc != null) {
+                sb.append(", description=\"").append(desc).append("\"");
+            }
+            sb.append(")");
+            if (i < models.size() - 1) {
                 sb.append(", ");
             }
         }

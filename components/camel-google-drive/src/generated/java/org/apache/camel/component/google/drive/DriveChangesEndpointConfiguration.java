@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.google.api.services.drive.Drive$Changes}.
  */
 @ApiParams(apiName = "drive-changes", description = "The changes collection of methods",
-           apiMethods = {@ApiMethod(methodName = "get"), @ApiMethod(methodName = "getStartPageToken"), @ApiMethod(methodName = "list"), @ApiMethod(methodName = "watch")})
+           apiMethods = {@ApiMethod(methodName = "get", description="Deprecated - Use changes"), @ApiMethod(methodName = "getStartPageToken", description="Gets the starting pageToken for listing future changes"), @ApiMethod(methodName = "list", description="Lists the changes for a user or Team Drive"), @ApiMethod(methodName = "watch", description="Subscribe to changes for a user")})
 @UriParams
 @Configurer
 public final class DriveChangesEndpointConfiguration extends GoogleDriveConfiguration {

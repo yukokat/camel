@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.google.api.services.drive.Drive$Permissions}.
  */
 @ApiParams(apiName = "drive-permissions", description = "The permissions collection of methods",
-           apiMethods = {@ApiMethod(methodName = "delete"), @ApiMethod(methodName = "get"), @ApiMethod(methodName = "getIdForEmail"), @ApiMethod(methodName = "insert"), @ApiMethod(methodName = "list"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "update")})
+           apiMethods = {@ApiMethod(methodName = "delete", description="Deletes a permission from a file or Team Drive"), @ApiMethod(methodName = "get", description="Gets a permission by ID"), @ApiMethod(methodName = "getIdForEmail", description="Returns the permission ID for an email address"), @ApiMethod(methodName = "insert", description="Inserts a permission for a file or Team Drive"), @ApiMethod(methodName = "list", description="Lists a file's or Team Drive's permissions"), @ApiMethod(methodName = "patch", description="Updates a permission using patch semantics"), @ApiMethod(methodName = "update", description="Updates a permission")})
 @UriParams
 @Configurer
 public final class DrivePermissionsEndpointConfiguration extends GoogleDriveConfiguration {

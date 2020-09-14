@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.google.api.services.drive.Drive$Apps}.
  */
 @ApiParams(apiName = "drive-apps", description = "The apps collection of methods",
-           apiMethods = {@ApiMethod(methodName = "get"), @ApiMethod(methodName = "list")})
+           apiMethods = {@ApiMethod(methodName = "get", description="Gets a specific app"), @ApiMethod(methodName = "list", description="Lists a user's installed apps")})
 @UriParams
 @Configurer
 public final class DriveAppsEndpointConfiguration extends GoogleDriveConfiguration {

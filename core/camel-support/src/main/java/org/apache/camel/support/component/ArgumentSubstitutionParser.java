@@ -134,7 +134,7 @@ public class ArgumentSubstitutionParser<T> extends ApiMethodParser<T> {
 
                     model = new ApiMethodModel(
                             model.getUniqueName(), model.getName(), model.getResultType(),
-                            updatedArguments, model.getMethod());
+                            updatedArguments, model.getMethod(), model.getDescription());
                 }
             }
 

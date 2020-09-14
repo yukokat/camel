@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.braintreegateway.CustomerGateway}.
  */
 @ApiParams(apiName = "customer", description = "Provides methods to create, delete, find, and update Customer objects",
-           apiMethods = {@ApiMethod(methodName = "all"), @ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "find"), @ApiMethod(methodName = "search"), @ApiMethod(methodName = "update")})
+           apiMethods = {@ApiMethod(methodName = "all", description="Finds all Customers and returns a ResourceCollection"), @ApiMethod(methodName = "create", description="Creates a Customer"), @ApiMethod(methodName = "delete", description="Deletes a Customer by id"), @ApiMethod(methodName = "find", description="Finds a Customer by id"), @ApiMethod(methodName = "find", description="Finds a Customer by id"), @ApiMethod(methodName = "search", description="Finds all Transactions that match the query and returns a ResourceCollection"), @ApiMethod(methodName = "update", description="Updates a Customer")})
 @UriParams
 @Configurer
 public final class CustomerGatewayEndpointConfiguration extends BraintreeConfiguration {

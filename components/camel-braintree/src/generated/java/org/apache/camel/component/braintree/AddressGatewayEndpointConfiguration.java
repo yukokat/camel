@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.braintreegateway.AddressGateway}.
  */
 @ApiParams(apiName = "address", description = "Provides methods to create, delete, find, and update Address objects",
-           apiMethods = {@ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "find"), @ApiMethod(methodName = "update")})
+           apiMethods = {@ApiMethod(methodName = "create", description="Creates an Address for a Customer"), @ApiMethod(methodName = "delete", description="Deletes a Customer's Address"), @ApiMethod(methodName = "find", description="Finds a Customer's Address"), @ApiMethod(methodName = "update", description="Updates a Customer's Address")})
 @UriParams
 @Configurer
 public final class AddressGatewayEndpointConfiguration extends BraintreeConfiguration {

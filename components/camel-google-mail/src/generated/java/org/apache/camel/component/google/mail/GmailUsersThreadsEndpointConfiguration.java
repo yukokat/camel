@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.google.api.services.gmail.Gmail$Users$Threads}.
  */
 @ApiParams(apiName = "threads", description = "The threads collection of methods",
-           apiMethods = {@ApiMethod(methodName = "delete"), @ApiMethod(methodName = "get"), @ApiMethod(methodName = "list"), @ApiMethod(methodName = "modify"), @ApiMethod(methodName = "trash"), @ApiMethod(methodName = "untrash")})
+           apiMethods = {@ApiMethod(methodName = "delete", description="Immediately and permanently deletes the specified thread"), @ApiMethod(methodName = "get", description="Gets the specified thread"), @ApiMethod(methodName = "list", description="Lists the threads in the user's mailbox"), @ApiMethod(methodName = "modify", description="Modifies the labels applied to the thread"), @ApiMethod(methodName = "trash", description="Moves the specified thread to the trash"), @ApiMethod(methodName = "untrash", description="Removes the specified thread from the trash")})
 @UriParams
 @Configurer
 public final class GmailUsersThreadsEndpointConfiguration extends GoogleMailConfiguration {

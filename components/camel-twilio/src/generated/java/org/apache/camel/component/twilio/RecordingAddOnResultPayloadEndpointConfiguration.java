@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.twilio.rest.api.v2010.account.recording.addonresult.Payload}.
  */
 @ApiParams(apiName = "recording-add-on-result-payload", description = "",
-           apiMethods = {@ApiMethod(methodName = "deleter"), @ApiMethod(methodName = "fetcher"), @ApiMethod(methodName = "reader")})
+           apiMethods = {@ApiMethod(methodName = "deleter", description="}"), @ApiMethod(methodName = "deleter", description="}"), @ApiMethod(methodName = "fetcher", description="}"), @ApiMethod(methodName = "fetcher", description="}"), @ApiMethod(methodName = "reader", description="}"), @ApiMethod(methodName = "reader", description="}")})
 @UriParams
 @Configurer
 public final class RecordingAddOnResultPayloadEndpointConfiguration extends TwilioConfiguration {

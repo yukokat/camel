@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.google.api.services.gmail.Gmail$Users$Labels}.
  */
 @ApiParams(apiName = "labels", description = "The labels collection of methods",
-           apiMethods = {@ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "get"), @ApiMethod(methodName = "list"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "update")})
+           apiMethods = {@ApiMethod(methodName = "create", description="Creates a new label"), @ApiMethod(methodName = "delete", description="Immediately and permanently deletes the specified label and removes it from any messages and threads that it is applied to"), @ApiMethod(methodName = "get", description="Gets the specified label"), @ApiMethod(methodName = "list", description="Lists all labels in the user's mailbox"), @ApiMethod(methodName = "patch", description="Updates the specified label"), @ApiMethod(methodName = "update", description="Updates the specified label")})
 @UriParams
 @Configurer
 public final class GmailUsersLabelsEndpointConfiguration extends GoogleMailConfiguration {

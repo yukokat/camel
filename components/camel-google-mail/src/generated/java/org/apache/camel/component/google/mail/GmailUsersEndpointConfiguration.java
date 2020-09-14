@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.google.api.services.gmail.Gmail$Users}.
  */
 @ApiParams(apiName = "users", description = "The users collection of methods",
-           apiMethods = {@ApiMethod(methodName = "getProfile"), @ApiMethod(methodName = "stop"), @ApiMethod(methodName = "watch")})
+           apiMethods = {@ApiMethod(methodName = "getProfile", description="Gets the current user's Gmail profile"), @ApiMethod(methodName = "stop", description="Stop receiving push notifications for the given user mailbox"), @ApiMethod(methodName = "watch", description="Set up or update a push notification watch on the given user mailbox")})
 @UriParams
 @Configurer
 public final class GmailUsersEndpointConfiguration extends GoogleMailConfiguration {

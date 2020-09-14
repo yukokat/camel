@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.google.api.services.drive.Drive$Replies}.
  */
 @ApiParams(apiName = "drive-replies", description = "The replies collection of methods",
-           apiMethods = {@ApiMethod(methodName = "delete"), @ApiMethod(methodName = "get"), @ApiMethod(methodName = "insert"), @ApiMethod(methodName = "list"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "update")})
+           apiMethods = {@ApiMethod(methodName = "delete", description="Deletes a reply"), @ApiMethod(methodName = "get", description="Gets a reply"), @ApiMethod(methodName = "insert", description="Creates a new reply to the given comment"), @ApiMethod(methodName = "list", description="Lists all of the replies to a comment"), @ApiMethod(methodName = "patch", description="Updates an existing reply"), @ApiMethod(methodName = "update", description="Updates an existing reply")})
 @UriParams
 @Configurer
 public final class DriveRepliesEndpointConfiguration extends GoogleDriveConfiguration {
