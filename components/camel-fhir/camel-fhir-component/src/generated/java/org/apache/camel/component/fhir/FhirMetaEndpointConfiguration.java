@@ -20,19 +20,19 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class FhirMetaEndpointConfiguration extends FhirConfiguration {
     @UriParam
-    @ApiParam(apiMethods = "add,delete,getFromResource,getFromServer,getFromType")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "add"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "getFromResource"), @ApiMethod(methodName = "getFromServer"), @ApiMethod(methodName = "getFromType")})
     private java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters,Object> extraParameters;
     @UriParam
-    @ApiParam(apiMethods = "add,delete,getFromResource")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "add"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "getFromResource")})
     private org.hl7.fhir.instance.model.api.IIdType id;
     @UriParam
-    @ApiParam(apiMethods = "add,delete")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "add"), @ApiMethod(methodName = "delete")})
     private org.hl7.fhir.instance.model.api.IBaseMetaType meta;
     @UriParam
-    @ApiParam(apiMethods = "getFromResource,getFromServer,getFromType")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "getFromResource"), @ApiMethod(methodName = "getFromServer"), @ApiMethod(methodName = "getFromType")})
     private Class<org.hl7.fhir.instance.model.api.IBaseMetaType> metaType;
     @UriParam
-    @ApiParam(apiMethods = "getFromType")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "getFromType")})
     private String theResourceName;
 
     public java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters,Object> getExtraParameters() {

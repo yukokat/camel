@@ -20,25 +20,25 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class CallEndpointConfiguration extends TwilioConfiguration {
     @UriParam
-    @ApiParam(apiMethods = "creator", description = "The SID of the Application resource that will handle the call")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The SID of the Application resource that will handle the call")})
     private String applicationSid;
     @UriParam
-    @ApiParam(apiMethods = "creator", description = "Twilio number from which to originate the call")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="Twilio number from which to originate the call")})
     private com.twilio.type.Endpoint from;
     @UriParam
-    @ApiParam(apiMethods = "creator,deleter,fetcher,reader,updater", description = "The SID of the Account that will create the resource")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The SID of the Account that will create the resource"), @ApiMethod(methodName = "deleter", description="The SID of the Account that created the resource(s) to delete"), @ApiMethod(methodName = "fetcher", description="The SID of the Account that created the resource(s) to fetch"), @ApiMethod(methodName = "reader", description="The SID of the Account that created the resource(s) to read"), @ApiMethod(methodName = "updater", description="The SID of the Account that created the resource(s) to update")})
     private String pathAccountSid;
     @UriParam
-    @ApiParam(apiMethods = "deleter,fetcher,updater", description = "The unique string that identifies this resource")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "deleter", description="The unique string that identifies this resource"), @ApiMethod(methodName = "fetcher", description="The SID of the Call resource to fetch"), @ApiMethod(methodName = "updater", description="The unique string that identifies this resource")})
     private String pathSid;
     @UriParam
-    @ApiParam(apiMethods = "creator", description = "Phone number, SIP address, or client identifier to call")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="Phone number, SIP address, or client identifier to call")})
     private com.twilio.type.Endpoint to;
     @UriParam
-    @ApiParam(apiMethods = "creator", description = "TwiML instructions for the call")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="TwiML instructions for the call")})
     private com.twilio.type.Twiml twiml;
     @UriParam
-    @ApiParam(apiMethods = "creator", description = "The absolute URL that returns TwiML for this call")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The absolute URL that returns TwiML for this call")})
     private java.net.URI url;
 
     public String getApplicationSid() {

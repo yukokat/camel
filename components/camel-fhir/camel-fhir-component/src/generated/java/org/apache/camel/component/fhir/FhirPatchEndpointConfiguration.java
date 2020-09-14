@@ -20,22 +20,22 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class FhirPatchEndpointConfiguration extends FhirConfiguration {
     @UriParam
-    @ApiParam(apiMethods = "patchById,patchByUrl", description = "See ExtraParameters for a full list of parameters that can be passed, may be NULL")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "patchById", description="See ExtraParameters for a full list of parameters that can be passed, may be NULL"), @ApiMethod(methodName = "patchById", description="See ExtraParameters for a full list of parameters that can be passed, may be NULL"), @ApiMethod(methodName = "patchByUrl", description="See ExtraParameters for a full list of parameters that can be passed, may be NULL")})
     private java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters,Object> extraParameters;
     @UriParam
-    @ApiParam(apiMethods = "patchById", description = "The resource ID to patch")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "patchById", description="The resource ID to patch")})
     private org.hl7.fhir.instance.model.api.IIdType id;
     @UriParam
-    @ApiParam(apiMethods = "patchById,patchByUrl", description = "The body of the patch document serialized in either XML or JSON which conforms to http://jsonpatch.com/ or http://tools.ietf.org/html/rfc5261")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "patchById", description="The body of the patch document serialized in either XML or JSON which conforms to http://jsonpatch.com/ or http://tools.ietf.org/html/rfc5261"), @ApiMethod(methodName = "patchById", description="The body of the patch document serialized in either XML or JSON which conforms to http://jsonpatch.com/ or http://tools.ietf.org/html/rfc5261"), @ApiMethod(methodName = "patchByUrl", description="The body of the patch document serialized in either XML or JSON which conforms to http://jsonpatch.com/ or http://tools.ietf.org/html/rfc5261")})
     private String patchBody;
     @UriParam
-    @ApiParam(apiMethods = "patchById,patchByUrl", description = "Add a Prefer header to the request, which requests that the server include or suppress the resource body as a part of the result. If a resource is returned by the server it will be parsed an accessible to the client via MethodOutcome#getResource()")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "patchById", description="Add a Prefer header to the request, which requests that the server include or suppress the resource body as a part of the result. If a resource is returned by the server it will be parsed an accessible to the client via MethodOutcome#getResource()"), @ApiMethod(methodName = "patchById", description="Add a Prefer header to the request, which requests that the server include or suppress the resource body as a part of the result. If a resource is returned by the server it will be parsed an accessible to the client via MethodOutcome#getResource()"), @ApiMethod(methodName = "patchByUrl", description="Add a Prefer header to the request, which requests that the server include or suppress the resource body as a part of the result. If a resource is returned by the server it will be parsed an accessible to the client via MethodOutcome#getResource()")})
     private ca.uhn.fhir.rest.api.PreferReturnEnum preferReturn;
     @UriParam
-    @ApiParam(apiMethods = "patchById", description = "The resource ID to patch")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "patchById", description="The resource ID to patch")})
     private String stringId;
     @UriParam
-    @ApiParam(apiMethods = "patchByUrl", description = "The search URL to use. The format of this URL should be of the form ResourceTypeParameters, for example: Patientname=Smith&amp;identifier=13.2.4.11.4%7C847366")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "patchByUrl", description="The search URL to use. The format of this URL should be of the form ResourceTypeParameters, for example: Patientname=Smith&amp;identifier=13.2.4.11.4%7C847366")})
     private String url;
 
     public java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters,Object> getExtraParameters() {

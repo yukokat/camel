@@ -20,19 +20,19 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class ConferenceParticipantEndpointConfiguration extends TwilioConfiguration {
     @UriParam
-    @ApiParam(apiMethods = "creator", description = "The phone number, Client identifier, or username portion of SIP address that made this call.")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The phone number, Client identifier, or username portion of SIP address that made this call.")})
     private com.twilio.type.PhoneNumber from;
     @UriParam
-    @ApiParam(apiMethods = "creator,deleter,fetcher,reader,updater", description = "The SID of the Account that will create the resource")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The SID of the Account that will create the resource"), @ApiMethod(methodName = "deleter", description="The SID of the Account that created the resources to delete"), @ApiMethod(methodName = "fetcher", description="The SID of the Account that created the resource to fetch"), @ApiMethod(methodName = "reader", description="The SID of the Account that created the resources to read"), @ApiMethod(methodName = "updater", description="The SID of the Account that created the resources to update")})
     private String pathAccountSid;
     @UriParam
-    @ApiParam(apiMethods = "deleter,fetcher,updater", description = "The Call SID or URL encoded label of the participant to delete")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "deleter", description="The Call SID or URL encoded label of the participant to delete"), @ApiMethod(methodName = "fetcher", description="The Call SID or URL encoded label of the participant to fetch"), @ApiMethod(methodName = "updater", description="The Call SID or URL encoded label of the participant to update")})
     private String pathCallSid;
     @UriParam
-    @ApiParam(apiMethods = "creator,deleter,fetcher,reader,updater", description = "The SID of the participant's conference")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The SID of the participant's conference"), @ApiMethod(methodName = "deleter", description="The SID of the conference with the participants to delete"), @ApiMethod(methodName = "fetcher", description="The SID of the conference with the participant to fetch"), @ApiMethod(methodName = "reader", description="The SID of the conference with the participants to read"), @ApiMethod(methodName = "updater", description="The SID of the conference with the participant to update")})
     private String pathConferenceSid;
     @UriParam
-    @ApiParam(apiMethods = "creator", description = "The phone number, SIP address or Client identifier that received this call.")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The phone number, SIP address or Client identifier that received this call.")})
     private com.twilio.type.PhoneNumber to;
 
     public com.twilio.type.PhoneNumber getFrom() {

@@ -20,16 +20,16 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class CallRecordingEndpointConfiguration extends TwilioConfiguration {
     @UriParam
-    @ApiParam(apiMethods = "creator,deleter,fetcher,reader,updater", description = "The SID of the Account that will create the resource")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The SID of the Account that will create the resource"), @ApiMethod(methodName = "deleter", description="The SID of the Account that created the resources to delete"), @ApiMethod(methodName = "fetcher", description="The SID of the Account that created the resource to fetch"), @ApiMethod(methodName = "reader", description="The SID of the Account that created the resources to read"), @ApiMethod(methodName = "updater", description="The SID of the Account that created the resource to update")})
     private String pathAccountSid;
     @UriParam
-    @ApiParam(apiMethods = "creator,deleter,fetcher,reader,updater", description = "The SID of the Call to associate the resource with")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The SID of the Call to associate the resource with"), @ApiMethod(methodName = "deleter", description="The Call SID of the resources to delete"), @ApiMethod(methodName = "fetcher", description="The Call SID of the resource to fetch"), @ApiMethod(methodName = "reader", description="The Call SID of the resources to read"), @ApiMethod(methodName = "updater", description="The Call SID of the resource to update")})
     private String pathCallSid;
     @UriParam
-    @ApiParam(apiMethods = "deleter,fetcher,updater", description = "The unique string that identifies the resource")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "deleter", description="The unique string that identifies the resource"), @ApiMethod(methodName = "fetcher", description="The unique string that identifies the resource"), @ApiMethod(methodName = "updater", description="The unique string that identifies the resource")})
     private String pathSid;
     @UriParam
-    @ApiParam(apiMethods = "updater", description = "The new status of the recording")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "updater", description="The new status of the recording")})
     private com.twilio.rest.api.v2010.account.call.Recording.Status status;
 
     public String getPathAccountSid() {

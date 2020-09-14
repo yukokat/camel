@@ -20,22 +20,22 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class CalendarEventsEndpointConfiguration extends GoogleCalendarConfiguration {
     @UriParam
-    @ApiParam(apiMethods = "calendarImport,delete,get,insert,instances,list,move,patch,quickAdd,update,watch", description = "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword.")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "calendarImport", description="Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword."), @ApiMethod(methodName = "delete", description="Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword."), @ApiMethod(methodName = "get", description="Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword."), @ApiMethod(methodName = "insert", description="Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword."), @ApiMethod(methodName = "instances", description="Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword."), @ApiMethod(methodName = "list", description="Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword."), @ApiMethod(methodName = "move", description="Calendar identifier of the source calendar where the event currently is on"), @ApiMethod(methodName = "patch", description="Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword."), @ApiMethod(methodName = "quickAdd", description="Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword."), @ApiMethod(methodName = "update", description="Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword."), @ApiMethod(methodName = "watch", description="Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword.")})
     private String calendarId;
     @UriParam
-    @ApiParam(apiMethods = "calendarImport,insert,patch,update", description = "The com.google.api.services.calendar.model.Event")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "calendarImport", description="The com.google.api.services.calendar.model.Event"), @ApiMethod(methodName = "insert", description="The com.google.api.services.calendar.model.Event"), @ApiMethod(methodName = "patch", description="The com.google.api.services.calendar.model.Event"), @ApiMethod(methodName = "update", description="The com.google.api.services.calendar.model.Event")})
     private com.google.api.services.calendar.model.Event content;
     @UriParam
-    @ApiParam(apiMethods = "watch", description = "The com.google.api.services.calendar.model.Channel")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "watch", description="The com.google.api.services.calendar.model.Channel")})
     private com.google.api.services.calendar.model.Channel contentChannel;
     @UriParam
-    @ApiParam(apiMethods = "move", description = "Calendar identifier of the target calendar where the event is to be moved to")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "move", description="Calendar identifier of the target calendar where the event is to be moved to")})
     private String destination;
     @UriParam
-    @ApiParam(apiMethods = "delete,get,instances,move,patch,update", description = "Event identifier")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "delete", description="Event identifier"), @ApiMethod(methodName = "get", description="Event identifier"), @ApiMethod(methodName = "instances", description="Recurring event identifier"), @ApiMethod(methodName = "move", description="Event identifier"), @ApiMethod(methodName = "patch", description="Event identifier"), @ApiMethod(methodName = "update", description="Event identifier")})
     private String eventId;
     @UriParam
-    @ApiParam(apiMethods = "quickAdd", description = "The text describing the event to be created")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "quickAdd", description="The text describing the event to be created")})
     private String text;
 
     public String getCalendarId() {

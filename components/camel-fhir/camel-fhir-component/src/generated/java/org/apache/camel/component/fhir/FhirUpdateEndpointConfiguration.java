@@ -20,25 +20,25 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class FhirUpdateEndpointConfiguration extends FhirConfiguration {
     @UriParam
-    @ApiParam(apiMethods = "resource,resourceBySearchUrl")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "resource"), @ApiMethod(methodName = "resource"), @ApiMethod(methodName = "resource"), @ApiMethod(methodName = "resource"), @ApiMethod(methodName = "resourceBySearchUrl"), @ApiMethod(methodName = "resourceBySearchUrl")})
     private java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters,Object> extraParameters;
     @UriParam
-    @ApiParam(apiMethods = "resource")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "resource"), @ApiMethod(methodName = "resource")})
     private org.hl7.fhir.instance.model.api.IIdType id;
     @UriParam
-    @ApiParam(apiMethods = "resource,resourceBySearchUrl")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "resource"), @ApiMethod(methodName = "resource"), @ApiMethod(methodName = "resource"), @ApiMethod(methodName = "resource"), @ApiMethod(methodName = "resourceBySearchUrl"), @ApiMethod(methodName = "resourceBySearchUrl")})
     private ca.uhn.fhir.rest.api.PreferReturnEnum preferReturn;
     @UriParam
-    @ApiParam(apiMethods = "resource,resourceBySearchUrl")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "resource"), @ApiMethod(methodName = "resource"), @ApiMethod(methodName = "resourceBySearchUrl")})
     private org.hl7.fhir.instance.model.api.IBaseResource resource;
     @UriParam
-    @ApiParam(apiMethods = "resource,resourceBySearchUrl")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "resource"), @ApiMethod(methodName = "resource"), @ApiMethod(methodName = "resourceBySearchUrl")})
     private String resourceAsString;
     @UriParam
-    @ApiParam(apiMethods = "resource")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "resource"), @ApiMethod(methodName = "resource")})
     private String stringId;
     @UriParam
-    @ApiParam(apiMethods = "resourceBySearchUrl")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "resourceBySearchUrl"), @ApiMethod(methodName = "resourceBySearchUrl")})
     private String url;
 
     public java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters,Object> getExtraParameters() {

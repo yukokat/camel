@@ -50,6 +50,7 @@ import java.util.stream.Stream;
 import org.apache.camel.Category;
 import org.apache.camel.maven.packaging.generics.ClassUtil;
 import org.apache.camel.maven.packaging.generics.GenericsUtil;
+import org.apache.camel.spi.ApiMethod;
 import org.apache.camel.spi.ApiParam;
 import org.apache.camel.spi.ApiParams;
 import org.apache.camel.spi.Metadata;
@@ -1101,11 +1102,10 @@ public class EndpointSchemaGeneratorMojo extends AbstractGeneratorMojo {
                             option.setKind("parameter");
                             ApiModel api = new ApiModel();
                             api.setName(apiName);
-                            String[] methods = apiParam.apiMethods().split(",");
-                            for (String method : methods) {
+                            for (ApiMethod method : apiParam.apiMethods()) {
                                 ApiMethodModel apiMethod = new ApiMethodModel();
-                                apiMethod.setName(method);
-                                apiMethod.setDescription(apiParam.description());
+                                apiMethod.setName(method.methodName());
+                                apiMethod.setDescription(method.description());
                                 apiMethod.addApiOptionModel((ApiOptionModel) option);
                                 api.addMethod(apiMethod);
                             }

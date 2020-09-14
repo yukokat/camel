@@ -20,13 +20,13 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class QueueEndpointConfiguration extends TwilioConfiguration {
     @UriParam
-    @ApiParam(apiMethods = "creator", description = "A string to describe this resource")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="A string to describe this resource")})
     private String friendlyName;
     @UriParam
-    @ApiParam(apiMethods = "creator,deleter,fetcher,reader,updater", description = "The SID of the Account that will create the resource")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The SID of the Account that will create the resource"), @ApiMethod(methodName = "deleter", description="The SID of the Account that created the resource(s) to delete"), @ApiMethod(methodName = "fetcher", description="The SID of the Account that created the resource(s) to fetch"), @ApiMethod(methodName = "reader", description="The SID of the Account that created the resource(s) to fetch"), @ApiMethod(methodName = "updater", description="The SID of the Account that created the resource(s) to update")})
     private String pathAccountSid;
     @UriParam
-    @ApiParam(apiMethods = "deleter,fetcher,updater", description = "The unique string that identifies this resource")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "deleter", description="The unique string that identifies this resource"), @ApiMethod(methodName = "fetcher", description="The unique string that identifies this resource"), @ApiMethod(methodName = "updater", description="The unique string that identifies this resource")})
     private String pathSid;
 
     public String getFriendlyName() {

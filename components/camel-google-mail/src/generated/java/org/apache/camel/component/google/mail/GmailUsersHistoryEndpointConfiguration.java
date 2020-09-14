@@ -20,7 +20,7 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class GmailUsersHistoryEndpointConfiguration extends GoogleMailConfiguration {
     @UriParam
-    @ApiParam(apiMethods = "list", description = "The user's email address. The special value me can be used to indicate the authenticated user. default: me")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "list", description="The user's email address. The special value me can be used to indicate the authenticated user. default: me")})
     private String userId;
 
     public String getUserId() {

@@ -20,25 +20,25 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class Olingo2AppEndpointConfiguration extends Olingo2Configuration {
     @UriParam
-    @ApiParam(apiMethods = "batch,create,merge,patch,update")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "batch"), @ApiMethod(methodName = "create"), @ApiMethod(methodName = "merge"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "update")})
     private Object data;
     @UriParam
-    @ApiParam(apiMethods = "batch,create,merge,patch,read,update,uread")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "batch"), @ApiMethod(methodName = "create"), @ApiMethod(methodName = "merge"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "read"), @ApiMethod(methodName = "update"), @ApiMethod(methodName = "uread")})
     private org.apache.olingo.odata2.api.edm.Edm edm;
     @UriParam
-    @ApiParam(apiMethods = "batch,create,delete,merge,patch,read,update,uread")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "batch"), @ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "merge"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "read"), @ApiMethod(methodName = "update"), @ApiMethod(methodName = "uread")})
     private java.util.Map<String,String> endpointHttpHeaders;
     @UriParam
-    @ApiParam(apiMethods = "")
+    @ApiParam(apiMethods = {})
     private String keyPredicate;
     @UriParam
-    @ApiParam(apiMethods = "read,uread")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "read"), @ApiMethod(methodName = "uread")})
     private java.util.Map<String,String> queryParams;
     @UriParam
-    @ApiParam(apiMethods = "create,delete,merge,patch,read,update,uread")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "merge"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "read"), @ApiMethod(methodName = "update"), @ApiMethod(methodName = "uread")})
     private String resourcePath;
     @UriParam
-    @ApiParam(apiMethods = "batch,create,delete,merge,patch,read,update,uread")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "batch"), @ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "merge"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "read"), @ApiMethod(methodName = "update"), @ApiMethod(methodName = "uread")})
     private org.apache.camel.component.olingo2.api.Olingo2ResponseHandler responseHandler;
 
     public Object getData() {

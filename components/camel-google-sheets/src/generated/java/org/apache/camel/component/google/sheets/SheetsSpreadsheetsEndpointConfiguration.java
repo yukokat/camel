@@ -20,16 +20,16 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class SheetsSpreadsheetsEndpointConfiguration extends GoogleSheetsConfiguration {
     @UriParam
-    @ApiParam(apiMethods = "batchUpdate", description = "The com.google.api.services.sheets.v4.model.BatchUpdateSpreadsheetRequest")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "batchUpdate", description="The com.google.api.services.sheets.v4.model.BatchUpdateSpreadsheetRequest")})
     private com.google.api.services.sheets.v4.model.BatchUpdateSpreadsheetRequest batchUpdateSpreadsheetRequest;
     @UriParam
-    @ApiParam(apiMethods = "create", description = "The com.google.api.services.sheets.v4.model.Spreadsheet")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "create", description="The com.google.api.services.sheets.v4.model.Spreadsheet")})
     private com.google.api.services.sheets.v4.model.Spreadsheet content;
     @UriParam
-    @ApiParam(apiMethods = "getByDataFilter", description = "The com.google.api.services.sheets.v4.model.GetSpreadsheetByDataFilterRequest")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "getByDataFilter", description="The com.google.api.services.sheets.v4.model.GetSpreadsheetByDataFilterRequest")})
     private com.google.api.services.sheets.v4.model.GetSpreadsheetByDataFilterRequest getSpreadsheetByDataFilterRequest;
     @UriParam
-    @ApiParam(apiMethods = "batchUpdate,get,getByDataFilter", description = "The spreadsheet to apply the updates to")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "batchUpdate", description="The spreadsheet to apply the updates to"), @ApiMethod(methodName = "get", description="The spreadsheet to request"), @ApiMethod(methodName = "getByDataFilter", description="The spreadsheet to request")})
     private String spreadsheetId;
 
     public com.google.api.services.sheets.v4.model.BatchUpdateSpreadsheetRequest getBatchUpdateSpreadsheetRequest() {

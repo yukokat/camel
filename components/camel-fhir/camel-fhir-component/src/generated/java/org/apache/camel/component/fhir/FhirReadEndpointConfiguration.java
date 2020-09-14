@@ -20,43 +20,43 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class FhirReadEndpointConfiguration extends FhirConfiguration {
     @UriParam
-    @ApiParam(apiMethods = "resourceById,resourceByUrl")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceByUrl"), @ApiMethod(methodName = "resourceByUrl"), @ApiMethod(methodName = "resourceByUrl"), @ApiMethod(methodName = "resourceByUrl")})
     private java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters,Object> extraParameters;
     @UriParam
-    @ApiParam(apiMethods = "resourceByUrl")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "resourceByUrl"), @ApiMethod(methodName = "resourceByUrl")})
     private org.hl7.fhir.instance.model.api.IIdType iUrl;
     @UriParam
-    @ApiParam(apiMethods = "resourceById")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceById")})
     private org.hl7.fhir.instance.model.api.IIdType id;
     @UriParam
-    @ApiParam(apiMethods = "resourceById,resourceByUrl")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceByUrl"), @ApiMethod(methodName = "resourceByUrl"), @ApiMethod(methodName = "resourceByUrl"), @ApiMethod(methodName = "resourceByUrl")})
     private String ifVersionMatches;
     @UriParam
-    @ApiParam(apiMethods = "resourceById")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceById")})
     private Long longId;
     @UriParam
-    @ApiParam(apiMethods = "resourceById,resourceByUrl")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceByUrl"), @ApiMethod(methodName = "resourceByUrl")})
     private Class<org.hl7.fhir.instance.model.api.IBaseResource> resource;
     @UriParam
-    @ApiParam(apiMethods = "resourceById,resourceByUrl")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceByUrl"), @ApiMethod(methodName = "resourceByUrl")})
     private String resourceClass;
     @UriParam
-    @ApiParam(apiMethods = "resourceById,resourceByUrl")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceByUrl"), @ApiMethod(methodName = "resourceByUrl"), @ApiMethod(methodName = "resourceByUrl"), @ApiMethod(methodName = "resourceByUrl")})
     private Boolean returnNull;
     @UriParam
-    @ApiParam(apiMethods = "resourceById,resourceByUrl")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceByUrl"), @ApiMethod(methodName = "resourceByUrl"), @ApiMethod(methodName = "resourceByUrl"), @ApiMethod(methodName = "resourceByUrl")})
     private org.hl7.fhir.instance.model.api.IBaseResource returnResource;
     @UriParam
-    @ApiParam(apiMethods = "resourceById")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceById")})
     private String stringId;
     @UriParam
-    @ApiParam(apiMethods = "resourceById,resourceByUrl")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceByUrl"), @ApiMethod(methodName = "resourceByUrl"), @ApiMethod(methodName = "resourceByUrl"), @ApiMethod(methodName = "resourceByUrl")})
     private Boolean throwError;
     @UriParam
-    @ApiParam(apiMethods = "resourceByUrl")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "resourceByUrl"), @ApiMethod(methodName = "resourceByUrl")})
     private String url;
     @UriParam
-    @ApiParam(apiMethods = "resourceById")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "resourceById"), @ApiMethod(methodName = "resourceById")})
     private String version;
 
     public java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters,Object> getExtraParameters() {

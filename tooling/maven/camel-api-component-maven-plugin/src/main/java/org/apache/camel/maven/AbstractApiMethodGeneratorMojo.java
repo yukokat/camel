@@ -31,6 +31,7 @@ import java.util.regex.Pattern;
 import org.apache.camel.support.component.ApiMethodArg;
 import org.apache.camel.support.component.ApiMethodParser;
 import org.apache.camel.support.component.ArgumentSubstitutionParser;
+import org.apache.camel.util.ObjectHelper;
 import org.apache.camel.util.StringHelper;
 import org.apache.commons.lang.ClassUtils;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -299,13 +300,16 @@ public abstract class AbstractApiMethodGeneratorMojo extends AbstractApiMethodBa
     public static String getApiMethodsForParam(List<ApiMethodParser.ApiMethodModel> models, ApiMethodArg argument) {
         StringBuilder sb = new StringBuilder();
 
+        // avoid duplicate methods as we only want them listed once
+        Set<String> names = new HashSet<>();
+
         String key = argument.getName();
         models.forEach(p -> {
             ApiMethodArg match = p.getArguments().stream().filter(a -> a.getName().equals(key)).findFirst().orElse(null);
-            if (match != null) {
+            if (match != null && names.add(p.getName())) {
                 String desc = match.getDescription();
                 sb.append("@ApiMethod(methodName = \"").append(p.getName()).append("\"");
-                if (desc != null) {
+                if (ObjectHelper.isNotEmpty(desc)) {
                     sb.append(", description=\"").append(desc).append("\"");
                 }
                 sb.append(")");
@@ -404,7 +408,7 @@ public abstract class AbstractApiMethodGeneratorMojo extends AbstractApiMethodBa
             if (names.add(name)) {
                 String desc = model.getDescription();
                 sb.append("@ApiMethod(methodName = \"").append(model.getName()).append("\"");
-                if (desc != null) {
+                if (ObjectHelper.isNotEmpty(desc)) {
                     sb.append(", description=\"").append(desc).append("\"");
                 }
                 sb.append(")");

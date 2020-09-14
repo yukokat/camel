@@ -20,94 +20,94 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class BoxFilesManagerEndpointConfiguration extends BoxConfiguration {
     @UriParam
-    @ApiParam(apiMethods = "createFileSharedLink", description = "The access level of the shared link")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "createFileSharedLink", description="The access level of the shared link")})
     private com.box.sdk.BoxSharedLink.Access access;
     @UriParam
-    @ApiParam(apiMethods = "uploadFile", description = "If the file name is already used, call the uploadNewVersion instead.")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "uploadFile", description="If the file name is already used, call the uploadNewVersion instead.")})
     private Boolean check;
     @UriParam
-    @ApiParam(apiMethods = "uploadFile", description = "A stream containing contents of the file to upload")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "uploadFile", description="A stream containing contents of the file to upload")})
     private java.io.InputStream content;
     @UriParam
-    @ApiParam(apiMethods = "uploadFile", description = "The content created date that will be given to the uploaded file")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "uploadFile", description="The content created date that will be given to the uploaded file")})
     private java.util.Date created;
     @UriParam
-    @ApiParam(apiMethods = "copyFile,moveFile", description = "The id of the destination folder")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "copyFile", description="The id of the destination folder"), @ApiMethod(methodName = "moveFile", description="The id of the destination folder")})
     private String destinationFolderId;
     @UriParam
-    @ApiParam(apiMethods = "getFileInfo", description = "The information fields to retrieve; if null all information fields are retrieved.")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "getFileInfo", description="The information fields to retrieve; if null all information fields are retrieved.")})
     private String[] fields;
     @UriParam
-    @ApiParam(apiMethods = "uploadNewFileVersion", description = "A stream containing contents of the file to upload")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "uploadNewFileVersion", description="A stream containing contents of the file to upload")})
     private java.io.InputStream fileContent;
     @UriParam
-    @ApiParam(apiMethods = "copyFile,createFileMetadata,createFileSharedLink,deleteFile,deleteFileMetadata,deleteFileVersion,downloadFile,downloadPreviousFileVersion,getDownloadURL,getFileInfo,getFileMetadata,getFilePreviewLink,getFileThumbnail,getFileVersions,moveFile,promoteFileVersion,renameFile,updateFileInfo,updateFileMetadata,uploadNewFileVersion", description = "The id of file to copy")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "copyFile", description="The id of file to copy"), @ApiMethod(methodName = "createFileMetadata", description="The id of the file to create metadata for"), @ApiMethod(methodName = "createFileSharedLink", description="The id of the file to create shared link on"), @ApiMethod(methodName = "deleteFile", description="The id of file to delete"), @ApiMethod(methodName = "deleteFileMetadata", description="The id of file to delete"), @ApiMethod(methodName = "deleteFileVersion", description="The id of file with version to delete"), @ApiMethod(methodName = "downloadFile", description="The id of file"), @ApiMethod(methodName = "downloadPreviousFileVersion", description="The id of file"), @ApiMethod(methodName = "getDownloadURL", description="The id of file"), @ApiMethod(methodName = "getFileInfo", description="The id of file"), @ApiMethod(methodName = "getFileMetadata", description="The id of the file to retrieve metadata for"), @ApiMethod(methodName = "getFilePreviewLink", description="The id of the file to get preview link on"), @ApiMethod(methodName = "getFileThumbnail", description="The id of the file to get preview link on"), @ApiMethod(methodName = "getFileVersions", description="The id of file"), @ApiMethod(methodName = "moveFile", description="The id of file to move"), @ApiMethod(methodName = "promoteFileVersion", description="The id of file"), @ApiMethod(methodName = "renameFile", description="The id of file to rename"), @ApiMethod(methodName = "updateFileInfo", description="The id of file to update"), @ApiMethod(methodName = "updateFileMetadata", description="The id of file to delete"), @ApiMethod(methodName = "uploadNewFileVersion", description="The id of file")})
     private String fileId;
     @UriParam
-    @ApiParam(apiMethods = "checkUpload,uploadFile", description = "The name to give the uploaded file")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "checkUpload", description="The name to give the uploaded file"), @ApiMethod(methodName = "uploadFile", description="The name to give the uploaded file")})
     private String fileName;
     @UriParam
-    @ApiParam(apiMethods = "uploadNewFileVersion", description = "The size of the file's content used for monitoring the upload's progress")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "uploadNewFileVersion", description="The size of the file's content used for monitoring the upload's progress")})
     private Long fileSize;
     @UriParam
-    @ApiParam(apiMethods = "getFileThumbnail", description = "Either PNG of JPG")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "getFileThumbnail", description="Either PNG of JPG")})
     private com.box.sdk.BoxFile.ThumbnailFileType fileType;
     @UriParam
-    @ApiParam(apiMethods = "updateFileInfo", description = "The updated information")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "updateFileInfo", description="The updated information")})
     private com.box.sdk.BoxFile.Info info;
     @UriParam
-    @ApiParam(apiMethods = "downloadFile,downloadPreviousFileVersion,uploadFile,uploadNewFileVersion", description = "A listener for monitoring the download's progress; if null the download's progress will not be monitored.")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "downloadFile", description="A listener for monitoring the download's progress; if null the download's progress will not be monitored."), @ApiMethod(methodName = "downloadPreviousFileVersion", description="A listener for monitoring the download's progress; if null the download's progress will not be monitored."), @ApiMethod(methodName = "uploadFile", description="A listener for monitoring the upload's progress"), @ApiMethod(methodName = "uploadNewFileVersion", description="A listener for monitoring the upload's progress")})
     private com.box.sdk.ProgressListener listener;
     @UriParam
-    @ApiParam(apiMethods = "getFileThumbnail", description = "Maximum height")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "getFileThumbnail", description="Maximum height")})
     private Integer maxHeight;
     @UriParam
-    @ApiParam(apiMethods = "getFileThumbnail", description = "Maximum width")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "getFileThumbnail", description="Maximum width")})
     private Integer maxWidth;
     @UriParam
-    @ApiParam(apiMethods = "createFileMetadata,updateFileMetadata", description = "The new metadata values")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "createFileMetadata", description="The new metadata values"), @ApiMethod(methodName = "updateFileMetadata", description="The new metadata values")})
     private com.box.sdk.Metadata metadata;
     @UriParam
-    @ApiParam(apiMethods = "getFileThumbnail", description = "Minimum height")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "getFileThumbnail", description="Minimum height")})
     private Integer minHeight;
     @UriParam
-    @ApiParam(apiMethods = "getFileThumbnail", description = "Minimum width")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "getFileThumbnail", description="Minimum width")})
     private Integer minWidth;
     @UriParam
-    @ApiParam(apiMethods = "uploadFile,uploadNewFileVersion", description = "The content modified date that will be given to the uploaded file")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "uploadFile", description="The content modified date that will be given to the uploaded file"), @ApiMethod(methodName = "uploadNewFileVersion", description="The content modified date that will be given to the uploaded file")})
     private java.util.Date modified;
     @UriParam
-    @ApiParam(apiMethods = "renameFile", description = "The new name of file")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "renameFile", description="The new name of file")})
     private String newFileName;
     @UriParam
-    @ApiParam(apiMethods = "copyFile,moveFile", description = "The new name for copied file; if newName is null, the copied file has same name as the original.")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "copyFile", description="The new name for copied file; if newName is null, the copied file has same name as the original."), @ApiMethod(methodName = "moveFile", description="The new name of moved file; if newName is null, the moved file has same name as the original.")})
     private String newName;
     @UriParam
-    @ApiParam(apiMethods = "downloadFile,downloadPreviousFileVersion", description = "The stream to which the file contents will be written")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "downloadFile", description="The stream to which the file contents will be written"), @ApiMethod(methodName = "downloadPreviousFileVersion", description="The stream to which the version contents will be written")})
     private java.io.OutputStream output;
     @UriParam
-    @ApiParam(apiMethods = "checkUpload,uploadFile", description = "The id of parent folder")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "checkUpload", description="The id of parent folder"), @ApiMethod(methodName = "uploadFile", description="The id of parent folder")})
     private String parentFolderId;
     @UriParam
-    @ApiParam(apiMethods = "createFileSharedLink", description = "The permissions of the created link; if permissions is null then the created shared link is create with default permissions.")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "createFileSharedLink", description="The permissions of the created link; if permissions is null then the created shared link is create with default permissions.")})
     private com.box.sdk.BoxSharedLink.Permissions permissions;
     @UriParam
-    @ApiParam(apiMethods = "downloadFile", description = "The byte offset in file at which to stop the download; if null the entire contents of file will be downloaded.")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "downloadFile", description="The byte offset in file at which to stop the download; if null the entire contents of file will be downloaded.")})
     private Long rangeEnd;
     @UriParam
-    @ApiParam(apiMethods = "downloadFile", description = "The byte offset in file at which to start the download; if null the entire contents of file will be downloaded.")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "downloadFile", description="The byte offset in file at which to start the download; if null the entire contents of file will be downloaded.")})
     private Long rangeStart;
     @UriParam
-    @ApiParam(apiMethods = "checkUpload,uploadFile", description = "The size of the file's content used for monitoring the upload's progress")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "checkUpload", description="The size of the file's content used for monitoring the upload's progress"), @ApiMethod(methodName = "uploadFile", description="The size of the file's content used for monitoring the upload's progress")})
     private Long size;
     @UriParam
-    @ApiParam(apiMethods = "createFileMetadata,getFileMetadata", description = "The metadata template type name; if null the global properties template type is used.")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "createFileMetadata", description="The metadata template type name; if null the global properties template type is used."), @ApiMethod(methodName = "getFileMetadata", description="The metadata template type name; if null the global properties template type is used.")})
     private String typeName;
     @UriParam
-    @ApiParam(apiMethods = "createFileSharedLink", description = "The date and time at which time the created shared link will expire; if unsharedDate is null then a non-expiring link is created.")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "createFileSharedLink", description="The date and time at which time the created shared link will expire; if unsharedDate is null then a non-expiring link is created.")})
     private java.util.Date unshareDate;
     @UriParam
-    @ApiParam(apiMethods = "deleteFileVersion,downloadPreviousFileVersion,promoteFileVersion", description = "The version of file to delete; initial version of file has value of 0, second version of file is 1 and so on.")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "deleteFileVersion", description="The version of file to delete; initial version of file has value of 0, second version of file is 1 and so on."), @ApiMethod(methodName = "downloadPreviousFileVersion", description="The version of file to download; initial version of file has value of 0, second version of file is 1 and so on."), @ApiMethod(methodName = "promoteFileVersion", description="The version of file to promote; initial version of file has value of 0, second version of file is 1 and so on.")})
     private Integer version;
 
     public com.box.sdk.BoxSharedLink.Access getAccess() {

@@ -20,19 +20,19 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class SipIpAccessControlListIpAddressEndpointConfiguration extends TwilioConfiguration {
     @UriParam
-    @ApiParam(apiMethods = "creator", description = "A human readable descriptive text for this resource, up to 64 characters long.")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="A human readable descriptive text for this resource, up to 64 characters long.")})
     private String friendlyName;
     @UriParam
-    @ApiParam(apiMethods = "creator", description = "An IP address in dotted decimal notation from which you want to accept traffic. Any SIP requests from this IP address will be allowed by Twilio. IPv4 only supported today.")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="An IP address in dotted decimal notation from which you want to accept traffic. Any SIP requests from this IP address will be allowed by Twilio. IPv4 only supported today.")})
     private String ipAddress;
     @UriParam
-    @ApiParam(apiMethods = "creator,deleter,fetcher,reader,updater", description = "The unique sid that identifies this account")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The unique sid that identifies this account"), @ApiMethod(methodName = "deleter", description="The unique sid that identifies this account"), @ApiMethod(methodName = "fetcher", description="The unique sid that identifies this account"), @ApiMethod(methodName = "reader", description="The unique sid that identifies this account"), @ApiMethod(methodName = "updater", description="The unique sid that identifies this account")})
     private String pathAccountSid;
     @UriParam
-    @ApiParam(apiMethods = "creator,deleter,fetcher,reader,updater", description = "The IpAccessControlList Sid with which to associate the created IpAddress resource")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The IpAccessControlList Sid with which to associate the created IpAddress resource"), @ApiMethod(methodName = "deleter", description="The IpAccessControlList Sid that identifies the IpAddress resources to delete"), @ApiMethod(methodName = "fetcher", description="The IpAccessControlList Sid that identifies the IpAddress resources to fetch"), @ApiMethod(methodName = "reader", description="The IpAccessControlList Sid that identifies the IpAddress resources to read"), @ApiMethod(methodName = "updater", description="The IpAccessControlList Sid that identifies the IpAddress resources to update")})
     private String pathIpAccessControlListSid;
     @UriParam
-    @ApiParam(apiMethods = "deleter,fetcher,updater", description = "A string that identifies the resource to delete")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "deleter", description="A string that identifies the resource to delete"), @ApiMethod(methodName = "fetcher", description="A string that identifies the IpAddress resource to fetch"), @ApiMethod(methodName = "updater", description="A string that identifies the IpAddress resource to update")})
     private String pathSid;
 
     public String getFriendlyName() {

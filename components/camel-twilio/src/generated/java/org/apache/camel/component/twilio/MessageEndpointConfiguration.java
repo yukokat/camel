@@ -20,25 +20,25 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class MessageEndpointConfiguration extends TwilioConfiguration {
     @UriParam
-    @ApiParam(apiMethods = "creator,updater", description = "The text of the message you want to send. Can be up to 1,600 characters in length.")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The text of the message you want to send. Can be up to 1,600 characters in length."), @ApiMethod(methodName = "updater", description="The text of the message you want to send")})
     private String body;
     @UriParam
-    @ApiParam(apiMethods = "creator", description = "The phone number that initiated the message")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The phone number that initiated the message")})
     private com.twilio.type.PhoneNumber from;
     @UriParam
-    @ApiParam(apiMethods = "creator", description = "The URL of the media to send with the message")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The URL of the media to send with the message")})
     private java.util.List<java.net.URI> mediaUrl;
     @UriParam
-    @ApiParam(apiMethods = "creator", description = "The SID of the Messaging Service you want to associate with the message")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The SID of the Messaging Service you want to associate with the message")})
     private String messagingServiceSid;
     @UriParam
-    @ApiParam(apiMethods = "creator,deleter,fetcher,reader,updater", description = "The SID of the Account that will create the resource")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The SID of the Account that will create the resource"), @ApiMethod(methodName = "deleter", description="The SID of the Account that created the resources to delete"), @ApiMethod(methodName = "fetcher", description="The SID of the Account that created the resource to fetch"), @ApiMethod(methodName = "reader", description="The SID of the Account that created the resources to read"), @ApiMethod(methodName = "updater", description="The SID of the Account that created the resources to update")})
     private String pathAccountSid;
     @UriParam
-    @ApiParam(apiMethods = "deleter,fetcher,updater", description = "The unique string that identifies the resource")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "deleter", description="The unique string that identifies the resource"), @ApiMethod(methodName = "fetcher", description="The unique string that identifies the resource"), @ApiMethod(methodName = "updater", description="The unique string that identifies the resource")})
     private String pathSid;
     @UriParam
-    @ApiParam(apiMethods = "creator", description = "The destination phone number")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The destination phone number")})
     private com.twilio.type.PhoneNumber to;
 
     public String getBody() {

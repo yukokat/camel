@@ -20,13 +20,13 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class GmailUsersLabelsEndpointConfiguration extends GoogleMailConfiguration {
     @UriParam
-    @ApiParam(apiMethods = "create,patch,update", description = "The com.google.api.services.gmail.model.Label")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "create", description="The com.google.api.services.gmail.model.Label"), @ApiMethod(methodName = "patch", description="The com.google.api.services.gmail.model.Label"), @ApiMethod(methodName = "update", description="The com.google.api.services.gmail.model.Label")})
     private com.google.api.services.gmail.model.Label content;
     @UriParam
-    @ApiParam(apiMethods = "delete,get,patch,update", description = "The ID of the label to delete")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "delete", description="The ID of the label to delete"), @ApiMethod(methodName = "get", description="The ID of the label to retrieve"), @ApiMethod(methodName = "patch", description="The ID of the label to update"), @ApiMethod(methodName = "update", description="The ID of the label to update")})
     private String id;
     @UriParam
-    @ApiParam(apiMethods = "create,delete,get,list,patch,update", description = "The user's email address. The special value me can be used to indicate the authenticated user. default: me")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "create", description="The user's email address. The special value me can be used to indicate the authenticated user. default: me"), @ApiMethod(methodName = "delete", description="The user's email address. The special value me can be used to indicate the authenticated user. default: me"), @ApiMethod(methodName = "get", description="The user's email address. The special value me can be used to indicate the authenticated user. default: me"), @ApiMethod(methodName = "list", description="The user's email address. The special value me can be used to indicate the authenticated user. default: me"), @ApiMethod(methodName = "patch", description="The user's email address. The special value me can be used to indicate the authenticated user. default: me"), @ApiMethod(methodName = "update", description="The user's email address. The special value me can be used to indicate the authenticated user. default: me")})
     private String userId;
 
     public com.google.api.services.gmail.model.Label getContent() {

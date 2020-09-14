@@ -20,16 +20,16 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class SipDomainCredentialListMappingEndpointConfiguration extends TwilioConfiguration {
     @UriParam
-    @ApiParam(apiMethods = "creator", description = "A string that identifies the CredentialList resource to map to the SIP domain")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="A string that identifies the CredentialList resource to map to the SIP domain")})
     private String credentialListSid;
     @UriParam
-    @ApiParam(apiMethods = "creator,deleter,fetcher,reader", description = "The unique sid that identifies this account")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The unique sid that identifies this account"), @ApiMethod(methodName = "deleter", description="The unique sid that identifies this account"), @ApiMethod(methodName = "fetcher", description="The unique sid that identifies this account"), @ApiMethod(methodName = "reader", description="The unique sid that identifies this account")})
     private String pathAccountSid;
     @UriParam
-    @ApiParam(apiMethods = "creator,deleter,fetcher,reader", description = "A string that identifies the SIP Domain for which the CredentialList resource will be mapped")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="A string that identifies the SIP Domain for which the CredentialList resource will be mapped"), @ApiMethod(methodName = "deleter", description="A string that identifies the SIP Domain that includes the resource to delete"), @ApiMethod(methodName = "fetcher", description="A string that identifies the SIP Domain that includes the resource to fetch"), @ApiMethod(methodName = "reader", description="A string that identifies the SIP Domain that includes the resource to read")})
     private String pathDomainSid;
     @UriParam
-    @ApiParam(apiMethods = "deleter,fetcher", description = "A string that identifies the resource to delete")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "deleter", description="A string that identifies the resource to delete"), @ApiMethod(methodName = "fetcher", description="A string that identifies the resource to fetch")})
     private String pathSid;
 
     public String getCredentialListSid() {

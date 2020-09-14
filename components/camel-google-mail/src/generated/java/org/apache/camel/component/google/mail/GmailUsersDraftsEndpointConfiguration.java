@@ -20,16 +20,16 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class GmailUsersDraftsEndpointConfiguration extends GoogleMailConfiguration {
     @UriParam
-    @ApiParam(apiMethods = "create,send,update", description = "The com.google.api.services.gmail.model.Draft media metadata or null if none")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "create", description="The com.google.api.services.gmail.model.Draft media metadata or null if none"), @ApiMethod(methodName = "create", description="The com.google.api.services.gmail.model.Draft media metadata or null if none"), @ApiMethod(methodName = "send", description="The com.google.api.services.gmail.model.Draft media metadata or null if none"), @ApiMethod(methodName = "send", description="The com.google.api.services.gmail.model.Draft media metadata or null if none"), @ApiMethod(methodName = "update", description="The com.google.api.services.gmail.model.Draft media metadata or null if none"), @ApiMethod(methodName = "update", description="The com.google.api.services.gmail.model.Draft media metadata or null if none")})
     private com.google.api.services.gmail.model.Draft content;
     @UriParam
-    @ApiParam(apiMethods = "delete,get,update", description = "The ID of the draft to delete")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "delete", description="The ID of the draft to delete"), @ApiMethod(methodName = "get", description="The ID of the draft to retrieve"), @ApiMethod(methodName = "update"), @ApiMethod(methodName = "update")})
     private String id;
     @UriParam
-    @ApiParam(apiMethods = "create,send,update", description = "The media HTTP content or null if none")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "create", description="The media HTTP content or null if none"), @ApiMethod(methodName = "send", description="The media HTTP content or null if none"), @ApiMethod(methodName = "update", description="The media HTTP content or null if none")})
     private com.google.api.client.http.AbstractInputStreamContent mediaContent;
     @UriParam
-    @ApiParam(apiMethods = "create,delete,get,list,send,update", description = "The user's email address. The special value me can be used to indicate the authenticated user. default: me")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "create", description="The user's email address. The special value me can be used to indicate the authenticated user. default: me"), @ApiMethod(methodName = "create", description="The user's email address. The special value me can be used to indicate the authenticated user. default: me"), @ApiMethod(methodName = "delete", description="The user's email address. The special value me can be used to indicate the authenticated user. default: me"), @ApiMethod(methodName = "get", description="The user's email address. The special value me can be used to indicate the authenticated user. default: me"), @ApiMethod(methodName = "list", description="The user's email address. The special value me can be used to indicate the authenticated user. default: me"), @ApiMethod(methodName = "send", description="The user's email address. The special value me can be used to indicate the authenticated user. default: me"), @ApiMethod(methodName = "send", description="The user's email address. The special value me can be used to indicate the authenticated user. default: me"), @ApiMethod(methodName = "update", description="The user's email address. The special value me can be used to indicate the authenticated user. default: meparam id The ID of the draft to update."), @ApiMethod(methodName = "update", description="The user's email address. The special value me can be used to indicate the authenticated user. default: meparam id The ID of the draft to update.")})
     private String userId;
 
     public com.google.api.services.gmail.model.Draft getContent() {

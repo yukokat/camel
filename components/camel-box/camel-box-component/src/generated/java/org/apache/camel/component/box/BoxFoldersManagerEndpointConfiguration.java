@@ -20,46 +20,46 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class BoxFoldersManagerEndpointConfiguration extends BoxConfiguration {
     @UriParam
-    @ApiParam(apiMethods = "createFolderSharedLink", description = "The access level of the shared link")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "createFolderSharedLink", description="The access level of the shared link")})
     private com.box.sdk.BoxSharedLink.Access access;
     @UriParam
-    @ApiParam(apiMethods = "copyFolder,moveFolder", description = "The id of the destination folder")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "copyFolder", description="The id of the destination folder"), @ApiMethod(methodName = "moveFolder", description="The id of the destination folder")})
     private String destinationFolderId;
     @UriParam
-    @ApiParam(apiMethods = "getFolderInfo,getFolderItems", description = "The information fields to retrieve; if null all information fields are retrieved.")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "getFolderInfo", description="The information fields to retrieve; if null all information fields are retrieved."), @ApiMethod(methodName = "getFolderItems", description="The item fields to retrieve for each child item; if null all item fields are retrieved.")})
     private String[] fields;
     @UriParam
-    @ApiParam(apiMethods = "copyFolder,createFolderSharedLink,deleteFolder,getFolderInfo,getFolderItems,moveFolder,renameFolder,updateFolderInfo", description = "The id of folder to copy")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "copyFolder", description="The id of folder to copy"), @ApiMethod(methodName = "createFolderSharedLink", description="The id of folder to create shared link on"), @ApiMethod(methodName = "deleteFolder", description="The id of folder to delete"), @ApiMethod(methodName = "getFolderInfo", description="The id of folder"), @ApiMethod(methodName = "getFolderItems", description="The id of folder"), @ApiMethod(methodName = "moveFolder", description="The id of folder to move"), @ApiMethod(methodName = "renameFolder", description="The id of folder to rename"), @ApiMethod(methodName = "updateFolderInfo", description="The id of folder to update")})
     private String folderId;
     @UriParam
-    @ApiParam(apiMethods = "createFolder", description = "The name of created folder")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "createFolder", description="The name of created folder")})
     private String folderName;
     @UriParam
-    @ApiParam(apiMethods = "updateFolderInfo", description = "The updated information")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "updateFolderInfo", description="The updated information")})
     private com.box.sdk.BoxFolder.Info info;
     @UriParam
-    @ApiParam(apiMethods = "getFolderItems", description = "The maximum number of children to retrieve after the offset; if null all child items are retrieved.")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "getFolderItems", description="The maximum number of children to retrieve after the offset; if null all child items are retrieved.")})
     private Long limit;
     @UriParam
-    @ApiParam(apiMethods = "renameFolder", description = "The new name of folder")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "renameFolder", description="The new name of folder")})
     private String newFolderName;
     @UriParam
-    @ApiParam(apiMethods = "copyFolder,moveFolder", description = "The new name for copied folder; if newName is null, the copied folder has same name as the original.")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "copyFolder", description="The new name for copied folder; if newName is null, the copied folder has same name as the original."), @ApiMethod(methodName = "moveFolder", description="The new name of moved folder; if newName is null, the moved folder has same name as the original.")})
     private String newName;
     @UriParam
-    @ApiParam(apiMethods = "getFolderItems", description = "The index of first child item to retrieve; if null all child items are retrieved.")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "getFolderItems", description="The index of first child item to retrieve; if null all child items are retrieved.")})
     private Long offset;
     @UriParam
-    @ApiParam(apiMethods = "createFolder", description = "The id of parent folder")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "createFolder", description="The id of parent folder"), @ApiMethod(methodName = "createFolder", description="The id of parent folder")})
     private String parentFolderId;
     @UriParam
-    @ApiParam(apiMethods = "createFolder,getFolder", description = "Sequence of Box folder names from parent folder to returned folder")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "createFolder", description="Sequence of Box folder names from parent folder to returned folder"), @ApiMethod(methodName = "getFolder", description="Sequence of Box folder names from root folder to returned folder")})
     private String[] path;
     @UriParam
-    @ApiParam(apiMethods = "createFolderSharedLink", description = "The permissions of the created link; if permissions is null then the created shared link is create with default permissions.")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "createFolderSharedLink", description="The permissions of the created link; if permissions is null then the created shared link is create with default permissions.")})
     private com.box.sdk.BoxSharedLink.Permissions permissions;
     @UriParam
-    @ApiParam(apiMethods = "createFolderSharedLink", description = "The date and time at which time the created shared link will expire; if unsharedDate is null then a non-expiring link is created.")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "createFolderSharedLink", description="The date and time at which time the created shared link will expire; if unsharedDate is null then a non-expiring link is created.")})
     private java.util.Date unshareDate;
 
     public com.box.sdk.BoxSharedLink.Access getAccess() {

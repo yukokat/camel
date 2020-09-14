@@ -20,13 +20,13 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class CalendarCalendarListEndpointConfiguration extends GoogleCalendarConfiguration {
     @UriParam
-    @ApiParam(apiMethods = "delete,get,patch,update", description = "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword.")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "delete", description="Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword."), @ApiMethod(methodName = "get", description="Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword."), @ApiMethod(methodName = "patch", description="Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword."), @ApiMethod(methodName = "update", description="Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword.")})
     private String calendarId;
     @UriParam
-    @ApiParam(apiMethods = "insert,patch,update", description = "The com.google.api.services.calendar.model.CalendarListEntry")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "insert", description="The com.google.api.services.calendar.model.CalendarListEntry"), @ApiMethod(methodName = "patch", description="The com.google.api.services.calendar.model.CalendarListEntry"), @ApiMethod(methodName = "update", description="The com.google.api.services.calendar.model.CalendarListEntry")})
     private com.google.api.services.calendar.model.CalendarListEntry content;
     @UriParam
-    @ApiParam(apiMethods = "watch", description = "The com.google.api.services.calendar.model.Channel")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "watch", description="The com.google.api.services.calendar.model.Channel")})
     private com.google.api.services.calendar.model.Channel contentChannel;
 
     public String getCalendarId() {

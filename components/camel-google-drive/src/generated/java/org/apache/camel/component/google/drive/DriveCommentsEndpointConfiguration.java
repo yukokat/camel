@@ -20,13 +20,13 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class DriveCommentsEndpointConfiguration extends GoogleDriveConfiguration {
     @UriParam
-    @ApiParam(apiMethods = "delete,get,patch,update", description = "The ID of the comment")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "delete", description="The ID of the comment"), @ApiMethod(methodName = "get", description="The ID of the comment"), @ApiMethod(methodName = "patch", description="The ID of the comment"), @ApiMethod(methodName = "update", description="The ID of the comment")})
     private String commentId;
     @UriParam
-    @ApiParam(apiMethods = "insert,patch,update", description = "The com.google.api.services.drive.model.Comment")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "insert", description="The com.google.api.services.drive.model.Comment"), @ApiMethod(methodName = "patch", description="The com.google.api.services.drive.model.Comment"), @ApiMethod(methodName = "update", description="The com.google.api.services.drive.model.Comment")})
     private com.google.api.services.drive.model.Comment content;
     @UriParam
-    @ApiParam(apiMethods = "delete,get,insert,list,patch,update", description = "The ID of the file")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "delete", description="The ID of the file"), @ApiMethod(methodName = "get", description="The ID of the file"), @ApiMethod(methodName = "insert", description="The ID of the file"), @ApiMethod(methodName = "list", description="The ID of the file"), @ApiMethod(methodName = "patch", description="The ID of the file"), @ApiMethod(methodName = "update", description="The ID of the file")})
     private String fileId;
 
     public String getCommentId() {

@@ -20,10 +20,10 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class BoxSearchManagerEndpointConfiguration extends BoxConfiguration {
     @UriParam
-    @ApiParam(apiMethods = "searchFolder", description = "The id of folder searched")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "searchFolder", description="The id of folder searched")})
     private String folderId;
     @UriParam
-    @ApiParam(apiMethods = "searchFolder", description = "The search query")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "searchFolder", description="The search query")})
     private String query;
 
     public String getFolderId() {

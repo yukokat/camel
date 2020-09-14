@@ -20,13 +20,13 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class BoxCommentsManagerEndpointConfiguration extends BoxConfiguration {
     @UriParam
-    @ApiParam(apiMethods = "changeCommentMessage,deleteComment,getCommentInfo,replyToComment", description = "The id of comment to change")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "changeCommentMessage", description="The id of comment to change"), @ApiMethod(methodName = "deleteComment", description="The id of comment to delete"), @ApiMethod(methodName = "getCommentInfo", description="The id of comment"), @ApiMethod(methodName = "replyToComment", description="The id of comment to reply to")})
     private String commentId;
     @UriParam
-    @ApiParam(apiMethods = "addFileComment,getFileComments", description = "The id of file to rename")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "addFileComment", description="The id of file to rename"), @ApiMethod(methodName = "getFileComments", description="The id of file")})
     private String fileId;
     @UriParam
-    @ApiParam(apiMethods = "addFileComment,changeCommentMessage,replyToComment", description = "The comment's message")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "addFileComment", description="The comment's message"), @ApiMethod(methodName = "changeCommentMessage", description="The new message for the comment"), @ApiMethod(methodName = "replyToComment", description="The message for the reply")})
     private String message;
 
     public String getCommentId() {

@@ -20,16 +20,16 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class MerchantAccountGatewayEndpointConfiguration extends BraintreeConfiguration {
     @UriParam
-    @ApiParam(apiMethods = "createForCurrency")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "createForCurrency")})
     private com.braintreegateway.MerchantAccountCreateForCurrencyRequest currencyRequest;
     @UriParam
-    @ApiParam(apiMethods = "find,update")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "find"), @ApiMethod(methodName = "update")})
     private String id;
     @UriParam
-    @ApiParam(apiMethods = "fetchMerchantAccounts")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "fetchMerchantAccounts")})
     private Integer page;
     @UriParam
-    @ApiParam(apiMethods = "create,update")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "create"), @ApiMethod(methodName = "update")})
     private com.braintreegateway.MerchantAccountRequest request;
 
     public com.braintreegateway.MerchantAccountCreateForCurrencyRequest getCurrencyRequest() {

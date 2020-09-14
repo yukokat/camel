@@ -20,10 +20,10 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class MessageFeedbackEndpointConfiguration extends TwilioConfiguration {
     @UriParam
-    @ApiParam(apiMethods = "creator", description = "The SID of the Account that will create the resource")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The SID of the Account that will create the resource")})
     private String pathAccountSid;
     @UriParam
-    @ApiParam(apiMethods = "creator", description = "The SID of the Message resource for which the feedback was provided")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The SID of the Message resource for which the feedback was provided")})
     private String pathMessageSid;
 
     public String getPathAccountSid() {

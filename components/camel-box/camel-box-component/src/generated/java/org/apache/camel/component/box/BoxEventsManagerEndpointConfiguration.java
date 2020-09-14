@@ -20,7 +20,7 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class BoxEventsManagerEndpointConfiguration extends BoxConfiguration {
     @UriParam
-    @ApiParam(apiMethods = "listen", description = "The starting position of the event stream")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "listen", description="The starting position of the event stream")})
     private Long startingPosition;
 
     public Long getStartingPosition() {

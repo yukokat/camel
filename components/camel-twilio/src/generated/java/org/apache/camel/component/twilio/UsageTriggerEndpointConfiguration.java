@@ -20,19 +20,19 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class UsageTriggerEndpointConfiguration extends TwilioConfiguration {
     @UriParam
-    @ApiParam(apiMethods = "creator", description = "The URL we call when the trigger fires")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The URL we call when the trigger fires")})
     private java.net.URI callbackUrl;
     @UriParam
-    @ApiParam(apiMethods = "creator,deleter,fetcher,reader,updater", description = "The SID of the Account that will create the resource")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The SID of the Account that will create the resource"), @ApiMethod(methodName = "deleter", description="The SID of the Account that created the resources to delete"), @ApiMethod(methodName = "fetcher", description="The SID of the Account that created the resource to fetch"), @ApiMethod(methodName = "reader", description="The SID of the Account that created the resources to read"), @ApiMethod(methodName = "updater", description="The SID of the Account that created the resources to update")})
     private String pathAccountSid;
     @UriParam
-    @ApiParam(apiMethods = "deleter,fetcher,updater", description = "The unique string that identifies the resource")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "deleter", description="The unique string that identifies the resource"), @ApiMethod(methodName = "fetcher", description="The unique string that identifies the resource"), @ApiMethod(methodName = "updater", description="The unique string that identifies the resource")})
     private String pathSid;
     @UriParam
-    @ApiParam(apiMethods = "creator", description = "The usage value at which the trigger should fire")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The usage value at which the trigger should fire")})
     private String triggerValue;
     @UriParam
-    @ApiParam(apiMethods = "creator", description = "The usage category the trigger watches")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The usage category the trigger watches")})
     private com.twilio.rest.api.v2010.account.usage.Trigger.UsageCategory usageCategory;
 
     public java.net.URI getCallbackUrl() {

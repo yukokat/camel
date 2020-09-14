@@ -20,7 +20,7 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class ClientTokenGatewayEndpointConfiguration extends BraintreeConfiguration {
     @UriParam
-    @ApiParam(apiMethods = "generate")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "generate")})
     private com.braintreegateway.ClientTokenRequest request;
 
     public com.braintreegateway.ClientTokenRequest getRequest() {

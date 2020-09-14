@@ -20,22 +20,22 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class TransactionGatewayEndpointConfiguration extends BraintreeConfiguration {
     @UriParam
-    @ApiParam(apiMethods = "refund,submitForPartialSettlement,submitForSettlement")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "refund"), @ApiMethod(methodName = "submitForPartialSettlement", description="Of the partial settlement"), @ApiMethod(methodName = "submitForSettlement", description="To settle. must be less than or equal to the authorization amount.")})
     private java.math.BigDecimal amount;
     @UriParam
-    @ApiParam(apiMethods = "cloneTransaction")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "cloneTransaction")})
     private com.braintreegateway.TransactionCloneRequest cloneRequest;
     @UriParam
-    @ApiParam(apiMethods = "cancelRelease,cloneTransaction,find,holdInEscrow,refund,releaseFromEscrow,submitForPartialSettlement,submitForSettlement,updateDetails,voidTransaction", description = "Of the transaction to cancel release from escrow of")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "cancelRelease", description="Of the transaction to cancel release from escrow of"), @ApiMethod(methodName = "cloneTransaction"), @ApiMethod(methodName = "find", description="The id of the Transaction"), @ApiMethod(methodName = "holdInEscrow", description="Of the transaction to hold for escrow"), @ApiMethod(methodName = "refund"), @ApiMethod(methodName = "refund"), @ApiMethod(methodName = "refund"), @ApiMethod(methodName = "releaseFromEscrow", description="Of the transaction to submit for release"), @ApiMethod(methodName = "submitForPartialSettlement", description="Of the transaction to add the partial settlement transaction for"), @ApiMethod(methodName = "submitForPartialSettlement", description="Of the transaction to add the partial settlement transaction for"), @ApiMethod(methodName = "submitForSettlement", description="Of the transaction to submit for settlement"), @ApiMethod(methodName = "submitForSettlement", description="Of the transaction to submit for settlement"), @ApiMethod(methodName = "submitForSettlement", description="Of the transaction to submit for settlement"), @ApiMethod(methodName = "updateDetails", description="Of the transaction to update the details for"), @ApiMethod(methodName = "voidTransaction", description="Of the transaction to void")})
     private String id;
     @UriParam
-    @ApiParam(apiMethods = "search", description = "The search query")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "search", description="The search query")})
     private com.braintreegateway.TransactionSearchRequest query;
     @UriParam
-    @ApiParam(apiMethods = "refund")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "refund")})
     private com.braintreegateway.TransactionRefundRequest refundRequest;
     @UriParam
-    @ApiParam(apiMethods = "credit,sale,submitForPartialSettlement,submitForSettlement,updateDetails", description = "The request")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "credit", description="The request"), @ApiMethod(methodName = "sale", description="The request"), @ApiMethod(methodName = "submitForPartialSettlement", description="The request"), @ApiMethod(methodName = "submitForSettlement", description="The request"), @ApiMethod(methodName = "updateDetails", description="The request")})
     private com.braintreegateway.TransactionRequest request;
 
     public java.math.BigDecimal getAmount() {

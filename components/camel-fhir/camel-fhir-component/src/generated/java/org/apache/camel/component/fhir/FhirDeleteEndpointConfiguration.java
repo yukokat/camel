@@ -20,22 +20,22 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class FhirDeleteEndpointConfiguration extends FhirConfiguration {
     @UriParam
-    @ApiParam(apiMethods = "resource,resourceById,resourceConditionalByUrl", description = "See ExtraParameters for a full list of parameters that can be passed, may be NULL")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "resource", description="See ExtraParameters for a full list of parameters that can be passed, may be NULL"), @ApiMethod(methodName = "resourceById", description="See ExtraParameters for a full list of parameters that can be passed, may be NULL"), @ApiMethod(methodName = "resourceById", description="See ExtraParameters for a full list of parameters that can be passed, may be NULL"), @ApiMethod(methodName = "resourceConditionalByUrl", description="See ExtraParameters for a full list of parameters that can be passed, may be NULL")})
     private java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters,Object> extraParameters;
     @UriParam
-    @ApiParam(apiMethods = "resourceById", description = "The IIdType referencing the resource")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "resourceById", description="The IIdType referencing the resource")})
     private org.hl7.fhir.instance.model.api.IIdType id;
     @UriParam
-    @ApiParam(apiMethods = "resource", description = "The IBaseResource to delete")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "resource", description="The IBaseResource to delete")})
     private org.hl7.fhir.instance.model.api.IBaseResource resource;
     @UriParam
-    @ApiParam(apiMethods = "resourceById", description = "It's id")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "resourceById", description="It's id")})
     private String stringId;
     @UriParam
-    @ApiParam(apiMethods = "resourceById", description = "The resource type e.g Patient")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "resourceById", description="The resource type e.g Patient")})
     private String type;
     @UriParam
-    @ApiParam(apiMethods = "resourceConditionalByUrl", description = "The search URL to use. The format of this URL should be of the form ResourceTypeParameters, for example: Patientname=Smith&amp;identifier=13.2.4.11.4%7C847366")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "resourceConditionalByUrl", description="The search URL to use. The format of this URL should be of the form ResourceTypeParameters, for example: Patientname=Smith&amp;identifier=13.2.4.11.4%7C847366")})
     private String url;
 
     public java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters,Object> getExtraParameters() {

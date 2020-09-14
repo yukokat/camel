@@ -20,10 +20,10 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class SettlementBatchSummaryGatewayEndpointConfiguration extends BraintreeConfiguration {
     @UriParam
-    @ApiParam(apiMethods = "generate")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "generate")})
     private String groupByCustomField;
     @UriParam
-    @ApiParam(apiMethods = "generate")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "generate"), @ApiMethod(methodName = "generate")})
     private java.util.Calendar settlementDate;
 
     public String getGroupByCustomField() {

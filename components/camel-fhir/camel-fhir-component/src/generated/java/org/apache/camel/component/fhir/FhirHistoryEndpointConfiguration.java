@@ -20,25 +20,25 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class FhirHistoryEndpointConfiguration extends FhirConfiguration {
     @UriParam
-    @ApiParam(apiMethods = "onInstance,onServer,onType")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "onInstance"), @ApiMethod(methodName = "onServer"), @ApiMethod(methodName = "onType")})
     private Integer count;
     @UriParam
-    @ApiParam(apiMethods = "onInstance,onServer,onType")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "onInstance"), @ApiMethod(methodName = "onServer"), @ApiMethod(methodName = "onType")})
     private java.util.Date cutoff;
     @UriParam
-    @ApiParam(apiMethods = "onInstance,onServer,onType")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "onInstance"), @ApiMethod(methodName = "onServer"), @ApiMethod(methodName = "onType")})
     private java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters,Object> extraParameters;
     @UriParam
-    @ApiParam(apiMethods = "onInstance,onServer,onType")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "onInstance"), @ApiMethod(methodName = "onServer"), @ApiMethod(methodName = "onType")})
     private org.hl7.fhir.instance.model.api.IPrimitiveType<java.util.Date> iCutoff;
     @UriParam
-    @ApiParam(apiMethods = "onInstance")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "onInstance")})
     private org.hl7.fhir.instance.model.api.IIdType id;
     @UriParam
-    @ApiParam(apiMethods = "onType")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "onType")})
     private Class<org.hl7.fhir.instance.model.api.IBaseResource> resourceType;
     @UriParam
-    @ApiParam(apiMethods = "onInstance,onServer,onType")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "onInstance"), @ApiMethod(methodName = "onServer"), @ApiMethod(methodName = "onType")})
     private Class<org.hl7.fhir.instance.model.api.IBaseBundle> returnType;
 
     public Integer getCount() {

@@ -20,7 +20,7 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class CalendarChannelsEndpointConfiguration extends GoogleCalendarConfiguration {
     @UriParam
-    @ApiParam(apiMethods = "stop", description = "The com.google.api.services.calendar.model.Channel")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "stop", description="The com.google.api.services.calendar.model.Channel")})
     private com.google.api.services.calendar.model.Channel contentChannel;
 
     public com.google.api.services.calendar.model.Channel getContentChannel() {

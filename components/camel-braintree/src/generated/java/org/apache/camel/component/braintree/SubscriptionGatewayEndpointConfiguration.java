@@ -20,25 +20,25 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class SubscriptionGatewayEndpointConfiguration extends BraintreeConfiguration {
     @UriParam
-    @ApiParam(apiMethods = "retryCharge")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "retryCharge"), @ApiMethod(methodName = "retryCharge")})
     private java.math.BigDecimal amount;
     @UriParam
-    @ApiParam(apiMethods = "delete")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "delete")})
     private String customerId;
     @UriParam
-    @ApiParam(apiMethods = "cancel,delete,find,update", description = "Of the Subscription to cancel")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "cancel", description="Of the Subscription to cancel"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "find", description="The id of the Subscription"), @ApiMethod(methodName = "update", description="The id of the Subscription")})
     private String id;
     @UriParam
-    @ApiParam(apiMethods = "create,update", description = "The request")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "create", description="The request"), @ApiMethod(methodName = "update", description="The request")})
     private com.braintreegateway.SubscriptionRequest request;
     @UriParam
-    @ApiParam(apiMethods = "search", description = "The SubscriptionSearchRequest")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "search", description="The SubscriptionSearchRequest")})
     private com.braintreegateway.SubscriptionSearchRequest searchRequest;
     @UriParam
-    @ApiParam(apiMethods = "retryCharge")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "retryCharge"), @ApiMethod(methodName = "retryCharge")})
     private Boolean submitForSettlement;
     @UriParam
-    @ApiParam(apiMethods = "retryCharge")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "retryCharge"), @ApiMethod(methodName = "retryCharge"), @ApiMethod(methodName = "retryCharge"), @ApiMethod(methodName = "retryCharge")})
     private String subscriptionId;
 
     public java.math.BigDecimal getAmount() {

@@ -20,13 +20,13 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class DriveChildrenEndpointConfiguration extends GoogleDriveConfiguration {
     @UriParam
-    @ApiParam(apiMethods = "delete,get", description = "The ID of the child")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "delete", description="The ID of the child"), @ApiMethod(methodName = "get", description="The ID of the child")})
     private String childId;
     @UriParam
-    @ApiParam(apiMethods = "insert", description = "The com.google.api.services.drive.model.ChildReference")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "insert", description="The com.google.api.services.drive.model.ChildReference")})
     private com.google.api.services.drive.model.ChildReference content;
     @UriParam
-    @ApiParam(apiMethods = "delete,get,insert,list", description = "The ID of the folder")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "delete", description="The ID of the folder"), @ApiMethod(methodName = "get", description="The ID of the folder"), @ApiMethod(methodName = "insert", description="The ID of the folder"), @ApiMethod(methodName = "list", description="The ID of the folder")})
     private String folderId;
 
     public String getChildId() {

@@ -20,16 +20,16 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class RecordingAddOnResultPayloadEndpointConfiguration extends TwilioConfiguration {
     @UriParam
-    @ApiParam(apiMethods = "deleter,fetcher,reader", description = "The SID of the Account that created the resources to delete")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "deleter", description="The SID of the Account that created the resources to delete"), @ApiMethod(methodName = "fetcher", description="The SID of the Account that created the resource to fetch"), @ApiMethod(methodName = "reader", description="The SID of the Account that created the resources to read")})
     private String pathAccountSid;
     @UriParam
-    @ApiParam(apiMethods = "deleter,fetcher,reader", description = "The SID of the AddOnResult to which the payloads to delete belongs")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "deleter", description="The SID of the AddOnResult to which the payloads to delete belongs"), @ApiMethod(methodName = "fetcher", description="The SID of the AddOnResult to which the payload to fetch belongs"), @ApiMethod(methodName = "reader", description="The SID of the AddOnResult to which the payloads to read belongs")})
     private String pathAddOnResultSid;
     @UriParam
-    @ApiParam(apiMethods = "deleter,fetcher,reader", description = "The SID of the recording to which the AddOnResult resource that contains the payloads to delete belongs")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "deleter", description="The SID of the recording to which the AddOnResult resource that contains the payloads to delete belongs"), @ApiMethod(methodName = "fetcher", description="The SID of the recording to which the AddOnResult resource that contains the payload to fetch belongs"), @ApiMethod(methodName = "reader", description="The SID of the recording to which the AddOnResult resource that contains the payloads to read belongs")})
     private String pathReferenceSid;
     @UriParam
-    @ApiParam(apiMethods = "deleter,fetcher", description = "The unique string that identifies the resource")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "deleter", description="The unique string that identifies the resource"), @ApiMethod(methodName = "fetcher", description="The unique string that identifies the resource to fetch")})
     private String pathSid;
 
     public String getPathAccountSid() {

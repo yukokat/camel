@@ -20,7 +20,7 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class DriveChannelsEndpointConfiguration extends GoogleDriveConfiguration {
     @UriParam
-    @ApiParam(apiMethods = "stop", description = "The com.google.api.services.drive.model.Channel")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "stop", description="The com.google.api.services.drive.model.Channel")})
     private com.google.api.services.drive.model.Channel contentChannel;
 
     public com.google.api.services.drive.model.Channel getContentChannel() {

@@ -20,25 +20,25 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class GmailUsersMessagesEndpointConfiguration extends GoogleMailConfiguration {
     @UriParam
-    @ApiParam(apiMethods = "batchDelete", description = "The com.google.api.services.gmail.model.BatchDeleteMessagesRequest")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "batchDelete", description="The com.google.api.services.gmail.model.BatchDeleteMessagesRequest")})
     private com.google.api.services.gmail.model.BatchDeleteMessagesRequest batchDeleteMessagesRequest;
     @UriParam
-    @ApiParam(apiMethods = "batchModify", description = "The com.google.api.services.gmail.model.BatchModifyMessagesRequest")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "batchModify", description="The com.google.api.services.gmail.model.BatchModifyMessagesRequest")})
     private com.google.api.services.gmail.model.BatchModifyMessagesRequest batchModifyMessagesRequest;
     @UriParam
-    @ApiParam(apiMethods = "gmailImport,insert,send", description = "The com.google.api.services.gmail.model.Message media metadata or null if none")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "gmailImport", description="The com.google.api.services.gmail.model.Message media metadata or null if none"), @ApiMethod(methodName = "gmailImport", description="The com.google.api.services.gmail.model.Message media metadata or null if none"), @ApiMethod(methodName = "insert", description="The com.google.api.services.gmail.model.Message media metadata or null if none"), @ApiMethod(methodName = "insert", description="The com.google.api.services.gmail.model.Message media metadata or null if none"), @ApiMethod(methodName = "send", description="The com.google.api.services.gmail.model.Message media metadata or null if none"), @ApiMethod(methodName = "send", description="The com.google.api.services.gmail.model.Message media metadata or null if none")})
     private com.google.api.services.gmail.model.Message content;
     @UriParam
-    @ApiParam(apiMethods = "delete,get,modify,trash,untrash", description = "The ID of the message to delete")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "delete", description="The ID of the message to delete"), @ApiMethod(methodName = "get", description="The ID of the message to retrieve"), @ApiMethod(methodName = "modify", description="The ID of the message to modify"), @ApiMethod(methodName = "trash", description="The ID of the message to Trash"), @ApiMethod(methodName = "untrash", description="The ID of the message to remove from Trash")})
     private String id;
     @UriParam
-    @ApiParam(apiMethods = "gmailImport,insert,send", description = "The media HTTP content or null if none")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "gmailImport", description="The media HTTP content or null if none"), @ApiMethod(methodName = "insert", description="The media HTTP content or null if none"), @ApiMethod(methodName = "send", description="The media HTTP content or null if none")})
     private com.google.api.client.http.AbstractInputStreamContent mediaContent;
     @UriParam
-    @ApiParam(apiMethods = "modify", description = "The com.google.api.services.gmail.model.ModifyMessageRequest")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "modify", description="The com.google.api.services.gmail.model.ModifyMessageRequest")})
     private com.google.api.services.gmail.model.ModifyMessageRequest modifyMessageRequest;
     @UriParam
-    @ApiParam(apiMethods = "batchDelete,batchModify,delete,get,gmailImport,insert,list,modify,send,trash,untrash", description = "The user's email address. The special value me can be used to indicate the authenticated user. default: me")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "batchDelete", description="The user's email address. The special value me can be used to indicate the authenticated user. default: me"), @ApiMethod(methodName = "batchModify", description="The user's email address. The special value me can be used to indicate the authenticated user. default: me"), @ApiMethod(methodName = "delete", description="The user's email address. The special value me can be used to indicate the authenticated user. default: me"), @ApiMethod(methodName = "get", description="The user's email address. The special value me can be used to indicate the authenticated user. default: me"), @ApiMethod(methodName = "gmailImport", description="The user's email address. The special value me can be used to indicate the authenticated user. default: me"), @ApiMethod(methodName = "gmailImport", description="The user's email address. The special value me can be used to indicate the authenticated user. default: me"), @ApiMethod(methodName = "insert", description="The user's email address. The special value me can be used to indicate the authenticated user. default: me"), @ApiMethod(methodName = "insert", description="The user's email address. The special value me can be used to indicate the authenticated user. default: me"), @ApiMethod(methodName = "list", description="The user's email address. The special value me can be used to indicate the authenticated user. default: me"), @ApiMethod(methodName = "modify", description="The user's email address. The special value me can be used to indicate the authenticated user. default: me"), @ApiMethod(methodName = "send", description="The user's email address. The special value me can be used to indicate the authenticated user. default: me"), @ApiMethod(methodName = "send", description="The user's email address. The special value me can be used to indicate the authenticated user. default: me"), @ApiMethod(methodName = "trash", description="The user's email address. The special value me can be used to indicate the authenticated user. default: me"), @ApiMethod(methodName = "untrash", description="The user's email address. The special value me can be used to indicate the authenticated user. default: me")})
     private String userId;
 
     public com.google.api.services.gmail.model.BatchDeleteMessagesRequest getBatchDeleteMessagesRequest() {

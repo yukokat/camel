@@ -20,28 +20,28 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class AddressEndpointConfiguration extends TwilioConfiguration {
     @UriParam
-    @ApiParam(apiMethods = "creator", description = "The city of the new address")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The city of the new address")})
     private String city;
     @UriParam
-    @ApiParam(apiMethods = "creator", description = "The name to associate with the new address")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The name to associate with the new address")})
     private String customerName;
     @UriParam
-    @ApiParam(apiMethods = "creator", description = "The ISO country code of the new address")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The ISO country code of the new address")})
     private String isoCountry;
     @UriParam
-    @ApiParam(apiMethods = "creator,deleter,fetcher,reader,updater", description = "The SID of the Account that will be responsible for the new Address resource")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The SID of the Account that will be responsible for the new Address resource"), @ApiMethod(methodName = "deleter", description="The SID of the Account that is responsible for the resources to delete"), @ApiMethod(methodName = "fetcher", description="The SID of the Account that is responsible for this address"), @ApiMethod(methodName = "reader", description="The SID of the Account that is responsible for this address"), @ApiMethod(methodName = "updater", description="The SID of the Account that is responsible for the resource to update")})
     private String pathAccountSid;
     @UriParam
-    @ApiParam(apiMethods = "deleter,fetcher,updater", description = "The unique string that identifies the resource")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "deleter", description="The unique string that identifies the resource"), @ApiMethod(methodName = "fetcher", description="The unique string that identifies the resource"), @ApiMethod(methodName = "updater", description="The unique string that identifies the resource")})
     private String pathSid;
     @UriParam
-    @ApiParam(apiMethods = "creator", description = "The postal code of the new address")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The postal code of the new address")})
     private String postalCode;
     @UriParam
-    @ApiParam(apiMethods = "creator", description = "The state or region of the new address")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The state or region of the new address")})
     private String region;
     @UriParam
-    @ApiParam(apiMethods = "creator", description = "The number and street address of the new address")
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The number and street address of the new address")})
     private String street;
 
     public String getCity() {
