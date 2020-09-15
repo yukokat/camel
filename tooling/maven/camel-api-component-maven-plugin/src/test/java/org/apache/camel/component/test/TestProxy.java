@@ -104,6 +104,10 @@ public class TestProxy {
         return result.toArray(new String[result.size()]);
     }
 
+    public final <K extends OuterChild> String damnGenerics(K someStuff) {
+        return null;
+    }
+
     public final String greetInnerChild(InnerChild child) {
         return sayHi(child.getName());
     }

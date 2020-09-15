@@ -123,42 +123,54 @@ public class JavaSourceParser {
                 ParameterSource ps = list.get(i);
                 String name = ps.getName();
                 String type = resolveType(rootClazz, clazz, ms, ps.getType());
-                if (type.startsWith("java.lang.")) {
-                    type = type.substring(10);
-                }
-                if (ps.isVarArgs() || ps.getType().isArray()) {
-                    // the old way with javadoc did not use varargs in the signature, so lets transform this to an array style
-                    type = type + "[]";
-                }
                 if (ps.getType().isParameterized()) {
                     // for parameterized types then it can get complex if they are variables (T, T extends Foo etc)
+                    // or if there are no bounds for these types which we then can't resolve.
                     List<Type> types = ps.getType().getTypeArguments();
-                    hasTypeVariables = false;
+                    boolean bounds = false;
+                    boolean found = false;
                     for (Type t : types) {
-                        hasTypeVariables |= ms.hasTypeVariable(t.getName()) || clazz.hasTypeVariable(t.getName());
+                        if (hasTypeVariableBounds(ms, clazz, t.getName())) {
+                            bounds = true;
+                            // okay now it gets complex as we have a type like T which is a type variable and we need to resolve that into
+                            // what base class that is
+                            String tn = resolveTypeVariable(ms, clazz, t.getName());
+                            if (tn != null) {
+                                type = type.replace(t.getName(), tn);
+                                found = true;
+                            }
+                        }
                     }
-                    if (hasTypeVariables) {
-                        // okay this gets to complex then remove the generics
+                    if (!bounds && !found) {
+                        // argh this is getting complex, it may be T or just java.lang.String but this **** generics and roaster
+                        // does not make this easy, so let see if we can resolve each type variable
+                        boolean fqn = types.stream().allMatch(t -> {
+                            // okay lets assume its a type variable if the name is upper case only
+                            boolean upperOnly = isUpperCaseOnly(t.getName());
+                            return !upperOnly && t.getQualifiedName().indexOf('.') != -1;
+                        });
+                        if (!fqn) {
+                            // remove generics we could not resolve that even if we have bounds information
+                            bounds = true;
+                            found = false;
+                        }
+                    }
+                    if (bounds && !found) {
+                        // remove generics we could not resolve that even if we have bounds information
                         type = ps.getType().getQualifiedName();
                     }
                 } else if (ms.hasTypeVariable(type) || clazz.hasTypeVariable(type)) {
                     // okay now it gets complex as we have a type like T which is a type variable and we need to resolve that into
                     // what base class that is
-                    TypeVariable tv = ms.getTypeVariable(type);
-                    if (tv == null) {
-                        tv = clazz.getTypeVariable(type);
-                    }
-                    List<Type> bounds = tv.getBounds();
-                    for (Type bt : bounds) {
-                        String bn = bt.getQualifiedName();
-                        if (!type.equals(bn)) {
-                            type = bn;
-                            break;
-                        }
-                    }
+                    type = resolveTypeVariable(ms, clazz, type);
                 }
-                // remove java.lang. prefix as it should not be there
-                type = type.replaceAll("java.lang.", "");
+                if (ps.isVarArgs() || ps.getType().isArray()) {
+                    // the old way with javadoc did not use varargs in the signature, so lets transform this to an array style
+                    type = type + "[]";
+                }
+                if (type.startsWith("java.lang.")) {
+                    type = type.substring(10);
+                }
 
                 sb.append(type);
                 sb.append(" ").append(name);
@@ -184,6 +196,43 @@ public class JavaSourceParser {
             signaturesArguments.put(signature, args);
             methodText.put(ms.getName(), signature);
         }
+    }
+
+    private static boolean isUpperCaseOnly(String name) {
+        for (int i = 0; i < name.length(); i++) {
+            if (!Character.isUpperCase(name.charAt(i))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static boolean hasTypeVariableBounds(MethodSource ms, AbstractGenericCapableJavaSource clazz, String type) {
+        TypeVariable tv = ms.getTypeVariable(type);
+        if (tv == null) {
+            tv = clazz.getTypeVariable(type);
+        }
+        if (tv != null) {
+            return !tv.getBounds().isEmpty();
+        }
+        return false;
+    }
+
+    private static String resolveTypeVariable(MethodSource ms, AbstractGenericCapableJavaSource clazz, String type) {
+        TypeVariable tv = ms.getTypeVariable(type);
+        if (tv == null) {
+            tv = clazz.getTypeVariable(type);
+        }
+        if (tv != null) {
+            List<Type> bounds = tv.getBounds();
+            for (Type bt : bounds) {
+                String bn = bt.getQualifiedName();
+                if (!type.equals(bn)) {
+                    return bn;
+                }
+            }
+        }
+        return null;
     }
 
     private static AbstractGenericCapableJavaSource findInnerClass(
