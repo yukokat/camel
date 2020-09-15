@@ -14,31 +14,31 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel endpoint configuration for {@link org.apache.camel.component.olingo4.api.Olingo4App}.
  */
-@ApiParams(apiName = "DEFAULT", description = "",
-           apiMethods = {@ApiMethod(methodName = "action"), @ApiMethod(methodName = "batch"), @ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "merge"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "read"), @ApiMethod(methodName = "update"), @ApiMethod(methodName = "uread")})
+@ApiParams(apiName = "DEFAULT", description = "Olingo4 Client Api Interface",
+           apiMethods = {@ApiMethod(methodName = "action", description="Calls a OData action"), @ApiMethod(methodName = "batch", description="Executes a batch request"), @ApiMethod(methodName = "create", description="Creates a new OData resource"), @ApiMethod(methodName = "delete", description="Deletes an OData resource and invokes callback with org"), @ApiMethod(methodName = "merge", description="Patches/merges an OData resource using HTTP MERGE"), @ApiMethod(methodName = "patch", description="Patches/merges an OData resource using HTTP PATCH"), @ApiMethod(methodName = "read", description="Reads an OData resource and invokes callback with appropriate result"), @ApiMethod(methodName = "update", description="Updates an OData resource"), @ApiMethod(methodName = "uread", description="Reads an OData resource and invokes callback with the unparsed input stream")})
 @UriParams
 @Configurer
 public final class Olingo4AppEndpointConfiguration extends Olingo4Configuration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "action"), @ApiMethod(methodName = "batch"), @ApiMethod(methodName = "create"), @ApiMethod(methodName = "merge"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "update")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "action", description="Action data"), @ApiMethod(methodName = "batch", description="Ordered org.apache.camel.component.olingo4.api.batch.Olingo4BatchRequest list"), @ApiMethod(methodName = "create", description="Request data"), @ApiMethod(methodName = "merge", description="Patch/merge data"), @ApiMethod(methodName = "patch", description="Patch/merge data"), @ApiMethod(methodName = "update", description="Updated data")})
     private Object data;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "action"), @ApiMethod(methodName = "batch"), @ApiMethod(methodName = "create"), @ApiMethod(methodName = "merge"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "read"), @ApiMethod(methodName = "update"), @ApiMethod(methodName = "uread")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "action", description="Service Edm"), @ApiMethod(methodName = "batch", description="Service Edm"), @ApiMethod(methodName = "create", description="Service Edm"), @ApiMethod(methodName = "merge", description="Service Edm"), @ApiMethod(methodName = "patch", description="Service Edm"), @ApiMethod(methodName = "read", description="Service Edm, read from calling read(null, $metdata, null, responseHandler)"), @ApiMethod(methodName = "update", description="Service Edm"), @ApiMethod(methodName = "uread", description="Service Edm, read from calling read(null, $metdata, null, responseHandler)")})
     private org.apache.olingo.commons.api.edm.Edm edm;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "action"), @ApiMethod(methodName = "batch"), @ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "merge"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "read"), @ApiMethod(methodName = "update"), @ApiMethod(methodName = "uread")})
-    private java.util.Map<String,String> endpointHttpHeaders;
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "action", description="HTTP Headers to add/override the component versions"), @ApiMethod(methodName = "batch", description="HTTP Headers to add/override the component versions"), @ApiMethod(methodName = "create", description="HTTP Headers to add/override the component versions"), @ApiMethod(methodName = "delete", description="HTTP Headers to add/override the component versions"), @ApiMethod(methodName = "merge", description="HTTP Headers to add/override the component versions"), @ApiMethod(methodName = "patch", description="HTTP Headers to add/override the component versions"), @ApiMethod(methodName = "read", description="HTTP Headers to add/override the component versions"), @ApiMethod(methodName = "update", description="HTTP Headers to add/override the component versions"), @ApiMethod(methodName = "uread", description="HTTP Headers to add/override the component versions")})
+    private java.util.Map<String, String> endpointHttpHeaders;
     @UriParam
     @ApiParam(apiMethods = {})
     private java.lang.String keyPredicate;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "read"), @ApiMethod(methodName = "uread")})
-    private java.util.Map<String,String> queryParams;
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "read", description="OData query params http://docs.oasis-open.org/odata/odata/v4.0/odata-v4.0-part1-protocol.html#_Toc453752288"), @ApiMethod(methodName = "uread", description="OData query params http://docs.oasis-open.org/odata/odata/v4.0/odata-v4.0-part1-protocol.html#_Toc453752288")})
+    private java.util.Map<String, String> queryParams;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "action"), @ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "merge"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "read"), @ApiMethod(methodName = "update"), @ApiMethod(methodName = "uread")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "action", description="Resource path to action"), @ApiMethod(methodName = "create", description="Resource path to create"), @ApiMethod(methodName = "delete", description="Resource path for Entry"), @ApiMethod(methodName = "merge", description="Resource path to update"), @ApiMethod(methodName = "patch", description="Resource path to update"), @ApiMethod(methodName = "read", description="OData Resource path"), @ApiMethod(methodName = "update", description="Resource path to update"), @ApiMethod(methodName = "uread", description="OData Resource path")})
     private String resourcePath;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "action"), @ApiMethod(methodName = "batch"), @ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "merge"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "read"), @ApiMethod(methodName = "update"), @ApiMethod(methodName = "uread")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "action", description="Org.apache.olingo.client.api.domain.ClientEntity callback handler"), @ApiMethod(methodName = "batch", description="Callback handler"), @ApiMethod(methodName = "create", description="Callback handler"), @ApiMethod(methodName = "delete", description="Org.apache.olingo.commons.api.http.HttpStatusCode callback handler"), @ApiMethod(methodName = "merge", description="Org.apache.olingo.client.api.domain.ClientEntity callback handler"), @ApiMethod(methodName = "patch", description="Org.apache.olingo.client.api.domain.ClientEntity callback handler"), @ApiMethod(methodName = "read", description="Callback handler"), @ApiMethod(methodName = "update", description="Org.apache.olingo.client.api.domain.ClientEntity callback handler"), @ApiMethod(methodName = "uread", description="Callback handler")})
     private org.apache.camel.component.olingo4.api.Olingo4ResponseHandler responseHandler;
 
     public Object getData() {
@@ -57,11 +57,11 @@ public final class Olingo4AppEndpointConfiguration extends Olingo4Configuration 
         this.edm = edm;
     }
 
-    public java.util.Map<String,String> getEndpointHttpHeaders() {
+    public java.util.Map<String, String> getEndpointHttpHeaders() {
         return endpointHttpHeaders;
     }
 
-    public void setEndpointHttpHeaders(java.util.Map<String,String> endpointHttpHeaders) {
+    public void setEndpointHttpHeaders(java.util.Map<String, String> endpointHttpHeaders) {
         this.endpointHttpHeaders = endpointHttpHeaders;
     }
 
@@ -73,11 +73,11 @@ public final class Olingo4AppEndpointConfiguration extends Olingo4Configuration 
         this.keyPredicate = keyPredicate;
     }
 
-    public java.util.Map<String,String> getQueryParams() {
+    public java.util.Map<String, String> getQueryParams() {
         return queryParams;
     }
 
-    public void setQueryParams(java.util.Map<String,String> queryParams) {
+    public void setQueryParams(java.util.Map<String, String> queryParams) {
         this.queryParams = queryParams;
     }
 
