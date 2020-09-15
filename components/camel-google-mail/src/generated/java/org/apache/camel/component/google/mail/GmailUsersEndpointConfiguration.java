@@ -20,7 +20,7 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class GmailUsersEndpointConfiguration extends GoogleMailConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "getProfile", description="The com.google.api.services.gmail.model.WatchRequest"), @ApiMethod(methodName = "stop", description="The com.google.api.services.gmail.model.WatchRequest"), @ApiMethod(methodName = "watch", description="The com.google.api.services.gmail.model.WatchRequest")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "watch", description="The com.google.api.services.gmail.model.WatchRequest")})
     private com.google.api.services.gmail.model.WatchRequest content;
     @UriParam
     @ApiParam(apiMethods = {@ApiMethod(methodName = "getProfile", description="The user's email address. The special value me can be used to indicate the authenticated user. default: me"), @ApiMethod(methodName = "stop", description="The user's email address. The special value me can be used to indicate the authenticated user. default: me"), @ApiMethod(methodName = "watch", description="The user's email address. The special value me can be used to indicate the authenticated user. default: me")})

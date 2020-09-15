@@ -23,16 +23,16 @@ public final class FhirMetaEndpointConfiguration extends FhirConfiguration {
     @ApiParam(apiMethods = {@ApiMethod(methodName = "add"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "getFromResource"), @ApiMethod(methodName = "getFromServer"), @ApiMethod(methodName = "getFromType")})
     private java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters,Object> extraParameters;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "add"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "getFromResource"), @ApiMethod(methodName = "getFromServer"), @ApiMethod(methodName = "getFromType")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "add"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "getFromResource")})
     private org.hl7.fhir.instance.model.api.IIdType id;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "add"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "getFromResource"), @ApiMethod(methodName = "getFromServer"), @ApiMethod(methodName = "getFromType")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "add"), @ApiMethod(methodName = "delete")})
     private org.hl7.fhir.instance.model.api.IBaseMetaType meta;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "add"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "getFromResource"), @ApiMethod(methodName = "getFromServer"), @ApiMethod(methodName = "getFromType")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "getFromResource"), @ApiMethod(methodName = "getFromServer"), @ApiMethod(methodName = "getFromType")})
     private Class<org.hl7.fhir.instance.model.api.IBaseMetaType> metaType;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "add"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "getFromResource"), @ApiMethod(methodName = "getFromServer"), @ApiMethod(methodName = "getFromType")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "getFromType")})
     private String theResourceName;
 
     public java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters,Object> getExtraParameters() {

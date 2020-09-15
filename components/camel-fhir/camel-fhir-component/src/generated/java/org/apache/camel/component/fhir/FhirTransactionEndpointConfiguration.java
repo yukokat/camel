@@ -20,16 +20,16 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class FhirTransactionEndpointConfiguration extends FhirConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "withBundle", description="Bundle to use in the transaction"), @ApiMethod(methodName = "withBundle", description="Bundle to use in the transaction"), @ApiMethod(methodName = "withResources", description="Bundle to use in the transaction")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "withBundle", description="Bundle to use in the transaction")})
     private org.hl7.fhir.instance.model.api.IBaseBundle bundle;
     @UriParam
     @ApiParam(apiMethods = {@ApiMethod(methodName = "withBundle", description="See ExtraParameters for a full list of parameters that can be passed, may be NULL"), @ApiMethod(methodName = "withBundle", description="See ExtraParameters for a full list of parameters that can be passed, may be NULL"), @ApiMethod(methodName = "withResources", description="See ExtraParameters for a full list of parameters that can be passed, may be NULL")})
     private java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "withBundle", description="Resources to use in the transaction"), @ApiMethod(methodName = "withBundle", description="Resources to use in the transaction"), @ApiMethod(methodName = "withResources", description="Resources to use in the transaction")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "withResources", description="Resources to use in the transaction")})
     private java.util.List<org.hl7.fhir.instance.model.api.IBaseResource> resources;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "withBundle", description="Bundle to use in the transaction"), @ApiMethod(methodName = "withBundle", description="Bundle to use in the transaction"), @ApiMethod(methodName = "withResources", description="Bundle to use in the transaction")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "withBundle", description="Bundle to use in the transaction")})
     private String stringBundle;
 
     public org.hl7.fhir.instance.model.api.IBaseBundle getBundle() {

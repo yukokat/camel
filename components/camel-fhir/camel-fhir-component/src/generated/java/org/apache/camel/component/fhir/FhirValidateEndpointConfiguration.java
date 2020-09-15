@@ -26,7 +26,7 @@ public final class FhirValidateEndpointConfiguration extends FhirConfiguration {
     @ApiParam(apiMethods = {@ApiMethod(methodName = "resource")})
     private org.hl7.fhir.instance.model.api.IBaseResource resource;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "resource"), @ApiMethod(methodName = "resource")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "resource")})
     private String resourceAsString;
 
     public java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> getExtraParameters() {

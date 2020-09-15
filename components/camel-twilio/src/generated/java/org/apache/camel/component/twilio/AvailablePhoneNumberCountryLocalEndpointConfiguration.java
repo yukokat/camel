@@ -20,7 +20,7 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class AvailablePhoneNumberCountryLocalEndpointConfiguration extends TwilioConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "reader", description="The SID of the Account requesting the AvailablePhoneNumber resources"), @ApiMethod(methodName = "reader", description="The SID of the Account requesting the AvailablePhoneNumber resources")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "reader", description="The SID of the Account requesting the AvailablePhoneNumber resources")})
     private String pathAccountSid;
     @UriParam
     @ApiParam(apiMethods = {@ApiMethod(methodName = "reader", description="The ISO Country code of the country from which to read phone numbers"), @ApiMethod(methodName = "reader", description="The ISO Country code of the country from which to read phone numbers")})

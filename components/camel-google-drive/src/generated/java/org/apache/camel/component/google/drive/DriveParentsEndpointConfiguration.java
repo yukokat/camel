@@ -20,13 +20,13 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class DriveParentsEndpointConfiguration extends GoogleDriveConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "delete", description="The com.google.api.services.drive.model.ParentReference"), @ApiMethod(methodName = "get", description="The com.google.api.services.drive.model.ParentReference"), @ApiMethod(methodName = "insert", description="The com.google.api.services.drive.model.ParentReference"), @ApiMethod(methodName = "list", description="The com.google.api.services.drive.model.ParentReference")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "insert", description="The com.google.api.services.drive.model.ParentReference")})
     private com.google.api.services.drive.model.ParentReference content;
     @UriParam
     @ApiParam(apiMethods = {@ApiMethod(methodName = "delete", description="The ID of the file"), @ApiMethod(methodName = "get", description="The ID of the file"), @ApiMethod(methodName = "insert", description="The ID of the file"), @ApiMethod(methodName = "list", description="The ID of the file")})
     private String fileId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "delete", description="The ID of the parent"), @ApiMethod(methodName = "get", description="The ID of the parent"), @ApiMethod(methodName = "insert", description="The ID of the parent"), @ApiMethod(methodName = "list", description="The ID of the parent")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "delete", description="The ID of the parent"), @ApiMethod(methodName = "get", description="The ID of the parent")})
     private String parentId;
 
     public com.google.api.services.drive.model.ParentReference getContent() {

@@ -20,10 +20,10 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class NotificationEndpointConfiguration extends TwilioConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "fetcher", description="The SID of the Account that created the resource to fetch"), @ApiMethod(methodName = "fetcher", description="The SID of the Account that created the resource to fetch"), @ApiMethod(methodName = "reader", description="The SID of the Account that created the resource to fetch"), @ApiMethod(methodName = "reader", description="The SID of the Account that created the resources to read")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "fetcher", description="The SID of the Account that created the resource to fetch"), @ApiMethod(methodName = "reader", description="The SID of the Account that created the resources to read")})
     private String pathAccountSid;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "fetcher", description="The unique string that identifies the resource"), @ApiMethod(methodName = "fetcher", description="The unique string that identifies the resource"), @ApiMethod(methodName = "reader", description="The unique string that identifies the resource"), @ApiMethod(methodName = "reader", description="The unique string that identifies the resource")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "fetcher", description="The unique string that identifies the resource")})
     private String pathSid;
 
     public String getPathAccountSid() {

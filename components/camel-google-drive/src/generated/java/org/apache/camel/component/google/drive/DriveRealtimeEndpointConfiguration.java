@@ -23,7 +23,7 @@ public final class DriveRealtimeEndpointConfiguration extends GoogleDriveConfigu
     @ApiParam(apiMethods = {@ApiMethod(methodName = "get", description="The ID of the file that the Realtime API data model is associated with"), @ApiMethod(methodName = "update", description="The ID of the file that the Realtime API data model is associated with"), @ApiMethod(methodName = "update", description="The ID of the file that the Realtime API data model is associated with")})
     private String fileId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "get", description="The media HTTP content or null if none"), @ApiMethod(methodName = "update", description="The media HTTP content or null if none"), @ApiMethod(methodName = "update", description="The media HTTP content or null if none")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "update", description="The media HTTP content or null if none")})
     private com.google.api.client.http.AbstractInputStreamContent mediaContent;
 
     public String getFileId() {

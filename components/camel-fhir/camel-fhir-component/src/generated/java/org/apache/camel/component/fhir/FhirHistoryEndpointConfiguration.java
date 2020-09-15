@@ -32,10 +32,10 @@ public final class FhirHistoryEndpointConfiguration extends FhirConfiguration {
     @ApiParam(apiMethods = {@ApiMethod(methodName = "onInstance"), @ApiMethod(methodName = "onServer"), @ApiMethod(methodName = "onType")})
     private org.hl7.fhir.instance.model.api.IPrimitiveType<java.util.Date> iCutoff;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "onInstance"), @ApiMethod(methodName = "onServer"), @ApiMethod(methodName = "onType")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "onInstance")})
     private org.hl7.fhir.instance.model.api.IIdType id;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "onInstance"), @ApiMethod(methodName = "onServer"), @ApiMethod(methodName = "onType")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "onType")})
     private Class<org.hl7.fhir.instance.model.api.IBaseResource> resourceType;
     @UriParam
     @ApiParam(apiMethods = {@ApiMethod(methodName = "onInstance"), @ApiMethod(methodName = "onServer"), @ApiMethod(methodName = "onType")})

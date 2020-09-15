@@ -20,7 +20,7 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class TokenEndpointConfiguration extends TwilioConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The SID of the Account that will create the resource"), @ApiMethod(methodName = "creator", description="The SID of the Account that will create the resource")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The SID of the Account that will create the resource")})
     private String pathAccountSid;
 
     public String getPathAccountSid() {

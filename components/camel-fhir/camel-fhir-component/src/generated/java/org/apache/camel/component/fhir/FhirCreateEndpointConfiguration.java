@@ -29,7 +29,7 @@ public final class FhirCreateEndpointConfiguration extends FhirConfiguration {
     @ApiParam(apiMethods = {@ApiMethod(methodName = "resource", description="The resource to create")})
     private org.hl7.fhir.instance.model.api.IBaseResource resource;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "resource", description="The resource to create"), @ApiMethod(methodName = "resource", description="The resource to create")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "resource", description="The resource to create")})
     private String resourceAsString;
     @UriParam
     @ApiParam(apiMethods = {@ApiMethod(methodName = "resource", description="The search URL to use. The format of this URL should be of the form ResourceTypeParameters, for example: Patientname=Smith&amp;identifier=13.2.4.11.4%7C847366, may be null"), @ApiMethod(methodName = "resource", description="The search URL to use. The format of this URL should be of the form ResourceTypeParameters, for example: Patientname=Smith&amp;identifier=13.2.4.11.4%7C847366, may be null")})

@@ -20,25 +20,25 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class SubscriptionGatewayEndpointConfiguration extends BraintreeConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "cancel"), @ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "find"), @ApiMethod(methodName = "retryCharge"), @ApiMethod(methodName = "retryCharge"), @ApiMethod(methodName = "retryCharge"), @ApiMethod(methodName = "retryCharge"), @ApiMethod(methodName = "search"), @ApiMethod(methodName = "update")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "retryCharge")})
     private java.math.BigDecimal amount;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "cancel"), @ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "find"), @ApiMethod(methodName = "retryCharge"), @ApiMethod(methodName = "retryCharge"), @ApiMethod(methodName = "retryCharge"), @ApiMethod(methodName = "retryCharge"), @ApiMethod(methodName = "search"), @ApiMethod(methodName = "update")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "delete")})
     private String customerId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "cancel", description="Of the Subscription to cancel"), @ApiMethod(methodName = "create", description="Of the Subscription to cancel"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "find", description="The id of the Subscription"), @ApiMethod(methodName = "retryCharge", description="Of the Subscription to cancel"), @ApiMethod(methodName = "retryCharge", description="Of the Subscription to cancel"), @ApiMethod(methodName = "retryCharge", description="Of the Subscription to cancel"), @ApiMethod(methodName = "retryCharge", description="Of the Subscription to cancel"), @ApiMethod(methodName = "search", description="Of the Subscription to cancel"), @ApiMethod(methodName = "update", description="The id of the Subscription")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "cancel", description="Of the Subscription to cancel"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "find", description="The id of the Subscription"), @ApiMethod(methodName = "update", description="The id of the Subscription")})
     private String id;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "cancel", description="The request"), @ApiMethod(methodName = "create", description="The request"), @ApiMethod(methodName = "delete", description="The request"), @ApiMethod(methodName = "find", description="The request"), @ApiMethod(methodName = "retryCharge", description="The request"), @ApiMethod(methodName = "retryCharge", description="The request"), @ApiMethod(methodName = "retryCharge", description="The request"), @ApiMethod(methodName = "retryCharge", description="The request"), @ApiMethod(methodName = "search", description="The request"), @ApiMethod(methodName = "update", description="The request")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "create", description="The request"), @ApiMethod(methodName = "update", description="The request")})
     private com.braintreegateway.SubscriptionRequest request;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "cancel", description="The SubscriptionSearchRequest"), @ApiMethod(methodName = "create", description="The SubscriptionSearchRequest"), @ApiMethod(methodName = "delete", description="The SubscriptionSearchRequest"), @ApiMethod(methodName = "find", description="The SubscriptionSearchRequest"), @ApiMethod(methodName = "retryCharge", description="The SubscriptionSearchRequest"), @ApiMethod(methodName = "retryCharge", description="The SubscriptionSearchRequest"), @ApiMethod(methodName = "retryCharge", description="The SubscriptionSearchRequest"), @ApiMethod(methodName = "retryCharge", description="The SubscriptionSearchRequest"), @ApiMethod(methodName = "search", description="The SubscriptionSearchRequest"), @ApiMethod(methodName = "update", description="The SubscriptionSearchRequest")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "search", description="The SubscriptionSearchRequest")})
     private com.braintreegateway.SubscriptionSearchRequest searchRequest;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "cancel"), @ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "find"), @ApiMethod(methodName = "retryCharge"), @ApiMethod(methodName = "retryCharge"), @ApiMethod(methodName = "retryCharge"), @ApiMethod(methodName = "retryCharge"), @ApiMethod(methodName = "search"), @ApiMethod(methodName = "update")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "retryCharge")})
     private Boolean submitForSettlement;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "cancel"), @ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "find"), @ApiMethod(methodName = "retryCharge"), @ApiMethod(methodName = "retryCharge"), @ApiMethod(methodName = "retryCharge"), @ApiMethod(methodName = "retryCharge"), @ApiMethod(methodName = "search"), @ApiMethod(methodName = "update")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "retryCharge")})
     private String subscriptionId;
 
     public java.math.BigDecimal getAmount() {

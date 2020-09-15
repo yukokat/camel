@@ -305,11 +305,10 @@ public abstract class AbstractApiMethodGeneratorMojo extends AbstractApiMethodBa
         Set<String> names = new HashSet<>();
 
         String key = argument.getName();
-        // if the parameter/argument does not belong to any method, then it mean it should belong to all methods
-        // this is typically extra options that has been declared in the pom.xml file
-        boolean noneMatch = models.stream().noneMatch(a -> a.getName().equals(key));
-
-        // TODO: There is a bug in camel-box, check this again
+        // if the given argument does not belong to any method with the same argument name,
+        // then it mean it should belong to all methods; this is typically extra options that has been declared in the
+        // pom.xml file
+        boolean noneMatch = models.stream().noneMatch(m -> m.getArguments().stream().noneMatch(a -> a.getName().equals(key)));
 
         models.forEach(p -> {
             ApiMethodArg match = p.getArguments().stream().filter(a -> a.getName().equals(key)).findFirst().orElse(null);
@@ -340,7 +339,6 @@ public abstract class AbstractApiMethodGeneratorMojo extends AbstractApiMethodBa
         if (answer.endsWith(", ")) {
             answer = answer.substring(0, answer.length() - 2);
         }
-        // TODO: if no explicit then it should maybe match all methods?
         return "{" + answer + "}";
     }
 
