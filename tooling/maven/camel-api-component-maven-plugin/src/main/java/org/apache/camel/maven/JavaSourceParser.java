@@ -168,9 +168,9 @@ public class JavaSourceParser {
                     // the old way with javadoc did not use varargs in the signature, so lets transform this to an array style
                     type = type + "[]";
                 }
-                if (type.startsWith("java.lang.")) {
-                    type = type.substring(10);
-                }
+
+                // remove all java.lang. prefixes
+                type = type.replaceAll("java.lang.", "");
 
                 sb.append(type);
                 sb.append(" ").append(name);
