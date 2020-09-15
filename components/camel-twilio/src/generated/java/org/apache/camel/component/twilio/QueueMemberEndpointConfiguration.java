@@ -20,16 +20,16 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class QueueMemberEndpointConfiguration extends TwilioConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "fetcher", description="The SID of the Account that created the resource(s) to fetch"), @ApiMethod(methodName = "reader", description="The SID of the Account that created the resource(s) to read"), @ApiMethod(methodName = "updater", description="The SID of the Account that created the resource(s) to update")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "fetcher", description="The SID of the Account that created the resource(s) to fetch"), @ApiMethod(methodName = "fetcher", description="The SID of the Account that created the resource(s) to fetch"), @ApiMethod(methodName = "reader", description="The SID of the Account that created the resource(s) to fetch"), @ApiMethod(methodName = "reader", description="The SID of the Account that created the resource(s) to read"), @ApiMethod(methodName = "updater", description="The SID of the Account that created the resource(s) to fetch"), @ApiMethod(methodName = "updater", description="The SID of the Account that created the resource(s) to update")})
     private String pathAccountSid;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "fetcher", description="The Call SID of the resource(s) to fetch"), @ApiMethod(methodName = "updater", description="The Call SID of the resource(s) to update")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "fetcher", description="The Call SID of the resource(s) to fetch"), @ApiMethod(methodName = "fetcher", description="The Call SID of the resource(s) to fetch"), @ApiMethod(methodName = "reader", description="The Call SID of the resource(s) to fetch"), @ApiMethod(methodName = "reader", description="The Call SID of the resource(s) to fetch"), @ApiMethod(methodName = "updater", description="The Call SID of the resource(s) to update"), @ApiMethod(methodName = "updater", description="The Call SID of the resource(s) to fetch")})
     private String pathCallSid;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "fetcher", description="The SID of the Queue in which to find the members"), @ApiMethod(methodName = "reader", description="The SID of the Queue in which to find the members"), @ApiMethod(methodName = "updater", description="The SID of the Queue in which to find the members")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "fetcher", description="The SID of the Queue in which to find the members"), @ApiMethod(methodName = "fetcher", description="The SID of the Queue in which to find the members"), @ApiMethod(methodName = "reader", description="The SID of the Queue in which to find the members"), @ApiMethod(methodName = "reader", description="The SID of the Queue in which to find the members"), @ApiMethod(methodName = "updater", description="The SID of the Queue in which to find the members"), @ApiMethod(methodName = "updater", description="The SID of the Queue in which to find the members")})
     private String pathQueueSid;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "updater", description="The absolute URL of the Queue resource")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "fetcher", description="The absolute URL of the Queue resource"), @ApiMethod(methodName = "fetcher", description="The absolute URL of the Queue resource"), @ApiMethod(methodName = "reader", description="The absolute URL of the Queue resource"), @ApiMethod(methodName = "reader", description="The absolute URL of the Queue resource"), @ApiMethod(methodName = "updater", description="The absolute URL of the Queue resource"), @ApiMethod(methodName = "updater", description="The absolute URL of the Queue resource")})
     private java.net.URI url;
 
     public String getPathAccountSid() {

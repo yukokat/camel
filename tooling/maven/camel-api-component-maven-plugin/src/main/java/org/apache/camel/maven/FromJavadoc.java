@@ -19,6 +19,7 @@ package org.apache.camel.maven;
 /**
  * Javadoc API generator properties.
  */
+@Deprecated
 public class FromJavadoc {
 
     protected String excludePackages = JavadocApiMethodGeneratorMojo.DEFAULT_EXCLUDE_PACKAGES;

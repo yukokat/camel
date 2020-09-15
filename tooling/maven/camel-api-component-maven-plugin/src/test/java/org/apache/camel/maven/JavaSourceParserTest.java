@@ -40,9 +40,6 @@ public class JavaSourceParserTest {
         assertEquals(2, parser.getParameters().get("create").size());
         assertEquals("The id of the Customer", parser.getParameters().get("create").get("customerId"));
         assertEquals("The request object", parser.getParameters().get("create").get("request"));
-
-        parser.reset();
-
     }
 
     @Test
@@ -57,9 +54,6 @@ public class JavaSourceParserTest {
                 parser.getMethods().get(1));
         assertEquals(1, parser.getParameters().get("create").size());
         assertEquals("The request", parser.getParameters().get("create").get("request"));
-
-        parser.reset();
-
     }
 
     @Test
@@ -76,7 +70,6 @@ public class JavaSourceParserTest {
         assertEquals("The dispute id to add text evidence to", parser.getParameters().get("addFileEvidence").get("disputeId"));
         assertEquals("The document id of a previously uploaded document",
                 parser.getParameters().get("addFileEvidence").get("documentId"));
-
     }
 
     @Test
@@ -90,7 +83,6 @@ public class JavaSourceParserTest {
         assertEquals(
                 "public java.lang.String greetWildcard(String[] wildcardNames)",
                 parser.getMethods().get(6));
-        parser.reset();
     }
 
     @Test
@@ -105,7 +97,6 @@ public class JavaSourceParserTest {
                 parser.getMethods().get(0));
         assertEquals(1, parser.getParameters().get("getOrderById").size());
         assertEquals("The order id", parser.getParameters().get("getOrderById").get("id"));
-        parser.reset();
     }
 
     @Test

@@ -20,10 +20,10 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class SigningKeyEndpointConfiguration extends TwilioConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "deleter", description="The account_sid"), @ApiMethod(methodName = "fetcher", description="The account_sid"), @ApiMethod(methodName = "reader", description="The account_sid"), @ApiMethod(methodName = "updater", description="The account_sid")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "deleter", description="The account_sid"), @ApiMethod(methodName = "deleter", description="The account_sid"), @ApiMethod(methodName = "fetcher", description="The account_sid"), @ApiMethod(methodName = "fetcher", description="The account_sid"), @ApiMethod(methodName = "reader", description="The account_sid"), @ApiMethod(methodName = "reader", description="The account_sid"), @ApiMethod(methodName = "updater", description="The account_sid"), @ApiMethod(methodName = "updater", description="The account_sid")})
     private String pathAccountSid;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "deleter", description="The sid"), @ApiMethod(methodName = "fetcher", description="The sid"), @ApiMethod(methodName = "updater", description="The sid")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "deleter", description="The sid"), @ApiMethod(methodName = "deleter", description="The sid"), @ApiMethod(methodName = "fetcher", description="The sid"), @ApiMethod(methodName = "fetcher", description="The sid"), @ApiMethod(methodName = "reader", description="The sid"), @ApiMethod(methodName = "reader", description="The sid"), @ApiMethod(methodName = "updater", description="The sid"), @ApiMethod(methodName = "updater", description="The sid")})
     private String pathSid;
 
     public String getPathAccountSid() {

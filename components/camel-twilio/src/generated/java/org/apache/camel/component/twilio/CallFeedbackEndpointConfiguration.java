@@ -20,13 +20,13 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class CallFeedbackEndpointConfiguration extends TwilioConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The unique sid that identifies this account"), @ApiMethod(methodName = "fetcher", description="The unique sid that identifies this account"), @ApiMethod(methodName = "updater", description="The unique sid that identifies this account")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The unique sid that identifies this account"), @ApiMethod(methodName = "creator", description="The unique sid that identifies this account"), @ApiMethod(methodName = "fetcher", description="The unique sid that identifies this account"), @ApiMethod(methodName = "fetcher", description="The unique sid that identifies this account"), @ApiMethod(methodName = "updater", description="The unique sid that identifies this account"), @ApiMethod(methodName = "updater", description="The unique sid that identifies this account")})
     private String pathAccountSid;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The call sid that uniquely identifies the call"), @ApiMethod(methodName = "fetcher", description="The call sid that uniquely identifies the call"), @ApiMethod(methodName = "updater", description="The call sid that uniquely identifies the call")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The call sid that uniquely identifies the call"), @ApiMethod(methodName = "creator", description="The call sid that uniquely identifies the call"), @ApiMethod(methodName = "fetcher", description="The call sid that uniquely identifies the call"), @ApiMethod(methodName = "fetcher", description="The call sid that uniquely identifies the call"), @ApiMethod(methodName = "updater", description="The call sid that uniquely identifies the call"), @ApiMethod(methodName = "updater", description="The call sid that uniquely identifies the call")})
     private String pathCallSid;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The call quality expressed as an integer from 1 to 5"), @ApiMethod(methodName = "updater", description="The call quality expressed as an integer from 1 to 5")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The call quality expressed as an integer from 1 to 5"), @ApiMethod(methodName = "creator", description="The call quality expressed as an integer from 1 to 5"), @ApiMethod(methodName = "fetcher", description="The call quality expressed as an integer from 1 to 5"), @ApiMethod(methodName = "fetcher", description="The call quality expressed as an integer from 1 to 5"), @ApiMethod(methodName = "updater", description="The call quality expressed as an integer from 1 to 5"), @ApiMethod(methodName = "updater", description="The call quality expressed as an integer from 1 to 5")})
     private Integer qualityScore;
 
     public String getPathAccountSid() {

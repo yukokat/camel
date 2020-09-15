@@ -20,22 +20,22 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class Olingo4AppEndpointConfiguration extends Olingo4Configuration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "action"), @ApiMethod(methodName = "batch"), @ApiMethod(methodName = "create"), @ApiMethod(methodName = "merge"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "update")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "action"), @ApiMethod(methodName = "batch"), @ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "merge"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "read"), @ApiMethod(methodName = "update"), @ApiMethod(methodName = "uread")})
     private Object data;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "action"), @ApiMethod(methodName = "batch"), @ApiMethod(methodName = "create"), @ApiMethod(methodName = "merge"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "read"), @ApiMethod(methodName = "update"), @ApiMethod(methodName = "uread")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "action"), @ApiMethod(methodName = "batch"), @ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "merge"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "read"), @ApiMethod(methodName = "update"), @ApiMethod(methodName = "uread")})
     private org.apache.olingo.commons.api.edm.Edm edm;
     @UriParam
     @ApiParam(apiMethods = {@ApiMethod(methodName = "action"), @ApiMethod(methodName = "batch"), @ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "merge"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "read"), @ApiMethod(methodName = "update"), @ApiMethod(methodName = "uread")})
     private java.util.Map<String,String> endpointHttpHeaders;
     @UriParam
-    @ApiParam(apiMethods = {})
-    private String keyPredicate;
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "action"), @ApiMethod(methodName = "batch"), @ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "merge"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "read"), @ApiMethod(methodName = "update"), @ApiMethod(methodName = "uread")})
+    private java.lang.String keyPredicate;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "read"), @ApiMethod(methodName = "uread")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "action"), @ApiMethod(methodName = "batch"), @ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "merge"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "read"), @ApiMethod(methodName = "update"), @ApiMethod(methodName = "uread")})
     private java.util.Map<String,String> queryParams;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "action"), @ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "merge"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "read"), @ApiMethod(methodName = "update"), @ApiMethod(methodName = "uread")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "action"), @ApiMethod(methodName = "batch"), @ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "merge"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "read"), @ApiMethod(methodName = "update"), @ApiMethod(methodName = "uread")})
     private String resourcePath;
     @UriParam
     @ApiParam(apiMethods = {@ApiMethod(methodName = "action"), @ApiMethod(methodName = "batch"), @ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "merge"), @ApiMethod(methodName = "patch"), @ApiMethod(methodName = "read"), @ApiMethod(methodName = "update"), @ApiMethod(methodName = "uread")})
@@ -65,11 +65,11 @@ public final class Olingo4AppEndpointConfiguration extends Olingo4Configuration 
         this.endpointHttpHeaders = endpointHttpHeaders;
     }
 
-    public String getKeyPredicate() {
+    public java.lang.String getKeyPredicate() {
         return keyPredicate;
     }
 
-    public void setKeyPredicate(String keyPredicate) {
+    public void setKeyPredicate(java.lang.String keyPredicate) {
         this.keyPredicate = keyPredicate;
     }
 

@@ -34,6 +34,7 @@ import org.apache.maven.plugins.annotations.ResolutionScope;
  */
 @Mojo(name = "fromFile", requiresDependencyResolution = ResolutionScope.COMPILE_PLUS_RUNTIME, requiresProject = true,
       defaultPhase = LifecyclePhase.GENERATE_SOURCES, threadSafe = true)
+@Deprecated
 public class FileApiMethodGeneratorMojo extends AbstractApiMethodGeneratorMojo {
 
     @Parameter(required = true, property = PREFIX + "signatureFile")

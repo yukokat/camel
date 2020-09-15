@@ -29,7 +29,10 @@ import org.jboss.forge.roaster.Roaster;
 import org.jboss.forge.roaster._shade.org.eclipse.jdt.core.dom.ASTNode;
 import org.jboss.forge.roaster.model.JavaDocTag;
 import org.jboss.forge.roaster.model.Type;
-import org.jboss.forge.roaster.model.source.JavaClassSource;
+import org.jboss.forge.roaster.model.impl.AbstractGenericCapableJavaSource;
+import org.jboss.forge.roaster.model.impl.AbstractJavaSource;
+import org.jboss.forge.roaster.model.source.JavaInterfaceSource;
+import org.jboss.forge.roaster.model.source.MethodHolderSource;
 import org.jboss.forge.roaster.model.source.MethodSource;
 import org.jboss.forge.roaster.model.source.ParameterSource;
 import org.jboss.forge.roaster.model.source.TypeVariableSource;
@@ -44,13 +47,15 @@ public class JavaSourceParser {
     private List<String> methods = new ArrayList<>();
     private Map<String, String> methodText = new HashMap<>();
     private Map<String, Map<String, String>> parameters = new LinkedHashMap<>();
+    private Map<String, Map<String, String>> signaturesArguments = new LinkedHashMap<>();
     private String errorMessage;
     private String apiDescription;
     private final Map<String, String> methodDescriptions = new HashMap<>();
 
+    @SuppressWarnings("unchecked")
     public synchronized void parse(InputStream in, String innerClass) throws Exception {
-        JavaClassSource rootClazz = (JavaClassSource) Roaster.parse(in);
-        JavaClassSource clazz = rootClazz;
+        AbstractGenericCapableJavaSource rootClazz = (AbstractGenericCapableJavaSource) Roaster.parse(in);
+        AbstractGenericCapableJavaSource clazz = rootClazz;
 
         if (innerClass != null) {
             // we want the inner class from the parent class
@@ -73,9 +78,12 @@ public class JavaSourceParser {
             apiDescription = StringHelper.before(apiDescription, ".");
         }
 
-        for (MethodSource ms : clazz.getMethods()) {
-            // should not be constructor and must be public
-            if (!ms.isPublic() || ms.isConstructor()) {
+        List<MethodSource> ml = ((MethodHolderSource) clazz).getMethods();
+        for (MethodSource ms : ml) {
+            // should not be constructor and must not be private
+            boolean isInterface = clazz instanceof JavaInterfaceSource;
+            boolean accept = isInterface || (!ms.isConstructor() && ms.isPublic());
+            if (!accept) {
                 continue;
             }
 
@@ -93,63 +101,68 @@ public class JavaSourceParser {
             // public create(String, AddressRequest) : Result
 
             int pos = signature.indexOf(':');
-            if (pos != -1) {
-                String result = signature.substring(pos + 1).trim();
-                // lets use FQN types
-                if (!"void".equals(result)) {
-                    result = resolveType(rootClazz, clazz, result);
-                }
-                if (result.isEmpty()) {
-                    result = "void";
-                }
-
-                List<JavaDocTag> params = ms.getJavaDoc().getTags("@param");
-
-                Map<String, String> docs = new LinkedHashMap<>();
-                StringBuilder sb = new StringBuilder();
-                sb.append("public ").append(result).append(" ").append(ms.getName()).append("(");
-                List<ParameterSource> list = ms.getParameters();
-                for (int i = 0; i < list.size(); i++) {
-                    ParameterSource ps = list.get(i);
-                    String name = ps.getName();
-                    String type = resolveType(rootClazz, clazz, ms, ps.getType());
-                    if (type.startsWith("java.lang.")) {
-                        type = type.substring(10);
-                    }
-                    sb.append(type);
-                    if (ps.isVarArgs() || ps.getType().isArray()) {
-                        // the old way with javadoc did not use varargs in the signature, so lets transform this to an array style
-                        sb.append("[]");
-                    }
-                    sb.append(" ").append(name);
-                    if (i < list.size() - 1) {
-                        sb.append(", ");
-                    }
-
-                    // need documentation for this parameter
-                    docs.put(name, getJavadocValue(params, name));
-                }
-                sb.append(")");
-
-                signature = sb.toString();
-                Map<String, String> existing = parameters.get(ms.getName());
-                if (existing != null) {
-                    existing.putAll(docs);
-                } else {
-                    parameters.put(ms.getName(), docs);
-                }
+            String result = signature.substring(pos + 1).trim();
+            // lets use FQN types
+            if (!"void".equals(result)) {
+                result = resolveType(rootClazz, clazz, result);
+            }
+            if (result.isEmpty()) {
+                result = "void";
             }
 
+            List<JavaDocTag> params = ms.getJavaDoc().getTags("@param");
+
+            Map<String, String> docs = new LinkedHashMap<>();
+            Map<String, String> args = new LinkedHashMap<>();
+            StringBuilder sb = new StringBuilder();
+            sb.append("public ").append(result).append(" ").append(ms.getName()).append("(");
+            List<ParameterSource> list = ms.getParameters();
+            for (int i = 0; i < list.size(); i++) {
+                ParameterSource ps = list.get(i);
+                String name = ps.getName();
+                String type = resolveType(rootClazz, clazz, ms, ps.getType());
+                if (type.startsWith("java.lang.")) {
+                    type = type.substring(10);
+                }
+                if (ps.isVarArgs() || ps.getType().isArray()) {
+                    // the old way with javadoc did not use varargs in the signature, so lets transform this to an array style
+                    type = type + "[]";
+                }
+                // remove java.lang. prefix as it should not be there
+                type = type.replaceAll("java.lang.", "");
+
+                sb.append(type);
+                sb.append(" ").append(name);
+                if (i < list.size() - 1) {
+                    sb.append(", ");
+                }
+
+                // need documentation for this parameter
+                docs.put(name, getJavadocValue(params, name));
+                args.put(name, type);
+            }
+            sb.append(")");
+
+            Map<String, String> existing = parameters.get(ms.getName());
+            if (existing != null) {
+                existing.putAll(docs);
+            } else {
+                parameters.put(ms.getName(), docs);
+            }
+            signature = sb.toString();
+
             methods.add(signature);
+            signaturesArguments.put(signature, args);
             methodText.put(ms.getName(), signature);
         }
     }
 
-    private static JavaClassSource findInnerClass(JavaClassSource rootClazz, String innerClass) {
+    private static AbstractGenericCapableJavaSource findInnerClass(
+            AbstractGenericCapableJavaSource rootClazz, String innerClass) {
         String[] parts = innerClass.split("\\$");
         for (int i = 0; i < parts.length; i++) {
             String part = parts[i];
-            JavaClassSource nested = (JavaClassSource) rootClazz.getNestedType(part);
+            AbstractGenericCapableJavaSource nested = (AbstractGenericCapableJavaSource) rootClazz.getNestedType(part);
             if (nested != null && i < parts.length - 1) {
                 rootClazz = nested;
             } else {
@@ -159,13 +172,14 @@ public class JavaSourceParser {
         return null;
     }
 
-    private static String resolveType(JavaClassSource rootClazz, JavaClassSource clazz, MethodSource ms, Type type) {
+    private static String resolveType(
+            AbstractGenericCapableJavaSource rootClazz, AbstractGenericCapableJavaSource clazz, MethodSource ms, Type type) {
         String name = type.getName();
         // if the type is from a type variable (eg T extends Foo generic style)
         // then the type should be returned as-is
         TypeVariableSource tv = ms.getTypeVariable(name);
         if (tv == null) {
-            clazz.getTypeVariable(name);
+            tv = clazz.getTypeVariable(name);
         }
         if (tv != null) {
             return type.getName();
@@ -187,7 +201,7 @@ public class JavaSourceParser {
         return answer;
     }
 
-    private static String resolveType(JavaClassSource rootClazz, JavaClassSource clazz, String type) {
+    private static String resolveType(AbstractJavaSource rootClazz, AbstractJavaSource clazz, String type) {
         if ("void".equals(type)) {
             return "void";
         }
@@ -253,7 +267,7 @@ public class JavaSourceParser {
      * Gets the class javadoc raw (incl line breaks and tags etc). The roaster API returns the javadoc with line breaks
      * and others removed
      */
-    private static String getClassJavadocRaw(JavaClassSource clazz, String rawClass) {
+    private static String getClassJavadocRaw(AbstractJavaSource clazz, String rawClass) {
         Object obj = clazz.getJavaDoc().getInternal();
         ASTNode node = (ASTNode) obj;
         int pos = node.getStartPosition();
@@ -329,6 +343,7 @@ public class JavaSourceParser {
         methods.clear();
         methodText.clear();
         parameters.clear();
+        signaturesArguments.clear();
         methodDescriptions.clear();
         errorMessage = null;
         apiDescription = null;
@@ -340,6 +355,10 @@ public class JavaSourceParser {
 
     public List<String> getMethods() {
         return methods;
+    }
+
+    public Map<String, Map<String, String>> getSignaturesArguments() {
+        return signaturesArguments;
     }
 
     public Map<String, String> getMethodText() {

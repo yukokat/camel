@@ -20,13 +20,13 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class WebhookNotificationGatewayEndpointConfiguration extends BraintreeConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "verify")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "parse"), @ApiMethod(methodName = "verify")})
     private String challenge;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "parse")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "parse"), @ApiMethod(methodName = "verify")})
     private String payload;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "parse")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "parse"), @ApiMethod(methodName = "verify")})
     private String signature;
 
     public String getChallenge() {

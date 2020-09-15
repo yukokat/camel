@@ -103,6 +103,7 @@ public abstract class AbstractApiMethodGeneratorMojo extends AbstractApiMethodBa
                 parameters.put(method, model.getParameters());
             }
             parser.getDescriptions().put(method, model.getMethodDescription());
+            parser.addSignatureArguments(model.getSignature(), model.getArguments());
         }
         parser.setSignatures(signatures);
         parser.setParameters(parameters);
@@ -232,7 +233,7 @@ public abstract class AbstractApiMethodGeneratorMojo extends AbstractApiMethodBa
                                     argWithTypes, name, e.getMessage()),
                             e);
                 }
-                parameters.put(name, new ApiMethodArg(name, argType, typeArgs, option.getDescription()));
+                parameters.put(name, new ApiMethodArg(name, argType, typeArgs, argWithTypes, option.getDescription()));
             }
         }
 
@@ -304,10 +305,29 @@ public abstract class AbstractApiMethodGeneratorMojo extends AbstractApiMethodBa
         Set<String> names = new HashSet<>();
 
         String key = argument.getName();
+        // if the parameter/argument does not belong to any method, then it mean it should belong to all methods
+        // this is typically extra options that has been declared in the pom.xml file
+        boolean noneMatch = models.stream().noneMatch(a -> a.getName().equals(key));
+
+        // TODO: There is a bug in camel-box, check this again
+
         models.forEach(p -> {
             ApiMethodArg match = p.getArguments().stream().filter(a -> a.getName().equals(key)).findFirst().orElse(null);
             if (match != null && names.add(p.getName())) {
+                // favour desc from the matched argument list
                 String desc = match.getDescription();
+                if (desc == null) {
+                    desc = argument.getDescription();
+                }
+                sb.append("@ApiMethod(methodName = \"").append(p.getName()).append("\"");
+                if (ObjectHelper.isNotEmpty(desc)) {
+                    sb.append(", description=\"").append(desc).append("\"");
+                }
+                sb.append(")");
+                sb.append(", ");
+            } else if (noneMatch) {
+                // favour desc from argument
+                String desc = argument.getDescription();
                 sb.append("@ApiMethod(methodName = \"").append(p.getName()).append("\"");
                 if (ObjectHelper.isNotEmpty(desc)) {
                     sb.append(", description=\"").append(desc).append("\"");
@@ -440,12 +460,20 @@ public abstract class AbstractApiMethodGeneratorMojo extends AbstractApiMethodBa
     }
 
     public String getCanonicalName(ApiMethodArg argument) throws MojoExecutionException {
-
-        // replace primitives with wrapper classes
+        // replace primitives with wrapper classes (as that makes them option and avoid boolean because false by default)
         final Class<?> type = argument.getType();
         if (type.isPrimitive()) {
             return getCanonicalName(ClassUtils.primitiveToWrapper(type));
         }
+
+        if (argument.getRawTypeArgs() != null) {
+            String fqn = argument.getRawTypeArgs();
+            // the type may use $ for classloader, so replace it back with dot
+            fqn = fqn.replace('$', '.');
+            return fqn;
+        }
+
+        // TODO: Remove below when no longer needed
 
         // get default name prefix
         String canonicalName = getCanonicalName(type);

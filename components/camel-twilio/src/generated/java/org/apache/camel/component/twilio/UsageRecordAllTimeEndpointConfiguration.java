@@ -20,7 +20,7 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class UsageRecordAllTimeEndpointConfiguration extends TwilioConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "reader", description="The SID of the Account that created the resources to read")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "reader", description="The SID of the Account that created the resources to read"), @ApiMethod(methodName = "reader", description="The SID of the Account that created the resources to read")})
     private String pathAccountSid;
 
     public String getPathAccountSid() {

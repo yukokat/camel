@@ -28,6 +28,7 @@ public class SignatureModel {
     private String methodDescription;
     private String signature;
     private Map<String, String> parameters;
+    private Map<String, String> arguments;
 
     public String getApiName() {
         return apiName;
@@ -67,5 +68,13 @@ public class SignatureModel {
 
     public void setParameters(Map<String, String> parameters) {
         this.parameters = parameters;
+    }
+
+    public Map<String, String> getArguments() {
+        return arguments;
+    }
+
+    public void setArguments(Map<String, String> arguments) {
+        this.arguments = arguments;
     }
 }

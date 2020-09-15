@@ -107,6 +107,7 @@ public class JavaSourceApiMethodGeneratorMojo extends AbstractApiMethodGenerator
                             && (includeMethodPatterns == null || includeMethodPatterns.matcher(method).find())
                             && (excludeMethodPatterns == null || !excludeMethodPatterns.matcher(method).find())) {
 
+                        String signature = method;
                         method = method.replace("public ", "");
                         int whitespace = method.indexOf(' ');
                         int leftBracket = method.indexOf('(');
@@ -117,6 +118,8 @@ public class JavaSourceApiMethodGeneratorMojo extends AbstractApiMethodGenerator
                         model.setMethodDescription(parser.getMethodDescriptions().get(name));
                         Map<String, String> params = parser.getParameters().get(name);
                         model.setParameters(params);
+                        Map<String, String> args = parser.getSignaturesArguments().get(signature);
+                        model.setArguments(args);
                         result.put(method, model);
                     }
                 }

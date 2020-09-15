@@ -20,16 +20,16 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class PaymentMethodGatewayEndpointConfiguration extends BraintreeConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "delete")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "find"), @ApiMethod(methodName = "grant"), @ApiMethod(methodName = "grant"), @ApiMethod(methodName = "revoke"), @ApiMethod(methodName = "update")})
     private com.braintreegateway.PaymentMethodDeleteRequest deleteRequest;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "grant")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "find"), @ApiMethod(methodName = "grant"), @ApiMethod(methodName = "grant"), @ApiMethod(methodName = "revoke"), @ApiMethod(methodName = "update")})
     private com.braintreegateway.PaymentMethodGrantRequest grantRequest;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "create"), @ApiMethod(methodName = "update")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "find"), @ApiMethod(methodName = "grant"), @ApiMethod(methodName = "grant"), @ApiMethod(methodName = "revoke"), @ApiMethod(methodName = "update")})
     private com.braintreegateway.PaymentMethodRequest request;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "delete"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "find"), @ApiMethod(methodName = "grant"), @ApiMethod(methodName = "grant"), @ApiMethod(methodName = "revoke"), @ApiMethod(methodName = "update")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "create"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "find"), @ApiMethod(methodName = "grant"), @ApiMethod(methodName = "grant"), @ApiMethod(methodName = "revoke"), @ApiMethod(methodName = "update")})
     private String token;
 
     public com.braintreegateway.PaymentMethodDeleteRequest getDeleteRequest() {

@@ -23,10 +23,10 @@ public final class AddressGatewayEndpointConfiguration extends BraintreeConfigur
     @ApiParam(apiMethods = {@ApiMethod(methodName = "create", description="The id of the Customer"), @ApiMethod(methodName = "delete", description="The id of the Customer"), @ApiMethod(methodName = "find", description="The id of the Customer"), @ApiMethod(methodName = "update", description="The id of the Customer")})
     private String customerId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "delete", description="The id of the Address to delete"), @ApiMethod(methodName = "find", description="The id of the Address"), @ApiMethod(methodName = "update", description="The id of the Address")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "create", description="The id of the Address to delete"), @ApiMethod(methodName = "delete", description="The id of the Address to delete"), @ApiMethod(methodName = "find", description="The id of the Address"), @ApiMethod(methodName = "update", description="The id of the Address")})
     private String id;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "create", description="The request object"), @ApiMethod(methodName = "update", description="The request object containing the AddressRequest parameters")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "create", description="The request object"), @ApiMethod(methodName = "delete", description="The request object"), @ApiMethod(methodName = "find", description="The request object"), @ApiMethod(methodName = "update", description="The request object containing the AddressRequest parameters")})
     private com.braintreegateway.AddressRequest request;
 
     public String getCustomerId() {

@@ -38,6 +38,7 @@ import org.slf4j.LoggerFactory;
 public abstract class ApiMethodParser<T> {
 
     // also used by JavadocApiMethodGeneratorMojo
+    @Deprecated
     public static final Pattern ARGS_PATTERN = Pattern.compile("\\s*([^<\\s]+)\\s*(<[^>]+>)?\\s+([^\\s,]+)\\s*,?");
 
     private static final String METHOD_PREFIX
@@ -66,6 +67,7 @@ public abstract class ApiMethodParser<T> {
 
     private final Class<T> proxyType;
     private List<String> signatures;
+    private final Map<String, Map<String, String>> signaturesArguments = new HashMap<>();
     private Map<String, Map<String, String>> parameters;
     private final Map<String, String> descriptions = new HashMap<>();
     private ClassLoader classLoader = ApiMethodParser.class.getClassLoader();
@@ -85,6 +87,14 @@ public abstract class ApiMethodParser<T> {
     public final void setSignatures(List<String> signatures) {
         this.signatures = new ArrayList<>();
         this.signatures.addAll(signatures);
+    }
+
+    public Map<String, Map<String, String>> getSignaturesArguments() {
+        return signaturesArguments;
+    }
+
+    public void addSignatureArguments(String name, Map<String, String> arguments) {
+        this.signaturesArguments.put(name, arguments);
     }
 
     public Map<String, String> getDescriptions() {
@@ -164,30 +174,69 @@ public abstract class ApiMethodParser<T> {
             final List<ApiMethodArg> arguments = new ArrayList<>();
             final List<Class<?>> argTypes = new ArrayList<>();
 
-            final Matcher argsMatcher = ARGS_PATTERN.matcher(argSignature);
-            while (argsMatcher.find()) {
-                String genericParameterName = argsMatcher.group(1);
-                if (genericTypeParameterName != null && genericTypeParameterName.equals(genericParameterName)) {
-                    genericParameterName = genericTypeParameterUpperBound;
-                }
-                final Class<?> type = forName(genericParameterName);
-                argTypes.add(type);
-                String genericParameterUpperbound = argsMatcher.group(2);
-                String typeArgs = genericParameterUpperbound != null
-                        ? genericParameterUpperbound.substring(1, genericParameterUpperbound.length() - 1).replace(" ", "")
-                        : null;
-                if (typeArgs != null && typeArgs.equals(genericTypeParameterName)) {
-                    typeArgs = genericTypeParameterUpperBound;
-                }
-                String typeName = argsMatcher.group(3);
-                String typeDesc = null;
-                if (parameters != null && name != null && typeName != null) {
-                    Map<String, String> params = parameters.get(name);
-                    if (params != null) {
-                        typeDesc = params.get(typeName);
+            // use the signature arguments from the parser so we do not have to use our own magic regexp parsing that is flawed
+            Map<String, String> args = signaturesArguments.get(signature);
+            if (args != null) {
+                for (Map.Entry<String, String> entry : args.entrySet()) {
+                    String argName = entry.getKey();
+                    String rawTypeArg = entry.getValue();
+                    String shortTypeArgs = rawTypeArg;
+                    String typeArg = null;
+                    // handle generics
+                    int pos = shortTypeArgs.indexOf('<');
+                    if (pos != -1) {
+                        typeArg = shortTypeArgs.substring(pos);
+                        // remove leading and trailing < > as that is what the old way was doing
+                        if (typeArg.startsWith("<")) {
+                            typeArg = typeArg.substring(1);
+                        }
+                        if (typeArg.endsWith(">")) {
+                            typeArg = typeArg.substring(0, typeArg.length() - 1);
+                        }
+                        shortTypeArgs = shortTypeArgs.substring(0, pos);
                     }
+                    final Class<?> type = forName(shortTypeArgs);
+                    argTypes.add(type);
+
+                    String typeDesc = null;
+                    if (parameters != null && name != null && argName != null) {
+                        Map<String, String> params = parameters.get(name);
+                        if (params != null) {
+                            typeDesc = params.get(argName);
+                        }
+                    }
+                    arguments.add(new ApiMethodArg(argName, type, typeArg, rawTypeArg, typeDesc));
                 }
-                arguments.add(new ApiMethodArg(typeName, type, typeArgs, typeDesc));
+            } else {
+                // TODO: Remove this when no longer needed
+                // @deprecated way which we should remove in the future
+                final Matcher argsMatcher = ARGS_PATTERN.matcher(argSignature);
+                while (argsMatcher.find()) {
+                    String genericParameterName = argsMatcher.group(1);
+                    if (genericTypeParameterName != null && genericTypeParameterName.equals(genericParameterName)) {
+                        genericParameterName = genericTypeParameterUpperBound;
+                    }
+                    // there may be some trailing > from the pattern so remove those
+                    genericParameterName = genericParameterName.replaceAll(">", "");
+                    final Class<?> type = forName(genericParameterName);
+                    argTypes.add(type);
+                    String genericParameterUpperbound = argsMatcher.group(2);
+                    String typeArgs = genericParameterUpperbound != null
+                            ? genericParameterUpperbound.substring(1, genericParameterUpperbound.length() - 1).replace(" ", "")
+                            : null;
+                    if (typeArgs != null && typeArgs.equals(genericTypeParameterName)) {
+                        typeArgs = genericTypeParameterUpperBound;
+                    }
+                    String typeName = argsMatcher.group(3);
+                    String typeDesc = null;
+                    if (parameters != null && name != null && typeName != null) {
+                        Map<String, String> params = parameters.get(name);
+                        if (params != null) {
+                            typeDesc = params.get(typeName);
+                        }
+                    }
+                    arguments.add(new ApiMethodArg(typeName, type, typeArgs, null, typeDesc));
+                }
             }
 
             Method method;

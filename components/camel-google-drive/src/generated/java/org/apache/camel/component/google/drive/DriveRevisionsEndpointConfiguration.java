@@ -20,13 +20,13 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class DriveRevisionsEndpointConfiguration extends GoogleDriveConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "patch", description="The com.google.api.services.drive.model.Revision"), @ApiMethod(methodName = "update", description="The com.google.api.services.drive.model.Revision")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "delete", description="The com.google.api.services.drive.model.Revision"), @ApiMethod(methodName = "get", description="The com.google.api.services.drive.model.Revision"), @ApiMethod(methodName = "list", description="The com.google.api.services.drive.model.Revision"), @ApiMethod(methodName = "patch", description="The com.google.api.services.drive.model.Revision"), @ApiMethod(methodName = "update", description="The com.google.api.services.drive.model.Revision")})
     private com.google.api.services.drive.model.Revision content;
     @UriParam
     @ApiParam(apiMethods = {@ApiMethod(methodName = "delete", description="The ID of the file"), @ApiMethod(methodName = "get", description="The ID of the file"), @ApiMethod(methodName = "list", description="The ID of the file"), @ApiMethod(methodName = "patch", description="The ID for the file"), @ApiMethod(methodName = "update", description="The ID for the file")})
     private String fileId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "delete", description="The ID of the revision"), @ApiMethod(methodName = "get", description="The ID of the revision"), @ApiMethod(methodName = "patch", description="The ID for the revision"), @ApiMethod(methodName = "update", description="The ID for the revision")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "delete", description="The ID of the revision"), @ApiMethod(methodName = "get", description="The ID of the revision"), @ApiMethod(methodName = "list", description="The ID of the revision"), @ApiMethod(methodName = "patch", description="The ID for the revision"), @ApiMethod(methodName = "update", description="The ID for the revision")})
     private String revisionId;
 
     public com.google.api.services.drive.model.Revision getContent() {

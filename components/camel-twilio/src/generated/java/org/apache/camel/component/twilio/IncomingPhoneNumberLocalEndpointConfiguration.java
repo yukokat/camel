@@ -20,10 +20,10 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class IncomingPhoneNumberLocalEndpointConfiguration extends TwilioConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The SID of the Account that will create the resource"), @ApiMethod(methodName = "reader", description="The SID of the Account that created the resources to read")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The SID of the Account that will create the resource"), @ApiMethod(methodName = "creator", description="The SID of the Account that will create the resource"), @ApiMethod(methodName = "reader", description="The SID of the Account that will create the resource"), @ApiMethod(methodName = "reader", description="The SID of the Account that created the resources to read")})
     private String pathAccountSid;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The phone number to purchase in E.164 format")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The phone number to purchase in E.164 format"), @ApiMethod(methodName = "creator", description="The phone number to purchase in E.164 format"), @ApiMethod(methodName = "reader", description="The phone number to purchase in E.164 format"), @ApiMethod(methodName = "reader", description="The phone number to purchase in E.164 format")})
     private com.twilio.type.PhoneNumber phoneNumber;
 
     public String getPathAccountSid() {

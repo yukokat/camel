@@ -185,18 +185,18 @@ public class ApiMethodHelperTest {
     enum TestMethod implements ApiMethod {
 
         SAYHI(String.class, "sayHi"),
-        SAYHI_1(String.class, "sayHi", arg("sayHi", "name", String.class)),
-        GREETME(String.class, "greetMe", arg("greetMe", "name", String.class)),
+        SAYHI_1(String.class, "sayHi", arg("name", String.class)),
+        GREETME(String.class, "greetMe", arg("name", String.class)),
         GREETUS(String.class,
-                "greetUs", arg("greetUs", "name1", String.class), arg("greetUs", "name2", String.class)),
-        GREETALL(String.class, "greetAll", arg("greetAll", "names", new String[0].getClass())),
+                "greetUs", arg("name1", String.class), arg("name2", String.class)),
+        GREETALL(String.class, "greetAll", arg("names", new String[0].getClass())),
         GREETALL_1(String.class,
-                   "greetAll", arg("greetAll", "nameList", List.class)),
-        GREETALL_2(Map.class, "greetAll", arg("greetAll", "nameMap", Map.class)),
+                   "greetAll", arg("nameList", List.class)),
+        GREETALL_2(Map.class, "greetAll", arg("nameMap", Map.class)),
         GREETTIMES(new String[0].getClass(), "greetTimes",
-                   arg("greetTimes", "name", String.class), arg("greetTimes", "times", int.class)),
+                   arg("name", String.class), arg("times", int.class)),
         GREETINNERCHILD(new String[0].getClass(), "greetInnerChild",
-                        arg("greetInnerChild", "child", TestProxy.InnerChild.class));
+                        arg("child", TestProxy.InnerChild.class));
 
         private final ApiMethod apiMethod;
 

@@ -20,16 +20,16 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class CallFeedbackSummaryEndpointConfiguration extends TwilioConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="Only include feedback given on or before this date")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="Only include feedback given on or before this date"), @ApiMethod(methodName = "creator", description="Only include feedback given on or before this date"), @ApiMethod(methodName = "deleter", description="Only include feedback given on or before this date"), @ApiMethod(methodName = "deleter", description="Only include feedback given on or before this date"), @ApiMethod(methodName = "fetcher", description="Only include feedback given on or before this date"), @ApiMethod(methodName = "fetcher", description="Only include feedback given on or before this date")})
     private org.joda.time.LocalDate endDate;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The unique sid that identifies this account"), @ApiMethod(methodName = "deleter", description="The unique sid that identifies this account"), @ApiMethod(methodName = "fetcher", description="The unique sid that identifies this account")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The unique sid that identifies this account"), @ApiMethod(methodName = "creator", description="The unique sid that identifies this account"), @ApiMethod(methodName = "deleter", description="The unique sid that identifies this account"), @ApiMethod(methodName = "deleter", description="The unique sid that identifies this account"), @ApiMethod(methodName = "fetcher", description="The unique sid that identifies this account"), @ApiMethod(methodName = "fetcher", description="The unique sid that identifies this account")})
     private String pathAccountSid;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "deleter", description="A string that uniquely identifies this feedback summary resource"), @ApiMethod(methodName = "fetcher", description="A string that uniquely identifies this feedback summary resource")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="A string that uniquely identifies this feedback summary resource"), @ApiMethod(methodName = "creator", description="A string that uniquely identifies this feedback summary resource"), @ApiMethod(methodName = "deleter", description="A string that uniquely identifies this feedback summary resource"), @ApiMethod(methodName = "deleter", description="A string that uniquely identifies this feedback summary resource"), @ApiMethod(methodName = "fetcher", description="A string that uniquely identifies this feedback summary resource"), @ApiMethod(methodName = "fetcher", description="A string that uniquely identifies this feedback summary resource")})
     private String pathSid;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="Only include feedback given on or after this date")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="Only include feedback given on or after this date"), @ApiMethod(methodName = "creator", description="Only include feedback given on or after this date"), @ApiMethod(methodName = "deleter", description="Only include feedback given on or after this date"), @ApiMethod(methodName = "deleter", description="Only include feedback given on or after this date"), @ApiMethod(methodName = "fetcher", description="Only include feedback given on or after this date"), @ApiMethod(methodName = "fetcher", description="Only include feedback given on or after this date")})
     private org.joda.time.LocalDate startDate;
 
     public org.joda.time.LocalDate getEndDate() {

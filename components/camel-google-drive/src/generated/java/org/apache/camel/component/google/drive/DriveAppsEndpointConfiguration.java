@@ -20,7 +20,7 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class DriveAppsEndpointConfiguration extends GoogleDriveConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "get", description="The ID of the app")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "get", description="The ID of the app"), @ApiMethod(methodName = "list", description="The ID of the app")})
     private String appId;
 
     public String getAppId() {

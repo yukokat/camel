@@ -20,10 +20,10 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class ShortCodeEndpointConfiguration extends TwilioConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "fetcher", description="The SID of the Account that created the resource(s) to fetch"), @ApiMethod(methodName = "reader", description="The SID of the Account that created the resource(s) to read"), @ApiMethod(methodName = "updater", description="The SID of the Account that created the resource(s) to update")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "fetcher", description="The SID of the Account that created the resource(s) to fetch"), @ApiMethod(methodName = "fetcher", description="The SID of the Account that created the resource(s) to fetch"), @ApiMethod(methodName = "reader", description="The SID of the Account that created the resource(s) to fetch"), @ApiMethod(methodName = "reader", description="The SID of the Account that created the resource(s) to read"), @ApiMethod(methodName = "updater", description="The SID of the Account that created the resource(s) to fetch"), @ApiMethod(methodName = "updater", description="The SID of the Account that created the resource(s) to update")})
     private String pathAccountSid;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "fetcher", description="The unique string that identifies this resource"), @ApiMethod(methodName = "updater", description="The unique string that identifies this resource")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "fetcher", description="The unique string that identifies this resource"), @ApiMethod(methodName = "fetcher", description="The unique string that identifies this resource"), @ApiMethod(methodName = "reader", description="The unique string that identifies this resource"), @ApiMethod(methodName = "reader", description="The unique string that identifies this resource"), @ApiMethod(methodName = "updater", description="The unique string that identifies this resource"), @ApiMethod(methodName = "updater", description="The unique string that identifies this resource")})
     private String pathSid;
 
     public String getPathAccountSid() {

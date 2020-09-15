@@ -20,16 +20,16 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class CustomerGatewayEndpointConfiguration extends BraintreeConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "find", description="The id of the association filter to use")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "all", description="The id of the association filter to use"), @ApiMethod(methodName = "create", description="The id of the association filter to use"), @ApiMethod(methodName = "delete", description="The id of the association filter to use"), @ApiMethod(methodName = "find", description="The id of the association filter to use"), @ApiMethod(methodName = "find", description="The id of the association filter to use"), @ApiMethod(methodName = "search", description="The id of the association filter to use"), @ApiMethod(methodName = "update", description="The id of the association filter to use")})
     private String associationFilterId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "delete", description="The id of the Customer"), @ApiMethod(methodName = "find", description="The id of the Customer"), @ApiMethod(methodName = "find", description="The id of the Customer"), @ApiMethod(methodName = "update", description="The id of the Customer")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "all", description="The id of the Customer"), @ApiMethod(methodName = "create", description="The id of the Customer"), @ApiMethod(methodName = "delete", description="The id of the Customer"), @ApiMethod(methodName = "find", description="The id of the Customer"), @ApiMethod(methodName = "find", description="The id of the Customer"), @ApiMethod(methodName = "search", description="The id of the Customer"), @ApiMethod(methodName = "update", description="The id of the Customer")})
     private String id;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "search", description="The request query to use for search")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "all", description="The request query to use for search"), @ApiMethod(methodName = "create", description="The request query to use for search"), @ApiMethod(methodName = "delete", description="The request query to use for search"), @ApiMethod(methodName = "find", description="The request query to use for search"), @ApiMethod(methodName = "find", description="The request query to use for search"), @ApiMethod(methodName = "search", description="The request query to use for search"), @ApiMethod(methodName = "update", description="The request query to use for search")})
     private com.braintreegateway.CustomerSearchRequest query;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "create", description="The request"), @ApiMethod(methodName = "update", description="The request")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "all", description="The request"), @ApiMethod(methodName = "create", description="The request"), @ApiMethod(methodName = "delete", description="The request"), @ApiMethod(methodName = "find", description="The request"), @ApiMethod(methodName = "find", description="The request"), @ApiMethod(methodName = "search", description="The request"), @ApiMethod(methodName = "update", description="The request")})
     private com.braintreegateway.CustomerRequest request;
 
     public String getAssociationFilterId() {

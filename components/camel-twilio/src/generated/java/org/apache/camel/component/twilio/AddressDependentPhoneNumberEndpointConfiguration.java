@@ -20,10 +20,10 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class AddressDependentPhoneNumberEndpointConfiguration extends TwilioConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "reader", description="The SID of the Account that created the resources to read")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "reader", description="The SID of the Account that created the resources to read"), @ApiMethod(methodName = "reader", description="The SID of the Account that created the resources to read")})
     private String pathAccountSid;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "reader", description="The SID of the Address resource associated with the phone number")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "reader", description="The SID of the Address resource associated with the phone number"), @ApiMethod(methodName = "reader", description="The SID of the Address resource associated with the phone number")})
     private String pathAddressSid;
 
     public String getPathAccountSid() {
