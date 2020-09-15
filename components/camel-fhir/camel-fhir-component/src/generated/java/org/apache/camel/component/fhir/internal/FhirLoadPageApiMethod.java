@@ -21,20 +21,20 @@ import static org.apache.camel.support.component.ApiMethodArg.arg;
 public enum FhirLoadPageApiMethod implements ApiMethod {
 
     BY_URL(
-        org.hl7.fhir.instance.model.api.IBaseBundle.class,
+        Object.class,
         "byUrl",
         arg("url", String.class),
         arg("returnType", Class.class),
         arg("extraParameters", java.util.Map.class)),
 
     NEXT(
-        org.hl7.fhir.instance.model.api.IBaseBundle.class,
+        Object.class,
         "next",
         arg("bundle", org.hl7.fhir.instance.model.api.IBaseBundle.class),
         arg("extraParameters", java.util.Map.class)),
 
     PREVIOUS(
-        org.hl7.fhir.instance.model.api.IBaseBundle.class,
+        Object.class,
         "previous",
         arg("bundle", org.hl7.fhir.instance.model.api.IBaseBundle.class),
         arg("extraParameters", java.util.Map.class));

@@ -14,31 +14,31 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel endpoint configuration for {@link org.apache.camel.component.fhir.api.FhirHistory}.
  */
-@ApiParams(apiName = "history", description = "",
-           apiMethods = {@ApiMethod(methodName = "onInstance"), @ApiMethod(methodName = "onServer"), @ApiMethod(methodName = "onType")})
+@ApiParams(apiName = "history", description = "API for the history method",
+           apiMethods = {@ApiMethod(methodName = "onInstance", description="Perform the operation across all versions of a specific resource (by ID and type) on the server"), @ApiMethod(methodName = "onServer", description="Perform the operation across all versions of all resources of all types on the server"), @ApiMethod(methodName = "onType", description="Perform the operation across all versions of all resources of the given type on the server")})
 @UriParams
 @Configurer
 public final class FhirHistoryEndpointConfiguration extends FhirConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "onInstance"), @ApiMethod(methodName = "onServer"), @ApiMethod(methodName = "onType")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "onInstance", description="Request that the server return only up to theCount number of resources, may be NULL"), @ApiMethod(methodName = "onServer", description="Request that the server return only up to theCount number of resources, may be NULL"), @ApiMethod(methodName = "onType", description="Request that the server return only up to theCount number of resources, may be NULL")})
     private Integer count;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "onInstance"), @ApiMethod(methodName = "onServer"), @ApiMethod(methodName = "onType")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "onInstance", description="Request that the server return only resource versions that were created at or after the given time (inclusive), may be NULL"), @ApiMethod(methodName = "onServer", description="Request that the server return only resource versions that were created at or after the given time (inclusive), may be NULL"), @ApiMethod(methodName = "onType", description="Request that the server return only resource versions that were created at or after the given time (inclusive), may be NULL")})
     private java.util.Date cutoff;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "onInstance"), @ApiMethod(methodName = "onServer"), @ApiMethod(methodName = "onType")})
-    private java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters,Object> extraParameters;
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "onInstance", description="See ExtraParameters for a full list of parameters that can be passed, may be NULL"), @ApiMethod(methodName = "onServer", description="See ExtraParameters for a full list of parameters that can be passed, may be NULL"), @ApiMethod(methodName = "onType", description="See ExtraParameters for a full list of parameters that can be passed, may be NULL")})
+    private java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "onInstance"), @ApiMethod(methodName = "onServer"), @ApiMethod(methodName = "onType")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "onInstance", description="Request that the server return only resource versions that were created at or after the given time (inclusive), may be NULL"), @ApiMethod(methodName = "onServer", description="Request that the server return only resource versions that were created at or after the given time (inclusive), may be NULL"), @ApiMethod(methodName = "onType", description="Request that the server return only resource versions that were created at or after the given time (inclusive), may be NULL")})
     private org.hl7.fhir.instance.model.api.IPrimitiveType<java.util.Date> iCutoff;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "onInstance")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "onInstance", description="The IIdType which must be populated with both a resource type and a resource ID at")})
     private org.hl7.fhir.instance.model.api.IIdType id;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "onType")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "onType", description="The resource type to search for")})
     private Class<org.hl7.fhir.instance.model.api.IBaseResource> resourceType;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "onInstance"), @ApiMethod(methodName = "onServer"), @ApiMethod(methodName = "onType")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "onInstance", description="Request that the method return a Bundle resource (such as ca.uhn.fhir.model.dstu2.resource.Bundle). Use this method if you are accessing a DSTU2 server."), @ApiMethod(methodName = "onServer", description="Request that the method return a Bundle resource (such as ca.uhn.fhir.model.dstu2.resource.Bundle). Use this method if you are accessing a DSTU2 server."), @ApiMethod(methodName = "onType", description="Request that the method return a Bundle resource (such as ca.uhn.fhir.model.dstu2.resource.Bundle). Use this method if you are accessing a DSTU2 server.")})
     private Class<org.hl7.fhir.instance.model.api.IBaseBundle> returnType;
 
     public Integer getCount() {
@@ -57,11 +57,11 @@ public final class FhirHistoryEndpointConfiguration extends FhirConfiguration {
         this.cutoff = cutoff;
     }
 
-    public java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters,Object> getExtraParameters() {
+    public java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> getExtraParameters() {
         return extraParameters;
     }
 
-    public void setExtraParameters(java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters,Object> extraParameters) {
+    public void setExtraParameters(java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters) {
         this.extraParameters = extraParameters;
     }
 

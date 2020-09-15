@@ -14,46 +14,46 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel endpoint configuration for {@link org.apache.camel.component.fhir.api.FhirOperation}.
  */
-@ApiParams(apiName = "operation", description = "",
-           apiMethods = {@ApiMethod(methodName = "onInstance"), @ApiMethod(methodName = "onInstanceVersion"), @ApiMethod(methodName = "onServer"), @ApiMethod(methodName = "onType"), @ApiMethod(methodName = "processMessage")})
+@ApiParams(apiName = "operation", description = "API for extended FHIR operations https://www",
+           apiMethods = {@ApiMethod(methodName = "onInstance", description="Perform the operation across all versions of a specific resource (by ID and type) on the server"), @ApiMethod(methodName = "onInstanceVersion", description="This operation operates on a specific version of a resource"), @ApiMethod(methodName = "onServer", description="Perform the operation across all versions of all resources of all types on the server"), @ApiMethod(methodName = "onType", description="Perform the operation across all versions of all resources of the given type on the server"), @ApiMethod(methodName = "processMessage", description="This operation is called $process-message as defined by the FHIR specification")})
 @UriParams
 @Configurer
 public final class FhirOperationEndpointConfiguration extends FhirConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "processMessage")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "processMessage", description="Whether to process the message asynchronously or synchronously, defaults to synchronous.")})
     private Boolean asynchronous;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "onInstance"), @ApiMethod(methodName = "onInstanceVersion"), @ApiMethod(methodName = "onServer"), @ApiMethod(methodName = "onType"), @ApiMethod(methodName = "processMessage")})
-    private java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters,Object> extraParameters;
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "onInstance", description="See ExtraParameters for a full list of parameters that can be passed, may be NULL"), @ApiMethod(methodName = "onInstanceVersion", description="See ExtraParameters for a full list of parameters that can be passed, may be NULL"), @ApiMethod(methodName = "onServer", description="See ExtraParameters for a full list of parameters that can be passed, may be NULL"), @ApiMethod(methodName = "onType", description="See ExtraParameters for a full list of parameters that can be passed, may be NULL"), @ApiMethod(methodName = "processMessage", description="See ExtraParameters for a full list of parameters that can be passed, may be NULL")})
+    private java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "onInstance"), @ApiMethod(methodName = "onInstanceVersion")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "onInstance", description="Resource (version will be stripped)"), @ApiMethod(methodName = "onInstanceVersion", description="Resource version")})
     private org.hl7.fhir.instance.model.api.IIdType id;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "processMessage")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "processMessage", description="Set the Message Bundle to POST to the messaging server")})
     private org.hl7.fhir.instance.model.api.IBaseBundle msgBundle;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "onInstance"), @ApiMethod(methodName = "onInstanceVersion"), @ApiMethod(methodName = "onServer"), @ApiMethod(methodName = "onType")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "onInstance", description="Operation name"), @ApiMethod(methodName = "onInstanceVersion", description="Operation name"), @ApiMethod(methodName = "onServer", description="Operation name"), @ApiMethod(methodName = "onType", description="Operation name")})
     private String name;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "onInstance"), @ApiMethod(methodName = "onInstanceVersion"), @ApiMethod(methodName = "onServer"), @ApiMethod(methodName = "onType")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "onInstance", description="The type to use for the output parameters (this should be set to Parameters.class drawn from the version of the FHIR structures you are using), may be NULL"), @ApiMethod(methodName = "onInstanceVersion", description="The type to use for the output parameters (this should be set to Parameters.class drawn from the version of the FHIR structures you are using), may be NULL"), @ApiMethod(methodName = "onServer", description="The type to use for the output parameters (this should be set to Parameters.class drawn from the version of the FHIR structures you are using), may be NULL"), @ApiMethod(methodName = "onType", description="The type to use for the output parameters (this should be set to Parameters.class drawn from the version of the FHIR structures you are using), may be NULL")})
     private Class<org.hl7.fhir.instance.model.api.IBaseParameters> outputParameterType;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "onInstance"), @ApiMethod(methodName = "onInstanceVersion"), @ApiMethod(methodName = "onServer"), @ApiMethod(methodName = "onType")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "onInstance", description="The parameters to use as input. May also be null if the operation does not require any input parameters."), @ApiMethod(methodName = "onInstanceVersion", description="The parameters to use as input. May also be null if the operation does not require any input parameters."), @ApiMethod(methodName = "onServer", description="The parameters to use as input. May also be null if the operation does not require any input parameters."), @ApiMethod(methodName = "onType", description="The parameters to use as input. May also be null if the operation does not require any input parameters.")})
     private org.hl7.fhir.instance.model.api.IBaseParameters parameters;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "onType")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "onType", description="The resource type to operate on")})
     private Class<org.hl7.fhir.instance.model.api.IBaseResource> resourceType;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "processMessage")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "processMessage", description="An optional query parameter indicating that responses from the receiving server should be sent to this URI, may be NULL")})
     private String respondToUri;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "processMessage")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "processMessage", description="The response class")})
     private Class<org.hl7.fhir.instance.model.api.IBaseBundle> responseClass;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "onInstance"), @ApiMethod(methodName = "onInstanceVersion"), @ApiMethod(methodName = "onServer"), @ApiMethod(methodName = "onType")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "onInstance", description="If this operation returns a single resource body as its return type instead of a Parameters resource, use this method to specify that resource type. This is useful for certain operations (e.g. Patient/NNN/$everything) which return a bundle instead of a Parameters resource, may be NULL"), @ApiMethod(methodName = "onInstanceVersion", description="If this operation returns a single resource body as its return type instead of a Parameters resource, use this method to specify that resource type. This is useful for certain operations (e.g. Patient/NNN/$everything) which return a bundle instead of a Parameters resource, may be NULL"), @ApiMethod(methodName = "onServer", description="If this operation returns a single resource body as its return type instead of a Parameters resource, use this method to specify that resource type. This is useful for certain operations (e.g. Patient/NNN/$everything) which return a bundle instead of a Parameters resource, may be NULL"), @ApiMethod(methodName = "onType", description="If this operation returns a single resource body as its return type instead of a Parameters resource, use this method to specify that resource type. This is useful for certain operations (e.g. Patient/NNN/$everything) which return a bundle instead of a Parameters resource, may be NULL")})
     private Class<org.hl7.fhir.instance.model.api.IBaseResource> returnType;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "onInstance"), @ApiMethod(methodName = "onInstanceVersion"), @ApiMethod(methodName = "onServer"), @ApiMethod(methodName = "onType")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "onInstance", description="Use HTTP GET verb"), @ApiMethod(methodName = "onInstanceVersion", description="Use HTTP GET verb"), @ApiMethod(methodName = "onServer", description="Use HTTP GET verb"), @ApiMethod(methodName = "onType", description="Use HTTP GET verb")})
     private Boolean useHttpGet;
 
     public Boolean getAsynchronous() {
@@ -64,11 +64,11 @@ public final class FhirOperationEndpointConfiguration extends FhirConfiguration 
         this.asynchronous = asynchronous;
     }
 
-    public java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters,Object> getExtraParameters() {
+    public java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> getExtraParameters() {
         return extraParameters;
     }
 
-    public void setExtraParameters(java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters,Object> extraParameters) {
+    public void setExtraParameters(java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters) {
         this.extraParameters = extraParameters;
     }
 

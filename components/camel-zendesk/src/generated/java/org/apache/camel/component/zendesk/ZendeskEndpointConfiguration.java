@@ -324,7 +324,7 @@ public final class ZendeskEndpointConfiguration extends ZendeskConfiguration {
     private Long tweetId;
     @UriParam
     @ApiParam(apiMethods = {@ApiMethod(methodName = "getSearchResults")})
-    private Class type;
+    private Class<org.zendesk.client.v2.model.SearchResultEntity> type;
     @UriParam
     @ApiParam(apiMethods = {@ApiMethod(methodName = "getIncrementalTicketsResult")})
     private Long unixEpochTime;
@@ -1173,11 +1173,11 @@ public final class ZendeskEndpointConfiguration extends ZendeskConfiguration {
         this.tweetId = tweetId;
     }
 
-    public Class getType() {
+    public Class<org.zendesk.client.v2.model.SearchResultEntity> getType() {
         return type;
     }
 
-    public void setType(Class type) {
+    public void setType(Class<org.zendesk.client.v2.model.SearchResultEntity> type) {
         this.type = type;
     }
 

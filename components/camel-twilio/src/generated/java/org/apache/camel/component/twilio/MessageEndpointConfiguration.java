@@ -27,7 +27,7 @@ public final class MessageEndpointConfiguration extends TwilioConfiguration {
     private com.twilio.type.PhoneNumber from;
     @UriParam
     @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The URL of the media to send with the message")})
-    private java.util.List<java.net.URI> mediaUrl;
+    private java.util.List mediaUrl;
     @UriParam
     @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The SID of the Messaging Service you want to associate with the message")})
     private String messagingServiceSid;
@@ -57,11 +57,11 @@ public final class MessageEndpointConfiguration extends TwilioConfiguration {
         this.from = from;
     }
 
-    public java.util.List<java.net.URI> getMediaUrl() {
+    public java.util.List getMediaUrl() {
         return mediaUrl;
     }
 
-    public void setMediaUrl(java.util.List<java.net.URI> mediaUrl) {
+    public void setMediaUrl(java.util.List mediaUrl) {
         this.mediaUrl = mediaUrl;
     }
 

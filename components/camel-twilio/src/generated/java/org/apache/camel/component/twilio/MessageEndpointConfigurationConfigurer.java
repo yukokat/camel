@@ -81,14 +81,5 @@ public class MessageEndpointConfigurationConfigurer extends org.apache.camel.sup
         default: return null;
         }
     }
-
-    @Override
-    public Object getCollectionValueType(Object target, String name, boolean ignoreCase) {
-        switch (ignoreCase ? name.toLowerCase() : name) {
-        case "mediaurl":
-        case "MediaUrl": return java.net.URI.class;
-        default: return null;
-        }
-    }
 }
 
