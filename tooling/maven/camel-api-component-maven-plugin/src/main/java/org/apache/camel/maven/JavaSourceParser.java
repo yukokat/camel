@@ -29,6 +29,7 @@ import org.jboss.forge.roaster.Roaster;
 import org.jboss.forge.roaster._shade.org.eclipse.jdt.core.dom.ASTNode;
 import org.jboss.forge.roaster.model.JavaDocTag;
 import org.jboss.forge.roaster.model.Type;
+import org.jboss.forge.roaster.model.TypeVariable;
 import org.jboss.forge.roaster.model.impl.AbstractGenericCapableJavaSource;
 import org.jboss.forge.roaster.model.impl.AbstractJavaSource;
 import org.jboss.forge.roaster.model.source.JavaInterfaceSource;
@@ -139,6 +140,21 @@ public class JavaSourceParser {
                     if (hasTypeVariables) {
                         // okay this gets to complex then remove the generics
                         type = ps.getType().getQualifiedName();
+                    }
+                } else if (ms.hasTypeVariable(type) || clazz.hasTypeVariable(type)) {
+                    // okay now it gets complex as we have a type like T which is a type variable and we need to resolve that into
+                    // what base class that is
+                    TypeVariable tv = ms.getTypeVariable(type);
+                    if (tv == null) {
+                        tv = clazz.getTypeVariable(type);
+                    }
+                    List<Type> bounds = tv.getBounds();
+                    for (Type bt : bounds) {
+                        String bn = bt.getQualifiedName();
+                        if (!type.equals(bn)) {
+                            type = bn;
+                            break;
+                        }
                     }
                 }
                 // remove java.lang. prefix as it should not be there

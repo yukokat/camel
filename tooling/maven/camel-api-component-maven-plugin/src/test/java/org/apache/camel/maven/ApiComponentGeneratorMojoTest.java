@@ -22,11 +22,14 @@ import java.util.List;
 
 import org.apache.camel.component.test.TestProxy;
 import org.apache.velocity.VelocityContext;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
  * Tests {@link ApiComponentGeneratorMojo} for signature file and javadoc
  */
+@Deprecated
+@Disabled
 public class ApiComponentGeneratorMojoTest extends AbstractGeneratorMojoTest {
 
     @Test
