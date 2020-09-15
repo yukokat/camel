@@ -27,13 +27,13 @@ public final class Olingo2AppEndpointConfiguration extends Olingo2Configuration 
     private org.apache.olingo.odata2.api.edm.Edm edm;
     @UriParam
     @ApiParam(apiMethods = {@ApiMethod(methodName = "batch", description="HTTP Headers to add/override the component versions"), @ApiMethod(methodName = "create", description="HTTP Headers to add/override the component versions"), @ApiMethod(methodName = "delete", description="HTTP Headers to add/override the component versions"), @ApiMethod(methodName = "merge", description="HTTP Headers to add/override the component versions"), @ApiMethod(methodName = "patch", description="HTTP Headers to add/override the component versions"), @ApiMethod(methodName = "read", description="HTTP Headers to add/override the component versions"), @ApiMethod(methodName = "update", description="HTTP Headers to add/override the component versions"), @ApiMethod(methodName = "uread", description="HTTP Headers to add/override the component versions")})
-    private java.util.Map<java.lang.String, java.lang.String> endpointHttpHeaders;
+    private java.util.Map<String, String> endpointHttpHeaders;
     @UriParam
     @ApiParam(apiMethods = {@ApiMethod(methodName = "batch", description="OData Key predicate"), @ApiMethod(methodName = "create", description="OData Key predicate"), @ApiMethod(methodName = "delete", description="OData Key predicate"), @ApiMethod(methodName = "merge", description="OData Key predicate"), @ApiMethod(methodName = "patch", description="OData Key predicate"), @ApiMethod(methodName = "read", description="OData Key predicate"), @ApiMethod(methodName = "update", description="OData Key predicate"), @ApiMethod(methodName = "uread", description="OData Key predicate")})
     private java.lang.String keyPredicate;
     @UriParam
     @ApiParam(apiMethods = {@ApiMethod(methodName = "batch", description="OData query params from http://www.odata.org/documentation/odata-version-2-0/uri-conventions#SystemQueryOptions"), @ApiMethod(methodName = "create", description="OData query params from http://www.odata.org/documentation/odata-version-2-0/uri-conventions#SystemQueryOptions"), @ApiMethod(methodName = "delete", description="OData query params from http://www.odata.org/documentation/odata-version-2-0/uri-conventions#SystemQueryOptions"), @ApiMethod(methodName = "merge", description="OData query params from http://www.odata.org/documentation/odata-version-2-0/uri-conventions#SystemQueryOptions"), @ApiMethod(methodName = "patch", description="OData query params from http://www.odata.org/documentation/odata-version-2-0/uri-conventions#SystemQueryOptions"), @ApiMethod(methodName = "read", description="OData query params from http://www.odata.org/documentation/odata-version-2-0/uri-conventions#SystemQueryOptions"), @ApiMethod(methodName = "update", description="OData query params from http://www.odata.org/documentation/odata-version-2-0/uri-conventions#SystemQueryOptions"), @ApiMethod(methodName = "uread", description="OData query params from http://www.odata.org/documentation/odata-version-2-0/uri-conventions#SystemQueryOptions")})
-    private java.util.Map<java.lang.String, java.lang.String> queryParams;
+    private java.util.Map<String, String> queryParams;
     @UriParam
     @ApiParam(apiMethods = {@ApiMethod(methodName = "batch", description="Resource path to create"), @ApiMethod(methodName = "create", description="Resource path to create"), @ApiMethod(methodName = "delete", description="Resource path for Entry"), @ApiMethod(methodName = "merge", description="Resource path to update"), @ApiMethod(methodName = "patch", description="Resource path to update"), @ApiMethod(methodName = "read", description="OData Resource path"), @ApiMethod(methodName = "update", description="Resource path to update"), @ApiMethod(methodName = "uread", description="OData Resource path")})
     private String resourcePath;
@@ -57,11 +57,11 @@ public final class Olingo2AppEndpointConfiguration extends Olingo2Configuration 
         this.edm = edm;
     }
 
-    public java.util.Map<java.lang.String, java.lang.String> getEndpointHttpHeaders() {
+    public java.util.Map<String, String> getEndpointHttpHeaders() {
         return endpointHttpHeaders;
     }
 
-    public void setEndpointHttpHeaders(java.util.Map<java.lang.String, java.lang.String> endpointHttpHeaders) {
+    public void setEndpointHttpHeaders(java.util.Map<String, String> endpointHttpHeaders) {
         this.endpointHttpHeaders = endpointHttpHeaders;
     }
 
@@ -73,11 +73,11 @@ public final class Olingo2AppEndpointConfiguration extends Olingo2Configuration 
         this.keyPredicate = keyPredicate;
     }
 
-    public java.util.Map<java.lang.String, java.lang.String> getQueryParams() {
+    public java.util.Map<String, String> getQueryParams() {
         return queryParams;
     }
 
-    public void setQueryParams(java.util.Map<java.lang.String, java.lang.String> queryParams) {
+    public void setQueryParams(java.util.Map<String, String> queryParams) {
         this.queryParams = queryParams;
     }
 

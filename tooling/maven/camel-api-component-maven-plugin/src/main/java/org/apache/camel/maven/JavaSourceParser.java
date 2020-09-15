@@ -128,6 +128,18 @@ public class JavaSourceParser {
                     // the old way with javadoc did not use varargs in the signature, so lets transform this to an array style
                     type = type + "[]";
                 }
+                if (ps.getType().isParameterized()) {
+                    // for parameterized types then it can get complex if they are variables (T, T extends Foo etc)
+                    List<Type> types = ps.getType().getTypeArguments();
+                    boolean hasTypeVariables = false;
+                    for (Type t : types) {
+                        hasTypeVariables |= ms.hasTypeVariable(t.getName()) || clazz.hasTypeVariable(t.getName());
+                    }
+                    if (hasTypeVariables) {
+                        // okay this gets to complex then remove the generics
+                        type = ps.getType().getQualifiedName();
+                    }
+                }
                 // remove java.lang. prefix as it should not be there
                 type = type.replaceAll("java.lang.", "");
 
