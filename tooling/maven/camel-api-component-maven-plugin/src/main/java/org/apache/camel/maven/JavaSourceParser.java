@@ -96,19 +96,20 @@ public class JavaSourceParser {
                 methodDescriptions.put(ms.getName(), doc);
             }
 
-            String signature = ms.toSignature();
-            // roaster signatures has return values at end
-            // public create(String, AddressRequest) : Result
-
-            int pos = signature.indexOf(':');
-            String result = signature.substring(pos + 1).trim();
-            // lets use FQN types
-            if (!"void".equals(result)) {
-                result = resolveType(rootClazz, clazz, result);
+            String result;
+            Type rt = ms.getReturnType();
+            boolean hasTypeVariables = ms.hasTypeVariable(rt.getName()) || clazz.hasTypeVariable(rt.getName());
+            if (hasTypeVariables) {
+                // okay this gets to complex then remove the generics
+                result = "Object";
+            } else {
+                result = resolveType(rootClazz, clazz, ms, rt);
+                if (result == null || result.isEmpty()) {
+                    result = "void";
+                }
             }
-            if (result.isEmpty()) {
-                result = "void";
-            }
+            // remove java.lang. prefix as it should not be there
+            result = result.replaceAll("java.lang.", "");
 
             List<JavaDocTag> params = ms.getJavaDoc().getTags("@param");
 
@@ -131,7 +132,7 @@ public class JavaSourceParser {
                 if (ps.getType().isParameterized()) {
                     // for parameterized types then it can get complex if they are variables (T, T extends Foo etc)
                     List<Type> types = ps.getType().getTypeArguments();
-                    boolean hasTypeVariables = false;
+                    hasTypeVariables = false;
                     for (Type t : types) {
                         hasTypeVariables |= ms.hasTypeVariable(t.getName()) || clazz.hasTypeVariable(t.getName());
                     }
@@ -161,8 +162,8 @@ public class JavaSourceParser {
             } else {
                 parameters.put(ms.getName(), docs);
             }
-            signature = sb.toString();
 
+            String signature = sb.toString();
             methods.add(signature);
             signaturesArguments.put(signature, args);
             methodText.put(ms.getName(), signature);

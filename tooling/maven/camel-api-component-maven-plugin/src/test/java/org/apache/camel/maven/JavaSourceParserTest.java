@@ -35,7 +35,7 @@ public class JavaSourceParserTest {
         assertEquals(4, parser.getMethods().size());
 
         assertEquals(
-                "public com.braintreegateway.Result create(String customerId, com.braintreegateway.AddressRequest request)",
+                "public com.braintreegateway.Result<com.braintreegateway.Address> create(String customerId, com.braintreegateway.AddressRequest request)",
                 parser.getMethods().get(0));
         assertEquals(2, parser.getParameters().get("create").size());
         assertEquals("The id of the Customer", parser.getParameters().get("create").get("customerId"));
@@ -50,7 +50,7 @@ public class JavaSourceParserTest {
         assertEquals(7, parser.getMethods().size());
 
         assertEquals(
-                "public com.braintreegateway.Result create(com.braintreegateway.CustomerRequest request)",
+                "public com.braintreegateway.Result<com.braintreegateway.Customer> create(com.braintreegateway.CustomerRequest request)",
                 parser.getMethods().get(1));
         assertEquals(1, parser.getParameters().get("create").size());
         assertEquals("The request", parser.getParameters().get("create").get("request"));
@@ -64,7 +64,7 @@ public class JavaSourceParserTest {
         assertEquals(9, parser.getMethods().size());
 
         assertEquals(
-                "public com.braintreegateway.Result addFileEvidence(String disputeId, String documentId)",
+                "public com.braintreegateway.Result<com.braintreegateway.DisputeEvidence> addFileEvidence(String disputeId, String documentId)",
                 parser.getMethods().get(1));
         assertEquals(3, parser.getParameters().get("addFileEvidence").size());
         assertEquals("The dispute id to add text evidence to", parser.getParameters().get("addFileEvidence").get("disputeId"));
@@ -81,7 +81,7 @@ public class JavaSourceParserTest {
 
         // varargs is transformed to an array type as that is what works
         assertEquals(
-                "public java.lang.String greetWildcard(String[] wildcardNames)",
+                "public String greetWildcard(String[] wildcardNames)",
                 parser.getMethods().get(6));
     }
 
@@ -93,7 +93,7 @@ public class JavaSourceParserTest {
         assertEquals(1, parser.getMethods().size());
 
         assertEquals(
-                "public java.lang.String getOrderById(int id)",
+                "public String getOrderById(int id)",
                 parser.getMethods().get(0));
         assertEquals(1, parser.getParameters().get("getOrderById").size());
         assertEquals("The order id", parser.getParameters().get("getOrderById").get("id"));
