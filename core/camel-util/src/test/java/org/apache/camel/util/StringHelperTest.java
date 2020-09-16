@@ -44,6 +44,13 @@ public class StringHelperTest {
 
         assertEquals("use-mdc-logging", camelCaseToDash("UseMDCLogging"));
         assertEquals("mdc-logging-keys-pattern", camelCaseToDash("MDCLoggingKeysPattern"));
+        assertEquals("available-phone-number-country", camelCaseToDash("AVAILABLE_PHONE_NUMBER_COUNTRY"));
+        assertEquals("available-phone-number-country", camelCaseToDash("AVAILABLE-PHONE_NUMBER-COUNTRY"));
+        assertEquals("available-phone-number-country", camelCaseToDash("Available-Phone-Number-Country"));
+        assertEquals("available-phone-number-country", camelCaseToDash("Available_Phone_Number_Country"));
+        assertEquals("available-phone-number-country", camelCaseToDash("available_phone_number_country"));
+        assertEquals("available-phone-number-country", camelCaseToDash("availablePhoneNumberCountry"));
+        assertEquals("available-phone-number-country", camelCaseToDash("AvailablePhoneNumberCountry"));
     }
 
     @Test
