@@ -39,13 +39,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Box Files Manager
- *
- * <p>
  * Provides operations to manage Box files.
- *
- *
- *
  */
 public class BoxFilesManager {
 

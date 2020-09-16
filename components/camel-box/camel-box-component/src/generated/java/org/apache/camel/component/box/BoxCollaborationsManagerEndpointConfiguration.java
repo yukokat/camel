@@ -14,7 +14,7 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel endpoint configuration for {@link org.apache.camel.component.box.api.BoxCollaborationsManager}.
  */
-@ApiParams(apiName = "collaborations", description = "Box Collaborations Manager Provides operations to manage Box collaborations",
+@ApiParams(apiName = "collaborations", description = "Provides operations to manage Box collaborations",
            apiMethods = {@ApiMethod(methodName = "addFolderCollaboration", description="Add a collaboration to this folder"), @ApiMethod(methodName = "addFolderCollaborationByEmail", description="Add a collaboration to this folder"), @ApiMethod(methodName = "deleteCollaboration", description="Delete collaboration"), @ApiMethod(methodName = "getCollaborationInfo", description="Get collaboration information"), @ApiMethod(methodName = "getFolderCollaborations", description="Get information about all of the collaborations for folder"), @ApiMethod(methodName = "getPendingCollaborations", description="Get all pending collaboration invites for the current user"), @ApiMethod(methodName = "updateCollaborationInfo", description="Update collaboration information")})
 @UriParams
 @Configurer

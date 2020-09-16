@@ -14,7 +14,7 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel endpoint configuration for {@link org.apache.camel.component.box.api.BoxTasksManager}.
  */
-@ApiParams(apiName = "tasks", description = "Box Tasks Manager",
+@ApiParams(apiName = "tasks", description = "Provides operations to manage Box tasks",
            apiMethods = {@ApiMethod(methodName = "addAssignmentToTask", description="Add assignment for task"), @ApiMethod(methodName = "addFileTask", description="Add task to file"), @ApiMethod(methodName = "deleteTask", description="Delete task"), @ApiMethod(methodName = "deleteTaskAssignment", description="Delete task assignment"), @ApiMethod(methodName = "getFileTasks", description="Get a list of any tasks on file"), @ApiMethod(methodName = "getTaskAssignmentInfo", description="Get task assignment information"), @ApiMethod(methodName = "getTaskAssignments", description="Get a list of any assignments for task"), @ApiMethod(methodName = "getTaskInfo", description="Get task information"), @ApiMethod(methodName = "updateTaskInfo", description="Update task information")})
 @UriParams
 @Configurer

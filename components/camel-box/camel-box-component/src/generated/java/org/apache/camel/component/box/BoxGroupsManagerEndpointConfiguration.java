@@ -14,7 +14,7 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel endpoint configuration for {@link org.apache.camel.component.box.api.BoxGroupsManager}.
  */
-@ApiParams(apiName = "groups", description = "Box Groups Manager",
+@ApiParams(apiName = "groups", description = "Provides operations to manage Box groups",
            apiMethods = {@ApiMethod(methodName = "addGroupMembership", description="Add a member to group with the specified role"), @ApiMethod(methodName = "createGroup", description="Create a new group with a specified name and optional additional parameters"), @ApiMethod(methodName = "deleteGroup", description="Delete group"), @ApiMethod(methodName = "deleteGroupMembership", description="Delete group membership"), @ApiMethod(methodName = "getAllGroups", description="Get all the groups in the enterprise"), @ApiMethod(methodName = "getGroupInfo", description="Get group information"), @ApiMethod(methodName = "getGroupMembershipInfo", description="Get group membership information"), @ApiMethod(methodName = "getGroupMemberships", description="Get information about all of the group memberships for this group"), @ApiMethod(methodName = "updateGroupInfo", description="Update group information"), @ApiMethod(methodName = "updateGroupMembershipInfo", description="Update group membership information")})
 @UriParams
 @Configurer

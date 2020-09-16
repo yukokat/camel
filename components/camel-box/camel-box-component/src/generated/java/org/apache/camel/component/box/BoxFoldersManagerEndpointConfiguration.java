@@ -14,7 +14,7 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel endpoint configuration for {@link org.apache.camel.component.box.api.BoxFoldersManager}.
  */
-@ApiParams(apiName = "folders", description = "Box Folders Manager",
+@ApiParams(apiName = "folders", description = "Provides operations to manage Box folders",
            apiMethods = {@ApiMethod(methodName = "copyFolder", description="Copy folder to destination folder while optionally giving it a new name"), @ApiMethod(methodName = "createFolder", description="Create a folder specified by path from parent folder with given parentFolderId, creating intermediate directories as required"), @ApiMethod(methodName = "createFolderSharedLink", description="Create a shared link to folder"), @ApiMethod(methodName = "deleteFolder", description="Delete folder"), @ApiMethod(methodName = "getFolder", description="Return the Box folder referenced by path"), @ApiMethod(methodName = "getFolderInfo", description="Get folder information"), @ApiMethod(methodName = "getFolderItems", description="Returns a specific range of child items in folder and specifies which fields of each item to retrieve"), @ApiMethod(methodName = "getRootFolder", description="Return the root folder of authenticated user"), @ApiMethod(methodName = "moveFolder", description="Move folder to destination folder while optionally giving it a new name"), @ApiMethod(methodName = "renameFolder", description="Rename folder giving it the name newName"), @ApiMethod(methodName = "updateFolderInfo", description="Update folder information")})
 @UriParams
 @Configurer

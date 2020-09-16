@@ -14,7 +14,7 @@ import org.apache.camel.spi.UriParams;
 /**
  * Camel endpoint configuration for {@link org.apache.camel.component.box.api.BoxCommentsManager}.
  */
-@ApiParams(apiName = "comments", description = "Box Comments Manager",
+@ApiParams(apiName = "comments", description = "Provides operations to manage Box comments",
            apiMethods = {@ApiMethod(methodName = "addFileComment", description="Add comment to file"), @ApiMethod(methodName = "changeCommentMessage", description="Change comment message"), @ApiMethod(methodName = "deleteComment", description="Delete comment"), @ApiMethod(methodName = "getCommentInfo", description="Get comment information"), @ApiMethod(methodName = "getFileComments", description="Get a list of any comments on this file"), @ApiMethod(methodName = "replyToComment", description="Reply to a comment")})
 @UriParams
 @Configurer
@@ -23,7 +23,7 @@ public final class BoxCommentsManagerEndpointConfiguration extends BoxConfigurat
     @ApiParam(apiMethods = {@ApiMethod(methodName = "changeCommentMessage", description="The id of comment to change"), @ApiMethod(methodName = "deleteComment", description="The id of comment to delete"), @ApiMethod(methodName = "getCommentInfo", description="The id of comment"), @ApiMethod(methodName = "replyToComment", description="The id of comment to reply to")})
     private String commentId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "addFileComment", description="The id of file to rename"), @ApiMethod(methodName = "getFileComments", description="The id of file")})
+    @ApiParam(apiMethods = {@ApiMethod(methodName = "addFileComment", description="The id of file"), @ApiMethod(methodName = "getFileComments", description="The id of file")})
     private String fileId;
     @UriParam
     @ApiParam(apiMethods = {@ApiMethod(methodName = "addFileComment", description="The comment's message"), @ApiMethod(methodName = "changeCommentMessage", description="The new message for the comment"), @ApiMethod(methodName = "replyToComment", description="The message for the reply")})
