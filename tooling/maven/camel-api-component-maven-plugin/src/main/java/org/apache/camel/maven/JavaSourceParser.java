@@ -143,8 +143,12 @@ public class JavaSourceParser {
                     }
                     if (!bounds && !found) {
                         // argh this is getting complex, it may be T or just java.lang.String but this **** generics and roaster
-                        // does not make this easy, so let see if we can resolve each type variable
+                        // does not make this easy, so let see if we can find out if all the types are a qualified type or only a variable
                         boolean fqn = types.stream().allMatch(t -> {
+                            // if its from java itself then its okay
+                            if (t.getQualifiedName().startsWith("java")) {
+                                return true;
+                            }
                             // okay lets assume its a type variable if the name is upper case only
                             boolean upperOnly = isUpperCaseOnly(t.getName());
                             return !upperOnly && t.getQualifiedName().indexOf('.') != -1;
