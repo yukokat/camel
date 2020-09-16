@@ -836,6 +836,9 @@ public final class StringHelper {
     }
 
     public static String camelCaseToDash(String text) {
+        if (text == null || text.isEmpty()) {
+            return text;
+        }
         StringBuilder answer = new StringBuilder();
 
         Character prev = null;

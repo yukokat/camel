@@ -75,7 +75,7 @@ public interface AzureEventhubsComponentBuilderFactory {
          * The option is a: <code>com.azure.core.amqp.AmqpTransportType</code>
          * type.
          * 
-         * Default: AMQP
+         * Default: amqp
          * Group: common
          */
         default AzureEventhubsComponentBuilder amqpTransportType(

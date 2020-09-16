@@ -71,7 +71,6 @@ import org.apache.camel.tooling.util.JavadocHelper;
 import org.apache.camel.tooling.util.PackageHelper;
 import org.apache.camel.tooling.util.Strings;
 import org.apache.camel.tooling.util.srcgen.GenericType;
-import org.apache.camel.util.StringHelper;
 import org.apache.camel.util.json.Jsoner;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
@@ -753,11 +752,13 @@ public class EndpointSchemaGeneratorMojo extends AbstractGeneratorMojo {
                     for (Object val : fieldType.getEnumConstants()) {
                         String str = val.toString();
                         // make the enum nicely human readable instead of typically upper cased
-                        str = StringHelper.camelCaseToDash(str);
+                        str = SchemaHelper.camelCaseToDash(str);
                         if (!enums.contains(str)) {
                             enums.add(str);
                         }
                     }
+                    // also for the default value
+                    defaultValue = SchemaHelper.camelCaseToDash((String) defaultValue);
                 }
 
                 // the field type may be overloaded by another type
@@ -922,11 +923,13 @@ public class EndpointSchemaGeneratorMojo extends AbstractGeneratorMojo {
                         for (Object val : fieldTypeElement.getEnumConstants()) {
                             String str = val.toString();
                             // make the enum nicely human readable instead of typically upper cased
-                            str = StringHelper.camelCaseToDash(str);
+                            str = SchemaHelper.camelCaseToDash(str);
                             if (!enums.contains(str)) {
                                 enums.add(str);
                             }
                         }
+                        // also for the default value
+                        defaultValue = SchemaHelper.camelCaseToDash((String) defaultValue);
                     }
 
                     // the field type may be overloaded by another type
@@ -1047,11 +1050,13 @@ public class EndpointSchemaGeneratorMojo extends AbstractGeneratorMojo {
                             for (Object val : fieldTypeElement.getEnumConstants()) {
                                 String str = val.toString();
                                 // make the enum nicely human readable instead of typically upper cased
-                                str = StringHelper.camelCaseToDash(str);
+                                str = SchemaHelper.camelCaseToDash(str);
                                 if (!enums.contains(str)) {
                                     enums.add(str);
                                 }
                             }
+                            // also for the default value
+                            defaultValue = SchemaHelper.camelCaseToDash((String) defaultValue);
                         }
 
                         // the field type may be overloaded by another type

@@ -26,6 +26,9 @@ public class StringHelperTest {
 
     @Test
     public void testCamelCashToDash() throws Exception {
+        assertEquals(null, camelCaseToDash(null));
+        assertEquals("", camelCaseToDash(""));
+
         assertEquals("hello-world", camelCaseToDash("HelloWorld"));
         assertEquals("hello-big-world", camelCaseToDash("HelloBigWorld"));
         assertEquals("hello-big-world", camelCaseToDash("Hello-bigWorld"));

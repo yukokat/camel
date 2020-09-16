@@ -43,12 +43,8 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-    <dependencies>
 
-        <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-util</artifactId>
-        </dependency>
+    <dependencies>
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-util-json</artifactId>
