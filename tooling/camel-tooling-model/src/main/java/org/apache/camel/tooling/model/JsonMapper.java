@@ -110,9 +110,7 @@ public final class JsonMapper {
                 if (mm != null) {
                     for (Map.Entry<String, Object> mentry : mprap.entrySet()) {
                         JsonObject mmp = (JsonObject) mentry.getValue();
-                        ApiMethodModel amm = new ApiMethodModel();
-                        am.addMethod(amm);
-                        amm.setName(mmp.getString("apiMethodName"));
+                        ApiMethodModel amm = am.newMethod(mmp.getString("apiMethodName"));
                         amm.setDescription(mmp.getString("description"));
                         JsonObject properties = (JsonObject) obj.get("properties");
                         if (properties != null) {
