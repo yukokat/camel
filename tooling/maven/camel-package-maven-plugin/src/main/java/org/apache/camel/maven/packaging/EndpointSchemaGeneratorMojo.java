@@ -1104,10 +1104,19 @@ public class EndpointSchemaGeneratorMojo extends AbstractGeneratorMojo {
                             api.setName(apiName);
                             for (ApiMethod method : apiParam.apiMethods()) {
                                 ApiMethodModel apiMethod = new ApiMethodModel();
-                                apiMethod.setName(method.methodName());
-                                apiMethod.setDescription(method.description());
-                                apiMethod.addApiOptionModel((ApiOptionModel) option);
                                 api.addMethod(apiMethod);
+                                apiMethod.setName(method.methodName());
+                                // the method description is stored on @ApiParams
+                                if (apiParams != null) {
+                                    Arrays.stream(apiParams.apiMethods())
+                                            .filter(m -> m.methodName().equals(method.methodName()))
+                                            .findFirst().ifPresent(m -> apiMethod.setDescription(m.description()));
+                                }
+                                // copy the option and override with the correct description
+                                ApiOptionModel copy = ((ApiOptionModel) option).copy();
+                                apiMethod.addApiOptionModel(copy);
+                                // the option description is stored on @ApiMethod
+                                copy.setDescription(method.description());
                             }
                             componentModel.getApiOptions().add(api);
                         } else {

@@ -181,7 +181,30 @@ public class ComponentModel extends ArtifactModel<ComponentModel.ComponentOption
 
     }
 
-    public static class ApiOptionModel extends BaseOptionModel {
+    public static class ApiOptionModel extends BaseOptionModel implements Cloneable {
 
+        // we need to be able to copy this option for api
+        // options as we output the same options for each supported api methods,
+        // however with a few changes per method
+
+        public ApiOptionModel copy() {
+            try {
+                return (ApiOptionModel) clone();
+            } catch (CloneNotSupportedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        @Override
+        protected Object clone() throws CloneNotSupportedException {
+            ApiOptionModel copy = (ApiOptionModel) super.clone();
+            if (this.getEnums() != null) {
+                copy.setEnums(new ArrayList<>(this.getEnums()));
+            }
+            if (this.getOneOfs() != null) {
+                copy.setOneOfs(new ArrayList<>(this.getOneOfs()));
+            }
+            return copy;
+        }
     }
 }
