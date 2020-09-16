@@ -30,30 +30,3 @@ The @{title} endpoint has no query parameters.
 @end{}|===
 @end{}
 
-@if{!apiOptions.isEmpty()}
-
-=== Query API Parameters (@{apiOptions.size()} APIs):
-
-The @{title} endpoint is an API based component and has additional parameters based on which API name and method in use.
-The API name and method is located in the endpoint URI as the @{apiPropertyQualifier} path parameters:
-
-----
-@{syntax}
-----
-
-The following lists each API name and method and its additional parameters.
-
-@foreach{api : apiOptions.entrySet()}
-==== @{api.key}
-@if{api.value.isEmpty()}
-The @{api.key} method has no API parameters.
-@else{}
-[width="100%",cols="2,5,3",options="header"]
-|===@comment{ Render table cells. If description contains newline, prefix cell with `a`, so the content is rendered with formatting. }
-| Name | Description | Type
-@foreach{row : api.value}| *@{row.getShortName(30)}* @{row.description.?contains("\n") ? "a" : ""}| @{util.escape(row.description)} | @{row.getShortJavaType()}
-@end{}|===
-@end{}
-@end{}
-
-@end{}

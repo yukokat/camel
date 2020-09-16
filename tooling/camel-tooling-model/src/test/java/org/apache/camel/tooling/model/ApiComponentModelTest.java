@@ -22,13 +22,11 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 public class ApiComponentModelTest {
 
     @Test
-    @Disabled
     public void loadTwilioSchema() throws Exception {
         InputStream is = ApiComponentModelTest.class.getClassLoader().getResourceAsStream("twilio.json");
         String json = loadText(is);
@@ -38,7 +36,15 @@ public class ApiComponentModelTest {
         Assertions.assertTrue(model.isApi());
         Assertions.assertEquals("apiName/methodName", model.getApiPropertyQualifier());
         Assertions.assertEquals(56, model.getApiOptions().size());
-        //        Assertions.assertEquals(7, model.getApiOptions().get("call").size());
+        ApiModel am = model.getApiOptions().stream().filter(a -> a.getName().equals("call")).findFirst().orElse(null);
+        Assertions.assertNotNull(am);
+        Assertions.assertEquals("call", am.getName());
+        Assertions.assertEquals(null, am.getDescription());
+        ApiMethodModel amm = am.getMethods().stream().filter(a -> a.getName().equals("creator")).findFirst().orElse(null);
+        Assertions.assertNotNull(amm);
+        Assertions.assertEquals("creator", amm.getName());
+        Assertions.assertEquals("Create a CallCreator to execute create", amm.getDescription());
+        Assertions.assertEquals(6, amm.getSignatures().size());
     }
 
     /**
