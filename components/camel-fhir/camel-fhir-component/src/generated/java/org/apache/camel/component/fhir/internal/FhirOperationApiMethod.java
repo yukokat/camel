@@ -64,7 +64,7 @@ public enum FhirOperationApiMethod implements ApiMethod {
         arg("extraParameters", java.util.Map.class)),
 
     PROCESS_MESSAGE(
-        Object.class,
+        org.hl7.fhir.instance.model.api.IBaseBundle.class,
         "processMessage",
         arg("respondToUri", String.class),
         arg("msgBundle", org.hl7.fhir.instance.model.api.IBaseBundle.class),

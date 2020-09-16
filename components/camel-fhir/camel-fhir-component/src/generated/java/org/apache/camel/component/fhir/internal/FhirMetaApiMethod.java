@@ -21,34 +21,34 @@ import static org.apache.camel.support.component.ApiMethodArg.arg;
 public enum FhirMetaApiMethod implements ApiMethod {
 
     ADD(
-        Object.class,
+        org.hl7.fhir.instance.model.api.IBaseMetaType.class,
         "add",
         arg("meta", org.hl7.fhir.instance.model.api.IBaseMetaType.class),
         arg("id", org.hl7.fhir.instance.model.api.IIdType.class),
         arg("extraParameters", java.util.Map.class)),
 
     DELETE(
-        Object.class,
+        org.hl7.fhir.instance.model.api.IBaseMetaType.class,
         "delete",
         arg("meta", org.hl7.fhir.instance.model.api.IBaseMetaType.class),
         arg("id", org.hl7.fhir.instance.model.api.IIdType.class),
         arg("extraParameters", java.util.Map.class)),
 
     GET_FROM_RESOURCE(
-        Object.class,
+        org.hl7.fhir.instance.model.api.IBaseMetaType.class,
         "getFromResource",
         arg("metaType", Class.class),
         arg("id", org.hl7.fhir.instance.model.api.IIdType.class),
         arg("extraParameters", java.util.Map.class)),
 
     GET_FROM_SERVER(
-        Object.class,
+        org.hl7.fhir.instance.model.api.IBaseMetaType.class,
         "getFromServer",
         arg("metaType", Class.class),
         arg("extraParameters", java.util.Map.class)),
 
     GET_FROM_TYPE(
-        Object.class,
+        org.hl7.fhir.instance.model.api.IBaseMetaType.class,
         "getFromType",
         arg("metaType", Class.class),
         arg("resourceType", String.class),

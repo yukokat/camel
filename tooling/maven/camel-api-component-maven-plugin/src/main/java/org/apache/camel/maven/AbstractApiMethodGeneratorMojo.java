@@ -291,8 +291,12 @@ public abstract class AbstractApiMethodGeneratorMojo extends AbstractApiMethodBa
 
     public static String getType(Class<?> clazz) {
         if (clazz.isArray()) {
-            // create a zero length array and get the class from the instance
-            return "new " + getCanonicalName(clazz).replaceAll("\\[\\]", "[0]") + ".getClass()";
+            if (clazz.getComponentType().isPrimitive()) {
+                return getCanonicalName(clazz) + ".class";
+            } else {
+                // create a zero length array and get the class from the instance
+                return "new " + getCanonicalName(clazz).replaceAll("\\[\\]", "[0]") + ".getClass()";
+            }
         } else {
             return getCanonicalName(clazz) + ".class";
         }
