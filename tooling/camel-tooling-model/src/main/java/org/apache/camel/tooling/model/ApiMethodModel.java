@@ -18,11 +18,14 @@ package org.apache.camel.tooling.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 public final class ApiMethodModel {
 
     private String name;
     private String description;
+    private final Set<String> signatures = new TreeSet<>();
     private final List<ComponentModel.ApiOptionModel> options = new ArrayList<>();
 
     public String getName() {
@@ -39,6 +42,14 @@ public final class ApiMethodModel {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Set<String> getSignatures() {
+        return signatures;
+    }
+
+    public void addSignature(String signature) {
+        this.signatures.add(signature);
     }
 
     public List<ComponentModel.ApiOptionModel> getOptions() {

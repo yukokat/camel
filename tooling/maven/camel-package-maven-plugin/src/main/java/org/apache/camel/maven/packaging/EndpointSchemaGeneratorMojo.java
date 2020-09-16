@@ -1140,6 +1140,9 @@ public class EndpointSchemaGeneratorMojo extends AbstractGeneratorMojo {
                                     for (ApiMethod m : apiParams.apiMethods()) {
                                         if (m.methodName().equals(method.methodName())) {
                                             apiMethod.setDescription(m.description());
+                                            for (String sig : m.signatures()) {
+                                                apiMethod.addSignature(sig);
+                                            }
                                             break;
                                         }
                                     }

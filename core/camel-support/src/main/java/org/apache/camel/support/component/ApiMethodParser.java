@@ -200,7 +200,7 @@ public abstract class ApiMethodParser<T> {
             } catch (NoSuchMethodException e) {
                 throw new IllegalArgumentException("Method not found [" + signature + "] in type " + proxyType.getName());
             }
-            result.add(new ApiMethodModel(name, resultType, arguments, method, descriptions.get(name)));
+            result.add(new ApiMethodModel(name, resultType, arguments, method, descriptions.get(name), signature));
         }
 
         // allow derived classes to post process
@@ -339,26 +339,29 @@ public abstract class ApiMethodParser<T> {
         private final List<ApiMethodArg> arguments;
         private final Method method;
         private final String description;
+        private final String signature;
 
         private String uniqueName;
 
         protected ApiMethodModel(String name, Class<?> resultType, List<ApiMethodArg> arguments, Method method,
-                                 String description) {
+                                 String description, String signature) {
             this.name = name;
             this.resultType = resultType;
             this.arguments = arguments;
             this.method = method;
             this.description = description;
+            this.signature = signature;
         }
 
         protected ApiMethodModel(String uniqueName, String name, Class<?> resultType, List<ApiMethodArg> arguments,
-                                 Method method, String description) {
+                                 Method method, String description, String signature) {
             this.name = name;
             this.uniqueName = uniqueName;
             this.resultType = resultType;
             this.arguments = arguments;
             this.method = method;
             this.description = description;
+            this.signature = signature;
         }
 
         public String getUniqueName() {
@@ -384,6 +387,10 @@ public abstract class ApiMethodParser<T> {
 
         public String getDescription() {
             return description;
+        }
+
+        public String getSignature() {
+            return signature;
         }
 
         @Override

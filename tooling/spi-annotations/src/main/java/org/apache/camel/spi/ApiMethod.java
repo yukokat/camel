@@ -36,8 +36,8 @@ public @interface ApiMethod {
     String methodName();
 
     /**
-     * Returns the method signature(s) of this api method. A method may have one or more signatures, such as for
-     * overloaded methhods.
+     * Returns the method signature(s) of this api method. A method may have one or more signatures due to overloaded
+     * methods.
      * <p/>
      * This is used for documentation and tooling only.
      */

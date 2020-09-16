@@ -131,7 +131,7 @@ public class ArgumentSubstitutionParser<T> extends ApiMethodParser<T> {
 
                     model = new ApiMethodModel(
                             model.getUniqueName(), model.getName(), model.getResultType(),
-                            updatedArguments, model.getMethod(), model.getDescription());
+                            updatedArguments, model.getMethod(), model.getDescription(), model.getSignature());
                 }
             }
 
@@ -188,12 +188,6 @@ public class ArgumentSubstitutionParser<T> extends ApiMethodParser<T> {
 
         /**
          * Create a substitution for a specific argument type and flag to indicate whether the replacement uses
-         * 
-         * @param method
-         * @param argName
-         * @param argType
-         * @param replacement
-         * @param replaceWithType
          */
         public Substitution(String method, String argName, String argType, String replacement, boolean replaceWithType) {
             this(method, argName, argType, replacement);

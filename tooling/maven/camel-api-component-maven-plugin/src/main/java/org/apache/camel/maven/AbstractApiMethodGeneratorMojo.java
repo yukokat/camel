@@ -24,6 +24,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.StringJoiner;
 import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -415,7 +416,6 @@ public abstract class AbstractApiMethodGeneratorMojo extends AbstractApiMethodBa
 
     public String getApiMethods(List<ApiMethodParser.ApiMethodModel> models) {
         // TODO: we should include alias information as well
-        // TODO: and signature as well
 
         models.sort((o1, o2) -> o1.getName().compareToIgnoreCase(o2.getName()));
 
@@ -428,10 +428,18 @@ public abstract class AbstractApiMethodGeneratorMojo extends AbstractApiMethodBa
             ApiMethodParser.ApiMethodModel model = models.get(i);
             String name = model.getName();
             if (names.add(name)) {
-                String desc = model.getDescription();
                 sb.append("@ApiMethod(methodName = \"").append(model.getName()).append("\"");
+                String desc = model.getDescription();
                 if (ObjectHelper.isNotEmpty(desc)) {
                     sb.append(", description=\"").append(desc).append("\"");
+                }
+                List<String> signatures = getSignatures(models, name);
+                if (!signatures.isEmpty()) {
+                    sb.append(", signatures={");
+                    StringJoiner sj = new StringJoiner(", ");
+                    signatures.forEach(s -> sj.add("\"" + s + "\""));
+                    sb.append(sj.toString());
+                    sb.append("}");
                 }
                 sb.append(")");
                 if (i < models.size() - 1) {
@@ -441,6 +449,18 @@ public abstract class AbstractApiMethodGeneratorMojo extends AbstractApiMethodBa
         }
         sb.append("}");
         return sb.toString();
+    }
+
+    private List<String> getSignatures(List<ApiMethodParser.ApiMethodModel> models, String methodName) {
+        List<String> list = new ArrayList<>();
+        for (ApiMethodParser.ApiMethodModel model : models) {
+            if (model.getName().equals(methodName)) {
+                if (model.getSignature() != null) {
+                    list.add(model.getSignature());
+                }
+            }
+        }
+        return list;
     }
 
     public static String getDefaultArgValue(Class<?> aClass) {

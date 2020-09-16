@@ -111,6 +111,10 @@ public final class JsonMapper {
                     for (Map.Entry<String, Object> mentry : mprap.entrySet()) {
                         JsonObject mmp = (JsonObject) mentry.getValue();
                         ApiMethodModel amm = am.newMethod(mmp.getString("apiMethodName"));
+                        Collection<String> signatures = mmp.getCollection("signatures");
+                        if (signatures != null && !signatures.isEmpty()) {
+                            signatures.forEach(amm::addSignature);
+                        }
                         amm.setDescription(mmp.getString("description"));
                         JsonObject properties = (JsonObject) obj.get("properties");
                         if (properties != null) {
@@ -422,6 +426,9 @@ public final class JsonMapper {
                 mJson.put("apiMethodName", m.getName());
                 if (m.getDescription() != null) {
                     mJson.put("description", m.getDescription());
+                }
+                if (!m.getSignatures().isEmpty()) {
+                    mJson.put("signatures", new JsonArray(m.getSignatures()));
                 }
                 mJson.put("properties", asJsonObject(m.getOptions()));
                 methods.put(m.getName(), mJson);
