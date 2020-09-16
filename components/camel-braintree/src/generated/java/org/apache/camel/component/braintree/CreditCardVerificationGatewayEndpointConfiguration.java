@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.braintreegateway.CreditCardVerificationGateway}.
  */
 @ApiParams(apiName = "creditCardVerification", description = "",
-           apiMethods = {@ApiMethod(methodName = "create"), @ApiMethod(methodName = "find"), @ApiMethod(methodName = "search")})
+           apiMethods = {@ApiMethod(methodName = "create", signatures={"com.braintreegateway.Result<com.braintreegateway.CreditCardVerification> create(com.braintreegateway.CreditCardVerificationRequest request)"}), @ApiMethod(methodName = "find", signatures={"com.braintreegateway.CreditCardVerification find(String id)"}), @ApiMethod(methodName = "search", signatures={"com.braintreegateway.ResourceCollection<com.braintreegateway.CreditCardVerification> search(com.braintreegateway.CreditCardVerificationSearchRequest query)"})})
 @UriParams
 @Configurer
 public final class CreditCardVerificationGatewayEndpointConfiguration extends BraintreeConfiguration {

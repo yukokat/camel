@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.twilio.rest.api.v2010.account.usage.record.Yearly}.
  */
 @ApiParams(apiName = "usage-record-yearly", description = "",
-           apiMethods = {@ApiMethod(methodName = "reader", description="Create a YearlyReader to execute read"), })
+           apiMethods = {@ApiMethod(methodName = "reader", description="Create a YearlyReader to execute read", signatures={"com.twilio.rest.api.v2010.account.usage.record.YearlyReader reader()", "com.twilio.rest.api.v2010.account.usage.record.YearlyReader reader(String pathAccountSid)"}), })
 @UriParams
 @Configurer
 public final class UsageRecordYearlyEndpointConfiguration extends TwilioConfiguration {

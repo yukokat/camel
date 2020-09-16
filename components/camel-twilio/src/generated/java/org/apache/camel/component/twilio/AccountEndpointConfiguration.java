@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.twilio.rest.api.v2010.Account}.
  */
 @ApiParams(apiName = "account", description = "",
-           apiMethods = {@ApiMethod(methodName = "creator", description="Create a AccountCreator to execute create"), @ApiMethod(methodName = "fetcher", description="Create a AccountFetcher to execute fetch"), @ApiMethod(methodName = "reader", description="Create a AccountReader to execute read"), @ApiMethod(methodName = "updater", description="Create a AccountUpdater to execute update"), })
+           apiMethods = {@ApiMethod(methodName = "creator", description="Create a AccountCreator to execute create", signatures={"com.twilio.rest.api.v2010.AccountCreator creator()"}), @ApiMethod(methodName = "fetcher", description="Create a AccountFetcher to execute fetch", signatures={"com.twilio.rest.api.v2010.AccountFetcher fetcher()", "com.twilio.rest.api.v2010.AccountFetcher fetcher(String pathSid)"}), @ApiMethod(methodName = "reader", description="Create a AccountReader to execute read", signatures={"com.twilio.rest.api.v2010.AccountReader reader()"}), @ApiMethod(methodName = "updater", description="Create a AccountUpdater to execute update", signatures={"com.twilio.rest.api.v2010.AccountUpdater updater()", "com.twilio.rest.api.v2010.AccountUpdater updater(String pathSid)"}), })
 @UriParams
 @Configurer
 public final class AccountEndpointConfiguration extends TwilioConfiguration {

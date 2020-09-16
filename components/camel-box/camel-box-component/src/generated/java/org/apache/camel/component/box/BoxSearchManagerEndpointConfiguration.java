@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link org.apache.camel.component.box.api.BoxSearchManager}.
  */
 @ApiParams(apiName = "search", description = "Provides operations to manage Box searches",
-           apiMethods = {@ApiMethod(methodName = "searchFolder", description="Search folder and all descendant folders using the given query")})
+           apiMethods = {@ApiMethod(methodName = "searchFolder", description="Search folder and all descendant folders using the given query", signatures={"java.util.Collection<com.box.sdk.BoxItem> searchFolder(String folderId, String query)"})})
 @UriParams
 @Configurer
 public final class BoxSearchManagerEndpointConfiguration extends BoxConfiguration {

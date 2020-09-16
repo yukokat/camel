@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.google.api.services.drive.Drive$Revisions}.
  */
 @ApiParams(apiName = "drive-revisions", description = "The revisions collection of methods",
-           apiMethods = {@ApiMethod(methodName = "delete", description="Removes a revision"), @ApiMethod(methodName = "get", description="Gets a specific revision"), @ApiMethod(methodName = "list", description="Lists a file's revisions"), @ApiMethod(methodName = "patch", description="Updates a revision"), @ApiMethod(methodName = "update", description="Updates a revision")})
+           apiMethods = {@ApiMethod(methodName = "delete", description="Removes a revision", signatures={"com.google.api.services.drive.Drive$Revisions$Delete delete(String fileId, String revisionId)"}), @ApiMethod(methodName = "get", description="Gets a specific revision", signatures={"com.google.api.services.drive.Drive$Revisions$Get get(String fileId, String revisionId)"}), @ApiMethod(methodName = "list", description="Lists a file's revisions", signatures={"com.google.api.services.drive.Drive$Revisions$List list(String fileId)"}), @ApiMethod(methodName = "patch", description="Updates a revision", signatures={"com.google.api.services.drive.Drive$Revisions$Patch patch(String fileId, String revisionId, com.google.api.services.drive.model.Revision content)"}), @ApiMethod(methodName = "update", description="Updates a revision", signatures={"com.google.api.services.drive.Drive$Revisions$Update update(String fileId, String revisionId, com.google.api.services.drive.model.Revision content)"})})
 @UriParams
 @Configurer
 public final class DriveRevisionsEndpointConfiguration extends GoogleDriveConfiguration {

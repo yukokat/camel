@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.braintreegateway.MerchantAccountGateway}.
  */
 @ApiParams(apiName = "merchantAccount", description = "",
-           apiMethods = {@ApiMethod(methodName = "all"), @ApiMethod(methodName = "create"), @ApiMethod(methodName = "createForCurrency"), @ApiMethod(methodName = "fetchMerchantAccounts"), @ApiMethod(methodName = "find"), @ApiMethod(methodName = "update")})
+           apiMethods = {@ApiMethod(methodName = "all", signatures={"com.braintreegateway.PaginatedCollection<com.braintreegateway.MerchantAccount> all()"}), @ApiMethod(methodName = "create", signatures={"com.braintreegateway.Result<com.braintreegateway.MerchantAccount> create(com.braintreegateway.MerchantAccountRequest request)"}), @ApiMethod(methodName = "createForCurrency", signatures={"com.braintreegateway.Result<com.braintreegateway.MerchantAccount> createForCurrency(com.braintreegateway.MerchantAccountCreateForCurrencyRequest request)"}), @ApiMethod(methodName = "fetchMerchantAccounts", signatures={"com.braintreegateway.PaginatedResult<com.braintreegateway.MerchantAccount> fetchMerchantAccounts(int page)"}), @ApiMethod(methodName = "find", signatures={"com.braintreegateway.MerchantAccount find(String id)"}), @ApiMethod(methodName = "update", signatures={"com.braintreegateway.Result<com.braintreegateway.MerchantAccount> update(String id, com.braintreegateway.MerchantAccountRequest request)"})})
 @UriParams
 @Configurer
 public final class MerchantAccountGatewayEndpointConfiguration extends BraintreeConfiguration {

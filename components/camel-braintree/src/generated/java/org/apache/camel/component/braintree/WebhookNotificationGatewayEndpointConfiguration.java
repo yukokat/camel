@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.braintreegateway.WebhookNotificationGateway}.
  */
 @ApiParams(apiName = "webhookNotification", description = "",
-           apiMethods = {@ApiMethod(methodName = "parse"), @ApiMethod(methodName = "verify")})
+           apiMethods = {@ApiMethod(methodName = "parse", signatures={"com.braintreegateway.WebhookNotification parse(String signature, String payload)"}), @ApiMethod(methodName = "verify", signatures={"String verify(String challenge)"})})
 @UriParams
 @Configurer
 public final class WebhookNotificationGatewayEndpointConfiguration extends BraintreeConfiguration {

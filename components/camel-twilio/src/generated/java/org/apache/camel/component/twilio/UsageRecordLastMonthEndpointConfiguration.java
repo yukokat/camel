@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.twilio.rest.api.v2010.account.usage.record.LastMonth}.
  */
 @ApiParams(apiName = "usage-record-last-month", description = "",
-           apiMethods = {@ApiMethod(methodName = "reader", description="Create a LastMonthReader to execute read"), })
+           apiMethods = {@ApiMethod(methodName = "reader", description="Create a LastMonthReader to execute read", signatures={"com.twilio.rest.api.v2010.account.usage.record.LastMonthReader reader()", "com.twilio.rest.api.v2010.account.usage.record.LastMonthReader reader(String pathAccountSid)"}), })
 @UriParams
 @Configurer
 public final class UsageRecordLastMonthEndpointConfiguration extends TwilioConfiguration {

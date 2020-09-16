@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.twilio.rest.api.v2010.account.availablephonenumbercountry.TollFree}.
  */
 @ApiParams(apiName = "available-phone-number-country-toll-free", description = "",
-           apiMethods = {@ApiMethod(methodName = "reader", description="Create a TollFreeReader to execute read"), })
+           apiMethods = {@ApiMethod(methodName = "reader", description="Create a TollFreeReader to execute read", signatures={"com.twilio.rest.api.v2010.account.availablephonenumbercountry.TollFreeReader reader(String pathCountryCode)", "com.twilio.rest.api.v2010.account.availablephonenumbercountry.TollFreeReader reader(String pathAccountSid, String pathCountryCode)"}), })
 @UriParams
 @Configurer
 public final class AvailablePhoneNumberCountryTollFreeEndpointConfiguration extends TwilioConfiguration {

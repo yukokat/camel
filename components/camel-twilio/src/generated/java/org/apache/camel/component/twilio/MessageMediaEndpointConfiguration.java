@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.twilio.rest.api.v2010.account.message.Media}.
  */
 @ApiParams(apiName = "message-media", description = "",
-           apiMethods = {@ApiMethod(methodName = "deleter", description="Create a MediaDeleter to execute delete"), @ApiMethod(methodName = "fetcher", description="Create a MediaFetcher to execute fetch"), @ApiMethod(methodName = "reader", description="Create a MediaReader to execute read"), })
+           apiMethods = {@ApiMethod(methodName = "deleter", description="Create a MediaDeleter to execute delete", signatures={"com.twilio.rest.api.v2010.account.message.MediaDeleter deleter(String pathMessageSid, String pathSid)", "com.twilio.rest.api.v2010.account.message.MediaDeleter deleter(String pathAccountSid, String pathMessageSid, String pathSid)"}), @ApiMethod(methodName = "fetcher", description="Create a MediaFetcher to execute fetch", signatures={"com.twilio.rest.api.v2010.account.message.MediaFetcher fetcher(String pathMessageSid, String pathSid)", "com.twilio.rest.api.v2010.account.message.MediaFetcher fetcher(String pathAccountSid, String pathMessageSid, String pathSid)"}), @ApiMethod(methodName = "reader", description="Create a MediaReader to execute read", signatures={"com.twilio.rest.api.v2010.account.message.MediaReader reader(String pathMessageSid)", "com.twilio.rest.api.v2010.account.message.MediaReader reader(String pathAccountSid, String pathMessageSid)"}), })
 @UriParams
 @Configurer
 public final class MessageMediaEndpointConfiguration extends TwilioConfiguration {

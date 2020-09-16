@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.twilio.rest.api.v2010.account.availablephonenumbercountry.Mobile}.
  */
 @ApiParams(apiName = "available-phone-number-country-mobile", description = "",
-           apiMethods = {@ApiMethod(methodName = "reader", description="Create a MobileReader to execute read"), })
+           apiMethods = {@ApiMethod(methodName = "reader", description="Create a MobileReader to execute read", signatures={"com.twilio.rest.api.v2010.account.availablephonenumbercountry.MobileReader reader(String pathCountryCode)", "com.twilio.rest.api.v2010.account.availablephonenumbercountry.MobileReader reader(String pathAccountSid, String pathCountryCode)"}), })
 @UriParams
 @Configurer
 public final class AvailablePhoneNumberCountryMobileEndpointConfiguration extends TwilioConfiguration {

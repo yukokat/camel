@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.twilio.rest.api.v2010.account.recording.AddOnResult}.
  */
 @ApiParams(apiName = "recording-add-on-result", description = "",
-           apiMethods = {@ApiMethod(methodName = "deleter", description="Create a AddOnResultDeleter to execute delete"), @ApiMethod(methodName = "fetcher", description="Create a AddOnResultFetcher to execute fetch"), @ApiMethod(methodName = "reader", description="Create a AddOnResultReader to execute read"), })
+           apiMethods = {@ApiMethod(methodName = "deleter", description="Create a AddOnResultDeleter to execute delete", signatures={"com.twilio.rest.api.v2010.account.recording.AddOnResultDeleter deleter(String pathReferenceSid, String pathSid)", "com.twilio.rest.api.v2010.account.recording.AddOnResultDeleter deleter(String pathAccountSid, String pathReferenceSid, String pathSid)"}), @ApiMethod(methodName = "fetcher", description="Create a AddOnResultFetcher to execute fetch", signatures={"com.twilio.rest.api.v2010.account.recording.AddOnResultFetcher fetcher(String pathReferenceSid, String pathSid)", "com.twilio.rest.api.v2010.account.recording.AddOnResultFetcher fetcher(String pathAccountSid, String pathReferenceSid, String pathSid)"}), @ApiMethod(methodName = "reader", description="Create a AddOnResultReader to execute read", signatures={"com.twilio.rest.api.v2010.account.recording.AddOnResultReader reader(String pathReferenceSid)", "com.twilio.rest.api.v2010.account.recording.AddOnResultReader reader(String pathAccountSid, String pathReferenceSid)"}), })
 @UriParams
 @Configurer
 public final class RecordingAddOnResultEndpointConfiguration extends TwilioConfiguration {

@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.twilio.rest.api.v2010.account.usage.record.Today}.
  */
 @ApiParams(apiName = "usage-record-today", description = "",
-           apiMethods = {@ApiMethod(methodName = "reader", description="Create a TodayReader to execute read"), })
+           apiMethods = {@ApiMethod(methodName = "reader", description="Create a TodayReader to execute read", signatures={"com.twilio.rest.api.v2010.account.usage.record.TodayReader reader()", "com.twilio.rest.api.v2010.account.usage.record.TodayReader reader(String pathAccountSid)"}), })
 @UriParams
 @Configurer
 public final class UsageRecordTodayEndpointConfiguration extends TwilioConfiguration {
