@@ -102,7 +102,7 @@ public class JavaSourceApiMethodGeneratorMojo extends AbstractApiMethodGenerator
                 }
 
                 // get public method signature
-                for (String method : parser.getMethods()) {
+                for (String method : parser.getMethodSignatures()) {
                     if (!result.containsKey(method)
                             && (includeMethodPatterns == null || includeMethodPatterns.matcher(method).find())
                             && (excludeMethodPatterns == null || !excludeMethodPatterns.matcher(method).find())) {
@@ -112,14 +112,14 @@ public class JavaSourceApiMethodGeneratorMojo extends AbstractApiMethodGenerator
                         int whitespace = method.indexOf(' ');
                         int leftBracket = method.indexOf('(');
                         String name = method.substring(whitespace + 1, leftBracket);
+
                         SignatureModel model = new SignatureModel();
-                        model.setApiDescription(parser.getApiDescription());
                         model.setSignature(method);
-                        model.setMethodDescription(parser.getMethodDescriptions().get(name));
-                        Map<String, String> params = parser.getParameters().get(name);
-                        model.setParameters(params);
-                        Map<String, String> args = parser.getSignaturesArguments().get(signature);
-                        model.setArguments(args);
+                        model.setApiDescription(parser.getClassDoc());
+                        model.setMethodDescription(parser.getMethodDocs().get(name));
+                        model.setParameterDescriptions(parser.getParameterDocs().get(name));
+                        model.setParameterTypes(parser.getParameterTypes().get(signature));
+
                         result.put(method, model);
                     }
                 }

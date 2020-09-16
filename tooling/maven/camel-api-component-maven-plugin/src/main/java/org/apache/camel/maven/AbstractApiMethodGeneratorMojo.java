@@ -100,10 +100,10 @@ public abstract class AbstractApiMethodGeneratorMojo extends AbstractApiMethodBa
                 method = StringHelper.after(method, " ");
             }
             if (method != null) {
-                parameters.put(method, model.getParameters());
+                parameters.put(method, model.getParameterDescriptions());
             }
             parser.getDescriptions().put(method, model.getMethodDescription());
-            parser.addSignatureArguments(model.getSignature(), model.getArguments());
+            parser.addSignatureArguments(model.getSignature(), model.getParameterTypes());
         }
         parser.setSignatures(signatures);
         parser.setParameters(parameters);

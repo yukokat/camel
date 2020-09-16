@@ -49,13 +49,13 @@ public class JavaSourceParser {
 
     private static final Logger LOG = LoggerFactory.getLogger(JavaSourceParser.class);
 
-    private List<String> methods = new ArrayList<>();
-    private Map<String, String> methodText = new HashMap<>();
-    private Map<String, Map<String, String>> parameters = new LinkedHashMap<>();
-    private Map<String, Map<String, String>> signaturesArguments = new LinkedHashMap<>();
     private String errorMessage;
-    private String apiDescription;
-    private final Map<String, String> methodDescriptions = new HashMap<>();
+
+    private String classDoc;
+    private List<String> methodSignatures = new ArrayList<>();
+    private final Map<String, String> methodDocs = new HashMap<>();
+    private Map<String, Map<String, String>> parameterTypes = new LinkedHashMap<>();
+    private Map<String, Map<String, String>> parameterDocs = new LinkedHashMap<>();
 
     @SuppressWarnings("unchecked")
     public synchronized void parse(InputStream in, String innerClass) throws Exception {
@@ -75,14 +75,14 @@ public class JavaSourceParser {
 
         String rawClass = clazz.toUnformattedString();
         String doc = getClassJavadocRaw(clazz, rawClass);
-        apiDescription = sanitizeJavaDocValue(doc, true);
-        if (apiDescription == null || apiDescription.isEmpty()) {
+        classDoc = sanitizeJavaDocValue(doc, true);
+        if (classDoc == null || classDoc.isEmpty()) {
             rawClass = rootClazz.toUnformattedString();
             doc = getClassJavadocRaw(rootClazz, rawClass);
-            apiDescription = sanitizeJavaDocValue(doc, true);
+            classDoc = sanitizeJavaDocValue(doc, true);
         }
-        if (apiDescription != null && apiDescription.indexOf('.') > 0) {
-            apiDescription = StringHelper.before(apiDescription, ".");
+        if (classDoc != null && classDoc.indexOf('.') > 0) {
+            classDoc = StringHelper.before(classDoc, ".");
         }
 
         List<MethodSource> ml = ((MethodHolderSource) clazz).getMethods();
@@ -103,7 +103,7 @@ public class JavaSourceParser {
                 doc = StringHelper.before(doc, ".");
             }
             if (doc != null && !doc.isEmpty()) {
-                methodDescriptions.put(ms.getName(), doc);
+                methodDocs.put(ms.getName(), doc);
             }
 
             String result = resolveParameterizedType(rootClazz, clazz, ms, null, ms.getReturnType());
@@ -137,17 +137,16 @@ public class JavaSourceParser {
             }
             sb.append(")");
 
-            Map<String, String> existing = parameters.get(ms.getName());
+            Map<String, String> existing = parameterDocs.get(ms.getName());
             if (existing != null) {
                 existing.putAll(docs);
             } else {
-                parameters.put(ms.getName(), docs);
+                parameterDocs.put(ms.getName(), docs);
             }
 
             String signature = sb.toString();
-            methods.add(signature);
-            signaturesArguments.put(signature, args);
-            methodText.put(ms.getName(), signature);
+            methodSignatures.add(signature);
+            parameterTypes.put(signature, args);
         }
     }
 
@@ -431,40 +430,59 @@ public class JavaSourceParser {
     }
 
     public void reset() {
-        methods.clear();
-        methodText.clear();
-        parameters.clear();
-        signaturesArguments.clear();
-        methodDescriptions.clear();
+        methodSignatures.clear();
+        parameterDocs.clear();
+        parameterTypes.clear();
+        methodDocs.clear();
         errorMessage = null;
-        apiDescription = null;
+        classDoc = null;
     }
 
+    /**
+     * Contains the error message if parsing failed
+     */
     public String getErrorMessage() {
         return errorMessage;
     }
 
-    public List<String> getMethods() {
-        return methods;
+    /**
+     * Contains all the method signatures, such as: public String addUser(int userId, String name)
+     */
+    public List<String> getMethodSignatures() {
+        return methodSignatures;
     }
 
-    public Map<String, Map<String, String>> getSignaturesArguments() {
-        return signaturesArguments;
+    /**
+     * Parameter types for every method
+     *
+     * The key is the method signature, the inner map has key = parameter name, value = parameter type
+     */
+    public Map<String, Map<String, String>> getParameterTypes() {
+        return parameterTypes;
     }
 
-    public Map<String, String> getMethodText() {
-        return methodText;
+    /**
+     * Documentation for every method and their arguments (parameters).
+     *
+     * The key is the method name, the inner map has key = parameter name, value = documentation
+     */
+    public Map<String, Map<String, String>> getParameterDocs() {
+        return parameterDocs;
     }
 
-    public Map<String, Map<String, String>> getParameters() {
-        return parameters;
+    /**
+     * Documentation for the class (api description)
+     */
+    public String getClassDoc() {
+        return classDoc;
     }
 
-    public String getApiDescription() {
-        return apiDescription;
-    }
-
-    public Map<String, String> getMethodDescriptions() {
-        return methodDescriptions;
+    /**
+     * Documentation for every method
+     *
+     * The key is the method name, the value is the documentation
+     */
+    public Map<String, String> getMethodDocs() {
+        return methodDocs;
     }
 }

@@ -32,14 +32,14 @@ public class JavaSourceParserTest {
         final JavaSourceParser parser = new JavaSourceParser();
 
         parser.parse(JavaSourceParserTest.class.getResourceAsStream("/AddressGateway.java"), null);
-        assertEquals(4, parser.getMethods().size());
+        assertEquals(4, parser.getMethodSignatures().size());
 
         assertEquals(
                 "public com.braintreegateway.Result<com.braintreegateway.Address> create(String customerId, com.braintreegateway.AddressRequest request)",
-                parser.getMethods().get(0));
-        assertEquals(2, parser.getParameters().get("create").size());
-        assertEquals("The id of the Customer", parser.getParameters().get("create").get("customerId"));
-        assertEquals("The request object", parser.getParameters().get("create").get("request"));
+                parser.getMethodSignatures().get(0));
+        assertEquals(2, parser.getParameterDocs().get("create").size());
+        assertEquals("The id of the Customer", parser.getParameterDocs().get("create").get("customerId"));
+        assertEquals("The request object", parser.getParameterDocs().get("create").get("request"));
     }
 
     @Test
@@ -47,13 +47,13 @@ public class JavaSourceParserTest {
         final JavaSourceParser parser = new JavaSourceParser();
 
         parser.parse(JavaSourceParserTest.class.getResourceAsStream("/CustomerGateway.java"), null);
-        assertEquals(7, parser.getMethods().size());
+        assertEquals(7, parser.getMethodSignatures().size());
 
         assertEquals(
                 "public com.braintreegateway.Result<com.braintreegateway.Customer> create(com.braintreegateway.CustomerRequest request)",
-                parser.getMethods().get(1));
-        assertEquals(1, parser.getParameters().get("create").size());
-        assertEquals("The request", parser.getParameters().get("create").get("request"));
+                parser.getMethodSignatures().get(1));
+        assertEquals(1, parser.getParameterDocs().get("create").size());
+        assertEquals("The request", parser.getParameterDocs().get("create").get("request"));
     }
 
     @Test
@@ -61,15 +61,16 @@ public class JavaSourceParserTest {
         final JavaSourceParser parser = new JavaSourceParser();
 
         parser.parse(JavaSourceParserTest.class.getResourceAsStream("/DisputeGateway.java"), null);
-        assertEquals(9, parser.getMethods().size());
+        assertEquals(9, parser.getMethodSignatures().size());
 
         assertEquals(
                 "public com.braintreegateway.Result<com.braintreegateway.DisputeEvidence> addFileEvidence(String disputeId, String documentId)",
-                parser.getMethods().get(1));
-        assertEquals(3, parser.getParameters().get("addFileEvidence").size());
-        assertEquals("The dispute id to add text evidence to", parser.getParameters().get("addFileEvidence").get("disputeId"));
+                parser.getMethodSignatures().get(1));
+        assertEquals(3, parser.getParameterDocs().get("addFileEvidence").size());
+        assertEquals("The dispute id to add text evidence to",
+                parser.getParameterDocs().get("addFileEvidence").get("disputeId"));
         assertEquals("The document id of a previously uploaded document",
-                parser.getParameters().get("addFileEvidence").get("documentId"));
+                parser.getParameterDocs().get("addFileEvidence").get("documentId"));
     }
 
     @Test
@@ -77,12 +78,12 @@ public class JavaSourceParserTest {
         final JavaSourceParser parser = new JavaSourceParser();
 
         parser.parse(new FileInputStream("src/test/java/org/apache/camel/component/test/TestProxy.java"), null);
-        assertEquals(11, parser.getMethods().size());
+        assertEquals(11, parser.getMethodSignatures().size());
 
         // varargs is transformed to an array type as that is what works
         assertEquals(
                 "public String greetWildcard(String[] wildcardNames)",
-                parser.getMethods().get(6));
+                parser.getMethodSignatures().get(6));
     }
 
     @Test
@@ -90,13 +91,13 @@ public class JavaSourceParserTest {
         final JavaSourceParser parser = new JavaSourceParser();
 
         parser.parse(new FileInputStream("src/test/java/org/apache/camel/component/test/NestedProxy.java"), "Order");
-        assertEquals(1, parser.getMethods().size());
+        assertEquals(1, parser.getMethodSignatures().size());
 
         assertEquals(
                 "public String getOrderById(int id)",
-                parser.getMethods().get(0));
-        assertEquals(1, parser.getParameters().get("getOrderById").size());
-        assertEquals("The order id", parser.getParameters().get("getOrderById").get("id"));
+                parser.getMethodSignatures().get(0));
+        assertEquals(1, parser.getParameterDocs().get("getOrderById").size());
+        assertEquals("The order id", parser.getParameterDocs().get("getOrderById").get("id"));
     }
 
     @Test
@@ -105,13 +106,13 @@ public class JavaSourceParserTest {
 
         parser.parse(JavaSourceParserTest.class.getResourceAsStream("/DisputeGateway.java"), null);
 
-        String desc = parser.getApiDescription();
+        String desc = parser.getClassDoc();
         assertEquals("Provides methods to interact with Dispute objects", desc);
 
         parser.reset();
         parser.parse(JavaSourceParserTest.class.getResourceAsStream("/CustomGateway.java"), null);
 
-        desc = parser.getApiDescription();
+        desc = parser.getClassDoc();
         assertEquals("Provides methods to create, delete, find, and update Customer objects", desc);
     }
 
@@ -121,7 +122,7 @@ public class JavaSourceParserTest {
 
         parser.parse(JavaSourceParserTest.class.getResourceAsStream("/DisputeGateway.java"), null);
 
-        String desc = parser.getMethodDescriptions().get("addFileEvidence");
+        String desc = parser.getMethodDocs().get("addFileEvidence");
         assertEquals("Add File Evidence to a Dispute, given an ID and a FileEvidenceRequest File evidence request", desc);
     }
 
