@@ -71,6 +71,7 @@ import org.apache.camel.tooling.util.JavadocHelper;
 import org.apache.camel.tooling.util.PackageHelper;
 import org.apache.camel.tooling.util.Strings;
 import org.apache.camel.tooling.util.srcgen.GenericType;
+import org.apache.camel.util.StringHelper;
 import org.apache.camel.util.json.Jsoner;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
@@ -751,6 +752,8 @@ public class EndpointSchemaGeneratorMojo extends AbstractGeneratorMojo {
                     enums = new ArrayList<>();
                     for (Object val : fieldType.getEnumConstants()) {
                         String str = val.toString();
+                        // make the enum nicely human readable instead of typically upper cased
+                        str = StringHelper.camelCaseToDash(str);
                         if (!enums.contains(str)) {
                             enums.add(str);
                         }
@@ -918,6 +921,8 @@ public class EndpointSchemaGeneratorMojo extends AbstractGeneratorMojo {
                         enums = new ArrayList<>();
                         for (Object val : fieldTypeElement.getEnumConstants()) {
                             String str = val.toString();
+                            // make the enum nicely human readable instead of typically upper cased
+                            str = StringHelper.camelCaseToDash(str);
                             if (!enums.contains(str)) {
                                 enums.add(str);
                             }
@@ -1041,6 +1046,8 @@ public class EndpointSchemaGeneratorMojo extends AbstractGeneratorMojo {
                             enums = new ArrayList<>();
                             for (Object val : fieldTypeElement.getEnumConstants()) {
                                 String str = val.toString();
+                                // make the enum nicely human readable instead of typically upper cased
+                                str = StringHelper.camelCaseToDash(str);
                                 if (!enums.contains(str)) {
                                     enums.add(str);
                                 }
