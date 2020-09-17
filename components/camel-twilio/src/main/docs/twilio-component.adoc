@@ -3600,32 +3600,4 @@ For more information on the endpoints and options see API documentation at:
 https://www.twilio.com/docs/libraries/reference/twilio-java/index.html
 
 
-== Consumer Endpoints:
-
-Any of the producer endpoints can be used as a consumer endpoint.
-Consumer endpoints can use
-http://camel.apache.org/polling-consumer.html#PollingConsumer-ScheduledPollConsumerOptions[Scheduled
-Poll Consumer Options] to schedule endpoint invocation.
-Consumer endpoints that return an array or collection will
-generate one exchange per element, and their routes will be executed
-once for each exchange.
-
-If you want to receive calls or messages from Twilio and respond to them
-using a Camel consumer endpoint, you can use other HTTP-based components
-such as *camel-servlet*, *camel-undertow*, *camel-jetty*, and *camel-netty-http*
-to respond with https://www.twilio.com/docs/api/twiml[TwiML].
-
-
-== Message header
-
-Any of the options can be provided in a message header for producer
-endpoints with *CamelTwilio.* prefix.
-
-
-== Message body
-
-All result message bodies utilize objects provided by the Twilio Java SDK.
-Producer endpoints can specify the option name for incoming message body
-in the *inBody* endpoint parameter.
-
 include::camel-spring-boot::page$twilio-starter.adoc[]

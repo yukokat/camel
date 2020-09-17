@@ -31,24 +31,25 @@ the https://developers.google.com/oauthplayground[OAuth playground].
 Maven users will need to add the following dependency to their pom.xml
 for this component:
 
-------------------------------------------------------
+[source,xml]
+----
 <dependency>
     <groupId>org.apache.camel</groupId>
     <artifactId>camel-google-mail</artifactId>
     <!-- use the same version as your Camel core version -->
     <version>x.y.z</version>
 </dependency>
-------------------------------------------------------
+----
 
 == URI Format
 
 The GoogleMail Component uses the following URI format:
 
---------------------------------------------------------
-        google-mail-stream://index?[options]
---------------------------------------------------------
+----
+google-mail-stream://index?[options]
+----
 
-== GoogleMailStreamComponent
+== Component options
 
 
 // component options: START
@@ -623,20 +624,10 @@ The `inBody` parameter overrides message header, i.e. the endpoint parameter `in
 would override a `CamelGoogleMailStream.myParameterNameHere` header.
 // endpoint options: END
 
+== More Information
 
-== Consumer
+For more information on the endpoints and options see API documentation
+at: https://developers.google.com/gmail/api/v1/reference/[https://developers.google.com/gmail/api/v1/reference/]
 
-The consumer will poll by default with the query "is:unread" and maxResults equals to 10.
-
-For example
-
-[source,java]
----------------------------------------------------------
-from("google-mail-stream://test?markAsRead=true&delay=5000&maxResults=5&labels=GitHub,Apache").to("mock:result");
----------------------------------------------------------
-
-This route will consume unread messages with labels Github and Apache and it will mark the messages as read.
-
-   
 
 include::camel-spring-boot::page$google-mail-starter.adoc[]

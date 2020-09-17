@@ -31,26 +31,25 @@ the https://developers.google.com/oauthplayground[OAuth playground].
 Maven users will need to add the following dependency to their pom.xml
 for this component:
 
-------------------------------------------------------
-    <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-google-calendar</artifactId>
-            <!-- use the same version as your Camel core version -->
-            <version>x.x.x</version>
-    </dependency>
-
-------------------------------------------------------
+[source,xml]
+----
+<dependency>
+        <groupId>org.apache.camel</groupId>
+        <artifactId>camel-google-calendar</artifactId>
+        <!-- use the same version as your Camel core version -->
+        <version>x.x.x</version>
+</dependency>
+----
 
 == URI Format
 
 The Google Calendar Component uses the following URI format:
 
---------------------------------------------------------
-        google-calendar-stream://index?[options]
+----
+google-calendar-stream://index?[options]
+----
 
---------------------------------------------------------
-
-== Google Calendar stream component options
+== Component options
 
 
 // component options: START
@@ -604,19 +603,5 @@ would override a `CamelGoogleCalendarStream.myParameterNameHere` header.
 // endpoint options: END
 
 
-== Consumer
-
-The consumer will poll by default with maxResults equals to 5.
-
-For example
-
-[source,java]
----------------------------------------------------------
-from("google-calendar-stream://test?markAsRead=true&delay=5000&maxResults=5").to("mock:result");
----------------------------------------------------------
-
-This route will consume the next five events starting from the date of polling.
-
-   
 
 include::camel-spring-boot::page$google-calendar-starter.adoc[]
