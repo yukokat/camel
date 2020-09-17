@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.twilio.rest.api.v2010.account.NewKey}.
  */
 @ApiParams(apiName = "new-key", description = "",
-           apiMethods = {@ApiMethod(methodName = "creator", description="Create a NewKeyCreator to execute create", signatures={"com.twilio.rest.api.v2010.account.NewKeyCreator creator()", "com.twilio.rest.api.v2010.account.NewKeyCreator creator(String pathAccountSid)"}), })
+           apiMethods = {@ApiMethod(methodName = "creator", description="Create a NewKeyCreator to execute create", signatures={"com.twilio.rest.api.v2010.account.NewKeyCreator creator()", "com.twilio.rest.api.v2010.account.NewKeyCreator creator(String pathAccountSid)"}), }, aliases = {"^creator$=create", "^deleter$=delete", "^fetcher$=fetch", "^reader$=read", "^updater$=update"})
 @UriParams
 @Configurer
 public final class NewKeyEndpointConfiguration extends TwilioConfiguration {

@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.google.api.services.gmail.Gmail$Users$History}.
  */
 @ApiParams(apiName = "history", description = "The history collection of methods",
-           apiMethods = {@ApiMethod(methodName = "list", description="Lists the history of all changes to the given mailbox", signatures={"com.google.api.services.gmail.Gmail$Users$History$List list(String userId)"})})
+           apiMethods = {@ApiMethod(methodName = "list", description="Lists the history of all changes to the given mailbox", signatures={"com.google.api.services.gmail.Gmail$Users$History$List list(String userId)"})}, aliases = {})
 @UriParams
 @Configurer
 public final class GmailUsersHistoryEndpointConfiguration extends GoogleMailConfiguration {

@@ -15,7 +15,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link com.google.api.services.calendar.Calendar$Freebusy}.
  */
 @ApiParams(apiName = "freebusy", description = "The freebusy collection of methods",
-           apiMethods = {@ApiMethod(methodName = "query", description="Returns free/busy information for a set of calendars", signatures={"com.google.api.services.calendar.Calendar$Freebusy$Query query(com.google.api.services.calendar.model.FreeBusyRequest content)"})})
+           apiMethods = {@ApiMethod(methodName = "query", description="Returns free/busy information for a set of calendars", signatures={"com.google.api.services.calendar.Calendar$Freebusy$Query query(com.google.api.services.calendar.model.FreeBusyRequest content)"})}, aliases = {})
 @UriParams
 @Configurer
 public final class CalendarFreebusyEndpointConfiguration extends GoogleCalendarConfiguration {
