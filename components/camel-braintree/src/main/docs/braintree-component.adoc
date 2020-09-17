@@ -123,6 +123,447 @@ with the following path and query parameters:
 | *privateKey* (security) | The private key provided by Braintree. |  | String
 | *publicKey* (security) | The public key provided by Braintree. |  | String
 |===
+
+
+
+
+=== Query API Parameters (14 APIs):
+
+The Braintree endpoint is an API based component and has additional parameters based on which API name and method in use.
+The API name and method is located in the endpoint URI as the apiName/methodName path parameters:
+
+----
+braintree:apiName/methodName
+----
+
+The following lists each API name and method and its additional parameters.
+
+
+==== paymentMethodNonce
+
+
+The paymentMethodNonce has 2 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+com.braintreegateway.Result<com.braintreegateway.PaymentMethodNonce> create(String paymentMethodToken)
+com.braintreegateway.Result<com.braintreegateway.PaymentMethodNonce> create(com.braintreegateway.PaymentMethodNonceRequest request)
+com.braintreegateway.PaymentMethodNonce find(String paymentMethodNonce)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| create | *paymentMethodToken* |  | String
+| create | *request* |  | PaymentMethodNonceRequest
+| find | *paymentMethodNonce* |  | String
+|===
+
+
+
+
+==== documentUpload
+
+
+The documentUpload has 1 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+com.braintreegateway.Result<com.braintreegateway.DocumentUpload> create(com.braintreegateway.DocumentUploadRequest request)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| create | *request* |  | DocumentUploadRequest
+|===
+
+
+
+
+==== subscription
+
+
+The subscription has 7 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+com.braintreegateway.Result<com.braintreegateway.Subscription> cancel(String id)
+com.braintreegateway.Result<com.braintreegateway.Subscription> create(com.braintreegateway.SubscriptionRequest request)
+com.braintreegateway.Result<com.braintreegateway.Subscription> delete(String customerId, String id)
+com.braintreegateway.Subscription find(String id)
+com.braintreegateway.Result<com.braintreegateway.Transaction> retryCharge(String subscriptionId)
+com.braintreegateway.Result<com.braintreegateway.Transaction> retryCharge(String subscriptionId, Boolean submitForSettlement)
+com.braintreegateway.Result<com.braintreegateway.Transaction> retryCharge(String subscriptionId, java.math.BigDecimal amount)
+com.braintreegateway.Result<com.braintreegateway.Transaction> retryCharge(String subscriptionId, java.math.BigDecimal amount, Boolean submitForSettlement)
+com.braintreegateway.ResourceCollection<com.braintreegateway.Subscription> search(com.braintreegateway.SubscriptionSearchRequest searchRequest)
+com.braintreegateway.Result<com.braintreegateway.Subscription> update(String id, com.braintreegateway.SubscriptionRequest request)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| cancel | *id* | Of the Subscription to cancel | String
+| create | *request* | The request | SubscriptionRequest
+| delete | *customerId* |  | String
+| delete | *id* |  | String
+| find | *id* | The id of the Subscription | String
+| retryCharge | *amount* |  | BigDecimal
+| retryCharge | *submitForSettlement* |  | Boolean
+| retryCharge | *subscriptionId* |  | String
+| search | *searchRequest* | The SubscriptionSearchRequest | SubscriptionSearchRequest
+| update | *id* | The id of the Subscription | String
+| update | *request* | The request | SubscriptionRequest
+|===
+
+
+
+
+==== dispute
+
+
+The dispute has 7 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+com.braintreegateway.Result<com.braintreegateway.Dispute> accept(String id)
+com.braintreegateway.Result<com.braintreegateway.DisputeEvidence> addFileEvidence(String disputeId, String documentId)
+com.braintreegateway.Result<com.braintreegateway.DisputeEvidence> addFileEvidence(String disputeId, com.braintreegateway.FileEvidenceRequest fileEvidenceRequest)
+com.braintreegateway.Result<com.braintreegateway.DisputeEvidence> addTextEvidence(String id, String content)
+com.braintreegateway.Result<com.braintreegateway.DisputeEvidence> addTextEvidence(String id, com.braintreegateway.TextEvidenceRequest textEvidenceRequest)
+com.braintreegateway.Result<com.braintreegateway.Dispute> finalize(String id)
+com.braintreegateway.Dispute find(String id)
+com.braintreegateway.Result<com.braintreegateway.Dispute> removeEvidence(String disputeId, String evidenceId)
+com.braintreegateway.PaginatedCollection<com.braintreegateway.Dispute> search(com.braintreegateway.DisputeSearchRequest query)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| accept | *id* | The dispute id to accept | String
+| addFileEvidence | *disputeId* | The dispute id to add text evidence to | String
+| addFileEvidence | *documentId* | The document id of a previously uploaded document | String
+| addFileEvidence | *fileEvidenceRequest* | The file evidence request for the dispute | FileEvidenceRequest
+| addTextEvidence | *content* | The content of the text evidence for the dispute | String
+| addTextEvidence | *id* | The dispute id to add text evidence to | String
+| addTextEvidence | *textEvidenceRequest* | The text evidence request for the dispute | TextEvidenceRequest
+| finalize | *id* | The dispute id to finalize | String
+| find | *id* | The dispute id to find | String
+| removeEvidence | *disputeId* | The dispute id to remove evidence from | String
+| removeEvidence | *evidenceId* | The evidence id to remove | String
+| search | *query* | The query for what disputes to find | DisputeSearchRequest
+|===
+
+
+
+
+==== settlementBatchSummary
+
+
+The settlementBatchSummary has 1 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+com.braintreegateway.Result<com.braintreegateway.SettlementBatchSummary> generate(java.util.Calendar settlementDate)
+com.braintreegateway.Result<com.braintreegateway.SettlementBatchSummary> generate(java.util.Calendar settlementDate, String groupByCustomField)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| generate | *groupByCustomField* |  | String
+| generate | *settlementDate* |  | Calendar
+|===
+
+
+
+
+==== address
+
+
+The address has 4 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+com.braintreegateway.Result<com.braintreegateway.Address> create(String customerId, com.braintreegateway.AddressRequest request)
+com.braintreegateway.Result<com.braintreegateway.Address> delete(String customerId, String id)
+com.braintreegateway.Address find(String customerId, String id)
+com.braintreegateway.Result<com.braintreegateway.Address> update(String customerId, String id, com.braintreegateway.AddressRequest request)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| create | *customerId* | The id of the Customer | String
+| create | *request* | The request object | AddressRequest
+| delete | *customerId* | The id of the Customer | String
+| delete | *id* | The id of the Address to delete | String
+| find | *customerId* | The id of the Customer | String
+| find | *id* | The id of the Address | String
+| update | *customerId* | The id of the Customer | String
+| update | *id* | The id of the Address | String
+| update | *request* | The request object containing the AddressRequest parameters | AddressRequest
+|===
+
+
+
+
+==== webhookNotification
+
+
+The webhookNotification has 2 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+com.braintreegateway.WebhookNotification parse(String signature, String payload)
+String verify(String challenge)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| parse | *payload* |  | String
+| parse | *signature* |  | String
+| verify | *challenge* |  | String
+|===
+
+
+
+
+==== creditCardVerification
+
+
+The creditCardVerification has 3 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+com.braintreegateway.Result<com.braintreegateway.CreditCardVerification> create(com.braintreegateway.CreditCardVerificationRequest request)
+com.braintreegateway.CreditCardVerification find(String id)
+com.braintreegateway.ResourceCollection<com.braintreegateway.CreditCardVerification> search(com.braintreegateway.CreditCardVerificationSearchRequest query)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| create | *request* |  | CreditCardVerificationRequest
+| find | *id* |  | String
+| search | *query* |  | CreditCardVerificationSearchRequest
+|===
+
+
+
+
+==== transaction
+
+
+The transaction has 13 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+com.braintreegateway.Result<com.braintreegateway.Transaction> cancelRelease(String id)
+com.braintreegateway.Result<com.braintreegateway.Transaction> cloneTransaction(String id, com.braintreegateway.TransactionCloneRequest request)
+com.braintreegateway.Result<com.braintreegateway.Transaction> credit(com.braintreegateway.TransactionRequest request)
+com.braintreegateway.Transaction find(String id)
+com.braintreegateway.Result<com.braintreegateway.Transaction> holdInEscrow(String id)
+com.braintreegateway.Result<com.braintreegateway.Transaction> refund(String id)
+com.braintreegateway.Result<com.braintreegateway.Transaction> refund(String id, com.braintreegateway.TransactionRefundRequest request)
+com.braintreegateway.Result<com.braintreegateway.Transaction> refund(String id, java.math.BigDecimal amount)
+com.braintreegateway.Result<com.braintreegateway.Transaction> releaseFromEscrow(String id)
+com.braintreegateway.Result<com.braintreegateway.Transaction> sale(com.braintreegateway.TransactionRequest request)
+com.braintreegateway.ResourceCollection<com.braintreegateway.Transaction> search(com.braintreegateway.TransactionSearchRequest query)
+com.braintreegateway.Result<com.braintreegateway.Transaction> submitForPartialSettlement(String id, com.braintreegateway.TransactionRequest request)
+com.braintreegateway.Result<com.braintreegateway.Transaction> submitForPartialSettlement(String id, java.math.BigDecimal amount)
+com.braintreegateway.Result<com.braintreegateway.Transaction> submitForSettlement(String id)
+com.braintreegateway.Result<com.braintreegateway.Transaction> submitForSettlement(String id, com.braintreegateway.TransactionRequest request)
+com.braintreegateway.Result<com.braintreegateway.Transaction> submitForSettlement(String id, java.math.BigDecimal amount)
+com.braintreegateway.Result<com.braintreegateway.Transaction> updateDetails(String id, com.braintreegateway.TransactionRequest request)
+com.braintreegateway.Result<com.braintreegateway.Transaction> voidTransaction(String id)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| cancelRelease | *id* | Of the transaction to cancel release from escrow of | String
+| cloneTransaction | *cloneRequest* |  | TransactionCloneRequest
+| cloneTransaction | *id* |  | String
+| credit | *request* | The request | TransactionRequest
+| find | *id* | The id of the Transaction | String
+| holdInEscrow | *id* | Of the transaction to hold for escrow | String
+| refund | *amount* |  | BigDecimal
+| refund | *id* |  | String
+| refund | *refundRequest* |  | TransactionRefundRequest
+| releaseFromEscrow | *id* | Of the transaction to submit for release | String
+| sale | *request* | The request | TransactionRequest
+| search | *query* | The search query | TransactionSearchRequest
+| submitForPartialSettlement | *amount* | Of the partial settlement | BigDecimal
+| submitForPartialSettlement | *id* | Of the transaction to add the partial settlement transaction for | String
+| submitForPartialSettlement | *request* | The request | TransactionRequest
+| submitForSettlement | *amount* | To settle. must be less than or equal to the authorization amount. | BigDecimal
+| submitForSettlement | *id* | Of the transaction to submit for settlement | String
+| submitForSettlement | *request* | The request | TransactionRequest
+| updateDetails | *id* | Of the transaction to update the details for | String
+| updateDetails | *request* | The request | TransactionRequest
+| voidTransaction | *id* | Of the transaction to void | String
+|===
+
+
+
+
+==== report
+
+
+The report has 1 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+com.braintreegateway.Result<com.braintreegateway.TransactionLevelFeeReport> transactionLevelFees(com.braintreegateway.TransactionLevelFeeReportRequest request)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| transactionLevelFees | *request* | The request | TransactionLevelFeeReportRequest
+|===
+
+
+
+
+==== paymentMethod
+
+
+The paymentMethod has 6 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+com.braintreegateway.Result<com.braintreegateway.? extends PaymentMethod> create(com.braintreegateway.PaymentMethodRequest request)
+com.braintreegateway.Result<com.braintreegateway.? extends PaymentMethod> delete(String token)
+com.braintreegateway.Result<com.braintreegateway.? extends PaymentMethod> delete(String token, com.braintreegateway.PaymentMethodDeleteRequest request)
+com.braintreegateway.PaymentMethod find(String token)
+com.braintreegateway.Result<com.braintreegateway.PaymentMethodNonce> grant(String token)
+com.braintreegateway.Result<com.braintreegateway.PaymentMethodNonce> grant(String token, com.braintreegateway.PaymentMethodGrantRequest grantRequest)
+com.braintreegateway.Result<com.braintreegateway.? extends PaymentMethod> revoke(String token)
+com.braintreegateway.Result<com.braintreegateway.? extends PaymentMethod> update(String token, com.braintreegateway.PaymentMethodRequest request)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| create | *request* |  | PaymentMethodRequest
+| delete | *deleteRequest* |  | PaymentMethodDeleteRequest
+| delete | *token* |  | String
+| find | *token* |  | String
+| grant | *grantRequest* |  | PaymentMethodGrantRequest
+| grant | *token* |  | String
+| revoke | *token* |  | String
+| update | *request* |  | PaymentMethodRequest
+| update | *token* |  | String
+|===
+
+
+
+
+==== clientToken
+
+
+The clientToken has 1 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+String generate()
+String generate(com.braintreegateway.ClientTokenRequest request)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| generate | *request* |  | ClientTokenRequest
+|===
+
+
+
+
+==== merchantAccount
+
+
+The merchantAccount has 5 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+com.braintreegateway.Result<com.braintreegateway.MerchantAccount> create(com.braintreegateway.MerchantAccountRequest request)
+com.braintreegateway.Result<com.braintreegateway.MerchantAccount> createForCurrency(com.braintreegateway.MerchantAccountCreateForCurrencyRequest request)
+com.braintreegateway.PaginatedResult<com.braintreegateway.MerchantAccount> fetchMerchantAccounts(int page)
+com.braintreegateway.MerchantAccount find(String id)
+com.braintreegateway.Result<com.braintreegateway.MerchantAccount> update(String id, com.braintreegateway.MerchantAccountRequest request)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| create | *request* |  | MerchantAccountRequest
+| createForCurrency | *currencyRequest* |  | MerchantAccountCreateForCurrencyRequest
+| fetchMerchantAccounts | *page* |  | Integer
+| find | *id* |  | String
+| update | *id* |  | String
+| update | *request* |  | MerchantAccountRequest
+|===
+
+
+
+
+==== customer
+
+
+The customer has 5 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+com.braintreegateway.Result<com.braintreegateway.Customer> create(com.braintreegateway.CustomerRequest request)
+com.braintreegateway.Result<com.braintreegateway.Customer> delete(String id)
+com.braintreegateway.Customer find(String id)
+com.braintreegateway.Customer find(String id, String associationFilterId)
+com.braintreegateway.ResourceCollection<com.braintreegateway.Customer> search(com.braintreegateway.CustomerSearchRequest query)
+com.braintreegateway.Result<com.braintreegateway.Customer> update(String id, com.braintreegateway.CustomerRequest request)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| create | *request* | The request | CustomerRequest
+| delete | *id* | The id of the Customer | String
+| find | *associationFilterId* | The id of the association filter to use | String
+| find | *id* | The id of the Customer | String
+| search | *query* | The request query to use for search | CustomerSearchRequest
+| update | *id* | The id of the Customer | String
+| update | *request* | The request | CustomerRequest
+|===
 // endpoint options: END
 
 == Producer Endpoints:

@@ -150,6 +150,537 @@ with the following path and query parameters:
 | *userName* (security) | Box user name, MUST be provided |  | String
 | *userPassword* (security) | Box user password, MUST be provided if authSecureStorage is not set, or returns null on first call |  | String
 |===
+
+
+
+
+=== Query API Parameters (10 APIs):
+
+The Box endpoint is an API based component and has additional parameters based on which API name and method in use.
+The API name and method is located in the endpoint URI as the apiName/methodName path parameters:
+
+----
+box:apiName/methodName
+----
+
+The following lists each API name and method and its additional parameters.
+
+
+==== files
+
+
+The files has 22 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+[source,java]
+----
+
+void checkUpload(String fileName, String parentFolderId, Long size);
+
+com.box.sdk.BoxFile copyFile(String fileId, String destinationFolderId, String newName);
+
+com.box.sdk.Metadata createFileMetadata(String fileId, com.box.sdk.Metadata metadata, String typeName);
+
+com.box.sdk.BoxSharedLink createFileSharedLink(String fileId, com.box.sdk.BoxSharedLink.Access access, java.util.Date unshareDate, com.box.sdk.BoxSharedLink.Permissions permissions);
+
+void deleteFile(String fileId);
+
+void deleteFileMetadata(String fileId);
+
+void deleteFileVersion(String fileId, Integer version);
+
+java.io.OutputStream downloadFile(String fileId, java.io.OutputStream output, Long rangeStart, Long rangeEnd, com.box.sdk.ProgressListener listener);
+
+java.io.OutputStream downloadPreviousFileVersion(String fileId, Integer version, java.io.OutputStream output, com.box.sdk.ProgressListener listener);
+
+java.net.URL getDownloadURL(String fileId);
+
+com.box.sdk.BoxFile.Info getFileInfo(String fileId, String[] fields);
+
+com.box.sdk.Metadata getFileMetadata(String fileId, String typeName);
+
+java.net.URL getFilePreviewLink(String fileId);
+
+byte[] getFileThumbnail(String fileId, com.box.sdk.BoxFile.ThumbnailFileType fileType, Integer minWidth, Integer minHeight, Integer maxWidth, Integer maxHeight);
+
+java.util.Collection<com.box.sdk.BoxFileVersion> getFileVersions(String fileId);
+
+com.box.sdk.BoxFile moveFile(String fileId, String destinationFolderId, String newName);
+
+com.box.sdk.BoxFileVersion promoteFileVersion(String fileId, Integer version);
+
+com.box.sdk.BoxFile renameFile(String fileId, String newFileName);
+
+com.box.sdk.BoxFile updateFileInfo(String fileId, com.box.sdk.BoxFile.Info info);
+
+com.box.sdk.Metadata updateFileMetadata(String fileId, com.box.sdk.Metadata metadata);
+
+com.box.sdk.BoxFile uploadFile(String parentFolderId, java.io.InputStream content, String fileName, java.util.Date created, java.util.Date modified, Long size, Boolean check, com.box.sdk.ProgressListener listener);
+
+com.box.sdk.BoxFile uploadNewFileVersion(String fileId, java.io.InputStream fileContent, java.util.Date modified, Long fileSize, com.box.sdk.ProgressListener listener);
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| checkUpload | *fileName* | The name to give the uploaded file | String
+| checkUpload | *parentFolderId* | The id of parent folder | String
+| checkUpload | *size* | The size of the file's content used for monitoring the upload's progress | Long
+| copyFile | *destinationFolderId* | The id of the destination folder | String
+| copyFile | *fileId* | The id of file to copy | String
+| copyFile | *newName* | The new name for copied file; if newName is null, the copied file has same name as the original. | String
+| createFileMetadata | *fileId* | The id of the file to create metadata for | String
+| createFileMetadata | *metadata* | The new metadata values | Metadata
+| createFileMetadata | *typeName* | The metadata template type name; if null the global properties template type is used. | String
+| createFileSharedLink | *access* | The access level of the shared link | Access
+| createFileSharedLink | *fileId* | The id of the file to create shared link on | String
+| createFileSharedLink | *permissions* | The permissions of the created link; if permissions is null then the created shared link is create with default permissions. | Permissions
+| createFileSharedLink | *unshareDate* | The date and time at which time the created shared link will expire; if unsharedDate is null then a non-expiring link is created. | Date
+| deleteFile | *fileId* | The id of file to delete | String
+| deleteFileMetadata | *fileId* | The id of file to delete | String
+| deleteFileVersion | *fileId* | The id of file with version to delete | String
+| deleteFileVersion | *version* | The version of file to delete; initial version of file has value of 0, second version of file is 1 and so on. | Integer
+| downloadFile | *fileId* | The id of file | String
+| downloadFile | *listener* | A listener for monitoring the download's progress; if null the download's progress will not be monitored. | ProgressListener
+| downloadFile | *output* | The stream to which the file contents will be written | OutputStream
+| downloadFile | *rangeEnd* | The byte offset in file at which to stop the download; if null the entire contents of file will be downloaded. | Long
+| downloadFile | *rangeStart* | The byte offset in file at which to start the download; if null the entire contents of file will be downloaded. | Long
+| downloadPreviousFileVersion | *fileId* | The id of file | String
+| downloadPreviousFileVersion | *listener* | A listener for monitoring the download's progress; if null the download's progress will not be monitored. | ProgressListener
+| downloadPreviousFileVersion | *output* | The stream to which the version contents will be written | OutputStream
+| downloadPreviousFileVersion | *version* | The version of file to download; initial version of file has value of 0, second version of file is 1 and so on. | Integer
+| getDownloadURL | *fileId* | The id of file | String
+| getFileInfo | *fields* | The information fields to retrieve; if null all information fields are retrieved. | String[]
+| getFileInfo | *fileId* | The id of file | String
+| getFileMetadata | *fileId* | The id of the file to retrieve metadata for | String
+| getFileMetadata | *typeName* | The metadata template type name; if null the global properties template type is used. | String
+| getFilePreviewLink | *fileId* | The id of the file to get preview link on | String
+| getFileThumbnail | *fileId* | The id of the file to get preview link on | String
+| getFileThumbnail | *fileType* | Either PNG of JPG | ThumbnailFileType
+| getFileThumbnail | *maxHeight* | Maximum height | Integer
+| getFileThumbnail | *maxWidth* | Maximum width | Integer
+| getFileThumbnail | *minHeight* | Minimum height | Integer
+| getFileThumbnail | *minWidth* | Minimum width | Integer
+| getFileVersions | *fileId* | The id of file | String
+| moveFile | *destinationFolderId* | The id of the destination folder | String
+| moveFile | *fileId* | The id of file to move | String
+| moveFile | *newName* | The new name of moved file; if newName is null, the moved file has same name as the original. | String
+| promoteFileVersion | *fileId* | The id of file | String
+| promoteFileVersion | *version* | The version of file to promote; initial version of file has value of 0, second version of file is 1 and so on. | Integer
+| renameFile | *fileId* | The id of file to rename | String
+| renameFile | *newFileName* | The new name of file | String
+| updateFileInfo | *fileId* | The id of file to update | String
+| updateFileInfo | *info* | The updated information | Info
+| updateFileMetadata | *fileId* | The id of file to delete | String
+| updateFileMetadata | *metadata* | The new metadata values | Metadata
+| uploadFile | *check* | If the file name is already used, call the uploadNewVersion instead. | Boolean
+| uploadFile | *content* | A stream containing contents of the file to upload | InputStream
+| uploadFile | *created* | The content created date that will be given to the uploaded file | Date
+| uploadFile | *fileName* | The name to give the uploaded file | String
+| uploadFile | *listener* | A listener for monitoring the upload's progress | ProgressListener
+| uploadFile | *modified* | The content modified date that will be given to the uploaded file | Date
+| uploadFile | *parentFolderId* | The id of parent folder | String
+| uploadFile | *size* | The size of the file's content used for monitoring the upload's progress | Long
+| uploadNewFileVersion | *fileContent* | A stream containing contents of the file to upload | InputStream
+| uploadNewFileVersion | *fileId* | The id of file | String
+| uploadNewFileVersion | *fileSize* | The size of the file's content used for monitoring the upload's progress | Long
+| uploadNewFileVersion | *listener* | A listener for monitoring the upload's progress | ProgressListener
+| uploadNewFileVersion | *modified* | The content modified date that will be given to the uploaded file | Date
+|===
+
+
+
+
+==== search
+
+
+The search has 1 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+[source,java]
+----
+
+java.util.Collection<com.box.sdk.BoxItem> searchFolder(String folderId, String query);
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| searchFolder | *folderId* | The id of folder searched | String
+| searchFolder | *query* | The search query | String
+|===
+
+
+
+
+==== comments
+
+
+The comments has 6 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+[source,java]
+----
+
+com.box.sdk.BoxFile addFileComment(String fileId, String message);
+
+com.box.sdk.BoxComment changeCommentMessage(String commentId, String message);
+
+void deleteComment(String commentId);
+
+com.box.sdk.BoxComment.Info getCommentInfo(String commentId);
+
+java.util.List<com.box.sdk.BoxComment.Info> getFileComments(String fileId);
+
+com.box.sdk.BoxComment replyToComment(String commentId, String message);
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| addFileComment | *fileId* | The id of file | String
+| addFileComment | *message* | The comment's message | String
+| changeCommentMessage | *commentId* | The id of comment to change | String
+| changeCommentMessage | *message* | The new message for the comment | String
+| deleteComment | *commentId* | The id of comment to delete | String
+| getCommentInfo | *commentId* | The id of comment | String
+| getFileComments | *fileId* | The id of file | String
+| replyToComment | *commentId* | The id of comment to reply to | String
+| replyToComment | *message* | The message for the reply | String
+|===
+
+
+
+
+==== event-logs
+
+
+The event-logs has 1 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+[source,java]
+----
+
+java.util.List<com.box.sdk.BoxEvent> getEnterpriseEvents(String position, java.util.Date after, java.util.Date before, com.box.sdk.BoxEvent.Type[] types);
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| getEnterpriseEvents | *after* | The lower bound on the timestamp of the events returned | Date
+| getEnterpriseEvents | *before* | The upper bound on the timestamp of the events returned | Date
+| getEnterpriseEvents | *position* | The starting position of the event stream. May be null in which case all events within bounds returned. | String
+| getEnterpriseEvents | *types* | An optional list of event types to filter by | Type[]
+|===
+
+
+
+
+==== collaborations
+
+
+The collaborations has 6 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+[source,java]
+----
+
+com.box.sdk.BoxCollaboration addFolderCollaboration(String folderId, com.box.sdk.BoxCollaborator collaborator, com.box.sdk.BoxCollaboration.Role role);
+
+com.box.sdk.BoxCollaboration addFolderCollaborationByEmail(String folderId, String email, com.box.sdk.BoxCollaboration.Role role);
+
+void deleteCollaboration(String collaborationId);
+
+com.box.sdk.BoxCollaboration.Info getCollaborationInfo(String collaborationId);
+
+java.util.Collection<com.box.sdk.BoxCollaboration.Info> getFolderCollaborations(String folderId);
+
+com.box.sdk.BoxCollaboration updateCollaborationInfo(String collaborationId, com.box.sdk.BoxCollaboration.Info info);
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| addFolderCollaboration | *collaborator* | The collaborator to add | BoxCollaborator
+| addFolderCollaboration | *folderId* | The id of folder to add collaboration to | String
+| addFolderCollaboration | *role* | The role of the collaborator | Role
+| addFolderCollaborationByEmail | *email* | The email address of the collaborator to add | String
+| addFolderCollaborationByEmail | *folderId* | The id of folder to add collaboration to | String
+| addFolderCollaborationByEmail | *role* | The role of the collaborator | Role
+| deleteCollaboration | *collaborationId* | The id of comment to change | String
+| getCollaborationInfo | *collaborationId* | The id of collaboration | String
+| getFolderCollaborations | *folderId* | The id of folder to get collaborations information on | String
+| updateCollaborationInfo | *collaborationId* | The id of collaboration | String
+| updateCollaborationInfo | *info* |  | Info
+|===
+
+
+
+
+==== tasks
+
+
+The tasks has 9 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+[source,java]
+----
+
+com.box.sdk.BoxTask addAssignmentToTask(String taskId, com.box.sdk.BoxUser assignTo);
+
+com.box.sdk.BoxTask addFileTask(String fileId, com.box.sdk.BoxTask.Action action, java.util.Date dueAt, String message);
+
+void deleteTask(String taskId);
+
+void deleteTaskAssignment(String taskAssignmentId);
+
+java.util.List<com.box.sdk.BoxTask.Info> getFileTasks(String fileId);
+
+com.box.sdk.BoxTaskAssignment.Info getTaskAssignmentInfo(String taskAssignmentId);
+
+java.util.List<com.box.sdk.BoxTaskAssignment.Info> getTaskAssignments(String taskId);
+
+com.box.sdk.BoxTask.Info getTaskInfo(String taskId);
+
+com.box.sdk.BoxTask updateTaskInfo(String taskId, com.box.sdk.BoxTask.Info info);
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| addAssignmentToTask | *assignTo* | The user to assign to task | BoxUser
+| addAssignmentToTask | *taskId* | The id of task to add assignment for | String
+| addFileTask | *action* | The action the task assignee will be prompted to do | Action
+| addFileTask | *dueAt* | The day at which this task is due | Date
+| addFileTask | *fileId* | The id of file to add task to | String
+| addFileTask | *message* | An optional message to include with the task | String
+| deleteTask | *taskId* | The id of task to delete | String
+| deleteTaskAssignment | *taskAssignmentId* | The id of task assignment to delete | String
+| getFileTasks | *fileId* | The id of file | String
+| getTaskAssignmentInfo | *taskAssignmentId* | The id of task assignment | String
+| getTaskAssignments | *taskId* | The id of task | String
+| getTaskInfo | *taskId* | The id of task | String
+| updateTaskInfo | *info* | The updated information | Info
+| updateTaskInfo | *taskId* | The id of task | String
+|===
+
+
+
+
+==== events
+
+
+The events has 1 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+[source,java]
+----
+
+void listen(com.box.sdk.EventListener listener, Long startingPosition);
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| listen | *startingPosition* | The starting position of the event stream | Long
+|===
+
+
+
+
+==== groups
+
+
+The groups has 9 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+[source,java]
+----
+
+com.box.sdk.BoxGroupMembership addGroupMembership(String groupId, String userId, com.box.sdk.BoxGroupMembership.Role role);
+
+com.box.sdk.BoxGroup createGroup(String name, String provenance, String externalSyncIdentifier, String description, String invitabilityLevel, String memberViewabilityLevel);
+
+void deleteGroup(String groupId);
+
+void deleteGroupMembership(String groupMembershipId);
+
+com.box.sdk.BoxGroup.Info getGroupInfo(String groupId);
+
+com.box.sdk.BoxGroupMembership.Info getGroupMembershipInfo(String groupMembershipId);
+
+java.util.Collection<com.box.sdk.BoxGroupMembership.Info> getGroupMemberships(String groupId);
+
+com.box.sdk.BoxGroup updateGroupInfo(String groupId, com.box.sdk.BoxGroup.Info groupInfo);
+
+com.box.sdk.BoxGroupMembership updateGroupMembershipInfo(String groupMembershipId, com.box.sdk.BoxGroupMembership.Info info);
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| addGroupMembership | *groupId* | The id of group | String
+| addGroupMembership | *role* | The role of the user in this group. Can be null to assign the default role. | Role
+| addGroupMembership | *userId* | The id of user to be added to group | String
+| createGroup | *description* | The description of the new group | String
+| createGroup | *externalSyncIdentifier* | The external_sync_identifier of the new group | String
+| createGroup | *invitabilityLevel* | The invitibility_level of the new group | String
+| createGroup | *memberViewabilityLevel* | The member_viewability_level of the new group | String
+| createGroup | *name* | The name of the new group | String
+| createGroup | *provenance* | The provenance of the new group | String
+| deleteGroup | *groupId* | The id of group to delete | String
+| deleteGroupMembership | *groupMembershipId* | The id of group membership to delete | String
+| getGroupInfo | *groupId* | The id of group | String
+| getGroupMembershipInfo | *groupMembershipId* | The id of group membership | String
+| getGroupMemberships | *groupId* | The id of group | String
+| updateGroupInfo | *groupId* | The id of group to update | String
+| updateGroupInfo | *groupInfo* | The updated information | Info
+| updateGroupMembershipInfo | *groupMembershipId* | The id of group membership to update | String
+| updateGroupMembershipInfo | *info* | The updated information | Info
+|===
+
+
+
+
+==== users
+
+
+The users has 10 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+[source,java]
+----
+
+com.box.sdk.EmailAlias addUserEmailAlias(String userId, String email);
+
+com.box.sdk.BoxUser createAppUser(String name, com.box.sdk.CreateUserParams params);
+
+com.box.sdk.BoxUser createEnterpriseUser(String login, String name, com.box.sdk.CreateUserParams params);
+
+void deleteUser(String userId, boolean notifyUser, boolean force);
+
+void deleteUserEmailAlias(String userId, String emailAliasId);
+
+java.util.List<com.box.sdk.BoxUser.Info> getAllEnterpriseOrExternalUsers(String filterTerm, String[] fields);
+
+java.util.Collection<com.box.sdk.EmailAlias> getUserEmailAlias(String userId);
+
+com.box.sdk.BoxUser.Info getUserInfo(String userId);
+
+com.box.sdk.BoxFolder.Info moveFolderToUser(String userId, String sourceUserId);
+
+com.box.sdk.BoxUser updateUserInfo(String userId, com.box.sdk.BoxUser.Info info);
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| addUserEmailAlias | *email* | The email address to add as an alias | String
+| addUserEmailAlias | *userId* | The id of user | String
+| createAppUser | *name* | The name of the user | String
+| createAppUser | *params* | Additional user information | CreateUserParams
+| createEnterpriseUser | *login* | The email address the user will use to login | String
+| createEnterpriseUser | *name* | The name of the user | String
+| createEnterpriseUser | *params* | Additional user information | CreateUserParams
+| deleteUser | *force* | Whether or not this user should be deleted even if they still own files | Boolean
+| deleteUser | *notifyUser* | Whether or not to send an email notification to the user that their account has been deleted | Boolean
+| deleteUser | *userId* | The id of user to delete | String
+| deleteUserEmailAlias | *emailAliasId* | The id of the email alias to delete | String
+| deleteUserEmailAlias | *userId* | The id of user | String
+| getAllEnterpriseOrExternalUsers | *fields* | The fields to retrieve. Leave this out for the standard fields. | String[]
+| getAllEnterpriseOrExternalUsers | *filterTerm* | The filter term to lookup users by (login for external, login or name for managed); if null all managed users are returned. | String
+| getUserEmailAlias | *userId* | The id of user | String
+| getUserInfo | *userId* | The id of user | String
+| moveFolderToUser | *sourceUserId* | The user id of the user whose files will be the source for this operation | String
+| moveFolderToUser | *userId* | The id of user | String
+| updateUserInfo | *info* | The updated information | Info
+| updateUserInfo | *userId* | The id of user to update | String
+|===
+
+
+
+
+==== folders
+
+
+The folders has 10 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+[source,java]
+----
+
+com.box.sdk.BoxFolder copyFolder(String folderId, String destinationFolderId, String newName);
+
+com.box.sdk.BoxFolder createFolder(String parentFolderId, String folderName);
+
+com.box.sdk.BoxFolder createFolder(String parentFolderId, String[] path);
+
+com.box.sdk.BoxSharedLink createFolderSharedLink(String folderId, com.box.sdk.BoxSharedLink.Access access, java.util.Date unshareDate, com.box.sdk.BoxSharedLink.Permissions permissions);
+
+void deleteFolder(String folderId);
+
+com.box.sdk.BoxFolder getFolder(String[] path);
+
+com.box.sdk.BoxFolder.Info getFolderInfo(String folderId, String[] fields);
+
+java.util.Collection<com.box.sdk.BoxItem.Info> getFolderItems(String folderId, Long offset, Long limit, String[] fields);
+
+com.box.sdk.BoxFolder moveFolder(String folderId, String destinationFolderId, String newName);
+
+com.box.sdk.BoxFolder renameFolder(String folderId, String newFolderName);
+
+com.box.sdk.BoxFolder updateFolderInfo(String folderId, com.box.sdk.BoxFolder.Info info);
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| copyFolder | *destinationFolderId* | The id of the destination folder | String
+| copyFolder | *folderId* | The id of folder to copy | String
+| copyFolder | *newName* | The new name for copied folder; if newName is null, the copied folder has same name as the original. | String
+| createFolder | *folderName* | The name of created folder | String
+| createFolder | *parentFolderId* | The id of parent folder | String
+| createFolder | *path* | Sequence of Box folder names from parent folder to returned folder | String[]
+| createFolderSharedLink | *access* | The access level of the shared link | Access
+| createFolderSharedLink | *folderId* | The id of folder to create shared link on | String
+| createFolderSharedLink | *permissions* | The permissions of the created link; if permissions is null then the created shared link is create with default permissions. | Permissions
+| createFolderSharedLink | *unshareDate* | The date and time at which time the created shared link will expire; if unsharedDate is null then a non-expiring link is created. | Date
+| deleteFolder | *folderId* | The id of folder to delete | String
+| getFolder | *path* | Sequence of Box folder names from root folder to returned folder | String[]
+| getFolderInfo | *fields* | The information fields to retrieve; if null all information fields are retrieved. | String[]
+| getFolderInfo | *folderId* | The id of folder | String
+| getFolderItems | *fields* | The item fields to retrieve for each child item; if null all item fields are retrieved. | String[]
+| getFolderItems | *folderId* | The id of folder | String
+| getFolderItems | *limit* | The maximum number of children to retrieve after the offset; if null all child items are retrieved. | Long
+| getFolderItems | *offset* | The index of first child item to retrieve; if null all child items are retrieved. | Long
+| moveFolder | *destinationFolderId* | The id of the destination folder | String
+| moveFolder | *folderId* | The id of folder to move | String
+| moveFolder | *newName* | The new name of moved folder; if newName is null, the moved folder has same name as the original. | String
+| renameFolder | *folderId* | The id of folder to rename | String
+| renameFolder | *newFolderName* | The new name of folder | String
+| updateFolderInfo | *folderId* | The id of folder to update | String
+| updateFolderInfo | *info* | The updated information | Info
+|===
 // endpoint options: END
 
 == URI format

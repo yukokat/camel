@@ -145,6 +145,88 @@ with the following path and query parameters:
 | *useFixedDelay* (scheduler) | Controls if fixed delay or fixed rate is used. See ScheduledExecutorService in JDK for details. | true | boolean
 | *sslContextParameters* (security) | To configure security using SSLContextParameters |  | SSLContextParameters
 |===
+
+
+
+
+=== Query API Parameters (1 APIs):
+
+The Olingo4 endpoint is an API based component and has additional parameters based on which API name and method in use.
+The API name and method is located in the endpoint URI as the apiName/methodName path parameters:
+
+----
+olingo4:apiName/methodName
+----
+
+The following lists each API name and method and its additional parameters.
+
+
+==== DEFAULT
+
+
+The DEFAULT has 9 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+void action(org.apache.olingo.commons.api.edm.Edm edm, String resourcePath, java.util.Map<String, String> endpointHttpHeaders, Object data, org.apache.camel.component.olingo4.api.Olingo4ResponseHandler responseHandler)
+void batch(org.apache.olingo.commons.api.edm.Edm edm, java.util.Map<String, String> endpointHttpHeaders, Object data, org.apache.camel.component.olingo4.api.Olingo4ResponseHandler<java.util.List<org.apache.camel.component.olingo4.api.batch.Olingo4BatchResponse>> responseHandler)
+void create(org.apache.olingo.commons.api.edm.Edm edm, String resourcePath, java.util.Map<String, String> endpointHttpHeaders, Object data, org.apache.camel.component.olingo4.api.Olingo4ResponseHandler responseHandler)
+void delete(String resourcePath, java.util.Map<String, String> endpointHttpHeaders, org.apache.camel.component.olingo4.api.Olingo4ResponseHandler<org.apache.olingo.commons.api.http.HttpStatusCode> responseHandler)
+void merge(org.apache.olingo.commons.api.edm.Edm edm, String resourcePath, java.util.Map<String, String> endpointHttpHeaders, Object data, org.apache.camel.component.olingo4.api.Olingo4ResponseHandler responseHandler)
+void patch(org.apache.olingo.commons.api.edm.Edm edm, String resourcePath, java.util.Map<String, String> endpointHttpHeaders, Object data, org.apache.camel.component.olingo4.api.Olingo4ResponseHandler responseHandler)
+void read(org.apache.olingo.commons.api.edm.Edm edm, String resourcePath, java.util.Map<String, String> queryParams, java.util.Map<String, String> endpointHttpHeaders, org.apache.camel.component.olingo4.api.Olingo4ResponseHandler responseHandler)
+void update(org.apache.olingo.commons.api.edm.Edm edm, String resourcePath, java.util.Map<String, String> endpointHttpHeaders, Object data, org.apache.camel.component.olingo4.api.Olingo4ResponseHandler responseHandler)
+void uread(org.apache.olingo.commons.api.edm.Edm edm, String resourcePath, java.util.Map<String, String> queryParams, java.util.Map<String, String> endpointHttpHeaders, org.apache.camel.component.olingo4.api.Olingo4ResponseHandler<java.io.InputStream> responseHandler)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| action | *data* | Action data | Object
+| action | *edm* | Service Edm | Edm
+| action | *endpointHttpHeaders* | HTTP Headers to add/override the component versions | Map
+| action | *resourcePath* | Resource path to action | String
+| action | *responseHandler* | Org.apache.olingo.client.api.domain.ClientEntity callback handler | Olingo4ResponseHandler
+| batch | *data* | Ordered org.apache.camel.component.olingo4.api.batch.Olingo4BatchRequest list | Object
+| batch | *edm* | Service Edm | Edm
+| batch | *endpointHttpHeaders* | HTTP Headers to add/override the component versions | Map
+| batch | *responseHandler* | Callback handler | Olingo4ResponseHandler
+| create | *data* | Request data | Object
+| create | *edm* | Service Edm | Edm
+| create | *endpointHttpHeaders* | HTTP Headers to add/override the component versions | Map
+| create | *resourcePath* | Resource path to create | String
+| create | *responseHandler* | Callback handler | Olingo4ResponseHandler
+| delete | *endpointHttpHeaders* | HTTP Headers to add/override the component versions | Map
+| delete | *resourcePath* | Resource path for Entry | String
+| delete | *responseHandler* | Org.apache.olingo.commons.api.http.HttpStatusCode callback handler | Olingo4ResponseHandler
+| merge | *data* | Patch/merge data | Object
+| merge | *edm* | Service Edm | Edm
+| merge | *endpointHttpHeaders* | HTTP Headers to add/override the component versions | Map
+| merge | *resourcePath* | Resource path to update | String
+| merge | *responseHandler* | Org.apache.olingo.client.api.domain.ClientEntity callback handler | Olingo4ResponseHandler
+| patch | *data* | Patch/merge data | Object
+| patch | *edm* | Service Edm | Edm
+| patch | *endpointHttpHeaders* | HTTP Headers to add/override the component versions | Map
+| patch | *resourcePath* | Resource path to update | String
+| patch | *responseHandler* | Org.apache.olingo.client.api.domain.ClientEntity callback handler | Olingo4ResponseHandler
+| read | *edm* | Service Edm, read from calling read(null, \$metdata, null, responseHandler) | Edm
+| read | *endpointHttpHeaders* | HTTP Headers to add/override the component versions | Map
+| read | *queryParams* | OData query params \http://docs.oasis-open.org/odata/odata/v4.0/odata-v4.0-part1-protocol.html#_Toc453752288 | Map
+| read | *resourcePath* | OData Resource path | String
+| read | *responseHandler* | Callback handler | Olingo4ResponseHandler
+| update | *data* | Updated data | Object
+| update | *edm* | Service Edm | Edm
+| update | *endpointHttpHeaders* | HTTP Headers to add/override the component versions | Map
+| update | *resourcePath* | Resource path to update | String
+| update | *responseHandler* | Org.apache.olingo.client.api.domain.ClientEntity callback handler | Olingo4ResponseHandler
+| uread | *edm* | Service Edm, read from calling read(null, \$metdata, null, responseHandler) | Edm
+| uread | *endpointHttpHeaders* | HTTP Headers to add/override the component versions | Map
+| uread | *queryParams* | OData query params \http://docs.oasis-open.org/odata/odata/v4.0/odata-v4.0-part1-protocol.html#_Toc453752288 | Map
+| uread | *resourcePath* | OData Resource path | String
+| uread | *responseHandler* | Callback handler | Olingo4ResponseHandler
+|===
 // endpoint options: END
 
 == Producer Endpoints

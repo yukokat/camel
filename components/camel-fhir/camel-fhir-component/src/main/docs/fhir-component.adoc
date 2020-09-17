@@ -166,6 +166,448 @@ with the following path and query parameters:
 | *password* (security) | Username to use for basic authentication |  | String
 | *username* (security) | Username to use for basic authentication |  | String
 |===
+
+
+
+
+=== Query API Parameters (13 APIs):
+
+The FHIR endpoint is an API based component and has additional parameters based on which API name and method in use.
+The API name and method is located in the endpoint URI as the apiName/methodName path parameters:
+
+----
+fhir:apiName/methodName
+----
+
+The following lists each API name and method and its additional parameters.
+
+
+==== update
+
+
+The update has 2 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+ca.uhn.fhir.rest.api.MethodOutcome resource(String resourceAsString, String stringId, ca.uhn.fhir.rest.api.PreferReturnEnum preferReturn, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+ca.uhn.fhir.rest.api.MethodOutcome resource(String resourceAsString, org.hl7.fhir.instance.model.api.IIdType id, ca.uhn.fhir.rest.api.PreferReturnEnum preferReturn, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+ca.uhn.fhir.rest.api.MethodOutcome resource(org.hl7.fhir.instance.model.api.IBaseResource resource, String stringId, ca.uhn.fhir.rest.api.PreferReturnEnum preferReturn, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+ca.uhn.fhir.rest.api.MethodOutcome resource(org.hl7.fhir.instance.model.api.IBaseResource resource, org.hl7.fhir.instance.model.api.IIdType id, ca.uhn.fhir.rest.api.PreferReturnEnum preferReturn, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+ca.uhn.fhir.rest.api.MethodOutcome resourceBySearchUrl(String resourceAsString, String url, ca.uhn.fhir.rest.api.PreferReturnEnum preferReturn, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+ca.uhn.fhir.rest.api.MethodOutcome resourceBySearchUrl(org.hl7.fhir.instance.model.api.IBaseResource resource, String url, ca.uhn.fhir.rest.api.PreferReturnEnum preferReturn, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| resource | *extraParameters* |  | Map
+| resource | *id* |  | IIdType
+| resource | *preferReturn* |  | PreferReturnEnum
+| resource | *resource* |  | IBaseResource
+| resource | *resourceAsString* |  | String
+| resource | *stringId* |  | String
+| resourceBySearchUrl | *extraParameters* |  | Map
+| resourceBySearchUrl | *preferReturn* |  | PreferReturnEnum
+| resourceBySearchUrl | *resource* |  | IBaseResource
+| resourceBySearchUrl | *resourceAsString* |  | String
+| resourceBySearchUrl | *url* |  | String
+|===
+
+
+
+
+==== create
+
+
+The create has 1 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+ca.uhn.fhir.rest.api.MethodOutcome resource(String resourceAsString, String url, ca.uhn.fhir.rest.api.PreferReturnEnum preferReturn, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+ca.uhn.fhir.rest.api.MethodOutcome resource(org.hl7.fhir.instance.model.api.IBaseResource resource, String url, ca.uhn.fhir.rest.api.PreferReturnEnum preferReturn, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| resource | *extraParameters* | See ExtraParameters for a full list of parameters that can be passed, may be NULL | Map
+| resource | *preferReturn* | Add a Prefer header to the request, which requests that the server include or suppress the resource body as a part of the result. If a resource is returned by the server it will be parsed an accessible to the client via MethodOutcome#getResource() , may be null | PreferReturnEnum
+| resource | *resource* | The resource to create | IBaseResource
+| resource | *resourceAsString* | The resource to create | String
+| resource | *url* | The search URL to use. The format of this URL should be of the form ResourceTypeParameters, for example: Patientname=Smith&amp;identifier=13.2.4.11.4%7C847366, may be null | String
+|===
+
+
+
+
+==== validate
+
+
+The validate has 1 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+ca.uhn.fhir.rest.api.MethodOutcome resource(String resourceAsString, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+ca.uhn.fhir.rest.api.MethodOutcome resource(org.hl7.fhir.instance.model.api.IBaseResource resource, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| resource | *extraParameters* |  | Map
+| resource | *resource* |  | IBaseResource
+| resource | *resourceAsString* |  | String
+|===
+
+
+
+
+==== operation
+
+
+The operation has 5 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+org.hl7.fhir.instance.model.api.IBaseResource onInstance(org.hl7.fhir.instance.model.api.IIdType id, String name, org.hl7.fhir.instance.model.api.IBaseParameters parameters, Class<org.hl7.fhir.instance.model.api.IBaseParameters> outputParameterType, boolean useHttpGet, Class<org.hl7.fhir.instance.model.api.IBaseResource> returnType, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+org.hl7.fhir.instance.model.api.IBaseResource onInstanceVersion(org.hl7.fhir.instance.model.api.IIdType id, String name, org.hl7.fhir.instance.model.api.IBaseParameters parameters, Class<org.hl7.fhir.instance.model.api.IBaseParameters> outputParameterType, boolean useHttpGet, Class<org.hl7.fhir.instance.model.api.IBaseResource> returnType, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+org.hl7.fhir.instance.model.api.IBaseResource onServer(String name, org.hl7.fhir.instance.model.api.IBaseParameters parameters, Class<org.hl7.fhir.instance.model.api.IBaseParameters> outputParameterType, boolean useHttpGet, Class<org.hl7.fhir.instance.model.api.IBaseResource> returnType, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+org.hl7.fhir.instance.model.api.IBaseResource onType(Class<org.hl7.fhir.instance.model.api.IBaseResource> resourceType, String name, org.hl7.fhir.instance.model.api.IBaseParameters parameters, Class<org.hl7.fhir.instance.model.api.IBaseParameters> outputParameterType, boolean useHttpGet, Class<org.hl7.fhir.instance.model.api.IBaseResource> returnType, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+org.hl7.fhir.instance.model.api.IBaseBundle processMessage(String respondToUri, org.hl7.fhir.instance.model.api.IBaseBundle msgBundle, boolean asynchronous, Class<org.hl7.fhir.instance.model.api.IBaseBundle> responseClass, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| onInstance | *extraParameters* | See ExtraParameters for a full list of parameters that can be passed, may be NULL | Map
+| onInstance | *id* | Resource (version will be stripped) | IIdType
+| onInstance | *name* | Operation name | String
+| onInstance | *outputParameterType* | The type to use for the output parameters (this should be set to Parameters.class drawn from the version of the FHIR structures you are using), may be NULL | Class
+| onInstance | *parameters* | The parameters to use as input. May also be null if the operation does not require any input parameters. | IBaseParameters
+| onInstance | *returnType* | If this operation returns a single resource body as its return type instead of a Parameters resource, use this method to specify that resource type. This is useful for certain operations (e.g. Patient/NNN/\$everything) which return a bundle instead of a Parameters resource, may be NULL | Class
+| onInstance | *useHttpGet* | Use HTTP GET verb | Boolean
+| onInstanceVersion | *extraParameters* | See ExtraParameters for a full list of parameters that can be passed, may be NULL | Map
+| onInstanceVersion | *id* | Resource version | IIdType
+| onInstanceVersion | *name* | Operation name | String
+| onInstanceVersion | *outputParameterType* | The type to use for the output parameters (this should be set to Parameters.class drawn from the version of the FHIR structures you are using), may be NULL | Class
+| onInstanceVersion | *parameters* | The parameters to use as input. May also be null if the operation does not require any input parameters. | IBaseParameters
+| onInstanceVersion | *returnType* | If this operation returns a single resource body as its return type instead of a Parameters resource, use this method to specify that resource type. This is useful for certain operations (e.g. Patient/NNN/\$everything) which return a bundle instead of a Parameters resource, may be NULL | Class
+| onInstanceVersion | *useHttpGet* | Use HTTP GET verb | Boolean
+| onServer | *extraParameters* | See ExtraParameters for a full list of parameters that can be passed, may be NULL | Map
+| onServer | *name* | Operation name | String
+| onServer | *outputParameterType* | The type to use for the output parameters (this should be set to Parameters.class drawn from the version of the FHIR structures you are using), may be NULL | Class
+| onServer | *parameters* | The parameters to use as input. May also be null if the operation does not require any input parameters. | IBaseParameters
+| onServer | *returnType* | If this operation returns a single resource body as its return type instead of a Parameters resource, use this method to specify that resource type. This is useful for certain operations (e.g. Patient/NNN/\$everything) which return a bundle instead of a Parameters resource, may be NULL | Class
+| onServer | *useHttpGet* | Use HTTP GET verb | Boolean
+| onType | *extraParameters* | See ExtraParameters for a full list of parameters that can be passed, may be NULL | Map
+| onType | *name* | Operation name | String
+| onType | *outputParameterType* | The type to use for the output parameters (this should be set to Parameters.class drawn from the version of the FHIR structures you are using), may be NULL | Class
+| onType | *parameters* | The parameters to use as input. May also be null if the operation does not require any input parameters. | IBaseParameters
+| onType | *resourceType* | The resource type to operate on | Class
+| onType | *returnType* | If this operation returns a single resource body as its return type instead of a Parameters resource, use this method to specify that resource type. This is useful for certain operations (e.g. Patient/NNN/\$everything) which return a bundle instead of a Parameters resource, may be NULL | Class
+| onType | *useHttpGet* | Use HTTP GET verb | Boolean
+| processMessage | *asynchronous* | Whether to process the message asynchronously or synchronously, defaults to synchronous. | Boolean
+| processMessage | *extraParameters* | See ExtraParameters for a full list of parameters that can be passed, may be NULL | Map
+| processMessage | *msgBundle* | Set the Message Bundle to POST to the messaging server | IBaseBundle
+| processMessage | *respondToUri* | An optional query parameter indicating that responses from the receiving server should be sent to this URI, may be NULL | String
+| processMessage | *responseClass* | The response class | Class
+|===
+
+
+
+
+==== search
+
+
+The search has 1 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+org.hl7.fhir.instance.model.api.IBaseBundle searchByUrl(String url, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| searchByUrl | *extraParameters* | See ExtraParameters for a full list of parameters that can be passed, may be NULL | Map
+| searchByUrl | *url* | The URL to search for. Note that this URL may be complete (e.g. \http://example.com/base/Patientname=foo) in which case the client's base URL will be ignored. Or it can be relative (e.g. Patientname=foo) in which case the client's base URL will be used. | String
+|===
+
+
+
+
+==== capabilities
+
+
+The capabilities has 1 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+org.hl7.fhir.instance.model.api.IBaseConformance ofType(Class<org.hl7.fhir.instance.model.api.IBaseConformance> type, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| ofType | *extraParameters* | See ExtraParameters for a full list of parameters that can be passed, may be NULL | Map
+| ofType | *type* | The model type | Class
+|===
+
+
+
+
+==== patch
+
+
+The patch has 2 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+ca.uhn.fhir.rest.api.MethodOutcome patchById(String patchBody, String stringId, ca.uhn.fhir.rest.api.PreferReturnEnum preferReturn, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+ca.uhn.fhir.rest.api.MethodOutcome patchById(String patchBody, org.hl7.fhir.instance.model.api.IIdType id, ca.uhn.fhir.rest.api.PreferReturnEnum preferReturn, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+ca.uhn.fhir.rest.api.MethodOutcome patchByUrl(String patchBody, String url, ca.uhn.fhir.rest.api.PreferReturnEnum preferReturn, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| patchById | *extraParameters* | See ExtraParameters for a full list of parameters that can be passed, may be NULL | Map
+| patchById | *id* | The resource ID to patch | IIdType
+| patchById | *patchBody* | The body of the patch document serialized in either XML or JSON which conforms to \http://jsonpatch.com/ or \http://tools.ietf.org/html/rfc5261 | String
+| patchById | *preferReturn* | Add a Prefer header to the request, which requests that the server include or suppress the resource body as a part of the result. If a resource is returned by the server it will be parsed an accessible to the client via MethodOutcome#getResource() | PreferReturnEnum
+| patchById | *stringId* | The resource ID to patch | String
+| patchByUrl | *extraParameters* | See ExtraParameters for a full list of parameters that can be passed, may be NULL | Map
+| patchByUrl | *patchBody* | The body of the patch document serialized in either XML or JSON which conforms to \http://jsonpatch.com/ or \http://tools.ietf.org/html/rfc5261 | String
+| patchByUrl | *preferReturn* | Add a Prefer header to the request, which requests that the server include or suppress the resource body as a part of the result. If a resource is returned by the server it will be parsed an accessible to the client via MethodOutcome#getResource() | PreferReturnEnum
+| patchByUrl | *url* | The search URL to use. The format of this URL should be of the form ResourceTypeParameters, for example: Patientname=Smith&amp;identifier=13.2.4.11.4%7C847366 | String
+|===
+
+
+
+
+==== meta
+
+
+The meta has 5 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+org.hl7.fhir.instance.model.api.IBaseMetaType add(org.hl7.fhir.instance.model.api.IBaseMetaType meta, org.hl7.fhir.instance.model.api.IIdType id, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+org.hl7.fhir.instance.model.api.IBaseMetaType delete(org.hl7.fhir.instance.model.api.IBaseMetaType meta, org.hl7.fhir.instance.model.api.IIdType id, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+org.hl7.fhir.instance.model.api.IBaseMetaType getFromResource(Class<org.hl7.fhir.instance.model.api.IBaseMetaType> metaType, org.hl7.fhir.instance.model.api.IIdType id, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+org.hl7.fhir.instance.model.api.IBaseMetaType getFromServer(Class<org.hl7.fhir.instance.model.api.IBaseMetaType> metaType, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+org.hl7.fhir.instance.model.api.IBaseMetaType getFromType(Class<org.hl7.fhir.instance.model.api.IBaseMetaType> metaType, String resourceType, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| add | *extraParameters* | See ExtraParameters for a full list of parameters that can be passed, may be NULL | Map
+| add | *id* | The id | IIdType
+| add | *meta* | The IBaseMetaType class | IBaseMetaType
+| delete | *extraParameters* | See ExtraParameters for a full list of parameters that can be passed, may be NULL | Map
+| delete | *id* | The id | IIdType
+| delete | *meta* | The IBaseMetaType class | IBaseMetaType
+| getFromResource | *extraParameters* | See ExtraParameters for a full list of parameters that can be passed, may be NULL | Map
+| getFromResource | *id* | The id | IIdType
+| getFromResource | *metaType* | The IBaseMetaType class | Class
+| getFromServer | *extraParameters* | See ExtraParameters for a full list of parameters that can be passed, may be NULL | Map
+| getFromServer | *metaType* | The type of the meta datatype for the given FHIR model version (should be MetaDt.class or MetaType.class) | Class
+| getFromType | *extraParameters* | See ExtraParameters for a full list of parameters that can be passed, may be NULL | Map
+| getFromType | *metaType* | The IBaseMetaType class | Class
+| getFromType | *resourceType* | The resource type e.g Patient | String
+|===
+
+
+
+
+==== history
+
+
+The history has 3 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+org.hl7.fhir.instance.model.api.IBaseBundle onInstance(org.hl7.fhir.instance.model.api.IIdType id, Class<org.hl7.fhir.instance.model.api.IBaseBundle> returnType, Integer count, java.util.Date cutoff, org.hl7.fhir.instance.model.api.IPrimitiveType<java.util.Date> iCutoff, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+org.hl7.fhir.instance.model.api.IBaseBundle onServer(Class<org.hl7.fhir.instance.model.api.IBaseBundle> returnType, Integer count, java.util.Date cutoff, org.hl7.fhir.instance.model.api.IPrimitiveType<java.util.Date> iCutoff, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+org.hl7.fhir.instance.model.api.IBaseBundle onType(Class<org.hl7.fhir.instance.model.api.IBaseResource> resourceType, Class<org.hl7.fhir.instance.model.api.IBaseBundle> returnType, Integer count, java.util.Date cutoff, org.hl7.fhir.instance.model.api.IPrimitiveType<java.util.Date> iCutoff, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| onInstance | *count* | Request that the server return only up to theCount number of resources, may be NULL | Integer
+| onInstance | *cutoff* | Request that the server return only resource versions that were created at or after the given time (inclusive), may be NULL | Date
+| onInstance | *extraParameters* | See ExtraParameters for a full list of parameters that can be passed, may be NULL | Map
+| onInstance | *iCutoff* | Request that the server return only resource versions that were created at or after the given time (inclusive), may be NULL | IPrimitiveType
+| onInstance | *id* | The IIdType which must be populated with both a resource type and a resource ID at | IIdType
+| onInstance | *returnType* | Request that the method return a Bundle resource (such as ca.uhn.fhir.model.dstu2.resource.Bundle). Use this method if you are accessing a DSTU2 server. | Class
+| onServer | *count* | Request that the server return only up to theCount number of resources, may be NULL | Integer
+| onServer | *cutoff* | Request that the server return only resource versions that were created at or after the given time (inclusive), may be NULL | Date
+| onServer | *extraParameters* | See ExtraParameters for a full list of parameters that can be passed, may be NULL | Map
+| onServer | *iCutoff* | Request that the server return only resource versions that were created at or after the given time (inclusive), may be NULL | IPrimitiveType
+| onServer | *returnType* | Request that the method return a Bundle resource (such as ca.uhn.fhir.model.dstu2.resource.Bundle). Use this method if you are accessing a DSTU2 server. | Class
+| onType | *count* | Request that the server return only up to theCount number of resources, may be NULL | Integer
+| onType | *cutoff* | Request that the server return only resource versions that were created at or after the given time (inclusive), may be NULL | Date
+| onType | *extraParameters* | See ExtraParameters for a full list of parameters that can be passed, may be NULL | Map
+| onType | *iCutoff* | Request that the server return only resource versions that were created at or after the given time (inclusive), may be NULL | IPrimitiveType
+| onType | *resourceType* | The resource type to search for | Class
+| onType | *returnType* | Request that the method return a Bundle resource (such as ca.uhn.fhir.model.dstu2.resource.Bundle). Use this method if you are accessing a DSTU2 server. | Class
+|===
+
+
+
+
+==== load-page
+
+
+The load-page has 3 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+org.hl7.fhir.instance.model.api.IBaseBundle byUrl(String url, Class<org.hl7.fhir.instance.model.api.IBaseBundle> returnType, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+org.hl7.fhir.instance.model.api.IBaseBundle next(org.hl7.fhir.instance.model.api.IBaseBundle bundle, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+org.hl7.fhir.instance.model.api.IBaseBundle previous(org.hl7.fhir.instance.model.api.IBaseBundle bundle, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| byUrl | *extraParameters* | See ExtraParameters for a full list of parameters that can be passed, may be NULL | Map
+| byUrl | *returnType* | The return type | Class
+| byUrl | *url* | The search url | String
+| next | *bundle* | The IBaseBundle | IBaseBundle
+| next | *extraParameters* | See ExtraParameters for a full list of parameters that can be passed, may be NULL | Map
+| previous | *bundle* | The IBaseBundle | IBaseBundle
+| previous | *extraParameters* | See ExtraParameters for a full list of parameters that can be passed, may be NULL | Map
+|===
+
+
+
+
+==== transaction
+
+
+The transaction has 2 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+String withBundle(String stringBundle, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+org.hl7.fhir.instance.model.api.IBaseBundle withBundle(org.hl7.fhir.instance.model.api.IBaseBundle bundle, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+java.util.List<org.hl7.fhir.instance.model.api.IBaseResource> withResources(java.util.List<org.hl7.fhir.instance.model.api.IBaseResource> resources, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| withBundle | *bundle* | Bundle to use in the transaction | IBaseBundle
+| withBundle | *extraParameters* | See ExtraParameters for a full list of parameters that can be passed, may be NULL | Map
+| withBundle | *stringBundle* | Bundle to use in the transaction | String
+| withResources | *extraParameters* | See ExtraParameters for a full list of parameters that can be passed, may be NULL | Map
+| withResources | *resources* | Resources to use in the transaction | List
+|===
+
+
+
+
+==== read
+
+
+The read has 2 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+org.hl7.fhir.instance.model.api.IBaseResource resourceById(Class<org.hl7.fhir.instance.model.api.IBaseResource> resource, Long longId, String ifVersionMatches, Boolean returnNull, org.hl7.fhir.instance.model.api.IBaseResource returnResource, Boolean throwError, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+org.hl7.fhir.instance.model.api.IBaseResource resourceById(Class<org.hl7.fhir.instance.model.api.IBaseResource> resource, String stringId, String version, String ifVersionMatches, Boolean returnNull, org.hl7.fhir.instance.model.api.IBaseResource returnResource, Boolean throwError, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+org.hl7.fhir.instance.model.api.IBaseResource resourceById(Class<org.hl7.fhir.instance.model.api.IBaseResource> resource, org.hl7.fhir.instance.model.api.IIdType id, String ifVersionMatches, Boolean returnNull, org.hl7.fhir.instance.model.api.IBaseResource returnResource, Boolean throwError, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+org.hl7.fhir.instance.model.api.IBaseResource resourceById(String resourceClass, Long longId, String ifVersionMatches, Boolean returnNull, org.hl7.fhir.instance.model.api.IBaseResource returnResource, Boolean throwError, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+org.hl7.fhir.instance.model.api.IBaseResource resourceById(String resourceClass, String stringId, String ifVersionMatches, String version, Boolean returnNull, org.hl7.fhir.instance.model.api.IBaseResource returnResource, Boolean throwError, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+org.hl7.fhir.instance.model.api.IBaseResource resourceById(String resourceClass, org.hl7.fhir.instance.model.api.IIdType id, String ifVersionMatches, Boolean returnNull, org.hl7.fhir.instance.model.api.IBaseResource returnResource, Boolean throwError, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+org.hl7.fhir.instance.model.api.IBaseResource resourceByUrl(Class<org.hl7.fhir.instance.model.api.IBaseResource> resource, String url, String ifVersionMatches, Boolean returnNull, org.hl7.fhir.instance.model.api.IBaseResource returnResource, Boolean throwError, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+org.hl7.fhir.instance.model.api.IBaseResource resourceByUrl(Class<org.hl7.fhir.instance.model.api.IBaseResource> resource, org.hl7.fhir.instance.model.api.IIdType iUrl, String ifVersionMatches, Boolean returnNull, org.hl7.fhir.instance.model.api.IBaseResource returnResource, Boolean throwError, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+org.hl7.fhir.instance.model.api.IBaseResource resourceByUrl(String resourceClass, String url, String ifVersionMatches, Boolean returnNull, org.hl7.fhir.instance.model.api.IBaseResource returnResource, Boolean throwError, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+org.hl7.fhir.instance.model.api.IBaseResource resourceByUrl(String resourceClass, org.hl7.fhir.instance.model.api.IIdType iUrl, String ifVersionMatches, Boolean returnNull, org.hl7.fhir.instance.model.api.IBaseResource returnResource, Boolean throwError, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| resourceById | *extraParameters* |  | Map
+| resourceById | *id* |  | IIdType
+| resourceById | *ifVersionMatches* |  | String
+| resourceById | *longId* |  | Long
+| resourceById | *resource* |  | Class
+| resourceById | *resourceClass* |  | String
+| resourceById | *returnNull* |  | Boolean
+| resourceById | *returnResource* |  | IBaseResource
+| resourceById | *stringId* |  | String
+| resourceById | *throwError* |  | Boolean
+| resourceById | *version* |  | String
+| resourceByUrl | *extraParameters* |  | Map
+| resourceByUrl | *iUrl* |  | IIdType
+| resourceByUrl | *ifVersionMatches* |  | String
+| resourceByUrl | *resource* |  | Class
+| resourceByUrl | *resourceClass* |  | String
+| resourceByUrl | *returnNull* |  | Boolean
+| resourceByUrl | *returnResource* |  | IBaseResource
+| resourceByUrl | *throwError* |  | Boolean
+| resourceByUrl | *url* |  | String
+|===
+
+
+
+
+==== delete
+
+
+The delete has 3 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+org.hl7.fhir.instance.model.api.IBaseOperationOutcome resource(org.hl7.fhir.instance.model.api.IBaseResource resource, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+org.hl7.fhir.instance.model.api.IBaseOperationOutcome resourceById(String type, String stringId, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+org.hl7.fhir.instance.model.api.IBaseOperationOutcome resourceById(org.hl7.fhir.instance.model.api.IIdType id, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+org.hl7.fhir.instance.model.api.IBaseOperationOutcome resourceConditionalByUrl(String url, java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| resource | *extraParameters* | See ExtraParameters for a full list of parameters that can be passed, may be NULL | Map
+| resource | *resource* | The IBaseResource to delete | IBaseResource
+| resourceById | *extraParameters* | See ExtraParameters for a full list of parameters that can be passed, may be NULL | Map
+| resourceById | *id* | The IIdType referencing the resource | IIdType
+| resourceById | *stringId* | It's id | String
+| resourceById | *type* | The resource type e.g Patient | String
+| resourceConditionalByUrl | *extraParameters* | See ExtraParameters for a full list of parameters that can be passed, may be NULL | Map
+| resourceConditionalByUrl | *url* | The search URL to use. The format of this URL should be of the form ResourceTypeParameters, for example: Patientname=Smith&amp;identifier=13.2.4.11.4%7C847366 | String
+|===
 // endpoint options: END
 
 include::camel-spring-boot::page$fhir-starter.adoc[]

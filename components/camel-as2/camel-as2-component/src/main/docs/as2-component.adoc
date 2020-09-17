@@ -140,6 +140,76 @@ with the following path and query parameters:
 | *timeUnit* (scheduler) | Time unit for initialDelay and delay options. There are 7 enums and the value can be one of: nanoseconds, microseconds, milliseconds, seconds, minutes, hours, days | milliseconds | TimeUnit
 | *useFixedDelay* (scheduler) | Controls if fixed delay or fixed rate is used. See ScheduledExecutorService in JDK for details. | true | boolean
 |===
+
+
+
+
+=== Query API Parameters (2 APIs):
+
+The AS2 endpoint is an API based component and has additional parameters based on which API name and method in use.
+The API name and method is located in the endpoint URI as the apiName/methodName path parameters:
+
+----
+as2:apiName/methodName
+----
+
+The following lists each API name and method and its additional parameters.
+
+
+==== client
+
+
+The client has 1 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+org.apache.http.protocol.HttpCoreContext send(String ediMessage, String requestUri, String subject, String from, String as2From, String as2To, org.apache.camel.component.as2.api.AS2MessageStructure as2MessageStructure, org.apache.http.entity.ContentType ediMessageContentType, String ediMessageTransferEncoding, org.apache.camel.component.as2.api.AS2SignatureAlgorithm signingAlgorithm, java.security.cert.Certificate[] signingCertificateChain, java.security.PrivateKey signingPrivateKey, org.apache.camel.component.as2.api.AS2CompressionAlgorithm compressionAlgorithm, String dispositionNotificationTo, String[] signedReceiptMicAlgorithms, org.apache.camel.component.as2.api.AS2EncryptionAlgorithm encryptingAlgorithm, java.security.cert.Certificate[] encryptingCertificateChain)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| send | *as2From* | AS2 name of sender | String
+| send | *as2MessageStructure* | The structure of AS2 to send; see AS2MessageStructure | AS2MessageStructure
+| send | *as2To* | AS2 name of recipient | String
+| send | *compressionAlgorithm* | The algorithm used to compress the message or null if sending EDI message uncompressed | AS2CompressionAlgorithm
+| send | *dispositionNotificationTo* | An RFC2822 address to request a receipt or null if no receipt requested | String
+| send | *ediMessage* | EDI message to transport | String
+| send | *ediMessageContentType* | The content typw of EDI message | ContentType
+| send | *ediMessageTransferEncoding* | The transfer encoding used to transport EDI message | String
+| send | *encryptingAlgorithm* | The algorithm used to encrypt the message or null if sending EDI message unencrypted | AS2EncryptionAlgorithm
+| send | *encryptingCertificateChain* | The chain of certificates used to encrypt the message or null if sending EDI message unencrypted | Certificate[]
+| send | *from* | RFC2822 address of sender | String
+| send | *requestUri* | Resource location to deliver message | String
+| send | *signedReceiptMicAlgorithms* | The senders list of signing algorithms for signing receipt, in preferred order, or null if requesting an unsigned receipt. | String[]
+| send | *signingAlgorithm* | The algorithm used to sign the message or null if sending EDI message unsigned | AS2SignatureAlgorithm
+| send | *signingCertificateChain* | The chain of certificates used to sign the message or null if sending EDI message unsigned | Certificate[]
+| send | *signingPrivateKey* | The private key used to sign EDI message | PrivateKey
+| send | *subject* | Message subject | String
+|===
+
+
+
+
+==== server
+
+
+The server has 1 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+void listen(String requestUriPattern, org.apache.http.protocol.HttpRequestHandler handler)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| listen | *requestUriPattern* |  | String
+|===
 // endpoint options: END
 
 

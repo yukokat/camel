@@ -140,6 +140,244 @@ with the following path and query parameters:
 | *timeUnit* (scheduler) | Time unit for initialDelay and delay options. There are 7 enums and the value can be one of: nanoseconds, microseconds, milliseconds, seconds, minutes, hours, days | milliseconds | TimeUnit
 | *useFixedDelay* (scheduler) | Controls if fixed delay or fixed rate is used. See ScheduledExecutorService in JDK for details. | true | boolean
 |===
+
+
+
+
+=== Query API Parameters (7 APIs):
+
+The Google Calendar Stream endpoint is an API based component and has additional parameters based on which API name and method in use.
+The API name and method is located in the endpoint URI as the  path parameters:
+
+----
+google-calendar-stream:index
+----
+
+The following lists each API name and method and its additional parameters.
+
+
+==== settings
+
+
+The settings has 2 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+com.google.api.services.calendar.Calendar$Settings$Get get(String setting)
+com.google.api.services.calendar.Calendar$Settings$Watch watch(com.google.api.services.calendar.model.Channel content)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| get | *setting* | The id of the user setting | String
+| watch | *contentChannel* | The com.google.api.services.calendar.model.Channel | Channel
+|===
+
+
+
+
+==== freebusy
+
+
+The freebusy has 1 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+com.google.api.services.calendar.Calendar$Freebusy$Query query(com.google.api.services.calendar.model.FreeBusyRequest content)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| query | *content* | The com.google.api.services.calendar.model.FreeBusyRequest | FreeBusyRequest
+|===
+
+
+
+
+==== events
+
+
+The events has 11 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+com.google.api.services.calendar.Calendar$Events$CalendarImport calendarImport(String calendarId, com.google.api.services.calendar.model.Event content)
+com.google.api.services.calendar.Calendar$Events$Delete delete(String calendarId, String eventId)
+com.google.api.services.calendar.Calendar$Events$Get get(String calendarId, String eventId)
+com.google.api.services.calendar.Calendar$Events$Insert insert(String calendarId, com.google.api.services.calendar.model.Event content)
+com.google.api.services.calendar.Calendar$Events$Instances instances(String calendarId, String eventId)
+com.google.api.services.calendar.Calendar$Events$List list(String calendarId)
+com.google.api.services.calendar.Calendar$Events$Move move(String calendarId, String eventId, String destination)
+com.google.api.services.calendar.Calendar$Events$Patch patch(String calendarId, String eventId, com.google.api.services.calendar.model.Event content)
+com.google.api.services.calendar.Calendar$Events$QuickAdd quickAdd(String calendarId, String text)
+com.google.api.services.calendar.Calendar$Events$Update update(String calendarId, String eventId, com.google.api.services.calendar.model.Event content)
+com.google.api.services.calendar.Calendar$Events$Watch watch(String calendarId, com.google.api.services.calendar.model.Channel content)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| calendarImport | *calendarId* | Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword. | String
+| calendarImport | *content* | The com.google.api.services.calendar.model.Event | Event
+| delete | *calendarId* | Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword. | String
+| delete | *eventId* | Event identifier | String
+| get | *calendarId* | Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword. | String
+| get | *eventId* | Event identifier | String
+| insert | *calendarId* | Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword. | String
+| insert | *content* | The com.google.api.services.calendar.model.Event | Event
+| instances | *calendarId* | Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword. | String
+| instances | *eventId* | Recurring event identifier | String
+| list | *calendarId* | Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword. | String
+| move | *calendarId* | Calendar identifier of the source calendar where the event currently is on | String
+| move | *destination* | Calendar identifier of the target calendar where the event is to be moved to | String
+| move | *eventId* | Event identifier | String
+| patch | *calendarId* | Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword. | String
+| patch | *content* | The com.google.api.services.calendar.model.Event | Event
+| patch | *eventId* | Event identifier | String
+| quickAdd | *calendarId* | Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword. | String
+| quickAdd | *text* | The text describing the event to be created | String
+| update | *calendarId* | Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword. | String
+| update | *content* | The com.google.api.services.calendar.model.Event | Event
+| update | *eventId* | Event identifier | String
+| watch | *calendarId* | Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword. | String
+| watch | *contentChannel* | The com.google.api.services.calendar.model.Channel | Channel
+|===
+
+
+
+
+==== channels
+
+
+The channels has 1 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+com.google.api.services.calendar.Calendar$Channels$Stop stop(com.google.api.services.calendar.model.Channel content)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| stop | *contentChannel* | The com.google.api.services.calendar.model.Channel | Channel
+|===
+
+
+
+
+==== acl
+
+
+The acl has 7 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+com.google.api.services.calendar.Calendar$Acl$Delete delete(String calendarId, String ruleId)
+com.google.api.services.calendar.Calendar$Acl$Get get(String calendarId, String ruleId)
+com.google.api.services.calendar.Calendar$Acl$Insert insert(String calendarId, com.google.api.services.calendar.model.AclRule content)
+com.google.api.services.calendar.Calendar$Acl$List list(String calendarId)
+com.google.api.services.calendar.Calendar$Acl$Patch patch(String calendarId, String ruleId, com.google.api.services.calendar.model.AclRule content)
+com.google.api.services.calendar.Calendar$Acl$Update update(String calendarId, String ruleId, com.google.api.services.calendar.model.AclRule content)
+com.google.api.services.calendar.Calendar$Acl$Watch watch(String calendarId, com.google.api.services.calendar.model.Channel content)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| delete | *calendarId* | Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword. | String
+| delete | *ruleId* | ACL rule identifier | String
+| get | *calendarId* | Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword. | String
+| get | *ruleId* | ACL rule identifier | String
+| insert | *calendarId* | Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword. | String
+| insert | *content* | The com.google.api.services.calendar.model.AclRule | AclRule
+| list | *calendarId* | Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword. | String
+| patch | *calendarId* | Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword. | String
+| patch | *content* | The com.google.api.services.calendar.model.AclRule | AclRule
+| patch | *ruleId* | ACL rule identifier | String
+| update | *calendarId* | Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword. | String
+| update | *content* | The com.google.api.services.calendar.model.AclRule | AclRule
+| update | *ruleId* | ACL rule identifier | String
+| watch | *calendarId* | Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword. | String
+| watch | *contentChannel* | The com.google.api.services.calendar.model.Channel | Channel
+|===
+
+
+
+
+==== calendars
+
+
+The calendars has 6 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+com.google.api.services.calendar.Calendar$Calendars$Clear clear(String calendarId)
+com.google.api.services.calendar.Calendar$Calendars$Delete delete(String calendarId)
+com.google.api.services.calendar.Calendar$Calendars$Get get(String calendarId)
+com.google.api.services.calendar.Calendar$Calendars$Insert insert(com.google.api.services.calendar.model.Calendar content)
+com.google.api.services.calendar.Calendar$Calendars$Patch patch(String calendarId, com.google.api.services.calendar.model.Calendar content)
+com.google.api.services.calendar.Calendar$Calendars$Update update(String calendarId, com.google.api.services.calendar.model.Calendar content)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| clear | *calendarId* | Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword. | String
+| delete | *calendarId* | Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword. | String
+| get | *calendarId* | Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword. | String
+| insert | *content* | The com.google.api.services.calendar.model.Calendar | Calendar
+| patch | *calendarId* | Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword. | String
+| patch | *content* | The com.google.api.services.calendar.model.Calendar | Calendar
+| update | *calendarId* | Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword. | String
+| update | *content* | The com.google.api.services.calendar.model.Calendar | Calendar
+|===
+
+
+
+
+==== list
+
+
+The list has 6 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+com.google.api.services.calendar.Calendar$CalendarList$Delete delete(String calendarId)
+com.google.api.services.calendar.Calendar$CalendarList$Get get(String calendarId)
+com.google.api.services.calendar.Calendar$CalendarList$Insert insert(com.google.api.services.calendar.model.CalendarListEntry content)
+com.google.api.services.calendar.Calendar$CalendarList$Patch patch(String calendarId, com.google.api.services.calendar.model.CalendarListEntry content)
+com.google.api.services.calendar.Calendar$CalendarList$Update update(String calendarId, com.google.api.services.calendar.model.CalendarListEntry content)
+com.google.api.services.calendar.Calendar$CalendarList$Watch watch(com.google.api.services.calendar.model.Channel content)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| delete | *calendarId* | Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword. | String
+| get | *calendarId* | Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword. | String
+| insert | *content* | The com.google.api.services.calendar.model.CalendarListEntry | CalendarListEntry
+| patch | *calendarId* | Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword. | String
+| patch | *content* | The com.google.api.services.calendar.model.CalendarListEntry | CalendarListEntry
+| update | *calendarId* | Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the primary keyword. | String
+| update | *content* | The com.google.api.services.calendar.model.CalendarListEntry | CalendarListEntry
+| watch | *contentChannel* | The com.google.api.services.calendar.model.Channel | Channel
+|===
 // endpoint options: END
 
 

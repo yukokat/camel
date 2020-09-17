@@ -134,6 +134,264 @@ with the following path and query parameters:
 | *timeUnit* (scheduler) | Time unit for initialDelay and delay options. There are 7 enums and the value can be one of: nanoseconds, microseconds, milliseconds, seconds, minutes, hours, days | milliseconds | TimeUnit
 | *useFixedDelay* (scheduler) | Controls if fixed delay or fixed rate is used. See ScheduledExecutorService in JDK for details. | true | boolean
 |===
+
+
+
+
+=== Query API Parameters (7 APIs):
+
+The Google Mail Stream endpoint is an API based component and has additional parameters based on which API name and method in use.
+The API name and method is located in the endpoint URI as the  path parameters:
+
+----
+google-mail-stream:index
+----
+
+The following lists each API name and method and its additional parameters.
+
+
+==== users
+
+
+The users has 3 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+com.google.api.services.gmail.Gmail$Users$GetProfile getProfile(String userId)
+com.google.api.services.gmail.Gmail$Users$Stop stop(String userId)
+com.google.api.services.gmail.Gmail$Users$Watch watch(String userId, com.google.api.services.gmail.model.WatchRequest content)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| getProfile | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| stop | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| watch | *content* | The com.google.api.services.gmail.model.WatchRequest | WatchRequest
+| watch | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+|===
+
+
+
+
+==== threads
+
+
+The threads has 6 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+com.google.api.services.gmail.Gmail$Users$Threads$Delete delete(String userId, String id)
+com.google.api.services.gmail.Gmail$Users$Threads$Get get(String userId, String id)
+com.google.api.services.gmail.Gmail$Users$Threads$List list(String userId)
+com.google.api.services.gmail.Gmail$Users$Threads$Modify modify(String userId, String id, com.google.api.services.gmail.model.ModifyThreadRequest content)
+com.google.api.services.gmail.Gmail$Users$Threads$Trash trash(String userId, String id)
+com.google.api.services.gmail.Gmail$Users$Threads$Untrash untrash(String userId, String id)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| delete | *id* | ID of the Thread to delete | String
+| delete | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| get | *id* | The ID of the thread to retrieve | String
+| get | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| list | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| modify | *content* | The com.google.api.services.gmail.model.ModifyThreadRequest | ModifyThreadRequest
+| modify | *id* | The ID of the thread to modify | String
+| modify | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| trash | *id* | The ID of the thread to Trash | String
+| trash | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| untrash | *id* | The ID of the thread to remove from Trash | String
+| untrash | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+|===
+
+
+
+
+==== drafts
+
+
+The drafts has 6 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+com.google.api.services.gmail.Gmail$Users$Drafts$Create create(String userId, com.google.api.services.gmail.model.Draft content)
+com.google.api.services.gmail.Gmail$Users$Drafts$Create create(String userId, com.google.api.services.gmail.model.Draft content, com.google.api.client.http.AbstractInputStreamContent mediaContent)
+com.google.api.services.gmail.Gmail$Users$Drafts$Delete delete(String userId, String id)
+com.google.api.services.gmail.Gmail$Users$Drafts$Get get(String userId, String id)
+com.google.api.services.gmail.Gmail$Users$Drafts$List list(String userId)
+com.google.api.services.gmail.Gmail$Users$Drafts$Send send(String userId, com.google.api.services.gmail.model.Draft content)
+com.google.api.services.gmail.Gmail$Users$Drafts$Send send(String userId, com.google.api.services.gmail.model.Draft content, com.google.api.client.http.AbstractInputStreamContent mediaContent)
+com.google.api.services.gmail.Gmail$Users$Drafts$Update update(String userId, String id, com.google.api.services.gmail.model.Draft content)
+com.google.api.services.gmail.Gmail$Users$Drafts$Update update(String userId, String id, com.google.api.services.gmail.model.Draft content, com.google.api.client.http.AbstractInputStreamContent mediaContent)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| create | *content* | The com.google.api.services.gmail.model.Draft media metadata or null if none | Draft
+| create | *mediaContent* | The media HTTP content or null if none | AbstractInputStreamContent
+| create | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| delete | *id* | The ID of the draft to delete | String
+| delete | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| get | *id* | The ID of the draft to retrieve | String
+| get | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| list | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| send | *content* | The com.google.api.services.gmail.model.Draft media metadata or null if none | Draft
+| send | *mediaContent* | The media HTTP content or null if none | AbstractInputStreamContent
+| send | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| update | *content* | The com.google.api.services.gmail.model.Draft media metadata or null if none | Draft
+| update | *id* |  | String
+| update | *mediaContent* | The media HTTP content or null if none | AbstractInputStreamContent
+| update | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+|===
+
+
+
+
+==== labels
+
+
+The labels has 6 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+com.google.api.services.gmail.Gmail$Users$Labels$Create create(String userId, com.google.api.services.gmail.model.Label content)
+com.google.api.services.gmail.Gmail$Users$Labels$Delete delete(String userId, String id)
+com.google.api.services.gmail.Gmail$Users$Labels$Get get(String userId, String id)
+com.google.api.services.gmail.Gmail$Users$Labels$List list(String userId)
+com.google.api.services.gmail.Gmail$Users$Labels$Patch patch(String userId, String id, com.google.api.services.gmail.model.Label content)
+com.google.api.services.gmail.Gmail$Users$Labels$Update update(String userId, String id, com.google.api.services.gmail.model.Label content)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| create | *content* | The com.google.api.services.gmail.model.Label | Label
+| create | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| delete | *id* | The ID of the label to delete | String
+| delete | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| get | *id* | The ID of the label to retrieve | String
+| get | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| list | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| patch | *content* | The com.google.api.services.gmail.model.Label | Label
+| patch | *id* | The ID of the label to update | String
+| patch | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| update | *content* | The com.google.api.services.gmail.model.Label | Label
+| update | *id* | The ID of the label to update | String
+| update | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+|===
+
+
+
+
+==== history
+
+
+The history has 1 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+com.google.api.services.gmail.Gmail$Users$History$List list(String userId)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| list | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+|===
+
+
+
+
+==== attachments
+
+
+The attachments has 1 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+com.google.api.services.gmail.Gmail$Users$Messages$Attachments$Get get(String userId, String messageId, String id)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| get | *id* | The ID of the attachment | String
+| get | *messageId* | The ID of the message containing the attachment | String
+| get | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+|===
+
+
+
+
+==== messages
+
+
+The messages has 11 API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+----
+com.google.api.services.gmail.Gmail$Users$Messages$BatchDelete batchDelete(String userId, com.google.api.services.gmail.model.BatchDeleteMessagesRequest content)
+com.google.api.services.gmail.Gmail$Users$Messages$BatchModify batchModify(String userId, com.google.api.services.gmail.model.BatchModifyMessagesRequest content)
+com.google.api.services.gmail.Gmail$Users$Messages$Delete delete(String userId, String id)
+com.google.api.services.gmail.Gmail$Users$Messages$Get get(String userId, String id)
+com.google.api.services.gmail.Gmail$Users$Messages$GmailImport gmailImport(String userId, com.google.api.services.gmail.model.Message content)
+com.google.api.services.gmail.Gmail$Users$Messages$GmailImport gmailImport(String userId, com.google.api.services.gmail.model.Message content, com.google.api.client.http.AbstractInputStreamContent mediaContent)
+com.google.api.services.gmail.Gmail$Users$Messages$Insert insert(String userId, com.google.api.services.gmail.model.Message content)
+com.google.api.services.gmail.Gmail$Users$Messages$Insert insert(String userId, com.google.api.services.gmail.model.Message content, com.google.api.client.http.AbstractInputStreamContent mediaContent)
+com.google.api.services.gmail.Gmail$Users$Messages$List list(String userId)
+com.google.api.services.gmail.Gmail$Users$Messages$Modify modify(String userId, String id, com.google.api.services.gmail.model.ModifyMessageRequest content)
+com.google.api.services.gmail.Gmail$Users$Messages$Send send(String userId, com.google.api.services.gmail.model.Message content)
+com.google.api.services.gmail.Gmail$Users$Messages$Send send(String userId, com.google.api.services.gmail.model.Message content, com.google.api.client.http.AbstractInputStreamContent mediaContent)
+com.google.api.services.gmail.Gmail$Users$Messages$Trash trash(String userId, String id)
+com.google.api.services.gmail.Gmail$Users$Messages$Untrash untrash(String userId, String id)
+
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===
+| Method | Name | Description | Type
+| batchDelete | *batchDeleteMessagesRequest* | The com.google.api.services.gmail.model.BatchDeleteMessagesRequest | BatchDeleteMessagesRequest
+| batchDelete | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| batchModify | *batchModifyMessagesRequest* | The com.google.api.services.gmail.model.BatchModifyMessagesRequest | BatchModifyMessagesRequest
+| batchModify | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| delete | *id* | The ID of the message to delete | String
+| delete | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| get | *id* | The ID of the message to retrieve | String
+| get | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| gmailImport | *content* | The com.google.api.services.gmail.model.Message media metadata or null if none | Message
+| gmailImport | *mediaContent* | The media HTTP content or null if none | AbstractInputStreamContent
+| gmailImport | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| insert | *content* | The com.google.api.services.gmail.model.Message media metadata or null if none | Message
+| insert | *mediaContent* | The media HTTP content or null if none | AbstractInputStreamContent
+| insert | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| list | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| modify | *id* | The ID of the message to modify | String
+| modify | *modifyMessageRequest* | The com.google.api.services.gmail.model.ModifyMessageRequest | ModifyMessageRequest
+| modify | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| send | *content* | The com.google.api.services.gmail.model.Message media metadata or null if none | Message
+| send | *mediaContent* | The media HTTP content or null if none | AbstractInputStreamContent
+| send | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| trash | *id* | The ID of the message to Trash | String
+| trash | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| untrash | *id* | The ID of the message to remove from Trash | String
+| untrash | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+|===
 // endpoint options: END
 
 
