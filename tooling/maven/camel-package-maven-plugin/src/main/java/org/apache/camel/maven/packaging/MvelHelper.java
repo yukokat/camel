@@ -43,4 +43,9 @@ public final class MvelHelper {
 
         return escapedUrls;
     }
+
+    public static String formatSignature(String signature) {
+        signature = signature.replace('$', '.');
+        return signature + ";";
+    }
 }

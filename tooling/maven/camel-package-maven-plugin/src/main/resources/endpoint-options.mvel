@@ -30,3 +30,44 @@ The @{title} endpoint has no query parameters.
 @end{}|===
 @end{}
 
+@if{!apiOptions.isEmpty()}
+
+=== Query API Parameters (@{apiOptions.size()} APIs):
+
+The @{title} endpoint is an API based component and has additional parameters based on which API name and method in use.
+The API name and method is located in the endpoint URI as the @{apiPropertyQualifier} path parameters:
+
+----
+@{syntax}
+----
+
+The following lists each API name and method and its additional parameters.
+
+@foreach{api : apiOptions}
+==== @{api.name}
+@if{api.methods.isEmpty()}
+The @{api.name} has no API methods.
+@else{}
+
+The @{api.name} has @{api.methods.size} API method(s) which is represented by the following method signatures
+(an API method may have multiple signatures due to overloading):
+
+[source,java]
+----
+@foreach{method : api.methods}@foreach{signature : method.signatures}
+@{util.formatSignature(signature)}
+@end{}@end{}
+----
+
+The API methods has the following set of options listed in the following table:
+[width="100%",cols="1,2,5,2",options="header"]
+|===@comment{ Render table cells. If description contains newline, prefix cell with `a`, so the content is rendered with formatting. }
+| Method | Name | Description | Type
+@foreach{method : api.methods}@foreach{row : method.options}| @{method.name} | *@{row.getShortName(30)}* @{row.description.?contains("\n") ? "a" : ""}| @{util.escape(row.description)} | @{row.getShortJavaType()}
+@end{}@end{}|===
+
+
+@end{}
+@end{}
+
+@end{}
