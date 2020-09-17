@@ -18,6 +18,9 @@ package org.apache.camel.maven.packaging;
 
 import java.util.regex.Pattern;
 
+import org.apache.camel.tooling.model.ApiMethodModel;
+import org.apache.camel.tooling.model.ApiModel;
+
 public final class MvelHelper {
 
     public static final MvelHelper INSTANCE = new MvelHelper();
@@ -47,5 +50,20 @@ public final class MvelHelper {
     public static String formatSignature(String signature) {
         signature = signature.replace('$', '.');
         return signature + ";";
+    }
+
+    public static String apiMethodNameWithAlias(ApiModel api, ApiMethodModel method) {
+        String name = method.getName();
+        for (String alias : api.getAliases()) {
+            int pos = alias.indexOf('=');
+            String pattern = alias.substring(0, pos);
+            String aliasMethod = alias.substring(pos + 1);
+            // match ignore case
+            if (Pattern.compile(pattern, Pattern.CASE_INSENSITIVE).matcher(name).matches()) {
+                name += " + \n " + aliasMethod;
+                break;
+            }
+        }
+        return name;
     }
 }
