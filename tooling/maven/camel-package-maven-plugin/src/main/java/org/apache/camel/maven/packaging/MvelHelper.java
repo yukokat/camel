@@ -47,6 +47,10 @@ public final class MvelHelper {
         return escapedUrls;
     }
 
+    public static String componentName(String scheme) {
+        return Character.toUpperCase(scheme.charAt(0)) + scheme.substring(1);
+    }
+
     public static String formatSignature(String signature) {
         signature = signature.replace('$', '.');
         return signature + ";";

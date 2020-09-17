@@ -84,6 +84,13 @@ The @{api.name} API method(s) has the following set of parameters listed in the 
 In addition to the parameters above, the @{api.name} API can also use from the @{endpointParameterOptions.size()} endpoint query option
 which is listed in the _Query Parameters_ section.
 
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `Camel@{util.componentName(scheme)}.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `Camel@{util.componentName(scheme)}.myParameterNameHere` header.
+
 @end{}
 @end{}
 
