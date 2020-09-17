@@ -64,6 +64,12 @@ public abstract class AbstractApiMethodGeneratorMojo extends AbstractApiMethodBa
     @Parameter
     protected List<ApiMethodAlias> aliases = Collections.emptyList();
 
+    /**
+     * Names of options that can be set to null value if not specified.
+     */
+    @Parameter
+    protected String[] nullableOptions;
+
     // cached fields
     private Class<?> proxyType;
 
@@ -197,6 +203,7 @@ public abstract class AbstractApiMethodGeneratorMojo extends AbstractApiMethodBa
         context.put("configName", getConfigName());
         context.put("componentName", componentName);
         context.put("componentPackage", componentPackage);
+        context.put("nullableOptions", nullableOptions);
 
         // generate parameter names and types for configuration, sorted by parameter name
         Map<String, ApiMethodArg> parameters = new TreeMap<>();
@@ -424,6 +431,18 @@ public abstract class AbstractApiMethodGeneratorMojo extends AbstractApiMethodBa
             return "";
         }
         return apiDescription;
+    }
+
+    public boolean isOptionalParameter(ApiMethodArg argument) {
+        String name = argument.getName();
+        if (nullableOptions != null) {
+            for (String nu : nullableOptions) {
+                if (name.equalsIgnoreCase(nu)) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     public String getApiMethods(List<ApiMethodParser.ApiMethodModel> models) {

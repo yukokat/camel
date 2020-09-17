@@ -183,6 +183,16 @@ public class ComponentModel extends ArtifactModel<ComponentModel.ComponentOption
 
     public static class ApiOptionModel extends BaseOptionModel implements Cloneable {
 
+        private boolean optional;
+
+        public boolean isOptional() {
+            return optional;
+        }
+
+        public void setOptional(boolean optional) {
+            this.optional = optional;
+        }
+
         // we need to be able to copy this option for api
         // options as we output the same options for each supported api methods,
         // however with a few changes per method

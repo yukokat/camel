@@ -20,7 +20,7 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class NewKeyEndpointConfiguration extends TwilioConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The SID of the Account that will be responsible for the new Key resource")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "creator", description="The SID of the Account that will be responsible for the new Key resource")})
     private String pathAccountSid;
 
     public String getPathAccountSid() {

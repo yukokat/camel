@@ -151,6 +151,7 @@ public final class JsonMapper {
                                 JsonObject prop = (JsonObject) pe.getValue();
                                 ComponentModel.ApiOptionModel option = new ComponentModel.ApiOptionModel();
                                 parseOption(prop, option, pe.getKey());
+                                option.setOptional(prop.getBooleanOrDefault("optional", false));
                                 amm.addApiOptionModel(option);
                             }
                         }
@@ -494,6 +495,9 @@ public final class JsonMapper {
         prop.put("description", option.getDescription());
         prop.put("getterMethod", option.getGetterMethod());
         prop.put("setterMethod", option.getSetterMethod());
+        if (option instanceof ComponentModel.ApiOptionModel) {
+            prop.put("optional", ((ComponentModel.ApiOptionModel) option).isOptional());
+        }
         prop.entrySet().removeIf(e -> e.getValue() == null);
         prop.remove("prefix", "");
         prop.remove("optionalPrefix", "");

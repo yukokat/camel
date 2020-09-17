@@ -20,349 +20,349 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class ZendeskEndpointConfiguration extends ZendeskConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createArticle"), @ApiMethod(methodName = "deleteArticle"), @ApiMethod(methodName = "updateArticle")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createArticle"), @ApiMethod(methodName = "deleteArticle"), @ApiMethod(methodName = "updateArticle")})
     private org.zendesk.client.v2.model.hc.Article article;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "deleteArticleAttachment")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "deleteArticleAttachment")})
     private org.zendesk.client.v2.model.hc.ArticleAttachments articleAttachments;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createArticleTranslation"), @ApiMethod(methodName = "getArticleSubscriptions"), @ApiMethod(methodName = "getArticleTranslations"), @ApiMethod(methodName = "getAttachmentsFromArticle"), @ApiMethod(methodName = "updateArticleTranslation")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createArticleTranslation"), @ApiMethod(methodName = "getArticleSubscriptions"), @ApiMethod(methodName = "getArticleTranslations"), @ApiMethod(methodName = "getAttachmentsFromArticle"), @ApiMethod(methodName = "updateArticleTranslation")})
     private Long articleId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createUploadArticle")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createUploadArticle")})
     private Long articleId0;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "deleteAttachment"), @ApiMethod(methodName = "getAttachment")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "deleteAttachment"), @ApiMethod(methodName = "getAttachment")})
     private org.zendesk.client.v2.model.Attachment attachment;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "associateAttachmentsToArticle")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "associateAttachmentsToArticle")})
     private java.util.List<org.zendesk.client.v2.model.Attachment> attachments;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "getTicketAudit"), @ApiMethod(methodName = "makePrivateTicketAudit"), @ApiMethod(methodName = "trustTicketAudit")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "getTicketAudit"), @ApiMethod(methodName = "makePrivateTicketAudit"), @ApiMethod(methodName = "trustTicketAudit")})
     private org.zendesk.client.v2.model.Audit audit;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "getTicketAudit"), @ApiMethod(methodName = "makePrivateTicketAudit"), @ApiMethod(methodName = "trustTicketAudit")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "getTicketAudit"), @ApiMethod(methodName = "makePrivateTicketAudit"), @ApiMethod(methodName = "trustTicketAudit")})
     private Long auditId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createAutomation"), @ApiMethod(methodName = "updateAutomation")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createAutomation"), @ApiMethod(methodName = "updateAutomation")})
     private org.zendesk.client.v2.model.Automation automation;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "updateAutomation")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "updateAutomation")})
     private Long automationId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "deleteAutomation")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "deleteAutomation")})
     private Long automationId0;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createCategory"), @ApiMethod(methodName = "deleteCategory"), @ApiMethod(methodName = "getArticles"), @ApiMethod(methodName = "getSections"), @ApiMethod(methodName = "updateCategory")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createCategory"), @ApiMethod(methodName = "deleteCategory"), @ApiMethod(methodName = "getArticles"), @ApiMethod(methodName = "getSections"), @ApiMethod(methodName = "updateCategory")})
     private org.zendesk.client.v2.model.hc.Category category;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createCategoryTranslation"), @ApiMethod(methodName = "getCategoryTranslations"), @ApiMethod(methodName = "updateCategoryTranslation")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createCategoryTranslation"), @ApiMethod(methodName = "getCategoryTranslations"), @ApiMethod(methodName = "updateCategoryTranslation")})
     private Long categoryId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "getForums")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "getForums")})
     private Long category_id;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createComment"), @ApiMethod(methodName = "getRequestComment")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createComment"), @ApiMethod(methodName = "getRequestComment")})
     private org.zendesk.client.v2.model.Comment comment;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "getRequestComment")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "getRequestComment")})
     private Long commentId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createUpload")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createUpload")})
     private byte[] content;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createUpload")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createUpload")})
     private String contentType;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "lookupUserByEmail")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "lookupUserByEmail")})
     private String email;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "getTicketsIncrementally")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "getTicketsIncrementally")})
     private java.util.Date endTime;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "getTicketsByExternalId"), @ApiMethod(methodName = "lookupOrganizationsByExternalId"), @ApiMethod(methodName = "lookupUserByExternalId")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "getTicketsByExternalId"), @ApiMethod(methodName = "lookupOrganizationsByExternalId"), @ApiMethod(methodName = "lookupUserByExternalId")})
     private String externalId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createTicketField"), @ApiMethod(methodName = "deleteTicketField"), @ApiMethod(methodName = "updateTicketField")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createTicketField"), @ApiMethod(methodName = "deleteTicketField"), @ApiMethod(methodName = "updateTicketField")})
     private org.zendesk.client.v2.model.Field field;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createUploadArticle")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createUploadArticle")})
     private java.io.File file;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createUpload")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createUpload")})
     private String fileName;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createForum"), @ApiMethod(methodName = "deleteForum"), @ApiMethod(methodName = "updateForum")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createForum"), @ApiMethod(methodName = "deleteForum"), @ApiMethod(methodName = "updateForum")})
     private org.zendesk.client.v2.model.Forum forum;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "getTopics")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "getTopics")})
     private Long forum_id;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createGroup"), @ApiMethod(methodName = "deleteGroup"), @ApiMethod(methodName = "updateGroup")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createGroup"), @ApiMethod(methodName = "deleteGroup"), @ApiMethod(methodName = "updateGroup")})
     private org.zendesk.client.v2.model.Group group;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createGroupMembership"), @ApiMethod(methodName = "deleteGroupMembership"), @ApiMethod(methodName = "setGroupMembershipAsDefault")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createGroupMembership"), @ApiMethod(methodName = "deleteGroupMembership"), @ApiMethod(methodName = "setGroupMembershipAsDefault")})
     private org.zendesk.client.v2.model.GroupMembership groupMembership;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "getAssignableGroupMemberships"), @ApiMethod(methodName = "getGroupMemberships")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "getAssignableGroupMemberships"), @ApiMethod(methodName = "getGroupMemberships")})
     private Long group_id;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "deleteGroupMembership"), @ApiMethod(methodName = "getGroupMembership")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "deleteGroupMembership"), @ApiMethod(methodName = "getGroupMembership")})
     private Long group_membership_id;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "addTagToOrganisations"), @ApiMethod(methodName = "addTagToTicket"), @ApiMethod(methodName = "addTagToTopics"), @ApiMethod(methodName = "deleteArticleAttachment", description="Attachment identifier"), @ApiMethod(methodName = "deleteAttachment"), @ApiMethod(methodName = "deleteGroup"), @ApiMethod(methodName = "deleteGroupMembership"), @ApiMethod(methodName = "deleteOrganization"), @ApiMethod(methodName = "deleteOrganizationMembership"), @ApiMethod(methodName = "deleteOrganizationMemberships"), @ApiMethod(methodName = "deletePermissionGroup"), @ApiMethod(methodName = "deleteSuspendedTicket"), @ApiMethod(methodName = "deleteTicket"), @ApiMethod(methodName = "deleteTicketField"), @ApiMethod(methodName = "deleteTickets"), @ApiMethod(methodName = "deleteUser"), @ApiMethod(methodName = "deleteUserSegment"), @ApiMethod(methodName = "getArticle"), @ApiMethod(methodName = "getAttachment"), @ApiMethod(methodName = "getAutomation"), @ApiMethod(methodName = "getCategory"), @ApiMethod(methodName = "getDynamicContentItem"), @ApiMethod(methodName = "getDynamicContentItemVariant"), @ApiMethod(methodName = "getForum"), @ApiMethod(methodName = "getGroup"), @ApiMethod(methodName = "getGroupMembership"), @ApiMethod(methodName = "getGroupUsers"), @ApiMethod(methodName = "getOrganization"), @ApiMethod(methodName = "getOrganizationMembership"), @ApiMethod(methodName = "getOrganizationMembershipForUser"), @ApiMethod(methodName = "getOrganizationUsers"), @ApiMethod(methodName = "getPermissionGroup"), @ApiMethod(methodName = "getRequest"), @ApiMethod(methodName = "getRequestComments"), @ApiMethod(methodName = "getSatisfactionRating"), @ApiMethod(methodName = "getSection"), @ApiMethod(methodName = "getTarget"), @ApiMethod(methodName = "getTicket"), @ApiMethod(methodName = "getTicketAudit"), @ApiMethod(methodName = "getTicketCollaborators"), @ApiMethod(methodName = "getTicketComments"), @ApiMethod(methodName = "getTicketField"), @ApiMethod(methodName = "getTicketForm"), @ApiMethod(methodName = "getTicketIncidents"), @ApiMethod(methodName = "getTicketMetric"), @ApiMethod(methodName = "getTicketMetricByTicket"), @ApiMethod(methodName = "getTickets"), @ApiMethod(methodName = "getTopic"), @ApiMethod(methodName = "getTopics"), @ApiMethod(methodName = "getTrigger"), @ApiMethod(methodName = "getUser"), @ApiMethod(methodName = "getUserRequests"), @ApiMethod(methodName = "getUserSegment"), @ApiMethod(methodName = "getUserSegments"), @ApiMethod(methodName = "makePrivateTicketAudit"), @ApiMethod(methodName = "markTicketAsSpam"), @ApiMethod(methodName = "permanentlyDeleteTicket"), @ApiMethod(methodName = "permanentlyDeleteTickets"), @ApiMethod(methodName = "permanentlyDeleteUser"), @ApiMethod(methodName = "removeTagFromOrganisations"), @ApiMethod(methodName = "removeTagFromTicket"), @ApiMethod(methodName = "removeTagFromTopics"), @ApiMethod(methodName = "resetUserPassword"), @ApiMethod(methodName = "setTagOnOrganisations"), @ApiMethod(methodName = "setTagOnTicket"), @ApiMethod(methodName = "setTagOnTopics"), @ApiMethod(methodName = "suspendUser"), @ApiMethod(methodName = "trustTicketAudit"), @ApiMethod(methodName = "unsuspendUser")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "addTagToOrganisations"), @ApiMethod(methodName = "addTagToTicket"), @ApiMethod(methodName = "addTagToTopics"), @ApiMethod(methodName = "deleteArticleAttachment", description="Attachment identifier"), @ApiMethod(methodName = "deleteAttachment"), @ApiMethod(methodName = "deleteGroup"), @ApiMethod(methodName = "deleteGroupMembership"), @ApiMethod(methodName = "deleteOrganization"), @ApiMethod(methodName = "deleteOrganizationMembership"), @ApiMethod(methodName = "deleteOrganizationMemberships"), @ApiMethod(methodName = "deletePermissionGroup"), @ApiMethod(methodName = "deleteSuspendedTicket"), @ApiMethod(methodName = "deleteTicket"), @ApiMethod(methodName = "deleteTicketField"), @ApiMethod(methodName = "deleteTickets"), @ApiMethod(methodName = "deleteUser"), @ApiMethod(methodName = "deleteUserSegment"), @ApiMethod(methodName = "getArticle"), @ApiMethod(methodName = "getAttachment"), @ApiMethod(methodName = "getAutomation"), @ApiMethod(methodName = "getCategory"), @ApiMethod(methodName = "getDynamicContentItem"), @ApiMethod(methodName = "getDynamicContentItemVariant"), @ApiMethod(methodName = "getForum"), @ApiMethod(methodName = "getGroup"), @ApiMethod(methodName = "getGroupMembership"), @ApiMethod(methodName = "getGroupUsers"), @ApiMethod(methodName = "getOrganization"), @ApiMethod(methodName = "getOrganizationMembership"), @ApiMethod(methodName = "getOrganizationMembershipForUser"), @ApiMethod(methodName = "getOrganizationUsers"), @ApiMethod(methodName = "getPermissionGroup"), @ApiMethod(methodName = "getRequest"), @ApiMethod(methodName = "getRequestComments"), @ApiMethod(methodName = "getSatisfactionRating"), @ApiMethod(methodName = "getSection"), @ApiMethod(methodName = "getTarget"), @ApiMethod(methodName = "getTicket"), @ApiMethod(methodName = "getTicketAudit"), @ApiMethod(methodName = "getTicketCollaborators"), @ApiMethod(methodName = "getTicketComments"), @ApiMethod(methodName = "getTicketField"), @ApiMethod(methodName = "getTicketForm"), @ApiMethod(methodName = "getTicketIncidents"), @ApiMethod(methodName = "getTicketMetric"), @ApiMethod(methodName = "getTicketMetricByTicket"), @ApiMethod(methodName = "getTickets"), @ApiMethod(methodName = "getTopic"), @ApiMethod(methodName = "getTopics"), @ApiMethod(methodName = "getTrigger"), @ApiMethod(methodName = "getUser"), @ApiMethod(methodName = "getUserRequests"), @ApiMethod(methodName = "getUserSegment"), @ApiMethod(methodName = "getUserSegments"), @ApiMethod(methodName = "makePrivateTicketAudit"), @ApiMethod(methodName = "markTicketAsSpam"), @ApiMethod(methodName = "permanentlyDeleteTicket"), @ApiMethod(methodName = "permanentlyDeleteTickets"), @ApiMethod(methodName = "permanentlyDeleteUser"), @ApiMethod(methodName = "removeTagFromOrganisations"), @ApiMethod(methodName = "removeTagFromTicket"), @ApiMethod(methodName = "removeTagFromTopics"), @ApiMethod(methodName = "resetUserPassword"), @ApiMethod(methodName = "setTagOnOrganisations"), @ApiMethod(methodName = "setTagOnTicket"), @ApiMethod(methodName = "setTagOnTopics"), @ApiMethod(methodName = "suspendUser"), @ApiMethod(methodName = "trustTicketAudit"), @ApiMethod(methodName = "unsuspendUser")})
     private Long id;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "associateAttachmentsToArticle")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "associateAttachmentsToArticle")})
     private String idArticle;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createUserIdentity"), @ApiMethod(methodName = "deleteUserIdentity"), @ApiMethod(methodName = "getUserIdentity"), @ApiMethod(methodName = "requestVerifyUserIdentity"), @ApiMethod(methodName = "setUserPrimaryIdentity"), @ApiMethod(methodName = "updateUserIdentity"), @ApiMethod(methodName = "verifyUserIdentity")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createUserIdentity"), @ApiMethod(methodName = "deleteUserIdentity"), @ApiMethod(methodName = "getUserIdentity"), @ApiMethod(methodName = "requestVerifyUserIdentity"), @ApiMethod(methodName = "setUserPrimaryIdentity"), @ApiMethod(methodName = "updateUserIdentity"), @ApiMethod(methodName = "verifyUserIdentity")})
     private org.zendesk.client.v2.model.Identity identity;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "deleteUserIdentity"), @ApiMethod(methodName = "getUserIdentity"), @ApiMethod(methodName = "requestVerifyUserIdentity"), @ApiMethod(methodName = "setUserPrimaryIdentity"), @ApiMethod(methodName = "verifyUserIdentity")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "deleteUserIdentity"), @ApiMethod(methodName = "getUserIdentity"), @ApiMethod(methodName = "requestVerifyUserIdentity"), @ApiMethod(methodName = "setUserPrimaryIdentity"), @ApiMethod(methodName = "verifyUserIdentity")})
     private Long identityId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "deleteOrganizationMemberships"), @ApiMethod(methodName = "deleteTickets"), @ApiMethod(methodName = "getTickets"), @ApiMethod(methodName = "getTopics"), @ApiMethod(methodName = "permanentlyDeleteTickets")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "deleteOrganizationMemberships"), @ApiMethod(methodName = "deleteTickets"), @ApiMethod(methodName = "getTickets"), @ApiMethod(methodName = "getTopics"), @ApiMethod(methodName = "permanentlyDeleteTickets")})
     private long[] ids;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "getTicketsByExternalId")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "getTicketsByExternalId")})
     private Boolean includeArchived;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createUploadArticle")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createUploadArticle")})
     private Boolean inline;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "updateInstallation")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "updateInstallation")})
     private Integer installationId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createDynamicContentItem"), @ApiMethod(methodName = "deleteDynamicContentItem"), @ApiMethod(methodName = "getDynamicContentItemVariants"), @ApiMethod(methodName = "updateDynamicContentItem")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createDynamicContentItem"), @ApiMethod(methodName = "deleteDynamicContentItem"), @ApiMethod(methodName = "getDynamicContentItemVariants"), @ApiMethod(methodName = "updateDynamicContentItem")})
     private org.zendesk.client.v2.model.dynamic.DynamicContentItem item;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createDynamicContentItemVariant"), @ApiMethod(methodName = "deleteDynamicContentItemVariant"), @ApiMethod(methodName = "getDynamicContentItemVariant"), @ApiMethod(methodName = "updateDynamicContentItemVariant")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createDynamicContentItemVariant"), @ApiMethod(methodName = "deleteDynamicContentItemVariant"), @ApiMethod(methodName = "getDynamicContentItemVariant"), @ApiMethod(methodName = "updateDynamicContentItemVariant")})
     private Long itemId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "notifyApp"), @ApiMethod(methodName = "updateInstallation")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "notifyApp"), @ApiMethod(methodName = "updateInstallation")})
     private String json;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "getArticlesFromAllLabels"), @ApiMethod(methodName = "getArticlesFromAnyLabels")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "getArticlesFromAllLabels"), @ApiMethod(methodName = "getArticlesFromAnyLabels")})
     private java.util.List<String> labels;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "getArticles"), @ApiMethod(methodName = "getArticleSubscriptions"), @ApiMethod(methodName = "getSectionSubscriptions"), @ApiMethod(methodName = "updateArticleTranslation"), @ApiMethod(methodName = "updateCategoryTranslation"), @ApiMethod(methodName = "updateSectionTranslation")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "getArticles"), @ApiMethod(methodName = "getArticleSubscriptions"), @ApiMethod(methodName = "getSectionSubscriptions"), @ApiMethod(methodName = "updateArticleTranslation"), @ApiMethod(methodName = "updateCategoryTranslation"), @ApiMethod(methodName = "updateSectionTranslation")})
     private String locale;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createMacro"), @ApiMethod(methodName = "updateMacro")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createMacro"), @ApiMethod(methodName = "updateMacro")})
     private org.zendesk.client.v2.model.Macro macro;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "getMacro"), @ApiMethod(methodName = "macrosShowChangesToTicket"), @ApiMethod(methodName = "macrosShowTicketAfterChanges")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "getMacro"), @ApiMethod(methodName = "macrosShowChangesToTicket"), @ApiMethod(methodName = "macrosShowTicketAfterChanges")})
     private Long macroId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "updateMacro")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "updateMacro")})
     private Long macroId0;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createTicketFromTweet")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createTicketFromTweet")})
     private Long monitorId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "getAutoCompleteOrganizations")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "getAutoCompleteOrganizations")})
     private String name;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "changeUserPassword")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "changeUserPassword")})
     private String newPassword;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createArticle")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createArticle")})
     private Boolean notifySubscribers;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "changeUserPassword")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "changeUserPassword")})
     private String oldPassword;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "getTicketComments")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "getTicketComments")})
     private org.zendesk.client.v2.model.SortOrder order;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createOrganization"), @ApiMethod(methodName = "deleteOrganization"), @ApiMethod(methodName = "updateOrganization")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createOrganization"), @ApiMethod(methodName = "deleteOrganization"), @ApiMethod(methodName = "updateOrganization")})
     private org.zendesk.client.v2.model.Organization organization;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "getOrganizationTickets")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "getOrganizationTickets")})
     private Long organizationId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createOrganizations"), @ApiMethod(methodName = "createOrganizationsAsync"), @ApiMethod(methodName = "updateOrganizations"), @ApiMethod(methodName = "updateOrganizationsAsync")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createOrganizations"), @ApiMethod(methodName = "createOrganizationsAsync"), @ApiMethod(methodName = "updateOrganizations"), @ApiMethod(methodName = "updateOrganizationsAsync")})
     private java.util.List<org.zendesk.client.v2.model.Organization> organizationList;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createOrganizationMembership"), @ApiMethod(methodName = "deleteOrganizationMembership"), @ApiMethod(methodName = "setOrganizationMembershipAsDefault")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createOrganizationMembership"), @ApiMethod(methodName = "deleteOrganizationMembership"), @ApiMethod(methodName = "setOrganizationMembershipAsDefault")})
     private org.zendesk.client.v2.model.OrganizationMembership organizationMembership;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createOrganizationMemberships"), @ApiMethod(methodName = "createOrganizationMembershipsAsync")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createOrganizationMemberships"), @ApiMethod(methodName = "createOrganizationMembershipsAsync")})
     private java.util.List<org.zendesk.client.v2.model.OrganizationMembership> organizationMembershipList;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createOrganizationMemberships")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createOrganizationMemberships")})
     private org.zendesk.client.v2.model.OrganizationMembership[] organizationMemberships;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "getOrganizationMembershipsForOrg")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "getOrganizationMembershipsForOrg")})
     private Long organization_id;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "deleteOrganizationMembership"), @ApiMethod(methodName = "getGroupOrganization")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "deleteOrganizationMembership"), @ApiMethod(methodName = "getGroupOrganization")})
     private Long organization_membership_id;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createOrganizations"), @ApiMethod(methodName = "updateOrganizations")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createOrganizations"), @ApiMethod(methodName = "updateOrganizations")})
     private org.zendesk.client.v2.model.Organization[] organizations;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "getArticlesFromPage")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "getArticlesFromPage")})
     private Integer page;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "getSearchResults")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "getSearchResults")})
     private String parameters;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "getSearchResults")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "getSearchResults")})
     private java.util.Map<String, Object> params;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "resetUserPassword")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "resetUserPassword")})
     private String password;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createPermissionGroup"), @ApiMethod(methodName = "deletePermissionGroup"), @ApiMethod(methodName = "updatePermissionGroup")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createPermissionGroup"), @ApiMethod(methodName = "deletePermissionGroup"), @ApiMethod(methodName = "updatePermissionGroup")})
     private org.zendesk.client.v2.model.hc.PermissionGroup permissionGroup;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "getSearchResults")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "getSearchResults")})
     private String query;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createRequest"), @ApiMethod(methodName = "getRequestComment"), @ApiMethod(methodName = "getRequestComments"), @ApiMethod(methodName = "updateRequest")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createRequest"), @ApiMethod(methodName = "getRequestComment"), @ApiMethod(methodName = "getRequestComments"), @ApiMethod(methodName = "updateRequest")})
     private org.zendesk.client.v2.model.Request request;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "getRequestComment")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "getRequestComment")})
     private Long requestId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "getUsersByRole")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "getUsersByRole")})
     private String role;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "getUsersByRole")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "getUsersByRole")})
     private String[] roles;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createSatisfactionRating")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createSatisfactionRating")})
     private org.zendesk.client.v2.model.SatisfactionRating satisfactionRating;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "getHolidaysForSchedule"), @ApiMethod(methodName = "getSchedule")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "getHolidaysForSchedule"), @ApiMethod(methodName = "getSchedule")})
     private org.zendesk.client.v2.model.schedules.Schedule schedule;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "getHolidaysForSchedule"), @ApiMethod(methodName = "getSchedule")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "getHolidaysForSchedule"), @ApiMethod(methodName = "getSchedule")})
     private Long scheduleId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "getArticleFromSearch"), @ApiMethod(methodName = "getTicketsFromSearch")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "getArticleFromSearch"), @ApiMethod(methodName = "getTicketsFromSearch")})
     private String searchTerm;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createSection"), @ApiMethod(methodName = "deleteSection"), @ApiMethod(methodName = "getArticles"), @ApiMethod(methodName = "updateSection")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createSection"), @ApiMethod(methodName = "deleteSection"), @ApiMethod(methodName = "getArticles"), @ApiMethod(methodName = "updateSection")})
     private org.zendesk.client.v2.model.hc.Section section;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createSectionTranslation"), @ApiMethod(methodName = "getArticleFromSearch"), @ApiMethod(methodName = "getSectionSubscriptions"), @ApiMethod(methodName = "getSectionTranslations"), @ApiMethod(methodName = "updateSectionTranslation")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createSectionTranslation"), @ApiMethod(methodName = "getArticleFromSearch"), @ApiMethod(methodName = "getSectionSubscriptions"), @ApiMethod(methodName = "getSectionTranslations"), @ApiMethod(methodName = "updateSectionTranslation")})
     private Long sectionId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "getDeletedTickets"), @ApiMethod(methodName = "getSearchResults")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "getDeletedTickets"), @ApiMethod(methodName = "getSearchResults")})
     private String sortBy;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "getDeletedTickets"), @ApiMethod(methodName = "getSearchResults")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "getDeletedTickets"), @ApiMethod(methodName = "getSearchResults")})
     private org.zendesk.client.v2.model.SortOrder sortOrder;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "getArticlesIncrementally"), @ApiMethod(methodName = "getOrganizationsIncrementally"), @ApiMethod(methodName = "getTicketsIncrementally"), @ApiMethod(methodName = "getUsersIncrementally")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "getArticlesIncrementally"), @ApiMethod(methodName = "getOrganizationsIncrementally"), @ApiMethod(methodName = "getTicketsIncrementally"), @ApiMethod(methodName = "getUsersIncrementally")})
     private java.util.Date startTime;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "getJobStatus"), @ApiMethod(methodName = "getJobStatusAsync")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "getJobStatus"), @ApiMethod(methodName = "getJobStatusAsync")})
     private org.zendesk.client.v2.model.JobStatus status;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "getJobStatuses"), @ApiMethod(methodName = "getJobStatusesAsync")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "getJobStatuses"), @ApiMethod(methodName = "getJobStatusesAsync")})
     private java.util.List<org.zendesk.client.v2.model.JobStatus> statuses;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "deleteSuspendedTicket")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "deleteSuspendedTicket")})
     private org.zendesk.client.v2.model.SuspendedTicket suspendedTicket;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "addTagToOrganisations"), @ApiMethod(methodName = "addTagToTicket"), @ApiMethod(methodName = "addTagToTopics"), @ApiMethod(methodName = "removeTagFromOrganisations"), @ApiMethod(methodName = "removeTagFromTicket"), @ApiMethod(methodName = "removeTagFromTopics"), @ApiMethod(methodName = "setTagOnOrganisations"), @ApiMethod(methodName = "setTagOnTicket"), @ApiMethod(methodName = "setTagOnTopics")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "addTagToOrganisations"), @ApiMethod(methodName = "addTagToTicket"), @ApiMethod(methodName = "addTagToTopics"), @ApiMethod(methodName = "removeTagFromOrganisations"), @ApiMethod(methodName = "removeTagFromTicket"), @ApiMethod(methodName = "removeTagFromTopics"), @ApiMethod(methodName = "setTagOnOrganisations"), @ApiMethod(methodName = "setTagOnTicket"), @ApiMethod(methodName = "setTagOnTopics")})
     private String[] tags;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createTarget")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createTarget")})
     private org.zendesk.client.v2.model.targets.Target target;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "deleteTarget")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "deleteTarget")})
     private Long targetId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createSatisfactionRating"), @ApiMethod(methodName = "createTicket"), @ApiMethod(methodName = "createTicketAsync"), @ApiMethod(methodName = "deleteTicket"), @ApiMethod(methodName = "getTicketAudit"), @ApiMethod(methodName = "getTicketAudits"), @ApiMethod(methodName = "makePrivateTicketAudit"), @ApiMethod(methodName = "markTicketAsSpam"), @ApiMethod(methodName = "permanentlyDeleteTicket"), @ApiMethod(methodName = "queueCreateTicketAsync"), @ApiMethod(methodName = "trustTicketAudit"), @ApiMethod(methodName = "updateTicket")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createSatisfactionRating"), @ApiMethod(methodName = "createTicket"), @ApiMethod(methodName = "createTicketAsync"), @ApiMethod(methodName = "deleteTicket"), @ApiMethod(methodName = "getTicketAudit"), @ApiMethod(methodName = "getTicketAudits"), @ApiMethod(methodName = "makePrivateTicketAudit"), @ApiMethod(methodName = "markTicketAsSpam"), @ApiMethod(methodName = "permanentlyDeleteTicket"), @ApiMethod(methodName = "queueCreateTicketAsync"), @ApiMethod(methodName = "trustTicketAudit"), @ApiMethod(methodName = "updateTicket")})
     private org.zendesk.client.v2.model.Ticket ticket;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createTicketForm")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createTicketForm")})
     private org.zendesk.client.v2.model.TicketForm ticketForm;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createComment"), @ApiMethod(methodName = "createSatisfactionRating"), @ApiMethod(methodName = "getTicketAudit"), @ApiMethod(methodName = "macrosShowTicketAfterChanges"), @ApiMethod(methodName = "makePrivateTicketAudit"), @ApiMethod(methodName = "trustTicketAudit")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createComment"), @ApiMethod(methodName = "createSatisfactionRating"), @ApiMethod(methodName = "getTicketAudit"), @ApiMethod(methodName = "macrosShowTicketAfterChanges"), @ApiMethod(methodName = "makePrivateTicketAudit"), @ApiMethod(methodName = "trustTicketAudit")})
     private Long ticketId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "getTicketAudits")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "getTicketAudits")})
     private Long ticketId0;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "importTicket")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "importTicket")})
     private org.zendesk.client.v2.model.TicketImport ticketImport;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createTickets"), @ApiMethod(methodName = "createTicketsAsync"), @ApiMethod(methodName = "updateTickets"), @ApiMethod(methodName = "updateTicketsAsync")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createTickets"), @ApiMethod(methodName = "createTicketsAsync"), @ApiMethod(methodName = "updateTickets"), @ApiMethod(methodName = "updateTicketsAsync")})
     private java.util.List<org.zendesk.client.v2.model.Ticket> ticketList;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createTickets"), @ApiMethod(methodName = "updateTickets")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createTickets"), @ApiMethod(methodName = "updateTickets")})
     private org.zendesk.client.v2.model.Ticket[] tickets;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createUpload"), @ApiMethod(methodName = "deleteUpload")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createUpload"), @ApiMethod(methodName = "deleteUpload")})
     private String token;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createTopic"), @ApiMethod(methodName = "deleteTopic"), @ApiMethod(methodName = "importTopic"), @ApiMethod(methodName = "updateTopic")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createTopic"), @ApiMethod(methodName = "deleteTopic"), @ApiMethod(methodName = "importTopic"), @ApiMethod(methodName = "updateTopic")})
     private org.zendesk.client.v2.model.Topic topic;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createArticleTranslation"), @ApiMethod(methodName = "createCategoryTranslation"), @ApiMethod(methodName = "createSectionTranslation"), @ApiMethod(methodName = "deleteTranslation"), @ApiMethod(methodName = "updateArticleTranslation"), @ApiMethod(methodName = "updateCategoryTranslation"), @ApiMethod(methodName = "updateSectionTranslation")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createArticleTranslation"), @ApiMethod(methodName = "createCategoryTranslation"), @ApiMethod(methodName = "createSectionTranslation"), @ApiMethod(methodName = "deleteTranslation"), @ApiMethod(methodName = "updateArticleTranslation"), @ApiMethod(methodName = "updateCategoryTranslation"), @ApiMethod(methodName = "updateSectionTranslation")})
     private org.zendesk.client.v2.model.hc.Translation translation;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "deleteTranslation")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "deleteTranslation")})
     private Long translationId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createTrigger"), @ApiMethod(methodName = "updateTrigger")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createTrigger"), @ApiMethod(methodName = "updateTrigger")})
     private org.zendesk.client.v2.model.Trigger trigger;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "deleteTrigger")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "deleteTrigger")})
     private Long triggerId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "updateTrigger")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "updateTrigger")})
     private Long triggerId0;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createTicketFromTweet")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createTicketFromTweet")})
     private Long tweetId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "getSearchResults")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "getSearchResults")})
     private Class<org.zendesk.client.v2.model.SearchResultEntity> type;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "getIncrementalTicketsResult")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "getIncrementalTicketsResult")})
     private Long unixEpochTime;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "deleteUpload")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "deleteUpload")})
     private org.zendesk.client.v2.model.Attachment.Upload upload;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "changeUserPassword"), @ApiMethod(methodName = "createOrUpdateUser"), @ApiMethod(methodName = "createUser"), @ApiMethod(methodName = "createUserIdentity"), @ApiMethod(methodName = "deleteUser"), @ApiMethod(methodName = "deleteUserIdentity"), @ApiMethod(methodName = "getUserIdentities"), @ApiMethod(methodName = "getUserIdentity"), @ApiMethod(methodName = "getUserRequests"), @ApiMethod(methodName = "getUserSubscriptions"), @ApiMethod(methodName = "permanentlyDeleteUser"), @ApiMethod(methodName = "requestVerifyUserIdentity"), @ApiMethod(methodName = "resetUserPassword"), @ApiMethod(methodName = "setUserPrimaryIdentity"), @ApiMethod(methodName = "updateUser"), @ApiMethod(methodName = "updateUserIdentity"), @ApiMethod(methodName = "verifyUserIdentity")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "changeUserPassword"), @ApiMethod(methodName = "createOrUpdateUser"), @ApiMethod(methodName = "createUser"), @ApiMethod(methodName = "createUserIdentity"), @ApiMethod(methodName = "deleteUser"), @ApiMethod(methodName = "deleteUserIdentity"), @ApiMethod(methodName = "getUserIdentities"), @ApiMethod(methodName = "getUserIdentity"), @ApiMethod(methodName = "getUserRequests"), @ApiMethod(methodName = "getUserSubscriptions"), @ApiMethod(methodName = "permanentlyDeleteUser"), @ApiMethod(methodName = "requestVerifyUserIdentity"), @ApiMethod(methodName = "resetUserPassword"), @ApiMethod(methodName = "setUserPrimaryIdentity"), @ApiMethod(methodName = "updateUser"), @ApiMethod(methodName = "updateUserIdentity"), @ApiMethod(methodName = "verifyUserIdentity")})
     private org.zendesk.client.v2.model.User user;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createUserIdentity"), @ApiMethod(methodName = "deleteUserIdentity"), @ApiMethod(methodName = "getComplianceDeletionStatuses"), @ApiMethod(methodName = "getUserCCDTickets"), @ApiMethod(methodName = "getUserIdentities"), @ApiMethod(methodName = "getUserIdentity"), @ApiMethod(methodName = "getUserRelatedInfo"), @ApiMethod(methodName = "getUserRequestedTickets"), @ApiMethod(methodName = "requestVerifyUserIdentity"), @ApiMethod(methodName = "setUserPrimaryIdentity"), @ApiMethod(methodName = "updateUserIdentity"), @ApiMethod(methodName = "verifyUserIdentity")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createUserIdentity"), @ApiMethod(methodName = "deleteUserIdentity"), @ApiMethod(methodName = "getComplianceDeletionStatuses"), @ApiMethod(methodName = "getUserCCDTickets"), @ApiMethod(methodName = "getUserIdentities"), @ApiMethod(methodName = "getUserIdentity"), @ApiMethod(methodName = "getUserRelatedInfo"), @ApiMethod(methodName = "getUserRequestedTickets"), @ApiMethod(methodName = "requestVerifyUserIdentity"), @ApiMethod(methodName = "setUserPrimaryIdentity"), @ApiMethod(methodName = "updateUserIdentity"), @ApiMethod(methodName = "verifyUserIdentity")})
     private Long userId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "getUserSubscriptions")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "getUserSubscriptions")})
     private Long userId0;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "mergeUsers")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "mergeUsers")})
     private Long userIdThatWillBeMerged;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "mergeUsers")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "mergeUsers")})
     private Long userIdThatWillRemain;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createUsers"), @ApiMethod(methodName = "createUsersAsync")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createUsers"), @ApiMethod(methodName = "createUsersAsync")})
     private java.util.List<org.zendesk.client.v2.model.User> userList;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createUserSegment"), @ApiMethod(methodName = "deleteUserSegment"), @ApiMethod(methodName = "getSections"), @ApiMethod(methodName = "getTopics"), @ApiMethod(methodName = "updateUserSegment")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createUserSegment"), @ApiMethod(methodName = "deleteUserSegment"), @ApiMethod(methodName = "getSections"), @ApiMethod(methodName = "getTopics"), @ApiMethod(methodName = "updateUserSegment")})
     private org.zendesk.client.v2.model.hc.UserSegment userSegment;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createGroupMembership"), @ApiMethod(methodName = "createOrganizationMembership"), @ApiMethod(methodName = "deleteGroupMembership"), @ApiMethod(methodName = "deleteOrganizationMembership"), @ApiMethod(methodName = "getGroupMembership"), @ApiMethod(methodName = "getGroupMembershipByUser"), @ApiMethod(methodName = "getGroupOrganization"), @ApiMethod(methodName = "getOrganizationMembershipByUser"), @ApiMethod(methodName = "getOrganizationMembershipForUser"), @ApiMethod(methodName = "getOrganizationMembershipsForUser"), @ApiMethod(methodName = "getTopicsByUser"), @ApiMethod(methodName = "setGroupMembershipAsDefault"), @ApiMethod(methodName = "setOrganizationMembershipAsDefault")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createGroupMembership"), @ApiMethod(methodName = "createOrganizationMembership"), @ApiMethod(methodName = "deleteGroupMembership"), @ApiMethod(methodName = "deleteOrganizationMembership"), @ApiMethod(methodName = "getGroupMembership"), @ApiMethod(methodName = "getGroupMembershipByUser"), @ApiMethod(methodName = "getGroupOrganization"), @ApiMethod(methodName = "getOrganizationMembershipByUser"), @ApiMethod(methodName = "getOrganizationMembershipForUser"), @ApiMethod(methodName = "getOrganizationMembershipsForUser"), @ApiMethod(methodName = "getTopicsByUser"), @ApiMethod(methodName = "setGroupMembershipAsDefault"), @ApiMethod(methodName = "setOrganizationMembershipAsDefault")})
     private Long user_id;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createOrUpdateUsers"), @ApiMethod(methodName = "createUsers"), @ApiMethod(methodName = "updateUsers")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createOrUpdateUsers"), @ApiMethod(methodName = "createUsers"), @ApiMethod(methodName = "updateUsers")})
     private org.zendesk.client.v2.model.User[] users;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createOrUpdateUsers"), @ApiMethod(methodName = "createOrUpdateUsersAsync"), @ApiMethod(methodName = "updateUsers"), @ApiMethod(methodName = "updateUsersAsync")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createOrUpdateUsers"), @ApiMethod(methodName = "createOrUpdateUsersAsync"), @ApiMethod(methodName = "updateUsers"), @ApiMethod(methodName = "updateUsersAsync")})
     private java.util.List<org.zendesk.client.v2.model.User> usersList;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createDynamicContentItemVariant"), @ApiMethod(methodName = "deleteDynamicContentItemVariant"), @ApiMethod(methodName = "updateDynamicContentItemVariant")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createDynamicContentItemVariant"), @ApiMethod(methodName = "deleteDynamicContentItemVariant"), @ApiMethod(methodName = "updateDynamicContentItemVariant")})
     private org.zendesk.client.v2.model.dynamic.DynamicContentItemVariant variant;
 
     public org.zendesk.client.v2.model.hc.Article getArticle() {

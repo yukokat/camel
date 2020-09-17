@@ -20,16 +20,16 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class PaymentMethodGatewayEndpointConfiguration extends BraintreeConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "delete")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "delete")})
     private com.braintreegateway.PaymentMethodDeleteRequest deleteRequest;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "grant")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "grant")})
     private com.braintreegateway.PaymentMethodGrantRequest grantRequest;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "create"), @ApiMethod(methodName = "update")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "create"), @ApiMethod(methodName = "update")})
     private com.braintreegateway.PaymentMethodRequest request;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "delete"), @ApiMethod(methodName = "find"), @ApiMethod(methodName = "grant"), @ApiMethod(methodName = "revoke"), @ApiMethod(methodName = "update")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "delete"), @ApiMethod(methodName = "find"), @ApiMethod(methodName = "grant"), @ApiMethod(methodName = "revoke"), @ApiMethod(methodName = "update")})
     private String token;
 
     public com.braintreegateway.PaymentMethodDeleteRequest getDeleteRequest() {

@@ -20,28 +20,28 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class DisputeGatewayEndpointConfiguration extends BraintreeConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "addTextEvidence", description="The content of the text evidence for the dispute")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "addTextEvidence", description="The content of the text evidence for the dispute")})
     private String content;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "addFileEvidence", description="The dispute id to add text evidence to"), @ApiMethod(methodName = "removeEvidence", description="The dispute id to remove evidence from")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "addFileEvidence", description="The dispute id to add text evidence to"), @ApiMethod(methodName = "removeEvidence", description="The dispute id to remove evidence from")})
     private String disputeId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "addFileEvidence", description="The document id of a previously uploaded document")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "addFileEvidence", description="The document id of a previously uploaded document")})
     private String documentId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "removeEvidence", description="The evidence id to remove")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "removeEvidence", description="The evidence id to remove")})
     private String evidenceId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "addFileEvidence", description="The file evidence request for the dispute")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "addFileEvidence", description="The file evidence request for the dispute")})
     private com.braintreegateway.FileEvidenceRequest fileEvidenceRequest;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "accept", description="The dispute id to accept"), @ApiMethod(methodName = "addTextEvidence", description="The dispute id to add text evidence to"), @ApiMethod(methodName = "finalize", description="The dispute id to finalize"), @ApiMethod(methodName = "find", description="The dispute id to find")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "accept", description="The dispute id to accept"), @ApiMethod(methodName = "addTextEvidence", description="The dispute id to add text evidence to"), @ApiMethod(methodName = "finalize", description="The dispute id to finalize"), @ApiMethod(methodName = "find", description="The dispute id to find")})
     private String id;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "search", description="The query for what disputes to find")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "search", description="The query for what disputes to find")})
     private com.braintreegateway.DisputeSearchRequest query;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "addTextEvidence", description="The text evidence request for the dispute")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "addTextEvidence", description="The text evidence request for the dispute")})
     private com.braintreegateway.TextEvidenceRequest textEvidenceRequest;
 
     public String getContent() {

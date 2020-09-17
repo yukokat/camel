@@ -53,7 +53,7 @@ import org.apache.camel.spi.UriParams;
 public final class $configName extends ${componentName}Configuration {
 #foreach( $parameter in $parameters.entrySet() )
     @UriParam
-    @ApiParam(apiMethods = $helper.getApiMethodsForParam($models, $parameter.Value))
+    @ApiParam(optional = $helper.isOptionalParameter($parameter.Value), apiMethods = $helper.getApiMethodsForParam($models, $parameter.Value))
     private $helper.getCanonicalName($parameter.Value) $parameter.Key;
 #end
 ## getters and setters

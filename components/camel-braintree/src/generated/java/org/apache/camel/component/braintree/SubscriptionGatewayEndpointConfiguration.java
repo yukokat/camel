@@ -20,25 +20,25 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class SubscriptionGatewayEndpointConfiguration extends BraintreeConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "retryCharge")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "retryCharge")})
     private java.math.BigDecimal amount;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "delete")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "delete")})
     private String customerId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "cancel", description="Of the Subscription to cancel"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "find", description="The id of the Subscription"), @ApiMethod(methodName = "update", description="The id of the Subscription")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "cancel", description="Of the Subscription to cancel"), @ApiMethod(methodName = "delete"), @ApiMethod(methodName = "find", description="The id of the Subscription"), @ApiMethod(methodName = "update", description="The id of the Subscription")})
     private String id;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "create", description="The request"), @ApiMethod(methodName = "update", description="The request")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "create", description="The request"), @ApiMethod(methodName = "update", description="The request")})
     private com.braintreegateway.SubscriptionRequest request;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "search", description="The SubscriptionSearchRequest")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "search", description="The SubscriptionSearchRequest")})
     private com.braintreegateway.SubscriptionSearchRequest searchRequest;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "retryCharge")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "retryCharge")})
     private Boolean submitForSettlement;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "retryCharge")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "retryCharge")})
     private String subscriptionId;
 
     public java.math.BigDecimal getAmount() {

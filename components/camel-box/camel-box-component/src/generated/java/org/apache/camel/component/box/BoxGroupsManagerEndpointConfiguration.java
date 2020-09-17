@@ -20,40 +20,40 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class BoxGroupsManagerEndpointConfiguration extends BoxConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createGroup", description="The description of the new group")})
+    @ApiParam(optional = true, apiMethods = {@ApiMethod(methodName = "createGroup", description="The description of the new group")})
     private String description;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createGroup", description="The external_sync_identifier of the new group")})
+    @ApiParam(optional = true, apiMethods = {@ApiMethod(methodName = "createGroup", description="The external_sync_identifier of the new group")})
     private String externalSyncIdentifier;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "addGroupMembership", description="The id of group"), @ApiMethod(methodName = "deleteGroup", description="The id of group to delete"), @ApiMethod(methodName = "getGroupInfo", description="The id of group"), @ApiMethod(methodName = "getGroupMemberships", description="The id of group"), @ApiMethod(methodName = "updateGroupInfo", description="The id of group to update")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "addGroupMembership", description="The id of group"), @ApiMethod(methodName = "deleteGroup", description="The id of group to delete"), @ApiMethod(methodName = "getGroupInfo", description="The id of group"), @ApiMethod(methodName = "getGroupMemberships", description="The id of group"), @ApiMethod(methodName = "updateGroupInfo", description="The id of group to update")})
     private String groupId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "updateGroupInfo", description="The updated information")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "updateGroupInfo", description="The updated information")})
     private com.box.sdk.BoxGroup.Info groupInfo;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "deleteGroupMembership", description="The id of group membership to delete"), @ApiMethod(methodName = "getGroupMembershipInfo", description="The id of group membership"), @ApiMethod(methodName = "updateGroupMembershipInfo", description="The id of group membership to update")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "deleteGroupMembership", description="The id of group membership to delete"), @ApiMethod(methodName = "getGroupMembershipInfo", description="The id of group membership"), @ApiMethod(methodName = "updateGroupMembershipInfo", description="The id of group membership to update")})
     private String groupMembershipId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "updateGroupMembershipInfo", description="The updated information")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "updateGroupMembershipInfo", description="The updated information")})
     private com.box.sdk.BoxGroupMembership.Info info;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createGroup", description="The invitibility_level of the new group")})
+    @ApiParam(optional = true, apiMethods = {@ApiMethod(methodName = "createGroup", description="The invitibility_level of the new group")})
     private String invitabilityLevel;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createGroup", description="The member_viewability_level of the new group")})
+    @ApiParam(optional = true, apiMethods = {@ApiMethod(methodName = "createGroup", description="The member_viewability_level of the new group")})
     private String memberViewabilityLevel;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createGroup", description="The name of the new group")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "createGroup", description="The name of the new group")})
     private String name;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "createGroup", description="The provenance of the new group")})
+    @ApiParam(optional = true, apiMethods = {@ApiMethod(methodName = "createGroup", description="The provenance of the new group")})
     private String provenance;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "addGroupMembership", description="The role of the user in this group. Can be null to assign the default role.")})
+    @ApiParam(optional = true, apiMethods = {@ApiMethod(methodName = "addGroupMembership", description="The role of the user in this group. Can be null to assign the default role.")})
     private com.box.sdk.BoxGroupMembership.Role role;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "addGroupMembership", description="The id of user to be added to group")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "addGroupMembership", description="The id of user to be added to group")})
     private String userId;
 
     public String getDescription() {

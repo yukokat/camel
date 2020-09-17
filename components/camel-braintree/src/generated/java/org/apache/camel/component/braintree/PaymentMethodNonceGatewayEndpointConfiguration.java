@@ -20,13 +20,13 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class PaymentMethodNonceGatewayEndpointConfiguration extends BraintreeConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "find")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "find")})
     private String paymentMethodNonce;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "create")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "create")})
     private String paymentMethodToken;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "create")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "create")})
     private com.braintreegateway.PaymentMethodNonceRequest request;
 
     public String getPaymentMethodNonce() {

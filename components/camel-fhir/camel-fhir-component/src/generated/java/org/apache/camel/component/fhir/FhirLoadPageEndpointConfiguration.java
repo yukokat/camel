@@ -20,16 +20,16 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class FhirLoadPageEndpointConfiguration extends FhirConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "next", description="The IBaseBundle"), @ApiMethod(methodName = "previous", description="The IBaseBundle")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "next", description="The IBaseBundle"), @ApiMethod(methodName = "previous", description="The IBaseBundle")})
     private org.hl7.fhir.instance.model.api.IBaseBundle bundle;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "byUrl", description="See ExtraParameters for a full list of parameters that can be passed, may be NULL"), @ApiMethod(methodName = "next", description="See ExtraParameters for a full list of parameters that can be passed, may be NULL"), @ApiMethod(methodName = "previous", description="See ExtraParameters for a full list of parameters that can be passed, may be NULL")})
+    @ApiParam(optional = true, apiMethods = {@ApiMethod(methodName = "byUrl", description="See ExtraParameters for a full list of parameters that can be passed, may be NULL"), @ApiMethod(methodName = "next", description="See ExtraParameters for a full list of parameters that can be passed, may be NULL"), @ApiMethod(methodName = "previous", description="See ExtraParameters for a full list of parameters that can be passed, may be NULL")})
     private java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "byUrl", description="The return type")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "byUrl", description="The return type")})
     private Class<org.hl7.fhir.instance.model.api.IBaseBundle> returnType;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "byUrl", description="The search url")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "byUrl", description="The search url")})
     private String url;
 
     public org.hl7.fhir.instance.model.api.IBaseBundle getBundle() {

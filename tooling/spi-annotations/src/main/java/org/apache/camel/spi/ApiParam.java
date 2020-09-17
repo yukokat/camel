@@ -39,6 +39,11 @@ public @interface ApiParam {
     ApiMethod[] apiMethods();
 
     /**
+     * Whether the parameter is optional (in some rare circumstances the parameter may be required)
+     */
+    boolean optional() default false;
+
+    /**
      * Returns a description of this parameter.
      * <p/>
      * This is used for documentation and tooling only.

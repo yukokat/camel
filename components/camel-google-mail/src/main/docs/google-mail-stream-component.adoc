@@ -188,21 +188,19 @@ The users API method(s) has the following set of parameters listed in the table 
 [width="100%",cols="2,2,4,2",options="header"]
 |===
 | Method | Parameter | Description | Type
-| getProfile | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
-| stop | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
-| watch | *content* | The com.google.api.services.gmail.model.WatchRequest | WatchRequest
-| watch | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| getProfile | *userId* |  The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| stop | *userId* |  The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| watch | *content* |  The com.google.api.services.gmail.model.WatchRequest | WatchRequest
+| watch | *userId* |  The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
 |===
 
 In addition to the parameters above, the users API can also use from the 30 endpoint query option
 which is listed in the _Query Parameters_ section.
 
-==== Message headers and body
-
 Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
-The message header name must be of the format `CamelGoogle-mail-stream.parameter`.
+The message header name must be of the format `CamelGoogleMailStream.parameter`.
 The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
-would override a `CamelGoogle-mail-stream.myParameterNameHere` header.
+would override a `CamelGoogleMailStream.myParameterNameHere` header.
 
 
 
@@ -253,29 +251,27 @@ The threads API method(s) has the following set of parameters listed in the tabl
 [width="100%",cols="2,2,4,2",options="header"]
 |===
 | Method | Parameter | Description | Type
-| delete | *id* | ID of the Thread to delete | String
-| delete | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
-| get | *id* | The ID of the thread to retrieve | String
-| get | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
-| list | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
-| modify | *content* | The com.google.api.services.gmail.model.ModifyThreadRequest | ModifyThreadRequest
-| modify | *id* | The ID of the thread to modify | String
-| modify | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
-| trash | *id* | The ID of the thread to Trash | String
-| trash | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
-| untrash | *id* | The ID of the thread to remove from Trash | String
-| untrash | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| delete | *id* |  ID of the Thread to delete | String
+| delete | *userId* |  The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| get | *id* |  The ID of the thread to retrieve | String
+| get | *userId* |  The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| list | *userId* |  The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| modify | *content* |  The com.google.api.services.gmail.model.ModifyThreadRequest | ModifyThreadRequest
+| modify | *id* |  The ID of the thread to modify | String
+| modify | *userId* |  The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| trash | *id* |  The ID of the thread to Trash | String
+| trash | *userId* |  The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| untrash | *id* |  The ID of the thread to remove from Trash | String
+| untrash | *userId* |  The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
 |===
 
 In addition to the parameters above, the threads API can also use from the 30 endpoint query option
 which is listed in the _Query Parameters_ section.
 
-==== Message headers and body
-
 Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
-The message header name must be of the format `CamelGoogle-mail-stream.parameter`.
+The message header name must be of the format `CamelGoogleMailStream.parameter`.
 The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
-would override a `CamelGoogle-mail-stream.myParameterNameHere` header.
+would override a `CamelGoogleMailStream.myParameterNameHere` header.
 
 
 
@@ -332,32 +328,30 @@ The drafts API method(s) has the following set of parameters listed in the table
 [width="100%",cols="2,2,4,2",options="header"]
 |===
 | Method | Parameter | Description | Type
-| create | *content* | The com.google.api.services.gmail.model.Draft media metadata or null if none | Draft
-| create | *mediaContent* | The media HTTP content or null if none | AbstractInputStreamContent
-| create | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
-| delete | *id* | The ID of the draft to delete | String
-| delete | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
-| get | *id* | The ID of the draft to retrieve | String
-| get | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
-| list | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
-| send | *content* | The com.google.api.services.gmail.model.Draft media metadata or null if none | Draft
-| send | *mediaContent* | The media HTTP content or null if none | AbstractInputStreamContent
-| send | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
-| update | *content* | The com.google.api.services.gmail.model.Draft media metadata or null if none | Draft
-| update | *id* |  | String
-| update | *mediaContent* | The media HTTP content or null if none | AbstractInputStreamContent
-| update | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| create | *content* |  The com.google.api.services.gmail.model.Draft media metadata or null if none | Draft
+| create | *mediaContent* |  The media HTTP content or null if none | AbstractInputStreamContent
+| create | *userId* |  The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| delete | *id* |  The ID of the draft to delete | String
+| delete | *userId* |  The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| get | *id* |  The ID of the draft to retrieve | String
+| get | *userId* |  The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| list | *userId* |  The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| send | *content* |  The com.google.api.services.gmail.model.Draft media metadata or null if none | Draft
+| send | *mediaContent* |  The media HTTP content or null if none | AbstractInputStreamContent
+| send | *userId* |  The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| update | *content* |  The com.google.api.services.gmail.model.Draft media metadata or null if none | Draft
+| update | *id* |   | String
+| update | *mediaContent* |  The media HTTP content or null if none | AbstractInputStreamContent
+| update | *userId* |  The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
 |===
 
 In addition to the parameters above, the drafts API can also use from the 30 endpoint query option
 which is listed in the _Query Parameters_ section.
 
-==== Message headers and body
-
 Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
-The message header name must be of the format `CamelGoogle-mail-stream.parameter`.
+The message header name must be of the format `CamelGoogleMailStream.parameter`.
 The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
-would override a `CamelGoogle-mail-stream.myParameterNameHere` header.
+would override a `CamelGoogleMailStream.myParameterNameHere` header.
 
 
 
@@ -408,30 +402,28 @@ The labels API method(s) has the following set of parameters listed in the table
 [width="100%",cols="2,2,4,2",options="header"]
 |===
 | Method | Parameter | Description | Type
-| create | *content* | The com.google.api.services.gmail.model.Label | Label
-| create | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
-| delete | *id* | The ID of the label to delete | String
-| delete | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
-| get | *id* | The ID of the label to retrieve | String
-| get | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
-| list | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
-| patch | *content* | The com.google.api.services.gmail.model.Label | Label
-| patch | *id* | The ID of the label to update | String
-| patch | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
-| update | *content* | The com.google.api.services.gmail.model.Label | Label
-| update | *id* | The ID of the label to update | String
-| update | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| create | *content* |  The com.google.api.services.gmail.model.Label | Label
+| create | *userId* |  The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| delete | *id* |  The ID of the label to delete | String
+| delete | *userId* |  The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| get | *id* |  The ID of the label to retrieve | String
+| get | *userId* |  The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| list | *userId* |  The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| patch | *content* |  The com.google.api.services.gmail.model.Label | Label
+| patch | *id* |  The ID of the label to update | String
+| patch | *userId* |  The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| update | *content* |  The com.google.api.services.gmail.model.Label | Label
+| update | *id* |  The ID of the label to update | String
+| update | *userId* |  The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
 |===
 
 In addition to the parameters above, the labels API can also use from the 30 endpoint query option
 which is listed in the _Query Parameters_ section.
 
-==== Message headers and body
-
 Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
-The message header name must be of the format `CamelGoogle-mail-stream.parameter`.
+The message header name must be of the format `CamelGoogleMailStream.parameter`.
 The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
-would override a `CamelGoogle-mail-stream.myParameterNameHere` header.
+would override a `CamelGoogleMailStream.myParameterNameHere` header.
 
 
 
@@ -467,18 +459,16 @@ The history API method(s) has the following set of parameters listed in the tabl
 [width="100%",cols="2,2,4,2",options="header"]
 |===
 | Method | Parameter | Description | Type
-| list | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| list | *userId* |  The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
 |===
 
 In addition to the parameters above, the history API can also use from the 30 endpoint query option
 which is listed in the _Query Parameters_ section.
 
-==== Message headers and body
-
 Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
-The message header name must be of the format `CamelGoogle-mail-stream.parameter`.
+The message header name must be of the format `CamelGoogleMailStream.parameter`.
 The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
-would override a `CamelGoogle-mail-stream.myParameterNameHere` header.
+would override a `CamelGoogleMailStream.myParameterNameHere` header.
 
 
 
@@ -514,20 +504,18 @@ The attachments API method(s) has the following set of parameters listed in the 
 [width="100%",cols="2,2,4,2",options="header"]
 |===
 | Method | Parameter | Description | Type
-| get | *id* | The ID of the attachment | String
-| get | *messageId* | The ID of the message containing the attachment | String
-| get | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| get | *id* |  The ID of the attachment | String
+| get | *messageId* |  The ID of the message containing the attachment | String
+| get | *userId* |  The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
 |===
 
 In addition to the parameters above, the attachments API can also use from the 30 endpoint query option
 which is listed in the _Query Parameters_ section.
 
-==== Message headers and body
-
 Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
-The message header name must be of the format `CamelGoogle-mail-stream.parameter`.
+The message header name must be of the format `CamelGoogleMailStream.parameter`.
 The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
-would override a `CamelGoogle-mail-stream.myParameterNameHere` header.
+would override a `CamelGoogleMailStream.myParameterNameHere` header.
 
 
 
@@ -599,42 +587,40 @@ The messages API method(s) has the following set of parameters listed in the tab
 [width="100%",cols="2,2,4,2",options="header"]
 |===
 | Method | Parameter | Description | Type
-| batchDelete | *batchDeleteMessagesRequest* | The com.google.api.services.gmail.model.BatchDeleteMessagesRequest | BatchDeleteMessagesRequest
-| batchDelete | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
-| batchModify | *batchModifyMessagesRequest* | The com.google.api.services.gmail.model.BatchModifyMessagesRequest | BatchModifyMessagesRequest
-| batchModify | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
-| delete | *id* | The ID of the message to delete | String
-| delete | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
-| get | *id* | The ID of the message to retrieve | String
-| get | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
-| gmailImport | *content* | The com.google.api.services.gmail.model.Message media metadata or null if none | Message
-| gmailImport | *mediaContent* | The media HTTP content or null if none | AbstractInputStreamContent
-| gmailImport | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
-| insert | *content* | The com.google.api.services.gmail.model.Message media metadata or null if none | Message
-| insert | *mediaContent* | The media HTTP content or null if none | AbstractInputStreamContent
-| insert | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
-| list | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
-| modify | *id* | The ID of the message to modify | String
-| modify | *modifyMessageRequest* | The com.google.api.services.gmail.model.ModifyMessageRequest | ModifyMessageRequest
-| modify | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
-| send | *content* | The com.google.api.services.gmail.model.Message media metadata or null if none | Message
-| send | *mediaContent* | The media HTTP content or null if none | AbstractInputStreamContent
-| send | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
-| trash | *id* | The ID of the message to Trash | String
-| trash | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
-| untrash | *id* | The ID of the message to remove from Trash | String
-| untrash | *userId* | The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| batchDelete | *batchDeleteMessagesRequest* |  The com.google.api.services.gmail.model.BatchDeleteMessagesRequest | BatchDeleteMessagesRequest
+| batchDelete | *userId* |  The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| batchModify | *batchModifyMessagesRequest* |  The com.google.api.services.gmail.model.BatchModifyMessagesRequest | BatchModifyMessagesRequest
+| batchModify | *userId* |  The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| delete | *id* |  The ID of the message to delete | String
+| delete | *userId* |  The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| get | *id* |  The ID of the message to retrieve | String
+| get | *userId* |  The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| gmailImport | *content* |  The com.google.api.services.gmail.model.Message media metadata or null if none | Message
+| gmailImport | *mediaContent* |  The media HTTP content or null if none | AbstractInputStreamContent
+| gmailImport | *userId* |  The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| insert | *content* |  The com.google.api.services.gmail.model.Message media metadata or null if none | Message
+| insert | *mediaContent* |  The media HTTP content or null if none | AbstractInputStreamContent
+| insert | *userId* |  The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| list | *userId* |  The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| modify | *id* |  The ID of the message to modify | String
+| modify | *modifyMessageRequest* |  The com.google.api.services.gmail.model.ModifyMessageRequest | ModifyMessageRequest
+| modify | *userId* |  The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| send | *content* |  The com.google.api.services.gmail.model.Message media metadata or null if none | Message
+| send | *mediaContent* |  The media HTTP content or null if none | AbstractInputStreamContent
+| send | *userId* |  The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| trash | *id* |  The ID of the message to Trash | String
+| trash | *userId* |  The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
+| untrash | *id* |  The ID of the message to remove from Trash | String
+| untrash | *userId* |  The user's email address. The special value me can be used to indicate the authenticated user. default: me | String
 |===
 
 In addition to the parameters above, the messages API can also use from the 30 endpoint query option
 which is listed in the _Query Parameters_ section.
 
-==== Message headers and body
-
 Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
-The message header name must be of the format `CamelGoogle-mail-stream.parameter`.
+The message header name must be of the format `CamelGoogleMailStream.parameter`.
 The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
-would override a `CamelGoogle-mail-stream.myParameterNameHere` header.
+would override a `CamelGoogleMailStream.myParameterNameHere` header.
 // endpoint options: END
 
 

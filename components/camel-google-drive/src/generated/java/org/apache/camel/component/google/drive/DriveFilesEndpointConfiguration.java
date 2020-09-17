@@ -20,19 +20,19 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class DriveFilesEndpointConfiguration extends GoogleDriveConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "copy", description="The com.google.api.services.drive.model.File"), @ApiMethod(methodName = "insert", description="The com.google.api.services.drive.model.File media metadata or null if none"), @ApiMethod(methodName = "patch", description="The com.google.api.services.drive.model.File"), @ApiMethod(methodName = "update", description="The com.google.api.services.drive.model.File media metadata or null if none")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "copy", description="The com.google.api.services.drive.model.File"), @ApiMethod(methodName = "insert", description="The com.google.api.services.drive.model.File media metadata or null if none"), @ApiMethod(methodName = "patch", description="The com.google.api.services.drive.model.File"), @ApiMethod(methodName = "update", description="The com.google.api.services.drive.model.File media metadata or null if none")})
     private com.google.api.services.drive.model.File content;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "watch", description="The com.google.api.services.drive.model.Channel")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "watch", description="The com.google.api.services.drive.model.Channel")})
     private com.google.api.services.drive.model.Channel contentChannel;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "copy", description="The ID of the file to copy"), @ApiMethod(methodName = "delete", description="The ID of the file to delete"), @ApiMethod(methodName = "export", description="The ID of the file"), @ApiMethod(methodName = "get", description="The ID for the file in question"), @ApiMethod(methodName = "patch", description="The ID of the file to update"), @ApiMethod(methodName = "touch", description="The ID of the file to update"), @ApiMethod(methodName = "trash", description="The ID of the file to trash"), @ApiMethod(methodName = "untrash", description="The ID of the file to untrash"), @ApiMethod(methodName = "update", description="The ID of the file to update"), @ApiMethod(methodName = "watch", description="The ID for the file in question")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "copy", description="The ID of the file to copy"), @ApiMethod(methodName = "delete", description="The ID of the file to delete"), @ApiMethod(methodName = "export", description="The ID of the file"), @ApiMethod(methodName = "get", description="The ID for the file in question"), @ApiMethod(methodName = "patch", description="The ID of the file to update"), @ApiMethod(methodName = "touch", description="The ID of the file to update"), @ApiMethod(methodName = "trash", description="The ID of the file to trash"), @ApiMethod(methodName = "untrash", description="The ID of the file to untrash"), @ApiMethod(methodName = "update", description="The ID of the file to update"), @ApiMethod(methodName = "watch", description="The ID for the file in question")})
     private String fileId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "insert", description="The media HTTP content or null if none"), @ApiMethod(methodName = "update", description="The media HTTP content or null if none")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "insert", description="The media HTTP content or null if none"), @ApiMethod(methodName = "update", description="The media HTTP content or null if none")})
     private com.google.api.client.http.AbstractInputStreamContent mediaContent;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "export", description="The MIME type of the format requested for this export")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "export", description="The MIME type of the format requested for this export")})
     private String mimeType;
 
     public com.google.api.services.drive.model.File getContent() {

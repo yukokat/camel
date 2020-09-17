@@ -20,7 +20,7 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class AS2ServerManagerEndpointConfiguration extends AS2Configuration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "listen")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "listen")})
     private String requestUriPattern;
 
     public String getRequestUriPattern() {

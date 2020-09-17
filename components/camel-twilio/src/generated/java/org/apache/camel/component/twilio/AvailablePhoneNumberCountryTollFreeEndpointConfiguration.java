@@ -20,10 +20,10 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class AvailablePhoneNumberCountryTollFreeEndpointConfiguration extends TwilioConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "reader", description="The SID of the Account requesting the AvailablePhoneNumber resources")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "reader", description="The SID of the Account requesting the AvailablePhoneNumber resources")})
     private String pathAccountSid;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "reader", description="The ISO Country code of the country from which to read phone numbers"), @ApiMethod(methodName = "reader", description="The ISO Country code of the country from which to read phone numbers")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "reader", description="The ISO Country code of the country from which to read phone numbers"), @ApiMethod(methodName = "reader", description="The ISO Country code of the country from which to read phone numbers")})
     private String pathCountryCode;
 
     public String getPathAccountSid() {

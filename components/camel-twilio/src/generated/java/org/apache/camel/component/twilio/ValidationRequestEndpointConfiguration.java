@@ -20,10 +20,10 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class ValidationRequestEndpointConfiguration extends TwilioConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The SID of the Account responsible for the new Caller ID")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "creator", description="The SID of the Account responsible for the new Caller ID")})
     private String pathAccountSid;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The phone number to verify in E.164 format"), @ApiMethod(methodName = "creator", description="The phone number to verify in E.164 format")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "creator", description="The phone number to verify in E.164 format"), @ApiMethod(methodName = "creator", description="The phone number to verify in E.164 format")})
     private com.twilio.type.PhoneNumber phoneNumber;
 
     public String getPathAccountSid() {

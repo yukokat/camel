@@ -20,10 +20,10 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class FhirCapabilitiesEndpointConfiguration extends FhirConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "ofType", description="See ExtraParameters for a full list of parameters that can be passed, may be NULL")})
+    @ApiParam(optional = true, apiMethods = {@ApiMethod(methodName = "ofType", description="See ExtraParameters for a full list of parameters that can be passed, may be NULL")})
     private java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "ofType", description="The model type")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "ofType", description="The model type")})
     private Class<org.hl7.fhir.instance.model.api.IBaseConformance> type;
 
     public java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> getExtraParameters() {

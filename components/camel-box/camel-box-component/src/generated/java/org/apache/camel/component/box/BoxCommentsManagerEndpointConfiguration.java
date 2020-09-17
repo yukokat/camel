@@ -20,13 +20,13 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class BoxCommentsManagerEndpointConfiguration extends BoxConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "changeCommentMessage", description="The id of comment to change"), @ApiMethod(methodName = "deleteComment", description="The id of comment to delete"), @ApiMethod(methodName = "getCommentInfo", description="The id of comment"), @ApiMethod(methodName = "replyToComment", description="The id of comment to reply to")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "changeCommentMessage", description="The id of comment to change"), @ApiMethod(methodName = "deleteComment", description="The id of comment to delete"), @ApiMethod(methodName = "getCommentInfo", description="The id of comment"), @ApiMethod(methodName = "replyToComment", description="The id of comment to reply to")})
     private String commentId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "addFileComment", description="The id of file"), @ApiMethod(methodName = "getFileComments", description="The id of file")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "addFileComment", description="The id of file"), @ApiMethod(methodName = "getFileComments", description="The id of file")})
     private String fileId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "addFileComment", description="The comment's message"), @ApiMethod(methodName = "changeCommentMessage", description="The new message for the comment"), @ApiMethod(methodName = "replyToComment", description="The message for the reply")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "addFileComment", description="The comment's message"), @ApiMethod(methodName = "changeCommentMessage", description="The new message for the comment"), @ApiMethod(methodName = "replyToComment", description="The message for the reply")})
     private String message;
 
     public String getCommentId() {

@@ -20,19 +20,19 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class FhirMetaEndpointConfiguration extends FhirConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "add", description="See ExtraParameters for a full list of parameters that can be passed, may be NULL"), @ApiMethod(methodName = "delete", description="See ExtraParameters for a full list of parameters that can be passed, may be NULL"), @ApiMethod(methodName = "getFromResource", description="See ExtraParameters for a full list of parameters that can be passed, may be NULL"), @ApiMethod(methodName = "getFromServer", description="See ExtraParameters for a full list of parameters that can be passed, may be NULL"), @ApiMethod(methodName = "getFromType", description="See ExtraParameters for a full list of parameters that can be passed, may be NULL")})
+    @ApiParam(optional = true, apiMethods = {@ApiMethod(methodName = "add", description="See ExtraParameters for a full list of parameters that can be passed, may be NULL"), @ApiMethod(methodName = "delete", description="See ExtraParameters for a full list of parameters that can be passed, may be NULL"), @ApiMethod(methodName = "getFromResource", description="See ExtraParameters for a full list of parameters that can be passed, may be NULL"), @ApiMethod(methodName = "getFromServer", description="See ExtraParameters for a full list of parameters that can be passed, may be NULL"), @ApiMethod(methodName = "getFromType", description="See ExtraParameters for a full list of parameters that can be passed, may be NULL")})
     private java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> extraParameters;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "add", description="The id"), @ApiMethod(methodName = "delete", description="The id"), @ApiMethod(methodName = "getFromResource", description="The id")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "add", description="The id"), @ApiMethod(methodName = "delete", description="The id"), @ApiMethod(methodName = "getFromResource", description="The id")})
     private org.hl7.fhir.instance.model.api.IIdType id;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "add", description="The IBaseMetaType class"), @ApiMethod(methodName = "delete", description="The IBaseMetaType class")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "add", description="The IBaseMetaType class"), @ApiMethod(methodName = "delete", description="The IBaseMetaType class")})
     private org.hl7.fhir.instance.model.api.IBaseMetaType meta;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "getFromResource", description="The IBaseMetaType class"), @ApiMethod(methodName = "getFromServer", description="The type of the meta datatype for the given FHIR model version (should be MetaDt.class or MetaType.class)"), @ApiMethod(methodName = "getFromType", description="The IBaseMetaType class")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "getFromResource", description="The IBaseMetaType class"), @ApiMethod(methodName = "getFromServer", description="The type of the meta datatype for the given FHIR model version (should be MetaDt.class or MetaType.class)"), @ApiMethod(methodName = "getFromType", description="The IBaseMetaType class")})
     private Class<org.hl7.fhir.instance.model.api.IBaseMetaType> metaType;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "getFromType", description="The resource type e.g Patient")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "getFromType", description="The resource type e.g Patient")})
     private String resourceType;
 
     public java.util.Map<org.apache.camel.component.fhir.api.ExtraParameters, Object> getExtraParameters() {

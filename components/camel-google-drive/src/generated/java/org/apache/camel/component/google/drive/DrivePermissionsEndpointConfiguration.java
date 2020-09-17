@@ -20,16 +20,16 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class DrivePermissionsEndpointConfiguration extends GoogleDriveConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "insert", description="The com.google.api.services.drive.model.Permission"), @ApiMethod(methodName = "patch", description="The com.google.api.services.drive.model.Permission"), @ApiMethod(methodName = "update", description="The com.google.api.services.drive.model.Permission")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "insert", description="The com.google.api.services.drive.model.Permission"), @ApiMethod(methodName = "patch", description="The com.google.api.services.drive.model.Permission"), @ApiMethod(methodName = "update", description="The com.google.api.services.drive.model.Permission")})
     private com.google.api.services.drive.model.Permission content;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "getIdForEmail", description="The email address for which to return a permission ID")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "getIdForEmail", description="The email address for which to return a permission ID")})
     private String email;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "delete", description="The ID for the file or Team Drive"), @ApiMethod(methodName = "get", description="The ID for the file or Team Drive"), @ApiMethod(methodName = "insert", description="The ID for the file or Team Drive"), @ApiMethod(methodName = "list", description="The ID for the file or Team Drive"), @ApiMethod(methodName = "patch", description="The ID for the file or Team Drive"), @ApiMethod(methodName = "update", description="The ID for the file or Team Drive")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "delete", description="The ID for the file or Team Drive"), @ApiMethod(methodName = "get", description="The ID for the file or Team Drive"), @ApiMethod(methodName = "insert", description="The ID for the file or Team Drive"), @ApiMethod(methodName = "list", description="The ID for the file or Team Drive"), @ApiMethod(methodName = "patch", description="The ID for the file or Team Drive"), @ApiMethod(methodName = "update", description="The ID for the file or Team Drive")})
     private String fileId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "delete", description="The ID for the permission"), @ApiMethod(methodName = "get", description="The ID for the permission"), @ApiMethod(methodName = "patch", description="The ID for the permission"), @ApiMethod(methodName = "update", description="The ID for the permission")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "delete", description="The ID for the permission"), @ApiMethod(methodName = "get", description="The ID for the permission"), @ApiMethod(methodName = "patch", description="The ID for the permission"), @ApiMethod(methodName = "update", description="The ID for the permission")})
     private String permissionId;
 
     public com.google.api.services.drive.model.Permission getContent() {

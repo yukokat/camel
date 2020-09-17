@@ -20,7 +20,7 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class DocumentUploadGatewayEndpointConfiguration extends BraintreeConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "create")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "create")})
     private com.braintreegateway.DocumentUploadRequest request;
 
     public com.braintreegateway.DocumentUploadRequest getRequest() {

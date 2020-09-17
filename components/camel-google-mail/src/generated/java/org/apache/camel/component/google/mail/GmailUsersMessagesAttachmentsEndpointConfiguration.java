@@ -20,13 +20,13 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class GmailUsersMessagesAttachmentsEndpointConfiguration extends GoogleMailConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "get", description="The ID of the attachment")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "get", description="The ID of the attachment")})
     private String id;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "get", description="The ID of the message containing the attachment")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "get", description="The ID of the message containing the attachment")})
     private String messageId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "get", description="The user's email address. The special value me can be used to indicate the authenticated user. default: me")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "get", description="The user's email address. The special value me can be used to indicate the authenticated user. default: me")})
     private String userId;
 
     public String getId() {

@@ -20,13 +20,13 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class MessageMediaEndpointConfiguration extends TwilioConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "deleter", description="The SID of the Account that created the resource(s) to delete"), @ApiMethod(methodName = "fetcher", description="The SID of the Account that created the resource(s) to fetch"), @ApiMethod(methodName = "reader", description="The SID of the Account that created the resource(s) to read")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "deleter", description="The SID of the Account that created the resource(s) to delete"), @ApiMethod(methodName = "fetcher", description="The SID of the Account that created the resource(s) to fetch"), @ApiMethod(methodName = "reader", description="The SID of the Account that created the resource(s) to read")})
     private String pathAccountSid;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "deleter", description="The SID of the Message resource that this Media resource belongs to"), @ApiMethod(methodName = "deleter", description="The SID of the Message resource that this Media resource belongs to"), @ApiMethod(methodName = "fetcher", description="The SID of the Message resource that this Media resource belongs to"), @ApiMethod(methodName = "fetcher", description="The SID of the Message resource that this Media resource belongs to"), @ApiMethod(methodName = "reader", description="The SID of the Message resource that this Media resource belongs to"), @ApiMethod(methodName = "reader", description="The SID of the Message resource that this Media resource belongs to")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "deleter", description="The SID of the Message resource that this Media resource belongs to"), @ApiMethod(methodName = "deleter", description="The SID of the Message resource that this Media resource belongs to"), @ApiMethod(methodName = "fetcher", description="The SID of the Message resource that this Media resource belongs to"), @ApiMethod(methodName = "fetcher", description="The SID of the Message resource that this Media resource belongs to"), @ApiMethod(methodName = "reader", description="The SID of the Message resource that this Media resource belongs to"), @ApiMethod(methodName = "reader", description="The SID of the Message resource that this Media resource belongs to")})
     private String pathMessageSid;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "deleter", description="The unique string that identifies this resource"), @ApiMethod(methodName = "fetcher", description="The unique string that identifies this resource")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "deleter", description="The unique string that identifies this resource"), @ApiMethod(methodName = "fetcher", description="The unique string that identifies this resource")})
     private String pathSid;
 
     public String getPathAccountSid() {

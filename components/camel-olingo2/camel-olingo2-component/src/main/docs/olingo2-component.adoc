@@ -217,49 +217,47 @@ The DEFAULT API method(s) has the following set of parameters listed in the tabl
 [width="100%",cols="2,2,4,2",options="header"]
 |===
 | Method | Parameter | Description | Type
-| batch | *data* | Ordered org.apache.camel.component.olingo2.api.batch.Olingo2BatchRequest list | Object
-| batch | *edm* | Service Edm | Edm
-| batch | *endpointHttpHeaders* | HTTP Headers to add/override the component versions | Map
-| batch | *responseHandler* | Callback handler | Olingo2ResponseHandler
-| create | *data* | Request data | Object
-| create | *edm* | Service Edm | Edm
-| create | *endpointHttpHeaders* | HTTP Headers to add/override the component versions | Map
-| create | *resourcePath* | Resource path to create | String
-| create | *responseHandler* | Callback handler | Olingo2ResponseHandler
-| delete | *endpointHttpHeaders* | HTTP Headers to add/override the component versions | Map
-| delete | *resourcePath* | Resource path for Entry | String
-| delete | *responseHandler* | Org.apache.olingo.odata2.api.commons.HttpStatusCodes callback handler | Olingo2ResponseHandler
-| merge | *data* | Patch/merge data | Object
-| merge | *edm* | Service Edm | Edm
-| merge | *endpointHttpHeaders* | HTTP Headers to add/override the component versions | Map
-| merge | *resourcePath* | Resource path to update | String
-| merge | *responseHandler* | Org.apache.olingo.odata2.api.ep.entry.ODataEntry callback handler | Olingo2ResponseHandler
-| patch | *data* | Patch/merge data | Object
-| patch | *edm* | Service Edm | Edm
-| patch | *endpointHttpHeaders* | HTTP Headers to add/override the component versions | Map
-| patch | *resourcePath* | Resource path to update | String
-| patch | *responseHandler* | Org.apache.olingo.odata2.api.ep.entry.ODataEntry callback handler | Olingo2ResponseHandler
-| read | *edm* | Service Edm, read from calling read(null, \$metdata, null, responseHandler) | Edm
-| read | *endpointHttpHeaders* | HTTP Headers to add/override the component versions | Map
-| read | *queryParams* | OData query params from \http://www.odata.org/documentation/odata-version-2-0/uri-conventions#SystemQueryOptions | Map
-| read | *resourcePath* | OData Resource path | String
-| read | *responseHandler* | Callback handler | Olingo2ResponseHandler
-| update | *data* | Updated data | Object
-| update | *edm* | Service Edm | Edm
-| update | *endpointHttpHeaders* | HTTP Headers to add/override the component versions | Map
-| update | *resourcePath* | Resource path to update | String
-| update | *responseHandler* | Org.apache.olingo.odata2.api.ep.entry.ODataEntry callback handler | Olingo2ResponseHandler
-| uread | *edm* | Service Edm, read from calling read(null, \$metdata, null, responseHandler) | Edm
-| uread | *endpointHttpHeaders* | HTTP Headers to add/override the component versions | Map
-| uread | *queryParams* | OData query params from \http://www.odata.org/documentation/odata-version-2-0/uri-conventions#SystemQueryOptions | Map
-| uread | *resourcePath* | OData Resource path | String
-| uread | *responseHandler* | Callback handler | Olingo2ResponseHandler
+| batch | *data* |  Ordered org.apache.camel.component.olingo2.api.batch.Olingo2BatchRequest list | Object
+| batch | *edm* | *Optional*  Service Edm | Edm
+| batch | *endpointHttpHeaders* | *Optional*  HTTP Headers to add/override the component versions | Map
+| batch | *responseHandler* | *Optional*  Callback handler | Olingo2ResponseHandler
+| create | *data* |  Request data | Object
+| create | *edm* | *Optional*  Service Edm | Edm
+| create | *endpointHttpHeaders* | *Optional*  HTTP Headers to add/override the component versions | Map
+| create | *resourcePath* |  Resource path to create | String
+| create | *responseHandler* | *Optional*  Callback handler | Olingo2ResponseHandler
+| delete | *endpointHttpHeaders* | *Optional*  HTTP Headers to add/override the component versions | Map
+| delete | *resourcePath* |  Resource path for Entry | String
+| delete | *responseHandler* | *Optional*  Org.apache.olingo.odata2.api.commons.HttpStatusCodes callback handler | Olingo2ResponseHandler
+| merge | *data* |  Patch/merge data | Object
+| merge | *edm* | *Optional*  Service Edm | Edm
+| merge | *endpointHttpHeaders* | *Optional*  HTTP Headers to add/override the component versions | Map
+| merge | *resourcePath* |  Resource path to update | String
+| merge | *responseHandler* | *Optional*  Org.apache.olingo.odata2.api.ep.entry.ODataEntry callback handler | Olingo2ResponseHandler
+| patch | *data* |  Patch/merge data | Object
+| patch | *edm* | *Optional*  Service Edm | Edm
+| patch | *endpointHttpHeaders* | *Optional*  HTTP Headers to add/override the component versions | Map
+| patch | *resourcePath* |  Resource path to update | String
+| patch | *responseHandler* | *Optional*  Org.apache.olingo.odata2.api.ep.entry.ODataEntry callback handler | Olingo2ResponseHandler
+| read | *edm* | *Optional*  Service Edm, read from calling read(null, \$metdata, null, responseHandler) | Edm
+| read | *endpointHttpHeaders* | *Optional*  HTTP Headers to add/override the component versions | Map
+| read | *queryParams* | *Optional*  OData query params from \http://www.odata.org/documentation/odata-version-2-0/uri-conventions#SystemQueryOptions | Map
+| read | *resourcePath* |  OData Resource path | String
+| read | *responseHandler* | *Optional*  Callback handler | Olingo2ResponseHandler
+| update | *data* |  Updated data | Object
+| update | *edm* | *Optional*  Service Edm | Edm
+| update | *endpointHttpHeaders* | *Optional*  HTTP Headers to add/override the component versions | Map
+| update | *resourcePath* |  Resource path to update | String
+| update | *responseHandler* | *Optional*  Org.apache.olingo.odata2.api.ep.entry.ODataEntry callback handler | Olingo2ResponseHandler
+| uread | *edm* | *Optional*  Service Edm, read from calling read(null, \$metdata, null, responseHandler) | Edm
+| uread | *endpointHttpHeaders* | *Optional*  HTTP Headers to add/override the component versions | Map
+| uread | *queryParams* | *Optional*  OData query params from \http://www.odata.org/documentation/odata-version-2-0/uri-conventions#SystemQueryOptions | Map
+| uread | *resourcePath* |  OData Resource path | String
+| uread | *responseHandler* | *Optional*  Callback handler | Olingo2ResponseHandler
 |===
 
 In addition to the parameters above, the DEFAULT API can also use from the 36 endpoint query option
 which is listed in the _Query Parameters_ section.
-
-==== Message headers and body
 
 Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
 The message header name must be of the format `CamelOlingo2.parameter`.

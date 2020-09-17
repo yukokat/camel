@@ -20,22 +20,22 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class BoxCollaborationsManagerEndpointConfiguration extends BoxConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "deleteCollaboration", description="The id of comment to change"), @ApiMethod(methodName = "getCollaborationInfo", description="The id of collaboration"), @ApiMethod(methodName = "updateCollaborationInfo", description="The id of collaboration")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "deleteCollaboration", description="The id of comment to change"), @ApiMethod(methodName = "getCollaborationInfo", description="The id of collaboration"), @ApiMethod(methodName = "updateCollaborationInfo", description="The id of collaboration")})
     private String collaborationId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "addFolderCollaboration", description="The collaborator to add")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "addFolderCollaboration", description="The collaborator to add")})
     private com.box.sdk.BoxCollaborator collaborator;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "addFolderCollaborationByEmail", description="The email address of the collaborator to add")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "addFolderCollaborationByEmail", description="The email address of the collaborator to add")})
     private String email;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "addFolderCollaboration", description="The id of folder to add collaboration to"), @ApiMethod(methodName = "addFolderCollaborationByEmail", description="The id of folder to add collaboration to"), @ApiMethod(methodName = "getFolderCollaborations", description="The id of folder to get collaborations information on")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "addFolderCollaboration", description="The id of folder to add collaboration to"), @ApiMethod(methodName = "addFolderCollaborationByEmail", description="The id of folder to add collaboration to"), @ApiMethod(methodName = "getFolderCollaborations", description="The id of folder to get collaborations information on")})
     private String folderId;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "updateCollaborationInfo")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "updateCollaborationInfo")})
     private com.box.sdk.BoxCollaboration.Info info;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "addFolderCollaboration", description="The role of the collaborator"), @ApiMethod(methodName = "addFolderCollaborationByEmail", description="The role of the collaborator")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "addFolderCollaboration", description="The role of the collaborator"), @ApiMethod(methodName = "addFolderCollaborationByEmail", description="The role of the collaborator")})
     private com.box.sdk.BoxCollaboration.Role role;
 
     public String getCollaborationId() {

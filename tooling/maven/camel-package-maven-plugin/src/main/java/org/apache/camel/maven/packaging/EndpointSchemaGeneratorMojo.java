@@ -1157,6 +1157,7 @@ public class EndpointSchemaGeneratorMojo extends AbstractGeneratorMojo {
                                 apiMethod.addApiOptionModel(copy);
                                 // the option description is stored on @ApiMethod
                                 copy.setDescription(method.description());
+                                copy.setOptional(apiParam.optional());
                             }
                         } else {
                             option.setKind("parameter");

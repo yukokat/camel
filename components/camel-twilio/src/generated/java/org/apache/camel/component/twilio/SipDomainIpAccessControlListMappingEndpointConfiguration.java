@@ -20,16 +20,16 @@ import org.apache.camel.spi.UriParams;
 @Configurer
 public final class SipDomainIpAccessControlListMappingEndpointConfiguration extends TwilioConfiguration {
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The unique id of the IP access control list to map to the SIP domain")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "creator", description="The unique id of the IP access control list to map to the SIP domain")})
     private String ipAccessControlListSid;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="The unique id of the Account that is responsible for this resource"), @ApiMethod(methodName = "deleter", description="The unique id of the Account that is responsible for this resource"), @ApiMethod(methodName = "fetcher", description="The unique id of the Account that is responsible for this resource"), @ApiMethod(methodName = "reader", description="The unique id of the Account that is responsible for this resource")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "creator", description="The unique id of the Account that is responsible for this resource"), @ApiMethod(methodName = "deleter", description="The unique id of the Account that is responsible for this resource"), @ApiMethod(methodName = "fetcher", description="The unique id of the Account that is responsible for this resource"), @ApiMethod(methodName = "reader", description="The unique id of the Account that is responsible for this resource")})
     private String pathAccountSid;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "creator", description="A string that uniquely identifies the SIP Domain"), @ApiMethod(methodName = "creator", description="A string that uniquely identifies the SIP Domain"), @ApiMethod(methodName = "deleter", description="A string that uniquely identifies the SIP Domain"), @ApiMethod(methodName = "deleter", description="A string that uniquely identifies the SIP Domain"), @ApiMethod(methodName = "fetcher", description="A string that uniquely identifies the SIP Domain"), @ApiMethod(methodName = "fetcher", description="A string that uniquely identifies the SIP Domain"), @ApiMethod(methodName = "reader", description="A string that uniquely identifies the SIP Domain"), @ApiMethod(methodName = "reader", description="A string that uniquely identifies the SIP Domain")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "creator", description="A string that uniquely identifies the SIP Domain"), @ApiMethod(methodName = "creator", description="A string that uniquely identifies the SIP Domain"), @ApiMethod(methodName = "deleter", description="A string that uniquely identifies the SIP Domain"), @ApiMethod(methodName = "deleter", description="A string that uniquely identifies the SIP Domain"), @ApiMethod(methodName = "fetcher", description="A string that uniquely identifies the SIP Domain"), @ApiMethod(methodName = "fetcher", description="A string that uniquely identifies the SIP Domain"), @ApiMethod(methodName = "reader", description="A string that uniquely identifies the SIP Domain"), @ApiMethod(methodName = "reader", description="A string that uniquely identifies the SIP Domain")})
     private String pathDomainSid;
     @UriParam
-    @ApiParam(apiMethods = {@ApiMethod(methodName = "deleter", description="A 34 character string that uniquely identifies the resource to delete."), @ApiMethod(methodName = "fetcher", description="A 34 character string that uniquely identifies the resource to fetch.")})
+    @ApiParam(optional = false, apiMethods = {@ApiMethod(methodName = "deleter", description="A 34 character string that uniquely identifies the resource to delete."), @ApiMethod(methodName = "fetcher", description="A 34 character string that uniquely identifies the resource to fetch.")})
     private String pathSid;
 
     public String getIpAccessControlListSid() {
