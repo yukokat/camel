@@ -59,13 +59,20 @@ The @{api.name} API has @{api.methods.size} method(s) which is represented by th
 @end{}@end{}
 ----
 
-API methods can have a shorthand alias name which can be used in the syntax instead of the name.
+The @{api.methods.size} method(s) is listed in the table below.
+(API methods can have a shorthand alias name which can be used in the syntax instead of the name)
 
-The API methods has the following set of options listed in the following table:
+[width="100%",cols="2,2,6",options="header"]
+|===@comment{ Render table cells. If description contains newline, prefix cell with `a`, so the content is rendered with formatting. }
+| Method | Alias | Description
+@foreach{method : api.methods}| *@{method.name}* | @{util.apiMethodAlias(api, method)} | @{method.description}
+@end{}|===
+
+The API methods has the following set of options listed in the table below:
 [width="100%",cols="2,2,4,2",options="header"]
 |===@comment{ Render table cells. If description contains newline, prefix cell with `a`, so the content is rendered with formatting. }
-| Method / Alias | Name | Description | Type
-@foreach{method : api.methods}@foreach{row : method.options}| @{util.apiMethodNameWithAlias(api, method)} | *@{row.getShortName(30)}* @{row.description.?contains("\n") ? "a" : ""}| @{util.escape(row.description)} | @{row.getShortJavaType()}
+| Method | Name | Description | Type
+@foreach{method : api.methods}@foreach{row : method.options}| @{method.name} | *@{row.getShortName(30)}* @{row.description.?contains("\n") ? "a" : ""}| @{util.escape(row.description)} | @{row.getShortJavaType()}
 @end{}@end{}|===
 
 

@@ -52,7 +52,7 @@ public final class MvelHelper {
         return signature + ";";
     }
 
-    public static String apiMethodNameWithAlias(ApiModel api, ApiMethodModel method) {
+    public static String apiMethodAlias(ApiModel api, ApiMethodModel method) {
         String name = method.getName();
         for (String alias : api.getAliases()) {
             int pos = alias.indexOf('=');
@@ -60,10 +60,10 @@ public final class MvelHelper {
             String aliasMethod = alias.substring(pos + 1);
             // match ignore case
             if (Pattern.compile(pattern, Pattern.CASE_INSENSITIVE).matcher(name).matches()) {
-                name += " + \n " + aliasMethod;
-                break;
+                return aliasMethod;
             }
         }
-        return name;
+        // empty if no alias
+        return "";
     }
 }
