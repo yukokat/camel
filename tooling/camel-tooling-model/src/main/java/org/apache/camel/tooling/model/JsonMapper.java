@@ -108,6 +108,10 @@ public final class JsonMapper {
                 model.getApiOptions().add(am);
                 am.setName(name);
                 am.setDescription(mp.getString("description"));
+                Collection<String> aliases = mp.getCollection("aliases");
+                if (aliases != null && !aliases.isEmpty()) {
+                    aliases.forEach(am::addAlias);
+                }
                 JsonObject mm = (JsonObject) mp.get("methods");
                 if (mm != null) {
                     for (Map.Entry<String, Object> mme : mm.entrySet()) {
@@ -443,6 +447,9 @@ public final class JsonMapper {
             root.put(a.getName(), json);
             if (!options && a.getDescription() != null) {
                 json.put("description", a.getDescription());
+            }
+            if (!options && !a.getAliases().isEmpty()) {
+                json.put("aliases", new JsonArray(a.getAliases()));
             }
             Map<String, JsonObject> methods = new TreeMap<>();
             json.put("methods", methods);

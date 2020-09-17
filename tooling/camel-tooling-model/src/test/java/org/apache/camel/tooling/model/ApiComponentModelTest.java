@@ -40,6 +40,8 @@ public class ApiComponentModelTest {
         Assertions.assertNotNull(am);
         Assertions.assertEquals("call", am.getName());
         Assertions.assertEquals(null, am.getDescription());
+        Assertions.assertEquals(5, am.getAliases().size());
+        Assertions.assertEquals("^creator$=create", am.getAliases().get(0));
         ApiMethodModel amm = am.getMethods().stream().filter(a -> a.getName().equals("creator")).findFirst().orElse(null);
         Assertions.assertNotNull(amm);
         Assertions.assertEquals("creator", amm.getName());

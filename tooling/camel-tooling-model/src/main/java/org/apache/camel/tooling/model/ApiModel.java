@@ -23,6 +23,7 @@ public final class ApiModel {
 
     private String name;
     private String description;
+    private final List<String> aliases = new ArrayList<>();
     private final List<ApiMethodModel> methods = new ArrayList<>();
 
     public String getName() {
@@ -39,6 +40,14 @@ public final class ApiModel {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public List<String> getAliases() {
+        return aliases;
+    }
+
+    public void addAlias(String alias) {
+        this.aliases.add(alias);
     }
 
     public List<ApiMethodModel> getMethods() {

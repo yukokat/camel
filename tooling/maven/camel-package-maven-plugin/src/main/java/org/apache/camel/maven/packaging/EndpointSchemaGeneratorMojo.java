@@ -1120,6 +1120,11 @@ public class EndpointSchemaGeneratorMojo extends AbstractGeneratorMojo {
                             if (!op.isPresent()) {
                                 api = new ApiModel();
                                 componentModel.getApiOptions().add(api);
+                                if (apiParams != null) {
+                                    for (String alias : apiParams.aliases()) {
+                                        api.addAlias(alias);
+                                    }
+                                }
                             } else {
                                 api = op.get();
                             }
