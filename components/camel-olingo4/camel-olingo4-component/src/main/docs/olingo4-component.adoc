@@ -164,26 +164,59 @@ The following lists each API name and method and its additional parameters.
 ==== DEFAULT
 
 
-The DEFAULT has 9 API method(s) which is represented by the following method signatures
+The DEFAULT API has 9 method(s) which is represented by the following method signatures
 (an API method may have multiple signatures due to overloading):
 
+[source,java]
 ----
-void action(org.apache.olingo.commons.api.edm.Edm edm, String resourcePath, java.util.Map<String, String> endpointHttpHeaders, Object data, org.apache.camel.component.olingo4.api.Olingo4ResponseHandler responseHandler)
-void batch(org.apache.olingo.commons.api.edm.Edm edm, java.util.Map<String, String> endpointHttpHeaders, Object data, org.apache.camel.component.olingo4.api.Olingo4ResponseHandler<java.util.List<org.apache.camel.component.olingo4.api.batch.Olingo4BatchResponse>> responseHandler)
-void create(org.apache.olingo.commons.api.edm.Edm edm, String resourcePath, java.util.Map<String, String> endpointHttpHeaders, Object data, org.apache.camel.component.olingo4.api.Olingo4ResponseHandler responseHandler)
-void delete(String resourcePath, java.util.Map<String, String> endpointHttpHeaders, org.apache.camel.component.olingo4.api.Olingo4ResponseHandler<org.apache.olingo.commons.api.http.HttpStatusCode> responseHandler)
-void merge(org.apache.olingo.commons.api.edm.Edm edm, String resourcePath, java.util.Map<String, String> endpointHttpHeaders, Object data, org.apache.camel.component.olingo4.api.Olingo4ResponseHandler responseHandler)
-void patch(org.apache.olingo.commons.api.edm.Edm edm, String resourcePath, java.util.Map<String, String> endpointHttpHeaders, Object data, org.apache.camel.component.olingo4.api.Olingo4ResponseHandler responseHandler)
-void read(org.apache.olingo.commons.api.edm.Edm edm, String resourcePath, java.util.Map<String, String> queryParams, java.util.Map<String, String> endpointHttpHeaders, org.apache.camel.component.olingo4.api.Olingo4ResponseHandler responseHandler)
-void update(org.apache.olingo.commons.api.edm.Edm edm, String resourcePath, java.util.Map<String, String> endpointHttpHeaders, Object data, org.apache.camel.component.olingo4.api.Olingo4ResponseHandler responseHandler)
-void uread(org.apache.olingo.commons.api.edm.Edm edm, String resourcePath, java.util.Map<String, String> queryParams, java.util.Map<String, String> endpointHttpHeaders, org.apache.camel.component.olingo4.api.Olingo4ResponseHandler<java.io.InputStream> responseHandler)
+
+void action(org.apache.olingo.commons.api.edm.Edm edm, String resourcePath, java.util.Map<String, String> endpointHttpHeaders, Object data, org.apache.camel.component.olingo4.api.Olingo4ResponseHandler responseHandler);
+
+void batch(org.apache.olingo.commons.api.edm.Edm edm, java.util.Map<String, String> endpointHttpHeaders, Object data, org.apache.camel.component.olingo4.api.Olingo4ResponseHandler<java.util.List<org.apache.camel.component.olingo4.api.batch.Olingo4BatchResponse>> responseHandler);
+
+void create(org.apache.olingo.commons.api.edm.Edm edm, String resourcePath, java.util.Map<String, String> endpointHttpHeaders, Object data, org.apache.camel.component.olingo4.api.Olingo4ResponseHandler responseHandler);
+
+void delete(String resourcePath, java.util.Map<String, String> endpointHttpHeaders, org.apache.camel.component.olingo4.api.Olingo4ResponseHandler<org.apache.olingo.commons.api.http.HttpStatusCode> responseHandler);
+
+void merge(org.apache.olingo.commons.api.edm.Edm edm, String resourcePath, java.util.Map<String, String> endpointHttpHeaders, Object data, org.apache.camel.component.olingo4.api.Olingo4ResponseHandler responseHandler);
+
+void patch(org.apache.olingo.commons.api.edm.Edm edm, String resourcePath, java.util.Map<String, String> endpointHttpHeaders, Object data, org.apache.camel.component.olingo4.api.Olingo4ResponseHandler responseHandler);
+
+void read(org.apache.olingo.commons.api.edm.Edm edm, String resourcePath, java.util.Map<String, String> queryParams, java.util.Map<String, String> endpointHttpHeaders, org.apache.camel.component.olingo4.api.Olingo4ResponseHandler responseHandler);
+
+void update(org.apache.olingo.commons.api.edm.Edm edm, String resourcePath, java.util.Map<String, String> endpointHttpHeaders, Object data, org.apache.camel.component.olingo4.api.Olingo4ResponseHandler responseHandler);
+
+void uread(org.apache.olingo.commons.api.edm.Edm edm, String resourcePath, java.util.Map<String, String> queryParams, java.util.Map<String, String> endpointHttpHeaders, org.apache.camel.component.olingo4.api.Olingo4ResponseHandler<java.io.InputStream> responseHandler);
 
 ----
 
-The API methods has the following set of options listed in the following table:
-[width="100%",cols="1,2,5,2",options="header"]
+The DEFAULT API is defined in the syntax as follows:
+
+----
+olingo4:DEFAULT/methodName?[parameters]
+----
+
+The 9 method(s) is listed in the table below.
+(API methods can have a shorthand alias name which can be used in the syntax instead of the name)
+
+[width="100%",cols="2,2,6",options="header"]
 |===
-| Method | Name | Description | Type
+| Method | Alias | Description
+| *action* |  | Calls a OData action
+| *batch* |  | Executes a batch request
+| *create* |  | Creates a new OData resource
+| *delete* |  | Deletes an OData resource and invokes callback with org
+| *merge* |  | Patches/merges an OData resource using HTTP MERGE
+| *patch* |  | Patches/merges an OData resource using HTTP PATCH
+| *read* |  | Reads an OData resource and invokes callback with appropriate result
+| *update* |  | Updates an OData resource
+| *uread* |  | Reads an OData resource and invokes callback with the unparsed input stream
+|===
+
+The DEFAULT API method(s) has the following set of parameters listed in the table below:
+[width="100%",cols="2,2,4,2",options="header"]
+|===
+| Method | Parameter | Description | Type
 | action | *data* | Action data | Object
 | action | *edm* | Service Edm | Edm
 | action | *endpointHttpHeaders* | HTTP Headers to add/override the component versions | Map
@@ -227,6 +260,9 @@ The API methods has the following set of options listed in the following table:
 | uread | *resourcePath* | OData Resource path | String
 | uread | *responseHandler* | Callback handler | Olingo4ResponseHandler
 |===
+
+In addition to the parameters above, the DEFAULT API can also use from the 34 endpoint query option
+which is listed in the _Query Parameters_ section.
 // endpoint options: END
 
 == Producer Endpoints

@@ -159,18 +159,35 @@ The following lists each API name and method and its additional parameters.
 ==== client
 
 
-The client has 1 API method(s) which is represented by the following method signatures
+The client API has 1 method(s) which is represented by the following method signatures
 (an API method may have multiple signatures due to overloading):
 
+[source,java]
 ----
-org.apache.http.protocol.HttpCoreContext send(String ediMessage, String requestUri, String subject, String from, String as2From, String as2To, org.apache.camel.component.as2.api.AS2MessageStructure as2MessageStructure, org.apache.http.entity.ContentType ediMessageContentType, String ediMessageTransferEncoding, org.apache.camel.component.as2.api.AS2SignatureAlgorithm signingAlgorithm, java.security.cert.Certificate[] signingCertificateChain, java.security.PrivateKey signingPrivateKey, org.apache.camel.component.as2.api.AS2CompressionAlgorithm compressionAlgorithm, String dispositionNotificationTo, String[] signedReceiptMicAlgorithms, org.apache.camel.component.as2.api.AS2EncryptionAlgorithm encryptingAlgorithm, java.security.cert.Certificate[] encryptingCertificateChain)
+
+org.apache.http.protocol.HttpCoreContext send(String ediMessage, String requestUri, String subject, String from, String as2From, String as2To, org.apache.camel.component.as2.api.AS2MessageStructure as2MessageStructure, org.apache.http.entity.ContentType ediMessageContentType, String ediMessageTransferEncoding, org.apache.camel.component.as2.api.AS2SignatureAlgorithm signingAlgorithm, java.security.cert.Certificate[] signingCertificateChain, java.security.PrivateKey signingPrivateKey, org.apache.camel.component.as2.api.AS2CompressionAlgorithm compressionAlgorithm, String dispositionNotificationTo, String[] signedReceiptMicAlgorithms, org.apache.camel.component.as2.api.AS2EncryptionAlgorithm encryptingAlgorithm, java.security.cert.Certificate[] encryptingCertificateChain);
 
 ----
 
-The API methods has the following set of options listed in the following table:
-[width="100%",cols="1,2,5,2",options="header"]
+The client API is defined in the syntax as follows:
+
+----
+as2:client/methodName?[parameters]
+----
+
+The 1 method(s) is listed in the table below.
+(API methods can have a shorthand alias name which can be used in the syntax instead of the name)
+
+[width="100%",cols="2,2,6",options="header"]
 |===
-| Method | Name | Description | Type
+| Method | Alias | Description
+| *send* |  | Send ediMessage to trading partner
+|===
+
+The client API method(s) has the following set of parameters listed in the table below:
+[width="100%",cols="2,2,4,2",options="header"]
+|===
+| Method | Parameter | Description | Type
 | send | *as2From* | AS2 name of sender | String
 | send | *as2MessageStructure* | The structure of AS2 to send; see AS2MessageStructure | AS2MessageStructure
 | send | *as2To* | AS2 name of recipient | String
@@ -190,26 +207,48 @@ The API methods has the following set of options listed in the following table:
 | send | *subject* | Message subject | String
 |===
 
+In addition to the parameters above, the client API can also use from the 49 endpoint query option
+which is listed in the _Query Parameters_ section.
 
 
 
 ==== server
 
 
-The server has 1 API method(s) which is represented by the following method signatures
+The server API has 1 method(s) which is represented by the following method signatures
 (an API method may have multiple signatures due to overloading):
 
+[source,java]
 ----
-void listen(String requestUriPattern, org.apache.http.protocol.HttpRequestHandler handler)
+
+void listen(String requestUriPattern, org.apache.http.protocol.HttpRequestHandler handler);
 
 ----
 
-The API methods has the following set of options listed in the following table:
-[width="100%",cols="1,2,5,2",options="header"]
+The server API is defined in the syntax as follows:
+
+----
+as2:server/methodName?[parameters]
+----
+
+The 1 method(s) is listed in the table below.
+(API methods can have a shorthand alias name which can be used in the syntax instead of the name)
+
+[width="100%",cols="2,2,6",options="header"]
 |===
-| Method | Name | Description | Type
+| Method | Alias | Description
+| *listen* |  | 
+|===
+
+The server API method(s) has the following set of parameters listed in the table below:
+[width="100%",cols="2,2,4,2",options="header"]
+|===
+| Method | Parameter | Description | Type
 | listen | *requestUriPattern* |  | String
 |===
+
+In addition to the parameters above, the server API can also use from the 49 endpoint query option
+which is listed in the _Query Parameters_ section.
 // endpoint options: END
 
 

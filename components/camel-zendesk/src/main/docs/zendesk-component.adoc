@@ -123,327 +123,873 @@ The following lists each API name and method and its additional parameters.
 ==== DEFAULT
 
 
-The DEFAULT has 221 API method(s) which is represented by the following method signatures
+The DEFAULT API has 221 method(s) which is represented by the following method signatures
 (an API method may have multiple signatures due to overloading):
 
+[source,java]
 ----
-java.util.List<String> addTagToOrganisations(long id, String[] tags)
-java.util.List<String> addTagToTicket(long id, String[] tags)
-java.util.List<String> addTagToTopics(long id, String[] tags)
-void associateAttachmentsToArticle(String idArticle, java.util.List<org.zendesk.client.v2.model.Attachment> attachments)
-void changeUserPassword(org.zendesk.client.v2.model.User user, String oldPassword, String newPassword)
-org.zendesk.client.v2.model.hc.Article createArticle(org.zendesk.client.v2.model.hc.Article article)
-org.zendesk.client.v2.model.hc.Article createArticle(org.zendesk.client.v2.model.hc.Article article, boolean notifySubscribers)
-org.zendesk.client.v2.model.hc.Translation createArticleTranslation(Long articleId, org.zendesk.client.v2.model.hc.Translation translation)
-org.zendesk.client.v2.model.Automation createAutomation(org.zendesk.client.v2.model.Automation automation)
-org.zendesk.client.v2.model.hc.Category createCategory(org.zendesk.client.v2.model.hc.Category category)
-org.zendesk.client.v2.model.hc.Translation createCategoryTranslation(Long categoryId, org.zendesk.client.v2.model.hc.Translation translation)
-org.zendesk.client.v2.model.Ticket createComment(long ticketId, org.zendesk.client.v2.model.Comment comment)
-org.zendesk.client.v2.model.dynamic.DynamicContentItem createDynamicContentItem(org.zendesk.client.v2.model.dynamic.DynamicContentItem item)
-org.zendesk.client.v2.model.dynamic.DynamicContentItemVariant createDynamicContentItemVariant(Long itemId, org.zendesk.client.v2.model.dynamic.DynamicContentItemVariant variant)
-org.zendesk.client.v2.model.Forum createForum(org.zendesk.client.v2.model.Forum forum)
-org.zendesk.client.v2.model.Group createGroup(org.zendesk.client.v2.model.Group group)
-org.zendesk.client.v2.model.GroupMembership createGroupMembership(long user_id, org.zendesk.client.v2.model.GroupMembership groupMembership)
-org.zendesk.client.v2.model.GroupMembership createGroupMembership(org.zendesk.client.v2.model.GroupMembership groupMembership)
-org.zendesk.client.v2.model.Macro createMacro(org.zendesk.client.v2.model.Macro macro)
-org.zendesk.client.v2.model.User createOrUpdateUser(org.zendesk.client.v2.model.User user)
-org.zendesk.client.v2.model.JobStatus createOrUpdateUsers(java.util.List<org.zendesk.client.v2.model.User> users)
-org.zendesk.client.v2.model.JobStatus createOrUpdateUsers(org.zendesk.client.v2.model.User[] users)
-org.asynchttpclient.ListenableFuture<org.zendesk.client.v2.model.JobStatus> createOrUpdateUsersAsync(java.util.List<org.zendesk.client.v2.model.User> users)
-org.zendesk.client.v2.model.Organization createOrganization(org.zendesk.client.v2.model.Organization organization)
-org.zendesk.client.v2.model.OrganizationMembership createOrganizationMembership(long user_id, org.zendesk.client.v2.model.OrganizationMembership organizationMembership)
-org.zendesk.client.v2.model.OrganizationMembership createOrganizationMembership(org.zendesk.client.v2.model.OrganizationMembership organizationMembership)
-org.zendesk.client.v2.model.JobStatus createOrganizationMemberships(java.util.List<org.zendesk.client.v2.model.OrganizationMembership> organizationMemberships)
-org.zendesk.client.v2.model.JobStatus createOrganizationMemberships(org.zendesk.client.v2.model.OrganizationMembership[] organizationMemberships)
-org.asynchttpclient.ListenableFuture<org.zendesk.client.v2.model.JobStatus> createOrganizationMembershipsAsync(java.util.List<org.zendesk.client.v2.model.OrganizationMembership> organizationMemberships)
-org.zendesk.client.v2.model.JobStatus createOrganizations(java.util.List<org.zendesk.client.v2.model.Organization> organizations)
-org.zendesk.client.v2.model.JobStatus createOrganizations(org.zendesk.client.v2.model.Organization[] organizations)
-org.asynchttpclient.ListenableFuture<org.zendesk.client.v2.model.JobStatus> createOrganizationsAsync(java.util.List<org.zendesk.client.v2.model.Organization> organizations)
-org.zendesk.client.v2.model.hc.PermissionGroup createPermissionGroup(org.zendesk.client.v2.model.hc.PermissionGroup permissionGroup)
-org.zendesk.client.v2.model.Request createRequest(org.zendesk.client.v2.model.Request request)
-org.zendesk.client.v2.model.SatisfactionRating createSatisfactionRating(long ticketId, org.zendesk.client.v2.model.SatisfactionRating satisfactionRating)
-org.zendesk.client.v2.model.SatisfactionRating createSatisfactionRating(org.zendesk.client.v2.model.Ticket ticket, org.zendesk.client.v2.model.SatisfactionRating satisfactionRating)
-org.zendesk.client.v2.model.hc.Section createSection(org.zendesk.client.v2.model.hc.Section section)
-org.zendesk.client.v2.model.hc.Translation createSectionTranslation(Long sectionId, org.zendesk.client.v2.model.hc.Translation translation)
-org.zendesk.client.v2.model.targets.Target createTarget(org.zendesk.client.v2.model.targets.Target target)
-org.zendesk.client.v2.model.Ticket createTicket(org.zendesk.client.v2.model.Ticket ticket)
-org.asynchttpclient.ListenableFuture<org.zendesk.client.v2.model.Ticket> createTicketAsync(org.zendesk.client.v2.model.Ticket ticket)
-org.zendesk.client.v2.model.Field createTicketField(org.zendesk.client.v2.model.Field field)
-org.zendesk.client.v2.model.TicketForm createTicketForm(org.zendesk.client.v2.model.TicketForm ticketForm)
-org.zendesk.client.v2.model.Ticket createTicketFromTweet(long tweetId, long monitorId)
-org.zendesk.client.v2.model.JobStatus createTickets(java.util.List<org.zendesk.client.v2.model.Ticket> tickets)
-org.zendesk.client.v2.model.JobStatus createTickets(org.zendesk.client.v2.model.Ticket[] tickets)
-org.asynchttpclient.ListenableFuture<org.zendesk.client.v2.model.JobStatus> createTicketsAsync(java.util.List<org.zendesk.client.v2.model.Ticket> tickets)
-org.zendesk.client.v2.model.Topic createTopic(org.zendesk.client.v2.model.Topic topic)
-org.zendesk.client.v2.model.Trigger createTrigger(org.zendesk.client.v2.model.Trigger trigger)
-org.zendesk.client.v2.model.Attachment$Upload createUpload(String fileName, String contentType, byte[] content)
-org.zendesk.client.v2.model.Attachment$Upload createUpload(String fileName, byte[] content)
-org.zendesk.client.v2.model.Attachment$Upload createUpload(String token, String fileName, String contentType, byte[] content)
-org.zendesk.client.v2.model.hc.ArticleAttachments createUploadArticle(long articleId, java.io.File file)
-org.zendesk.client.v2.model.hc.ArticleAttachments createUploadArticle(long articleId, java.io.File file, boolean inline)
-org.zendesk.client.v2.model.User createUser(org.zendesk.client.v2.model.User user)
-org.zendesk.client.v2.model.Identity createUserIdentity(long userId, org.zendesk.client.v2.model.Identity identity)
-org.zendesk.client.v2.model.Identity createUserIdentity(org.zendesk.client.v2.model.User user, org.zendesk.client.v2.model.Identity identity)
-org.zendesk.client.v2.model.hc.UserSegment createUserSegment(org.zendesk.client.v2.model.hc.UserSegment userSegment)
-org.zendesk.client.v2.model.JobStatus createUsers(java.util.List<org.zendesk.client.v2.model.User> users)
-org.zendesk.client.v2.model.JobStatus createUsers(org.zendesk.client.v2.model.User[] users)
-org.asynchttpclient.ListenableFuture<org.zendesk.client.v2.model.JobStatus> createUsersAsync(java.util.List<org.zendesk.client.v2.model.User> users)
-void deleteArticle(org.zendesk.client.v2.model.hc.Article article)
-void deleteArticleAttachment(long id)
-void deleteArticleAttachment(org.zendesk.client.v2.model.hc.ArticleAttachments attachment)
-void deleteAttachment(long id)
-void deleteAttachment(org.zendesk.client.v2.model.Attachment attachment)
-void deleteAutomation(long automationId)
-void deleteCategory(org.zendesk.client.v2.model.hc.Category category)
-void deleteDynamicContentItem(org.zendesk.client.v2.model.dynamic.DynamicContentItem item)
-void deleteDynamicContentItemVariant(Long itemId, org.zendesk.client.v2.model.dynamic.DynamicContentItemVariant variant)
-void deleteForum(org.zendesk.client.v2.model.Forum forum)
-void deleteGroup(long id)
-void deleteGroup(org.zendesk.client.v2.model.Group group)
-void deleteGroupMembership(long id)
-void deleteGroupMembership(long user_id, long group_membership_id)
-void deleteGroupMembership(long user_id, org.zendesk.client.v2.model.GroupMembership groupMembership)
-void deleteGroupMembership(org.zendesk.client.v2.model.GroupMembership groupMembership)
-void deleteOrganization(long id)
-void deleteOrganization(org.zendesk.client.v2.model.Organization organization)
-void deleteOrganizationMembership(long id)
-void deleteOrganizationMembership(long user_id, long organization_membership_id)
-void deleteOrganizationMembership(long user_id, org.zendesk.client.v2.model.OrganizationMembership organizationMembership)
-void deleteOrganizationMemberships(long id, long[] ids)
-void deletePermissionGroup(long id)
-void deletePermissionGroup(org.zendesk.client.v2.model.hc.PermissionGroup permissionGroup)
-void deleteSection(org.zendesk.client.v2.model.hc.Section section)
-void deleteSuspendedTicket(long id)
-void deleteSuspendedTicket(org.zendesk.client.v2.model.SuspendedTicket ticket)
-void deleteTarget(long targetId)
-void deleteTicket(long id)
-void deleteTicket(org.zendesk.client.v2.model.Ticket ticket)
-void deleteTicketField(long id)
-void deleteTicketField(org.zendesk.client.v2.model.Field field)
-void deleteTickets(long id, long[] ids)
-void deleteTopic(org.zendesk.client.v2.model.Topic topic)
-void deleteTranslation(Long translationId)
-void deleteTranslation(org.zendesk.client.v2.model.hc.Translation translation)
-void deleteTrigger(long triggerId)
-void deleteUpload(String token)
-void deleteUpload(org.zendesk.client.v2.model.Attachment$Upload upload)
-void deleteUser(long id)
-void deleteUser(org.zendesk.client.v2.model.User user)
-void deleteUserIdentity(long userId, long identityId)
-void deleteUserIdentity(org.zendesk.client.v2.model.User user, long identityId)
-void deleteUserIdentity(org.zendesk.client.v2.model.User user, org.zendesk.client.v2.model.Identity identity)
-void deleteUserSegment(long id)
-void deleteUserSegment(org.zendesk.client.v2.model.hc.UserSegment userSegment)
-org.zendesk.client.v2.model.hc.Article getArticle(long id)
-Iterable<org.zendesk.client.v2.model.hc.Article> getArticleFromSearch(String searchTerm)
-Iterable<org.zendesk.client.v2.model.hc.Article> getArticleFromSearch(String searchTerm, Long sectionId)
-Iterable<org.zendesk.client.v2.model.hc.Subscription> getArticleSubscriptions(Long articleId)
-Iterable<org.zendesk.client.v2.model.hc.Subscription> getArticleSubscriptions(Long articleId, String locale)
-Iterable<org.zendesk.client.v2.model.hc.Translation> getArticleTranslations(Long articleId)
-Iterable<org.zendesk.client.v2.model.hc.Article> getArticles()
-Iterable<org.zendesk.client.v2.model.hc.Article> getArticles(String locale)
-Iterable<org.zendesk.client.v2.model.hc.Article> getArticles(org.zendesk.client.v2.model.hc.Category category)
-Iterable<org.zendesk.client.v2.model.hc.Article> getArticles(org.zendesk.client.v2.model.hc.Section section)
-Iterable<org.zendesk.client.v2.model.hc.Article> getArticlesFromAllLabels(java.util.List<String> labels)
-Iterable<org.zendesk.client.v2.model.hc.Article> getArticlesFromAnyLabels(java.util.List<String> labels)
-java.util.List<org.zendesk.client.v2.model.hc.Article> getArticlesFromPage(int page)
-Iterable<org.zendesk.client.v2.model.hc.Article> getArticlesIncrementally(java.util.Date startTime)
-Iterable<org.zendesk.client.v2.model.GroupMembership> getAssignableGroupMemberships()
-java.util.List<org.zendesk.client.v2.model.GroupMembership> getAssignableGroupMemberships(long group_id)
-org.zendesk.client.v2.model.Attachment getAttachment(long id)
-org.zendesk.client.v2.model.Attachment getAttachment(org.zendesk.client.v2.model.Attachment attachment)
-java.util.List<org.zendesk.client.v2.model.hc.ArticleAttachments> getAttachmentsFromArticle(Long articleID)
-Iterable<org.zendesk.client.v2.model.Organization> getAutoCompleteOrganizations(String name)
-org.zendesk.client.v2.model.Automation getAutomation(long id)
-org.zendesk.client.v2.model.hc.Category getCategory(long id)
-Iterable<org.zendesk.client.v2.model.hc.Translation> getCategoryTranslations(Long categoryId)
-Iterable<org.zendesk.client.v2.model.ComplianceDeletionStatus> getComplianceDeletionStatuses(long userId)
-Iterable<org.zendesk.client.v2.model.DeletedTicket> getDeletedTickets()
-Iterable<org.zendesk.client.v2.model.DeletedTicket> getDeletedTickets(String sortBy, org.zendesk.client.v2.model.SortOrder sortOrder)
-org.zendesk.client.v2.model.dynamic.DynamicContentItem getDynamicContentItem(long id)
-org.zendesk.client.v2.model.dynamic.DynamicContentItemVariant getDynamicContentItemVariant(Long itemId, long id)
-Iterable<org.zendesk.client.v2.model.dynamic.DynamicContentItemVariant> getDynamicContentItemVariants(org.zendesk.client.v2.model.dynamic.DynamicContentItem item)
-org.zendesk.client.v2.model.Forum getForum(long id)
-Iterable<org.zendesk.client.v2.model.Forum> getForums()
-java.util.List<org.zendesk.client.v2.model.Forum> getForums(long category_id)
-org.zendesk.client.v2.model.Group getGroup(long id)
-org.zendesk.client.v2.model.GroupMembership getGroupMembership(long id)
-org.zendesk.client.v2.model.GroupMembership getGroupMembership(long user_id, long group_membership_id)
-java.util.List<org.zendesk.client.v2.model.GroupMembership> getGroupMembershipByUser(long user_id)
-Iterable<org.zendesk.client.v2.model.GroupMembership> getGroupMemberships()
-java.util.List<org.zendesk.client.v2.model.GroupMembership> getGroupMemberships(long group_id)
-org.zendesk.client.v2.model.OrganizationMembership getGroupOrganization(long user_id, long organization_membership_id)
-Iterable<org.zendesk.client.v2.model.User> getGroupUsers(long id)
-Iterable<org.zendesk.client.v2.model.schedules.Holiday> getHolidaysForSchedule(Long scheduleId)
-Iterable<org.zendesk.client.v2.model.schedules.Holiday> getHolidaysForSchedule(org.zendesk.client.v2.model.schedules.Schedule schedule)
-java.util.Map getIncrementalTicketsResult(long unixEpochTime)
-org.zendesk.client.v2.model.JobStatus getJobStatus(org.zendesk.client.v2.model.JobStatus status)
-org.asynchttpclient.ListenableFuture<org.zendesk.client.v2.model.JobStatus> getJobStatusAsync(org.zendesk.client.v2.model.JobStatus status)
-java.util.List<org.zendesk.client.v2.model.JobStatus> getJobStatuses(java.util.List<org.zendesk.client.v2.model.JobStatus> statuses)
-org.asynchttpclient.ListenableFuture<java.util.List<org.zendesk.client.v2.model.JobStatus>> getJobStatusesAsync(java.util.List<org.zendesk.client.v2.model.JobStatus> statuses)
-org.zendesk.client.v2.model.Macro getMacro(long macroId)
-org.zendesk.client.v2.model.Organization getOrganization(long id)
-org.zendesk.client.v2.model.OrganizationMembership getOrganizationMembership(long id)
-java.util.List<org.zendesk.client.v2.model.OrganizationMembership> getOrganizationMembershipByUser(long user_id)
-org.zendesk.client.v2.model.OrganizationMembership getOrganizationMembershipForUser(long user_id, long id)
-Iterable<org.zendesk.client.v2.model.OrganizationMembership> getOrganizationMembershipsForOrg(long organization_id)
-Iterable<org.zendesk.client.v2.model.OrganizationMembership> getOrganizationMembershipsForUser(long user_id)
-Iterable<org.zendesk.client.v2.model.Ticket> getOrganizationTickets(long organizationId)
-Iterable<org.zendesk.client.v2.model.User> getOrganizationUsers(long id)
-Iterable<org.zendesk.client.v2.model.Organization> getOrganizationsIncrementally(java.util.Date startTime)
-org.zendesk.client.v2.model.hc.PermissionGroup getPermissionGroup(long id)
-org.zendesk.client.v2.model.Request getRequest(long id)
-org.zendesk.client.v2.model.Comment getRequestComment(long requestId, long commentId)
-org.zendesk.client.v2.model.Comment getRequestComment(org.zendesk.client.v2.model.Request request, long commentId)
-org.zendesk.client.v2.model.Comment getRequestComment(org.zendesk.client.v2.model.Request request, org.zendesk.client.v2.model.Comment comment)
-Iterable<org.zendesk.client.v2.model.Comment> getRequestComments(long id)
-Iterable<org.zendesk.client.v2.model.Comment> getRequestComments(org.zendesk.client.v2.model.Request request)
-org.zendesk.client.v2.model.SatisfactionRating getSatisfactionRating(long id)
-org.zendesk.client.v2.model.schedules.Schedule getSchedule(Long scheduleId)
-org.zendesk.client.v2.model.schedules.Schedule getSchedule(org.zendesk.client.v2.model.schedules.Schedule schedule)
-Iterable<org.zendesk.client.v2.model.SearchResultEntity> getSearchResults(Class<org.zendesk.client.v2.model.SearchResultEntity> type, String query)
-Iterable<org.zendesk.client.v2.model.SearchResultEntity> getSearchResults(Class<org.zendesk.client.v2.model.SearchResultEntity> type, String query, String params)
-Iterable<org.zendesk.client.v2.model.SearchResultEntity> getSearchResults(Class<org.zendesk.client.v2.model.SearchResultEntity> type, String query, String sortBy, org.zendesk.client.v2.model.SortOrder sortOrder)
-Iterable<org.zendesk.client.v2.model.SearchResultEntity> getSearchResults(Class<org.zendesk.client.v2.model.SearchResultEntity> type, String query, java.util.Map<String, Object> params)
-Iterable<org.zendesk.client.v2.model.SearchResultEntity> getSearchResults(String query)
-org.zendesk.client.v2.model.hc.Section getSection(long id)
-Iterable<org.zendesk.client.v2.model.hc.Subscription> getSectionSubscriptions(Long sectionId)
-Iterable<org.zendesk.client.v2.model.hc.Subscription> getSectionSubscriptions(Long sectionId, String locale)
-Iterable<org.zendesk.client.v2.model.hc.Translation> getSectionTranslations(Long sectionId)
-Iterable<org.zendesk.client.v2.model.hc.Section> getSections()
-Iterable<org.zendesk.client.v2.model.hc.Section> getSections(org.zendesk.client.v2.model.hc.Category category)
-Iterable<org.zendesk.client.v2.model.hc.Section> getSections(org.zendesk.client.v2.model.hc.UserSegment userSegment)
-org.zendesk.client.v2.model.targets.Target getTarget(long id)
-org.zendesk.client.v2.model.Ticket getTicket(long id)
-org.zendesk.client.v2.model.Audit getTicketAudit(long ticketId, long auditId)
-org.zendesk.client.v2.model.Audit getTicketAudit(org.zendesk.client.v2.model.Ticket ticket, long id)
-org.zendesk.client.v2.model.Audit getTicketAudit(org.zendesk.client.v2.model.Ticket ticket, org.zendesk.client.v2.model.Audit audit)
-Iterable<org.zendesk.client.v2.model.Audit> getTicketAudits(Long id)
-Iterable<org.zendesk.client.v2.model.Audit> getTicketAudits(org.zendesk.client.v2.model.Ticket ticket)
-java.util.List<org.zendesk.client.v2.model.User> getTicketCollaborators(long id)
-Iterable<org.zendesk.client.v2.model.Comment> getTicketComments(long id)
-Iterable<org.zendesk.client.v2.model.Comment> getTicketComments(long id, org.zendesk.client.v2.model.SortOrder order)
-org.zendesk.client.v2.model.Field getTicketField(long id)
-org.zendesk.client.v2.model.TicketForm getTicketForm(long id)
-java.util.List<org.zendesk.client.v2.model.Ticket> getTicketIncidents(long id)
-org.zendesk.client.v2.model.Metric getTicketMetric(long id)
-org.zendesk.client.v2.model.Metric getTicketMetricByTicket(long id)
-Iterable<org.zendesk.client.v2.model.Ticket> getTickets()
-java.util.List<org.zendesk.client.v2.model.Ticket> getTickets(long id, long[] ids)
-Iterable<org.zendesk.client.v2.model.Ticket> getTicketsByExternalId(String externalId)
-Iterable<org.zendesk.client.v2.model.Ticket> getTicketsByExternalId(String externalId, boolean includeArchived)
-Iterable<org.zendesk.client.v2.model.Ticket> getTicketsFromSearch(String searchTerm)
-Iterable<org.zendesk.client.v2.model.Ticket> getTicketsIncrementally(java.util.Date startTime)
-Iterable<org.zendesk.client.v2.model.Ticket> getTicketsIncrementally(java.util.Date startTime, java.util.Date endTime)
-org.zendesk.client.v2.model.Topic getTopic(long id)
-Iterable<org.zendesk.client.v2.model.Topic> getTopics()
-Iterable<org.zendesk.client.v2.model.Topic> getTopics(org.zendesk.client.v2.model.hc.UserSegment userSegment)
-java.util.List<org.zendesk.client.v2.model.Topic> getTopics(long forum_id)
-java.util.List<org.zendesk.client.v2.model.Topic> getTopics(long id, long[] ids)
-java.util.List<org.zendesk.client.v2.model.Topic> getTopicsByUser(long user_id)
-org.zendesk.client.v2.model.Trigger getTrigger(long id)
-org.zendesk.client.v2.model.User getUser(long id)
-Iterable<org.zendesk.client.v2.model.Ticket> getUserCCDTickets(long userId)
-java.util.List<org.zendesk.client.v2.model.Identity> getUserIdentities(long userId)
-java.util.List<org.zendesk.client.v2.model.Identity> getUserIdentities(org.zendesk.client.v2.model.User user)
-org.zendesk.client.v2.model.Identity getUserIdentity(long userId, long identityId)
-org.zendesk.client.v2.model.Identity getUserIdentity(org.zendesk.client.v2.model.User user, long identityId)
-org.zendesk.client.v2.model.Identity getUserIdentity(org.zendesk.client.v2.model.User user, org.zendesk.client.v2.model.Identity identity)
-org.zendesk.client.v2.model.UserRelatedInfo getUserRelatedInfo(long userId)
-Iterable<org.zendesk.client.v2.model.Ticket> getUserRequestedTickets(long userId)
-Iterable<org.zendesk.client.v2.model.Request> getUserRequests(long id)
-Iterable<org.zendesk.client.v2.model.Request> getUserRequests(org.zendesk.client.v2.model.User user)
-org.zendesk.client.v2.model.hc.UserSegment getUserSegment(long id)
-Iterable<org.zendesk.client.v2.model.hc.UserSegment> getUserSegments()
-Iterable<org.zendesk.client.v2.model.hc.UserSegment> getUserSegments(long id)
-Iterable<org.zendesk.client.v2.model.hc.Subscription> getUserSubscriptions(Long userId)
-Iterable<org.zendesk.client.v2.model.hc.Subscription> getUserSubscriptions(org.zendesk.client.v2.model.User user)
-Iterable<org.zendesk.client.v2.model.User> getUsersByRole(String role, String[] roles)
-Iterable<org.zendesk.client.v2.model.User> getUsersIncrementally(java.util.Date startTime)
-org.zendesk.client.v2.model.Ticket importTicket(org.zendesk.client.v2.model.TicketImport ticketImport)
-org.zendesk.client.v2.model.Topic importTopic(org.zendesk.client.v2.model.Topic topic)
-Iterable<org.zendesk.client.v2.model.Organization> lookupOrganizationsByExternalId(String externalId)
-Iterable<org.zendesk.client.v2.model.User> lookupUserByEmail(String email)
-Iterable<org.zendesk.client.v2.model.User> lookupUserByExternalId(String externalId)
-org.zendesk.client.v2.model.Ticket macrosShowChangesToTicket(long macroId)
-org.zendesk.client.v2.model.Ticket macrosShowTicketAfterChanges(long ticketId, long macroId)
-void makePrivateTicketAudit(long ticketId, long auditId)
-void makePrivateTicketAudit(org.zendesk.client.v2.model.Ticket ticket, long id)
-void makePrivateTicketAudit(org.zendesk.client.v2.model.Ticket ticket, org.zendesk.client.v2.model.Audit audit)
-void markTicketAsSpam(long id)
-void markTicketAsSpam(org.zendesk.client.v2.model.Ticket ticket)
-org.zendesk.client.v2.model.User mergeUsers(long userIdThatWillRemain, long userIdThatWillBeMerged)
-void notifyApp(String json)
-org.zendesk.client.v2.model.JobStatus permanentlyDeleteTicket(long id)
-org.zendesk.client.v2.model.JobStatus permanentlyDeleteTicket(org.zendesk.client.v2.model.Ticket ticket)
-org.zendesk.client.v2.model.JobStatus permanentlyDeleteTickets(long id, long[] ids)
-org.zendesk.client.v2.model.User permanentlyDeleteUser(long id)
-org.zendesk.client.v2.model.User permanentlyDeleteUser(org.zendesk.client.v2.model.User user)
-org.asynchttpclient.ListenableFuture<org.zendesk.client.v2.model.JobStatus> queueCreateTicketAsync(org.zendesk.client.v2.model.Ticket ticket)
-java.util.List<String> removeTagFromOrganisations(long id, String[] tags)
-java.util.List<String> removeTagFromTicket(long id, String[] tags)
-java.util.List<String> removeTagFromTopics(long id, String[] tags)
-org.zendesk.client.v2.model.Identity requestVerifyUserIdentity(long userId, long identityId)
-org.zendesk.client.v2.model.Identity requestVerifyUserIdentity(org.zendesk.client.v2.model.User user, long identityId)
-org.zendesk.client.v2.model.Identity requestVerifyUserIdentity(org.zendesk.client.v2.model.User user, org.zendesk.client.v2.model.Identity identity)
-void resetUserPassword(long id, String password)
-void resetUserPassword(org.zendesk.client.v2.model.User user, String password)
-java.util.List<org.zendesk.client.v2.model.GroupMembership> setGroupMembershipAsDefault(long user_id, org.zendesk.client.v2.model.GroupMembership groupMembership)
-java.util.List<org.zendesk.client.v2.model.OrganizationMembership> setOrganizationMembershipAsDefault(long user_id, org.zendesk.client.v2.model.OrganizationMembership organizationMembership)
-java.util.List<String> setTagOnOrganisations(long id, String[] tags)
-java.util.List<String> setTagOnTicket(long id, String[] tags)
-java.util.List<String> setTagOnTopics(long id, String[] tags)
-java.util.List<org.zendesk.client.v2.model.Identity> setUserPrimaryIdentity(long userId, long identityId)
-java.util.List<org.zendesk.client.v2.model.Identity> setUserPrimaryIdentity(org.zendesk.client.v2.model.User user, long identityId)
-java.util.List<org.zendesk.client.v2.model.Identity> setUserPrimaryIdentity(org.zendesk.client.v2.model.User user, org.zendesk.client.v2.model.Identity identity)
-org.zendesk.client.v2.model.User suspendUser(long id)
-void trustTicketAudit(long ticketId, long auditId)
-void trustTicketAudit(org.zendesk.client.v2.model.Ticket ticket, long id)
-void trustTicketAudit(org.zendesk.client.v2.model.Ticket ticket, org.zendesk.client.v2.model.Audit audit)
-org.zendesk.client.v2.model.User unsuspendUser(long id)
-org.zendesk.client.v2.model.hc.Article updateArticle(org.zendesk.client.v2.model.hc.Article article)
-org.zendesk.client.v2.model.hc.Translation updateArticleTranslation(Long articleId, String locale, org.zendesk.client.v2.model.hc.Translation translation)
-org.zendesk.client.v2.model.Automation updateAutomation(Long automationId, org.zendesk.client.v2.model.Automation automation)
-org.zendesk.client.v2.model.hc.Category updateCategory(org.zendesk.client.v2.model.hc.Category category)
-org.zendesk.client.v2.model.hc.Translation updateCategoryTranslation(Long categoryId, String locale, org.zendesk.client.v2.model.hc.Translation translation)
-org.zendesk.client.v2.model.dynamic.DynamicContentItem updateDynamicContentItem(org.zendesk.client.v2.model.dynamic.DynamicContentItem item)
-org.zendesk.client.v2.model.dynamic.DynamicContentItemVariant updateDynamicContentItemVariant(Long itemId, org.zendesk.client.v2.model.dynamic.DynamicContentItemVariant variant)
-org.zendesk.client.v2.model.Forum updateForum(org.zendesk.client.v2.model.Forum forum)
-org.zendesk.client.v2.model.Group updateGroup(org.zendesk.client.v2.model.Group group)
-void updateInstallation(int id, String json)
-org.zendesk.client.v2.model.Macro updateMacro(Long macroId, org.zendesk.client.v2.model.Macro macro)
-org.zendesk.client.v2.model.Organization updateOrganization(org.zendesk.client.v2.model.Organization organization)
-org.zendesk.client.v2.model.JobStatus updateOrganizations(java.util.List<org.zendesk.client.v2.model.Organization> organizations)
-org.zendesk.client.v2.model.JobStatus updateOrganizations(org.zendesk.client.v2.model.Organization[] organizations)
-org.asynchttpclient.ListenableFuture<org.zendesk.client.v2.model.JobStatus> updateOrganizationsAsync(java.util.List<org.zendesk.client.v2.model.Organization> organizations)
-org.zendesk.client.v2.model.hc.PermissionGroup updatePermissionGroup(org.zendesk.client.v2.model.hc.PermissionGroup permissionGroup)
-org.zendesk.client.v2.model.Request updateRequest(org.zendesk.client.v2.model.Request request)
-org.zendesk.client.v2.model.hc.Section updateSection(org.zendesk.client.v2.model.hc.Section section)
-org.zendesk.client.v2.model.hc.Translation updateSectionTranslation(Long sectionId, String locale, org.zendesk.client.v2.model.hc.Translation translation)
-org.zendesk.client.v2.model.Ticket updateTicket(org.zendesk.client.v2.model.Ticket ticket)
-org.zendesk.client.v2.model.Field updateTicketField(org.zendesk.client.v2.model.Field field)
-org.zendesk.client.v2.model.JobStatus updateTickets(java.util.List<org.zendesk.client.v2.model.Ticket> tickets)
-org.zendesk.client.v2.model.JobStatus updateTickets(org.zendesk.client.v2.model.Ticket[] tickets)
-org.asynchttpclient.ListenableFuture<org.zendesk.client.v2.model.JobStatus> updateTicketsAsync(java.util.List<org.zendesk.client.v2.model.Ticket> tickets)
-org.zendesk.client.v2.model.Topic updateTopic(org.zendesk.client.v2.model.Topic topic)
-org.zendesk.client.v2.model.Trigger updateTrigger(Long triggerId, org.zendesk.client.v2.model.Trigger trigger)
-org.zendesk.client.v2.model.User updateUser(org.zendesk.client.v2.model.User user)
-org.zendesk.client.v2.model.Identity updateUserIdentity(long userId, org.zendesk.client.v2.model.Identity identity)
-org.zendesk.client.v2.model.Identity updateUserIdentity(org.zendesk.client.v2.model.User user, org.zendesk.client.v2.model.Identity identity)
-org.zendesk.client.v2.model.hc.UserSegment updateUserSegment(org.zendesk.client.v2.model.hc.UserSegment userSegment)
-org.zendesk.client.v2.model.JobStatus updateUsers(java.util.List<org.zendesk.client.v2.model.User> users)
-org.zendesk.client.v2.model.JobStatus updateUsers(org.zendesk.client.v2.model.User[] users)
-org.asynchttpclient.ListenableFuture<org.zendesk.client.v2.model.JobStatus> updateUsersAsync(java.util.List<org.zendesk.client.v2.model.User> users)
-org.zendesk.client.v2.model.Identity verifyUserIdentity(long userId, long identityId)
-org.zendesk.client.v2.model.Identity verifyUserIdentity(org.zendesk.client.v2.model.User user, long identityId)
-org.zendesk.client.v2.model.Identity verifyUserIdentity(org.zendesk.client.v2.model.User user, org.zendesk.client.v2.model.Identity identity)
+
+java.util.List<String> addTagToOrganisations(long id, String[] tags);
+
+java.util.List<String> addTagToTicket(long id, String[] tags);
+
+java.util.List<String> addTagToTopics(long id, String[] tags);
+
+void associateAttachmentsToArticle(String idArticle, java.util.List<org.zendesk.client.v2.model.Attachment> attachments);
+
+void changeUserPassword(org.zendesk.client.v2.model.User user, String oldPassword, String newPassword);
+
+org.zendesk.client.v2.model.hc.Article createArticle(org.zendesk.client.v2.model.hc.Article article);
+
+org.zendesk.client.v2.model.hc.Article createArticle(org.zendesk.client.v2.model.hc.Article article, boolean notifySubscribers);
+
+org.zendesk.client.v2.model.hc.Translation createArticleTranslation(Long articleId, org.zendesk.client.v2.model.hc.Translation translation);
+
+org.zendesk.client.v2.model.Automation createAutomation(org.zendesk.client.v2.model.Automation automation);
+
+org.zendesk.client.v2.model.hc.Category createCategory(org.zendesk.client.v2.model.hc.Category category);
+
+org.zendesk.client.v2.model.hc.Translation createCategoryTranslation(Long categoryId, org.zendesk.client.v2.model.hc.Translation translation);
+
+org.zendesk.client.v2.model.Ticket createComment(long ticketId, org.zendesk.client.v2.model.Comment comment);
+
+org.zendesk.client.v2.model.dynamic.DynamicContentItem createDynamicContentItem(org.zendesk.client.v2.model.dynamic.DynamicContentItem item);
+
+org.zendesk.client.v2.model.dynamic.DynamicContentItemVariant createDynamicContentItemVariant(Long itemId, org.zendesk.client.v2.model.dynamic.DynamicContentItemVariant variant);
+
+org.zendesk.client.v2.model.Forum createForum(org.zendesk.client.v2.model.Forum forum);
+
+org.zendesk.client.v2.model.Group createGroup(org.zendesk.client.v2.model.Group group);
+
+org.zendesk.client.v2.model.GroupMembership createGroupMembership(long user_id, org.zendesk.client.v2.model.GroupMembership groupMembership);
+
+org.zendesk.client.v2.model.GroupMembership createGroupMembership(org.zendesk.client.v2.model.GroupMembership groupMembership);
+
+org.zendesk.client.v2.model.Macro createMacro(org.zendesk.client.v2.model.Macro macro);
+
+org.zendesk.client.v2.model.User createOrUpdateUser(org.zendesk.client.v2.model.User user);
+
+org.zendesk.client.v2.model.JobStatus createOrUpdateUsers(java.util.List<org.zendesk.client.v2.model.User> users);
+
+org.zendesk.client.v2.model.JobStatus createOrUpdateUsers(org.zendesk.client.v2.model.User[] users);
+
+org.asynchttpclient.ListenableFuture<org.zendesk.client.v2.model.JobStatus> createOrUpdateUsersAsync(java.util.List<org.zendesk.client.v2.model.User> users);
+
+org.zendesk.client.v2.model.Organization createOrganization(org.zendesk.client.v2.model.Organization organization);
+
+org.zendesk.client.v2.model.OrganizationMembership createOrganizationMembership(long user_id, org.zendesk.client.v2.model.OrganizationMembership organizationMembership);
+
+org.zendesk.client.v2.model.OrganizationMembership createOrganizationMembership(org.zendesk.client.v2.model.OrganizationMembership organizationMembership);
+
+org.zendesk.client.v2.model.JobStatus createOrganizationMemberships(java.util.List<org.zendesk.client.v2.model.OrganizationMembership> organizationMemberships);
+
+org.zendesk.client.v2.model.JobStatus createOrganizationMemberships(org.zendesk.client.v2.model.OrganizationMembership[] organizationMemberships);
+
+org.asynchttpclient.ListenableFuture<org.zendesk.client.v2.model.JobStatus> createOrganizationMembershipsAsync(java.util.List<org.zendesk.client.v2.model.OrganizationMembership> organizationMemberships);
+
+org.zendesk.client.v2.model.JobStatus createOrganizations(java.util.List<org.zendesk.client.v2.model.Organization> organizations);
+
+org.zendesk.client.v2.model.JobStatus createOrganizations(org.zendesk.client.v2.model.Organization[] organizations);
+
+org.asynchttpclient.ListenableFuture<org.zendesk.client.v2.model.JobStatus> createOrganizationsAsync(java.util.List<org.zendesk.client.v2.model.Organization> organizations);
+
+org.zendesk.client.v2.model.hc.PermissionGroup createPermissionGroup(org.zendesk.client.v2.model.hc.PermissionGroup permissionGroup);
+
+org.zendesk.client.v2.model.Request createRequest(org.zendesk.client.v2.model.Request request);
+
+org.zendesk.client.v2.model.SatisfactionRating createSatisfactionRating(long ticketId, org.zendesk.client.v2.model.SatisfactionRating satisfactionRating);
+
+org.zendesk.client.v2.model.SatisfactionRating createSatisfactionRating(org.zendesk.client.v2.model.Ticket ticket, org.zendesk.client.v2.model.SatisfactionRating satisfactionRating);
+
+org.zendesk.client.v2.model.hc.Section createSection(org.zendesk.client.v2.model.hc.Section section);
+
+org.zendesk.client.v2.model.hc.Translation createSectionTranslation(Long sectionId, org.zendesk.client.v2.model.hc.Translation translation);
+
+org.zendesk.client.v2.model.targets.Target createTarget(org.zendesk.client.v2.model.targets.Target target);
+
+org.zendesk.client.v2.model.Ticket createTicket(org.zendesk.client.v2.model.Ticket ticket);
+
+org.asynchttpclient.ListenableFuture<org.zendesk.client.v2.model.Ticket> createTicketAsync(org.zendesk.client.v2.model.Ticket ticket);
+
+org.zendesk.client.v2.model.Field createTicketField(org.zendesk.client.v2.model.Field field);
+
+org.zendesk.client.v2.model.TicketForm createTicketForm(org.zendesk.client.v2.model.TicketForm ticketForm);
+
+org.zendesk.client.v2.model.Ticket createTicketFromTweet(long tweetId, long monitorId);
+
+org.zendesk.client.v2.model.JobStatus createTickets(java.util.List<org.zendesk.client.v2.model.Ticket> tickets);
+
+org.zendesk.client.v2.model.JobStatus createTickets(org.zendesk.client.v2.model.Ticket[] tickets);
+
+org.asynchttpclient.ListenableFuture<org.zendesk.client.v2.model.JobStatus> createTicketsAsync(java.util.List<org.zendesk.client.v2.model.Ticket> tickets);
+
+org.zendesk.client.v2.model.Topic createTopic(org.zendesk.client.v2.model.Topic topic);
+
+org.zendesk.client.v2.model.Trigger createTrigger(org.zendesk.client.v2.model.Trigger trigger);
+
+org.zendesk.client.v2.model.Attachment.Upload createUpload(String fileName, String contentType, byte[] content);
+
+org.zendesk.client.v2.model.Attachment.Upload createUpload(String fileName, byte[] content);
+
+org.zendesk.client.v2.model.Attachment.Upload createUpload(String token, String fileName, String contentType, byte[] content);
+
+org.zendesk.client.v2.model.hc.ArticleAttachments createUploadArticle(long articleId, java.io.File file);
+
+org.zendesk.client.v2.model.hc.ArticleAttachments createUploadArticle(long articleId, java.io.File file, boolean inline);
+
+org.zendesk.client.v2.model.User createUser(org.zendesk.client.v2.model.User user);
+
+org.zendesk.client.v2.model.Identity createUserIdentity(long userId, org.zendesk.client.v2.model.Identity identity);
+
+org.zendesk.client.v2.model.Identity createUserIdentity(org.zendesk.client.v2.model.User user, org.zendesk.client.v2.model.Identity identity);
+
+org.zendesk.client.v2.model.hc.UserSegment createUserSegment(org.zendesk.client.v2.model.hc.UserSegment userSegment);
+
+org.zendesk.client.v2.model.JobStatus createUsers(java.util.List<org.zendesk.client.v2.model.User> users);
+
+org.zendesk.client.v2.model.JobStatus createUsers(org.zendesk.client.v2.model.User[] users);
+
+org.asynchttpclient.ListenableFuture<org.zendesk.client.v2.model.JobStatus> createUsersAsync(java.util.List<org.zendesk.client.v2.model.User> users);
+
+void deleteArticle(org.zendesk.client.v2.model.hc.Article article);
+
+void deleteArticleAttachment(long id);
+
+void deleteArticleAttachment(org.zendesk.client.v2.model.hc.ArticleAttachments attachment);
+
+void deleteAttachment(long id);
+
+void deleteAttachment(org.zendesk.client.v2.model.Attachment attachment);
+
+void deleteAutomation(long automationId);
+
+void deleteCategory(org.zendesk.client.v2.model.hc.Category category);
+
+void deleteDynamicContentItem(org.zendesk.client.v2.model.dynamic.DynamicContentItem item);
+
+void deleteDynamicContentItemVariant(Long itemId, org.zendesk.client.v2.model.dynamic.DynamicContentItemVariant variant);
+
+void deleteForum(org.zendesk.client.v2.model.Forum forum);
+
+void deleteGroup(long id);
+
+void deleteGroup(org.zendesk.client.v2.model.Group group);
+
+void deleteGroupMembership(long id);
+
+void deleteGroupMembership(long user_id, long group_membership_id);
+
+void deleteGroupMembership(long user_id, org.zendesk.client.v2.model.GroupMembership groupMembership);
+
+void deleteGroupMembership(org.zendesk.client.v2.model.GroupMembership groupMembership);
+
+void deleteOrganization(long id);
+
+void deleteOrganization(org.zendesk.client.v2.model.Organization organization);
+
+void deleteOrganizationMembership(long id);
+
+void deleteOrganizationMembership(long user_id, long organization_membership_id);
+
+void deleteOrganizationMembership(long user_id, org.zendesk.client.v2.model.OrganizationMembership organizationMembership);
+
+void deleteOrganizationMemberships(long id, long[] ids);
+
+void deletePermissionGroup(long id);
+
+void deletePermissionGroup(org.zendesk.client.v2.model.hc.PermissionGroup permissionGroup);
+
+void deleteSection(org.zendesk.client.v2.model.hc.Section section);
+
+void deleteSuspendedTicket(long id);
+
+void deleteSuspendedTicket(org.zendesk.client.v2.model.SuspendedTicket ticket);
+
+void deleteTarget(long targetId);
+
+void deleteTicket(long id);
+
+void deleteTicket(org.zendesk.client.v2.model.Ticket ticket);
+
+void deleteTicketField(long id);
+
+void deleteTicketField(org.zendesk.client.v2.model.Field field);
+
+void deleteTickets(long id, long[] ids);
+
+void deleteTopic(org.zendesk.client.v2.model.Topic topic);
+
+void deleteTranslation(Long translationId);
+
+void deleteTranslation(org.zendesk.client.v2.model.hc.Translation translation);
+
+void deleteTrigger(long triggerId);
+
+void deleteUpload(String token);
+
+void deleteUpload(org.zendesk.client.v2.model.Attachment.Upload upload);
+
+void deleteUser(long id);
+
+void deleteUser(org.zendesk.client.v2.model.User user);
+
+void deleteUserIdentity(long userId, long identityId);
+
+void deleteUserIdentity(org.zendesk.client.v2.model.User user, long identityId);
+
+void deleteUserIdentity(org.zendesk.client.v2.model.User user, org.zendesk.client.v2.model.Identity identity);
+
+void deleteUserSegment(long id);
+
+void deleteUserSegment(org.zendesk.client.v2.model.hc.UserSegment userSegment);
+
+org.zendesk.client.v2.model.hc.Article getArticle(long id);
+
+Iterable<org.zendesk.client.v2.model.hc.Article> getArticleFromSearch(String searchTerm);
+
+Iterable<org.zendesk.client.v2.model.hc.Article> getArticleFromSearch(String searchTerm, Long sectionId);
+
+Iterable<org.zendesk.client.v2.model.hc.Subscription> getArticleSubscriptions(Long articleId);
+
+Iterable<org.zendesk.client.v2.model.hc.Subscription> getArticleSubscriptions(Long articleId, String locale);
+
+Iterable<org.zendesk.client.v2.model.hc.Translation> getArticleTranslations(Long articleId);
+
+Iterable<org.zendesk.client.v2.model.hc.Article> getArticles();
+
+Iterable<org.zendesk.client.v2.model.hc.Article> getArticles(String locale);
+
+Iterable<org.zendesk.client.v2.model.hc.Article> getArticles(org.zendesk.client.v2.model.hc.Category category);
+
+Iterable<org.zendesk.client.v2.model.hc.Article> getArticles(org.zendesk.client.v2.model.hc.Section section);
+
+Iterable<org.zendesk.client.v2.model.hc.Article> getArticlesFromAllLabels(java.util.List<String> labels);
+
+Iterable<org.zendesk.client.v2.model.hc.Article> getArticlesFromAnyLabels(java.util.List<String> labels);
+
+java.util.List<org.zendesk.client.v2.model.hc.Article> getArticlesFromPage(int page);
+
+Iterable<org.zendesk.client.v2.model.hc.Article> getArticlesIncrementally(java.util.Date startTime);
+
+Iterable<org.zendesk.client.v2.model.GroupMembership> getAssignableGroupMemberships();
+
+java.util.List<org.zendesk.client.v2.model.GroupMembership> getAssignableGroupMemberships(long group_id);
+
+org.zendesk.client.v2.model.Attachment getAttachment(long id);
+
+org.zendesk.client.v2.model.Attachment getAttachment(org.zendesk.client.v2.model.Attachment attachment);
+
+java.util.List<org.zendesk.client.v2.model.hc.ArticleAttachments> getAttachmentsFromArticle(Long articleID);
+
+Iterable<org.zendesk.client.v2.model.Organization> getAutoCompleteOrganizations(String name);
+
+org.zendesk.client.v2.model.Automation getAutomation(long id);
+
+org.zendesk.client.v2.model.hc.Category getCategory(long id);
+
+Iterable<org.zendesk.client.v2.model.hc.Translation> getCategoryTranslations(Long categoryId);
+
+Iterable<org.zendesk.client.v2.model.ComplianceDeletionStatus> getComplianceDeletionStatuses(long userId);
+
+Iterable<org.zendesk.client.v2.model.DeletedTicket> getDeletedTickets();
+
+Iterable<org.zendesk.client.v2.model.DeletedTicket> getDeletedTickets(String sortBy, org.zendesk.client.v2.model.SortOrder sortOrder);
+
+org.zendesk.client.v2.model.dynamic.DynamicContentItem getDynamicContentItem(long id);
+
+org.zendesk.client.v2.model.dynamic.DynamicContentItemVariant getDynamicContentItemVariant(Long itemId, long id);
+
+Iterable<org.zendesk.client.v2.model.dynamic.DynamicContentItemVariant> getDynamicContentItemVariants(org.zendesk.client.v2.model.dynamic.DynamicContentItem item);
+
+org.zendesk.client.v2.model.Forum getForum(long id);
+
+Iterable<org.zendesk.client.v2.model.Forum> getForums();
+
+java.util.List<org.zendesk.client.v2.model.Forum> getForums(long category_id);
+
+org.zendesk.client.v2.model.Group getGroup(long id);
+
+org.zendesk.client.v2.model.GroupMembership getGroupMembership(long id);
+
+org.zendesk.client.v2.model.GroupMembership getGroupMembership(long user_id, long group_membership_id);
+
+java.util.List<org.zendesk.client.v2.model.GroupMembership> getGroupMembershipByUser(long user_id);
+
+Iterable<org.zendesk.client.v2.model.GroupMembership> getGroupMemberships();
+
+java.util.List<org.zendesk.client.v2.model.GroupMembership> getGroupMemberships(long group_id);
+
+org.zendesk.client.v2.model.OrganizationMembership getGroupOrganization(long user_id, long organization_membership_id);
+
+Iterable<org.zendesk.client.v2.model.User> getGroupUsers(long id);
+
+Iterable<org.zendesk.client.v2.model.schedules.Holiday> getHolidaysForSchedule(Long scheduleId);
+
+Iterable<org.zendesk.client.v2.model.schedules.Holiday> getHolidaysForSchedule(org.zendesk.client.v2.model.schedules.Schedule schedule);
+
+java.util.Map getIncrementalTicketsResult(long unixEpochTime);
+
+org.zendesk.client.v2.model.JobStatus getJobStatus(org.zendesk.client.v2.model.JobStatus status);
+
+org.asynchttpclient.ListenableFuture<org.zendesk.client.v2.model.JobStatus> getJobStatusAsync(org.zendesk.client.v2.model.JobStatus status);
+
+java.util.List<org.zendesk.client.v2.model.JobStatus> getJobStatuses(java.util.List<org.zendesk.client.v2.model.JobStatus> statuses);
+
+org.asynchttpclient.ListenableFuture<java.util.List<org.zendesk.client.v2.model.JobStatus>> getJobStatusesAsync(java.util.List<org.zendesk.client.v2.model.JobStatus> statuses);
+
+org.zendesk.client.v2.model.Macro getMacro(long macroId);
+
+org.zendesk.client.v2.model.Organization getOrganization(long id);
+
+org.zendesk.client.v2.model.OrganizationMembership getOrganizationMembership(long id);
+
+java.util.List<org.zendesk.client.v2.model.OrganizationMembership> getOrganizationMembershipByUser(long user_id);
+
+org.zendesk.client.v2.model.OrganizationMembership getOrganizationMembershipForUser(long user_id, long id);
+
+Iterable<org.zendesk.client.v2.model.OrganizationMembership> getOrganizationMembershipsForOrg(long organization_id);
+
+Iterable<org.zendesk.client.v2.model.OrganizationMembership> getOrganizationMembershipsForUser(long user_id);
+
+Iterable<org.zendesk.client.v2.model.Ticket> getOrganizationTickets(long organizationId);
+
+Iterable<org.zendesk.client.v2.model.User> getOrganizationUsers(long id);
+
+Iterable<org.zendesk.client.v2.model.Organization> getOrganizationsIncrementally(java.util.Date startTime);
+
+org.zendesk.client.v2.model.hc.PermissionGroup getPermissionGroup(long id);
+
+org.zendesk.client.v2.model.Request getRequest(long id);
+
+org.zendesk.client.v2.model.Comment getRequestComment(long requestId, long commentId);
+
+org.zendesk.client.v2.model.Comment getRequestComment(org.zendesk.client.v2.model.Request request, long commentId);
+
+org.zendesk.client.v2.model.Comment getRequestComment(org.zendesk.client.v2.model.Request request, org.zendesk.client.v2.model.Comment comment);
+
+Iterable<org.zendesk.client.v2.model.Comment> getRequestComments(long id);
+
+Iterable<org.zendesk.client.v2.model.Comment> getRequestComments(org.zendesk.client.v2.model.Request request);
+
+org.zendesk.client.v2.model.SatisfactionRating getSatisfactionRating(long id);
+
+org.zendesk.client.v2.model.schedules.Schedule getSchedule(Long scheduleId);
+
+org.zendesk.client.v2.model.schedules.Schedule getSchedule(org.zendesk.client.v2.model.schedules.Schedule schedule);
+
+Iterable<org.zendesk.client.v2.model.SearchResultEntity> getSearchResults(Class<org.zendesk.client.v2.model.SearchResultEntity> type, String query);
+
+Iterable<org.zendesk.client.v2.model.SearchResultEntity> getSearchResults(Class<org.zendesk.client.v2.model.SearchResultEntity> type, String query, String params);
+
+Iterable<org.zendesk.client.v2.model.SearchResultEntity> getSearchResults(Class<org.zendesk.client.v2.model.SearchResultEntity> type, String query, String sortBy, org.zendesk.client.v2.model.SortOrder sortOrder);
+
+Iterable<org.zendesk.client.v2.model.SearchResultEntity> getSearchResults(Class<org.zendesk.client.v2.model.SearchResultEntity> type, String query, java.util.Map<String, Object> params);
+
+Iterable<org.zendesk.client.v2.model.SearchResultEntity> getSearchResults(String query);
+
+org.zendesk.client.v2.model.hc.Section getSection(long id);
+
+Iterable<org.zendesk.client.v2.model.hc.Subscription> getSectionSubscriptions(Long sectionId);
+
+Iterable<org.zendesk.client.v2.model.hc.Subscription> getSectionSubscriptions(Long sectionId, String locale);
+
+Iterable<org.zendesk.client.v2.model.hc.Translation> getSectionTranslations(Long sectionId);
+
+Iterable<org.zendesk.client.v2.model.hc.Section> getSections();
+
+Iterable<org.zendesk.client.v2.model.hc.Section> getSections(org.zendesk.client.v2.model.hc.Category category);
+
+Iterable<org.zendesk.client.v2.model.hc.Section> getSections(org.zendesk.client.v2.model.hc.UserSegment userSegment);
+
+org.zendesk.client.v2.model.targets.Target getTarget(long id);
+
+org.zendesk.client.v2.model.Ticket getTicket(long id);
+
+org.zendesk.client.v2.model.Audit getTicketAudit(long ticketId, long auditId);
+
+org.zendesk.client.v2.model.Audit getTicketAudit(org.zendesk.client.v2.model.Ticket ticket, long id);
+
+org.zendesk.client.v2.model.Audit getTicketAudit(org.zendesk.client.v2.model.Ticket ticket, org.zendesk.client.v2.model.Audit audit);
+
+Iterable<org.zendesk.client.v2.model.Audit> getTicketAudits(Long id);
+
+Iterable<org.zendesk.client.v2.model.Audit> getTicketAudits(org.zendesk.client.v2.model.Ticket ticket);
+
+java.util.List<org.zendesk.client.v2.model.User> getTicketCollaborators(long id);
+
+Iterable<org.zendesk.client.v2.model.Comment> getTicketComments(long id);
+
+Iterable<org.zendesk.client.v2.model.Comment> getTicketComments(long id, org.zendesk.client.v2.model.SortOrder order);
+
+org.zendesk.client.v2.model.Field getTicketField(long id);
+
+org.zendesk.client.v2.model.TicketForm getTicketForm(long id);
+
+java.util.List<org.zendesk.client.v2.model.Ticket> getTicketIncidents(long id);
+
+org.zendesk.client.v2.model.Metric getTicketMetric(long id);
+
+org.zendesk.client.v2.model.Metric getTicketMetricByTicket(long id);
+
+Iterable<org.zendesk.client.v2.model.Ticket> getTickets();
+
+java.util.List<org.zendesk.client.v2.model.Ticket> getTickets(long id, long[] ids);
+
+Iterable<org.zendesk.client.v2.model.Ticket> getTicketsByExternalId(String externalId);
+
+Iterable<org.zendesk.client.v2.model.Ticket> getTicketsByExternalId(String externalId, boolean includeArchived);
+
+Iterable<org.zendesk.client.v2.model.Ticket> getTicketsFromSearch(String searchTerm);
+
+Iterable<org.zendesk.client.v2.model.Ticket> getTicketsIncrementally(java.util.Date startTime);
+
+Iterable<org.zendesk.client.v2.model.Ticket> getTicketsIncrementally(java.util.Date startTime, java.util.Date endTime);
+
+org.zendesk.client.v2.model.Topic getTopic(long id);
+
+Iterable<org.zendesk.client.v2.model.Topic> getTopics();
+
+Iterable<org.zendesk.client.v2.model.Topic> getTopics(org.zendesk.client.v2.model.hc.UserSegment userSegment);
+
+java.util.List<org.zendesk.client.v2.model.Topic> getTopics(long forum_id);
+
+java.util.List<org.zendesk.client.v2.model.Topic> getTopics(long id, long[] ids);
+
+java.util.List<org.zendesk.client.v2.model.Topic> getTopicsByUser(long user_id);
+
+org.zendesk.client.v2.model.Trigger getTrigger(long id);
+
+org.zendesk.client.v2.model.User getUser(long id);
+
+Iterable<org.zendesk.client.v2.model.Ticket> getUserCCDTickets(long userId);
+
+java.util.List<org.zendesk.client.v2.model.Identity> getUserIdentities(long userId);
+
+java.util.List<org.zendesk.client.v2.model.Identity> getUserIdentities(org.zendesk.client.v2.model.User user);
+
+org.zendesk.client.v2.model.Identity getUserIdentity(long userId, long identityId);
+
+org.zendesk.client.v2.model.Identity getUserIdentity(org.zendesk.client.v2.model.User user, long identityId);
+
+org.zendesk.client.v2.model.Identity getUserIdentity(org.zendesk.client.v2.model.User user, org.zendesk.client.v2.model.Identity identity);
+
+org.zendesk.client.v2.model.UserRelatedInfo getUserRelatedInfo(long userId);
+
+Iterable<org.zendesk.client.v2.model.Ticket> getUserRequestedTickets(long userId);
+
+Iterable<org.zendesk.client.v2.model.Request> getUserRequests(long id);
+
+Iterable<org.zendesk.client.v2.model.Request> getUserRequests(org.zendesk.client.v2.model.User user);
+
+org.zendesk.client.v2.model.hc.UserSegment getUserSegment(long id);
+
+Iterable<org.zendesk.client.v2.model.hc.UserSegment> getUserSegments();
+
+Iterable<org.zendesk.client.v2.model.hc.UserSegment> getUserSegments(long id);
+
+Iterable<org.zendesk.client.v2.model.hc.Subscription> getUserSubscriptions(Long userId);
+
+Iterable<org.zendesk.client.v2.model.hc.Subscription> getUserSubscriptions(org.zendesk.client.v2.model.User user);
+
+Iterable<org.zendesk.client.v2.model.User> getUsersByRole(String role, String[] roles);
+
+Iterable<org.zendesk.client.v2.model.User> getUsersIncrementally(java.util.Date startTime);
+
+org.zendesk.client.v2.model.Ticket importTicket(org.zendesk.client.v2.model.TicketImport ticketImport);
+
+org.zendesk.client.v2.model.Topic importTopic(org.zendesk.client.v2.model.Topic topic);
+
+Iterable<org.zendesk.client.v2.model.Organization> lookupOrganizationsByExternalId(String externalId);
+
+Iterable<org.zendesk.client.v2.model.User> lookupUserByEmail(String email);
+
+Iterable<org.zendesk.client.v2.model.User> lookupUserByExternalId(String externalId);
+
+org.zendesk.client.v2.model.Ticket macrosShowChangesToTicket(long macroId);
+
+org.zendesk.client.v2.model.Ticket macrosShowTicketAfterChanges(long ticketId, long macroId);
+
+void makePrivateTicketAudit(long ticketId, long auditId);
+
+void makePrivateTicketAudit(org.zendesk.client.v2.model.Ticket ticket, long id);
+
+void makePrivateTicketAudit(org.zendesk.client.v2.model.Ticket ticket, org.zendesk.client.v2.model.Audit audit);
+
+void markTicketAsSpam(long id);
+
+void markTicketAsSpam(org.zendesk.client.v2.model.Ticket ticket);
+
+org.zendesk.client.v2.model.User mergeUsers(long userIdThatWillRemain, long userIdThatWillBeMerged);
+
+void notifyApp(String json);
+
+org.zendesk.client.v2.model.JobStatus permanentlyDeleteTicket(long id);
+
+org.zendesk.client.v2.model.JobStatus permanentlyDeleteTicket(org.zendesk.client.v2.model.Ticket ticket);
+
+org.zendesk.client.v2.model.JobStatus permanentlyDeleteTickets(long id, long[] ids);
+
+org.zendesk.client.v2.model.User permanentlyDeleteUser(long id);
+
+org.zendesk.client.v2.model.User permanentlyDeleteUser(org.zendesk.client.v2.model.User user);
+
+org.asynchttpclient.ListenableFuture<org.zendesk.client.v2.model.JobStatus> queueCreateTicketAsync(org.zendesk.client.v2.model.Ticket ticket);
+
+java.util.List<String> removeTagFromOrganisations(long id, String[] tags);
+
+java.util.List<String> removeTagFromTicket(long id, String[] tags);
+
+java.util.List<String> removeTagFromTopics(long id, String[] tags);
+
+org.zendesk.client.v2.model.Identity requestVerifyUserIdentity(long userId, long identityId);
+
+org.zendesk.client.v2.model.Identity requestVerifyUserIdentity(org.zendesk.client.v2.model.User user, long identityId);
+
+org.zendesk.client.v2.model.Identity requestVerifyUserIdentity(org.zendesk.client.v2.model.User user, org.zendesk.client.v2.model.Identity identity);
+
+void resetUserPassword(long id, String password);
+
+void resetUserPassword(org.zendesk.client.v2.model.User user, String password);
+
+java.util.List<org.zendesk.client.v2.model.GroupMembership> setGroupMembershipAsDefault(long user_id, org.zendesk.client.v2.model.GroupMembership groupMembership);
+
+java.util.List<org.zendesk.client.v2.model.OrganizationMembership> setOrganizationMembershipAsDefault(long user_id, org.zendesk.client.v2.model.OrganizationMembership organizationMembership);
+
+java.util.List<String> setTagOnOrganisations(long id, String[] tags);
+
+java.util.List<String> setTagOnTicket(long id, String[] tags);
+
+java.util.List<String> setTagOnTopics(long id, String[] tags);
+
+java.util.List<org.zendesk.client.v2.model.Identity> setUserPrimaryIdentity(long userId, long identityId);
+
+java.util.List<org.zendesk.client.v2.model.Identity> setUserPrimaryIdentity(org.zendesk.client.v2.model.User user, long identityId);
+
+java.util.List<org.zendesk.client.v2.model.Identity> setUserPrimaryIdentity(org.zendesk.client.v2.model.User user, org.zendesk.client.v2.model.Identity identity);
+
+org.zendesk.client.v2.model.User suspendUser(long id);
+
+void trustTicketAudit(long ticketId, long auditId);
+
+void trustTicketAudit(org.zendesk.client.v2.model.Ticket ticket, long id);
+
+void trustTicketAudit(org.zendesk.client.v2.model.Ticket ticket, org.zendesk.client.v2.model.Audit audit);
+
+org.zendesk.client.v2.model.User unsuspendUser(long id);
+
+org.zendesk.client.v2.model.hc.Article updateArticle(org.zendesk.client.v2.model.hc.Article article);
+
+org.zendesk.client.v2.model.hc.Translation updateArticleTranslation(Long articleId, String locale, org.zendesk.client.v2.model.hc.Translation translation);
+
+org.zendesk.client.v2.model.Automation updateAutomation(Long automationId, org.zendesk.client.v2.model.Automation automation);
+
+org.zendesk.client.v2.model.hc.Category updateCategory(org.zendesk.client.v2.model.hc.Category category);
+
+org.zendesk.client.v2.model.hc.Translation updateCategoryTranslation(Long categoryId, String locale, org.zendesk.client.v2.model.hc.Translation translation);
+
+org.zendesk.client.v2.model.dynamic.DynamicContentItem updateDynamicContentItem(org.zendesk.client.v2.model.dynamic.DynamicContentItem item);
+
+org.zendesk.client.v2.model.dynamic.DynamicContentItemVariant updateDynamicContentItemVariant(Long itemId, org.zendesk.client.v2.model.dynamic.DynamicContentItemVariant variant);
+
+org.zendesk.client.v2.model.Forum updateForum(org.zendesk.client.v2.model.Forum forum);
+
+org.zendesk.client.v2.model.Group updateGroup(org.zendesk.client.v2.model.Group group);
+
+void updateInstallation(int id, String json);
+
+org.zendesk.client.v2.model.Macro updateMacro(Long macroId, org.zendesk.client.v2.model.Macro macro);
+
+org.zendesk.client.v2.model.Organization updateOrganization(org.zendesk.client.v2.model.Organization organization);
+
+org.zendesk.client.v2.model.JobStatus updateOrganizations(java.util.List<org.zendesk.client.v2.model.Organization> organizations);
+
+org.zendesk.client.v2.model.JobStatus updateOrganizations(org.zendesk.client.v2.model.Organization[] organizations);
+
+org.asynchttpclient.ListenableFuture<org.zendesk.client.v2.model.JobStatus> updateOrganizationsAsync(java.util.List<org.zendesk.client.v2.model.Organization> organizations);
+
+org.zendesk.client.v2.model.hc.PermissionGroup updatePermissionGroup(org.zendesk.client.v2.model.hc.PermissionGroup permissionGroup);
+
+org.zendesk.client.v2.model.Request updateRequest(org.zendesk.client.v2.model.Request request);
+
+org.zendesk.client.v2.model.hc.Section updateSection(org.zendesk.client.v2.model.hc.Section section);
+
+org.zendesk.client.v2.model.hc.Translation updateSectionTranslation(Long sectionId, String locale, org.zendesk.client.v2.model.hc.Translation translation);
+
+org.zendesk.client.v2.model.Ticket updateTicket(org.zendesk.client.v2.model.Ticket ticket);
+
+org.zendesk.client.v2.model.Field updateTicketField(org.zendesk.client.v2.model.Field field);
+
+org.zendesk.client.v2.model.JobStatus updateTickets(java.util.List<org.zendesk.client.v2.model.Ticket> tickets);
+
+org.zendesk.client.v2.model.JobStatus updateTickets(org.zendesk.client.v2.model.Ticket[] tickets);
+
+org.asynchttpclient.ListenableFuture<org.zendesk.client.v2.model.JobStatus> updateTicketsAsync(java.util.List<org.zendesk.client.v2.model.Ticket> tickets);
+
+org.zendesk.client.v2.model.Topic updateTopic(org.zendesk.client.v2.model.Topic topic);
+
+org.zendesk.client.v2.model.Trigger updateTrigger(Long triggerId, org.zendesk.client.v2.model.Trigger trigger);
+
+org.zendesk.client.v2.model.User updateUser(org.zendesk.client.v2.model.User user);
+
+org.zendesk.client.v2.model.Identity updateUserIdentity(long userId, org.zendesk.client.v2.model.Identity identity);
+
+org.zendesk.client.v2.model.Identity updateUserIdentity(org.zendesk.client.v2.model.User user, org.zendesk.client.v2.model.Identity identity);
+
+org.zendesk.client.v2.model.hc.UserSegment updateUserSegment(org.zendesk.client.v2.model.hc.UserSegment userSegment);
+
+org.zendesk.client.v2.model.JobStatus updateUsers(java.util.List<org.zendesk.client.v2.model.User> users);
+
+org.zendesk.client.v2.model.JobStatus updateUsers(org.zendesk.client.v2.model.User[] users);
+
+org.asynchttpclient.ListenableFuture<org.zendesk.client.v2.model.JobStatus> updateUsersAsync(java.util.List<org.zendesk.client.v2.model.User> users);
+
+org.zendesk.client.v2.model.Identity verifyUserIdentity(long userId, long identityId);
+
+org.zendesk.client.v2.model.Identity verifyUserIdentity(org.zendesk.client.v2.model.User user, long identityId);
+
+org.zendesk.client.v2.model.Identity verifyUserIdentity(org.zendesk.client.v2.model.User user, org.zendesk.client.v2.model.Identity identity);
 
 ----
 
-The API methods has the following set of options listed in the following table:
-[width="100%",cols="1,2,5,2",options="header"]
+The DEFAULT API is defined in the syntax as follows:
+
+----
+zendesk:DEFAULT/methodName?[parameters]
+----
+
+The 221 method(s) is listed in the table below.
+(API methods can have a shorthand alias name which can be used in the syntax instead of the name)
+
+[width="100%",cols="2,2,6",options="header"]
 |===
-| Method | Name | Description | Type
+| Method | Alias | Description
+| *addTagToOrganisations* |  | 
+| *addTagToTicket* |  | 
+| *addTagToTopics* |  | 
+| *associateAttachmentsToArticle* |  | 
+| *changeUserPassword* |  | 
+| *createArticle* |  | 
+| *createArticleTranslation* |  | 
+| *createAutomation* |  | 
+| *createCategory* |  | 
+| *createCategoryTranslation* |  | 
+| *createComment* |  | 
+| *createDynamicContentItem* |  | 
+| *createDynamicContentItemVariant* |  | 
+| *createForum* |  | 
+| *createGroup* |  | 
+| *createGroupMembership* |  | 
+| *createMacro* |  | 
+| *createOrUpdateUser* |  | 
+| *createOrUpdateUsers* |  | 
+| *createOrUpdateUsersAsync* |  | 
+| *createOrganization* |  | 
+| *createOrganizationMembership* |  | 
+| *createOrganizationMemberships* |  | Https://developer
+| *createOrganizationMembershipsAsync* |  | Https://developer
+| *createOrganizations* |  | 
+| *createOrganizationsAsync* |  | 
+| *createPermissionGroup* |  | Create permission group
+| *createRequest* |  | 
+| *createSatisfactionRating* |  | 
+| *createSection* |  | 
+| *createSectionTranslation* |  | 
+| *createTarget* |  | 
+| *createTicket* |  | 
+| *createTicketAsync* |  | 
+| *createTicketField* |  | 
+| *createTicketForm* |  | 
+| *createTicketFromTweet* |  | 
+| *createTickets* |  | 
+| *createTicketsAsync* |  | 
+| *createTopic* |  | 
+| *createTrigger* |  | 
+| *createUpload* |  | 
+| *createUploadArticle* |  | Create upload article with inline false
+| *createUser* |  | 
+| *createUserIdentity* |  | 
+| *createUserSegment* |  | Create User Segment
+| *createUsers* |  | 
+| *createUsersAsync* |  | 
+| *deleteArticle* |  | 
+| *deleteArticleAttachment* |  | Delete attachment from article
+| *deleteAttachment* |  | 
+| *deleteAutomation* |  | 
+| *deleteCategory* |  | 
+| *deleteDynamicContentItem* |  | 
+| *deleteDynamicContentItemVariant* |  | 
+| *deleteForum* |  | 
+| *deleteGroup* |  | 
+| *deleteGroupMembership* |  | 
+| *deleteOrganization* |  | 
+| *deleteOrganizationMembership* |  | 
+| *deleteOrganizationMemberships* |  | Https://developer
+| *deletePermissionGroup* |  | Delete permission group
+| *deleteSection* |  | 
+| *deleteSuspendedTicket* |  | 
+| *deleteTarget* |  | 
+| *deleteTicket* |  | 
+| *deleteTicketField* |  | 
+| *deleteTickets* |  | 
+| *deleteTopic* |  | 
+| *deleteTranslation* |  | Delete translation
+| *deleteTrigger* |  | 
+| *deleteUpload* |  | 
+| *deleteUser* |  | 
+| *deleteUserIdentity* |  | 
+| *deleteUserSegment* |  | Delete User Segment
+| *getArticle* |  | 
+| *getArticleFromSearch* |  | 
+| *getArticleSubscriptions* |  | 
+| *getArticleTranslations* |  | 
+| *getArticles* |  | Get all articles from help center
+| *getArticlesFromAllLabels* |  | 
+| *getArticlesFromAnyLabels* |  | 
+| *getArticlesFromPage* |  | 
+| *getArticlesIncrementally* |  | 
+| *getAssignableGroupMemberships* |  | 
+| *getAttachment* |  | 
+| *getAttachmentsFromArticle* |  | 
+| *getAutoCompleteOrganizations* |  | 
+| *getAutomation* |  | 
+| *getCategory* |  | 
+| *getCategoryTranslations* |  | 
+| *getComplianceDeletionStatuses* |  | 
+| *getDeletedTickets* |  | Https://developer
+| *getDynamicContentItem* |  | 
+| *getDynamicContentItemVariant* |  | 
+| *getDynamicContentItemVariants* |  | 
+| *getForum* |  | 
+| *getForums* |  | 
+| *getGroup* |  | 
+| *getGroupMembership* |  | 
+| *getGroupMembershipByUser* |  | 
+| *getGroupMemberships* |  | 
+| *getGroupOrganization* |  | 
+| *getGroupUsers* |  | 
+| *getHolidaysForSchedule* |  | 
+| *getIncrementalTicketsResult* |  | 
+| *getJobStatus* |  | 
+| *getJobStatusAsync* |  | 
+| *getJobStatuses* |  | 
+| *getJobStatusesAsync* |  | 
+| *getMacro* |  | 
+| *getOrganization* |  | 
+| *getOrganizationMembership* |  | 
+| *getOrganizationMembershipByUser* |  | 
+| *getOrganizationMembershipForUser* |  | 
+| *getOrganizationMembershipsForOrg* |  | 
+| *getOrganizationMembershipsForUser* |  | 
+| *getOrganizationTickets* |  | 
+| *getOrganizationUsers* |  | 
+| *getOrganizationsIncrementally* |  | 
+| *getPermissionGroup* |  | Get permission group by id
+| *getRequest* |  | 
+| *getRequestComment* |  | 
+| *getRequestComments* |  | 
+| *getSatisfactionRating* |  | 
+| *getSchedule* |  | 
+| *getSearchResults* |  | 
+| *getSection* |  | 
+| *getSectionSubscriptions* |  | 
+| *getSectionTranslations* |  | 
+| *getSections* |  | List Sections using a User Segment
+| *getTarget* |  | 
+| *getTicket* |  | 
+| *getTicketAudit* |  | 
+| *getTicketAudits* |  | 
+| *getTicketCollaborators* |  | 
+| *getTicketComments* |  | 
+| *getTicketField* |  | 
+| *getTicketForm* |  | 
+| *getTicketIncidents* |  | 
+| *getTicketMetric* |  | 
+| *getTicketMetricByTicket* |  | 
+| *getTickets* |  | 
+| *getTicketsByExternalId* |  | 
+| *getTicketsFromSearch* |  | 
+| *getTicketsIncrementally* |  | Https://developer
+| *getTopic* |  | 
+| *getTopics* |  | List Topics using a User Segment
+| *getTopicsByUser* |  | 
+| *getTrigger* |  | 
+| *getUser* |  | 
+| *getUserCCDTickets* |  | 
+| *getUserIdentities* |  | 
+| *getUserIdentity* |  | 
+| *getUserRelatedInfo* |  | 
+| *getUserRequestedTickets* |  | 
+| *getUserRequests* |  | 
+| *getUserSegment* |  | Get user segment by id
+| *getUserSegments* |  | Returns the list of user segments that a particular user belongs to
+| *getUserSubscriptions* |  | 
+| *getUsersByRole* |  | 
+| *getUsersIncrementally* |  | 
+| *importTicket* |  | 
+| *importTopic* |  | 
+| *lookupOrganizationsByExternalId* |  | 
+| *lookupUserByEmail* |  | 
+| *lookupUserByExternalId* |  | 
+| *macrosShowChangesToTicket* |  | 
+| *macrosShowTicketAfterChanges* |  | 
+| *makePrivateTicketAudit* |  | 
+| *markTicketAsSpam* |  | 
+| *mergeUsers* |  | 
+| *notifyApp* |  | 
+| *permanentlyDeleteTicket* |  | 
+| *permanentlyDeleteTickets* |  | 
+| *permanentlyDeleteUser* |  | 
+| *queueCreateTicketAsync* |  | 
+| *removeTagFromOrganisations* |  | 
+| *removeTagFromTicket* |  | 
+| *removeTagFromTopics* |  | 
+| *requestVerifyUserIdentity* |  | 
+| *resetUserPassword* |  | 
+| *setGroupMembershipAsDefault* |  | 
+| *setOrganizationMembershipAsDefault* |  | 
+| *setTagOnOrganisations* |  | 
+| *setTagOnTicket* |  | 
+| *setTagOnTopics* |  | 
+| *setUserPrimaryIdentity* |  | 
+| *suspendUser* |  | 
+| *trustTicketAudit* |  | 
+| *unsuspendUser* |  | 
+| *updateArticle* |  | 
+| *updateArticleTranslation* |  | 
+| *updateAutomation* |  | 
+| *updateCategory* |  | 
+| *updateCategoryTranslation* |  | 
+| *updateDynamicContentItem* |  | 
+| *updateDynamicContentItemVariant* |  | 
+| *updateForum* |  | 
+| *updateGroup* |  | 
+| *updateInstallation* |  | 
+| *updateMacro* |  | 
+| *updateOrganization* |  | 
+| *updateOrganizations* |  | 
+| *updateOrganizationsAsync* |  | 
+| *updatePermissionGroup* |  | Update permission group
+| *updateRequest* |  | 
+| *updateSection* |  | 
+| *updateSectionTranslation* |  | 
+| *updateTicket* |  | 
+| *updateTicketField* |  | 
+| *updateTickets* |  | 
+| *updateTicketsAsync* |  | 
+| *updateTopic* |  | 
+| *updateTrigger* |  | 
+| *updateUser* |  | 
+| *updateUserIdentity* |  | 
+| *updateUserSegment* |  | Update User Segment
+| *updateUsers* |  | 
+| *updateUsersAsync* |  | 
+| *verifyUserIdentity* |  | 
+|===
+
+The DEFAULT API method(s) has the following set of parameters listed in the table below:
+[width="100%",cols="2,2,4,2",options="header"]
+|===
+| Method | Parameter | Description | Type
 | addTagToOrganisations | *id* |  | Long
 | addTagToOrganisations | *tags* |  | String[]
 | addTagToTicket | *id* |  | Long
@@ -811,6 +1357,9 @@ The API methods has the following set of options listed in the following table:
 | verifyUserIdentity | *user* |  | User
 | verifyUserIdentity | *userId* |  | Long
 |===
+
+In addition to the parameters above, the DEFAULT API can also use from the 28 endpoint query option
+which is listed in the _Query Parameters_ section.
 // endpoint options: END
 
 

@@ -169,7 +169,7 @@ The following lists each API name and method and its additional parameters.
 ==== files
 
 
-The files has 22 API method(s) which is represented by the following method signatures
+The files API has 22 method(s) which is represented by the following method signatures
 (an API method may have multiple signatures due to overloading):
 
 [source,java]
@@ -221,10 +221,46 @@ com.box.sdk.BoxFile uploadNewFileVersion(String fileId, java.io.InputStream file
 
 ----
 
-The API methods has the following set of options listed in the following table:
-[width="100%",cols="1,2,5,2",options="header"]
+The files API is defined in the syntax as follows:
+
+----
+box:files/methodName?[parameters]
+----
+
+The 22 method(s) is listed in the table below.
+(API methods can have a shorthand alias name which can be used in the syntax instead of the name)
+
+[width="100%",cols="2,2,6",options="header"]
 |===
-| Method | Name | Description | Type
+| Method | Alias | Description
+| *checkUpload* | canUpload | Does a pre-verification before upload, to check if the filename already exists or if there is permission to upload
+| *copyFile* | copy | Copy file to destination folder while optionally giving it a new name
+| *createFileMetadata* | createMetadata | Create metadata for file in either the global properties template or the specified template type
+| *createFileSharedLink* | link | Create a shared link to file
+| *deleteFile* | delete | Delete the file
+| *deleteFileMetadata* | deleteMetadata | Delete the file properties metadata
+| *deleteFileVersion* | deleteVersion | Delete a file version
+| *downloadFile* | download | Download a file
+| *downloadPreviousFileVersion* | downloadVersion | Download a previous version of file
+| *getDownloadURL* | url | Get an expiring URL for downloading a file directly from Box
+| *getFileInfo* | info | Get file information
+| *getFileMetadata* | metadata | Gets the file properties metadata
+| *getFilePreviewLink* |  | Get an expiring URL for creating an embedded preview session
+| *getFileThumbnail* | thumbnail | Retrieves a thumbnail, or smaller image representation, of this file
+| *getFileVersions* | versions | Get any previous versions of file
+| *moveFile* | move | Move file to destination folder while optionally giving it a new name
+| *promoteFileVersion* | promoteVersion | Promote a previous version of file
+| *renameFile* | rename | Rename file giving it the name newName
+| *updateFileInfo* | updateInfo | Update file information
+| *updateFileMetadata* | updateMetadata | Update the file properties metadata
+| *uploadFile* | upload | Upload a new file to parent folder
+| *uploadNewFileVersion* | uploadVersion | Upload a new version of file
+|===
+
+The files API method(s) has the following set of parameters listed in the table below:
+[width="100%",cols="2,2,4,2",options="header"]
+|===
+| Method | Parameter | Description | Type
 | checkUpload | *fileName* | The name to give the uploaded file | String
 | checkUpload | *parentFolderId* | The id of parent folder | String
 | checkUpload | *size* | The size of the file's content used for monitoring the upload's progress | Long
@@ -257,7 +293,7 @@ The API methods has the following set of options listed in the following table:
 | getFileMetadata | *fileId* | The id of the file to retrieve metadata for | String
 | getFileMetadata | *typeName* | The metadata template type name; if null the global properties template type is used. | String
 | getFilePreviewLink | *fileId* | The id of the file to get preview link on | String
-| getFileThumbnail | *fileId* | The id of the file to get preview link on | String
+| getFileThumbnail | *fileId* | The id of the file to get thumbnail | String
 | getFileThumbnail | *fileType* | Either PNG of JPG | ThumbnailFileType
 | getFileThumbnail | *maxHeight* | Maximum height | Integer
 | getFileThumbnail | *maxWidth* | Maximum width | Integer
@@ -290,13 +326,15 @@ The API methods has the following set of options listed in the following table:
 | uploadNewFileVersion | *modified* | The content modified date that will be given to the uploaded file | Date
 |===
 
+In addition to the parameters above, the files API can also use from the 38 endpoint query option
+which is listed in the _Query Parameters_ section.
 
 
 
 ==== search
 
 
-The search has 1 API method(s) which is represented by the following method signatures
+The search API has 1 method(s) which is represented by the following method signatures
 (an API method may have multiple signatures due to overloading):
 
 [source,java]
@@ -306,21 +344,38 @@ java.util.Collection<com.box.sdk.BoxItem> searchFolder(String folderId, String q
 
 ----
 
-The API methods has the following set of options listed in the following table:
-[width="100%",cols="1,2,5,2",options="header"]
+The search API is defined in the syntax as follows:
+
+----
+box:search/methodName?[parameters]
+----
+
+The 1 method(s) is listed in the table below.
+(API methods can have a shorthand alias name which can be used in the syntax instead of the name)
+
+[width="100%",cols="2,2,6",options="header"]
 |===
-| Method | Name | Description | Type
+| Method | Alias | Description
+| *searchFolder* | search | Search folder and all descendant folders using the given query
+|===
+
+The search API method(s) has the following set of parameters listed in the table below:
+[width="100%",cols="2,2,4,2",options="header"]
+|===
+| Method | Parameter | Description | Type
 | searchFolder | *folderId* | The id of folder searched | String
 | searchFolder | *query* | The search query | String
 |===
 
+In addition to the parameters above, the search API can also use from the 38 endpoint query option
+which is listed in the _Query Parameters_ section.
 
 
 
 ==== comments
 
 
-The comments has 6 API method(s) which is represented by the following method signatures
+The comments API has 6 method(s) which is represented by the following method signatures
 (an API method may have multiple signatures due to overloading):
 
 [source,java]
@@ -340,10 +395,30 @@ com.box.sdk.BoxComment replyToComment(String commentId, String message);
 
 ----
 
-The API methods has the following set of options listed in the following table:
-[width="100%",cols="1,2,5,2",options="header"]
+The comments API is defined in the syntax as follows:
+
+----
+box:comments/methodName?[parameters]
+----
+
+The 6 method(s) is listed in the table below.
+(API methods can have a shorthand alias name which can be used in the syntax instead of the name)
+
+[width="100%",cols="2,2,6",options="header"]
 |===
-| Method | Name | Description | Type
+| Method | Alias | Description
+| *addFileComment* | add | Add comment to file
+| *changeCommentMessage* | updateMessage | Change comment message
+| *deleteComment* | delete | Delete comment
+| *getCommentInfo* | info | Get comment information
+| *getFileComments* | comments | Get a list of any comments on this file
+| *replyToComment* | reply | Reply to a comment
+|===
+
+The comments API method(s) has the following set of parameters listed in the table below:
+[width="100%",cols="2,2,4,2",options="header"]
+|===
+| Method | Parameter | Description | Type
 | addFileComment | *fileId* | The id of file | String
 | addFileComment | *message* | The comment's message | String
 | changeCommentMessage | *commentId* | The id of comment to change | String
@@ -355,13 +430,15 @@ The API methods has the following set of options listed in the following table:
 | replyToComment | *message* | The message for the reply | String
 |===
 
+In addition to the parameters above, the comments API can also use from the 38 endpoint query option
+which is listed in the _Query Parameters_ section.
 
 
 
 ==== event-logs
 
 
-The event-logs has 1 API method(s) which is represented by the following method signatures
+The event-logs API has 1 method(s) which is represented by the following method signatures
 (an API method may have multiple signatures due to overloading):
 
 [source,java]
@@ -371,23 +448,40 @@ java.util.List<com.box.sdk.BoxEvent> getEnterpriseEvents(String position, java.u
 
 ----
 
-The API methods has the following set of options listed in the following table:
-[width="100%",cols="1,2,5,2",options="header"]
+The event-logs API is defined in the syntax as follows:
+
+----
+box:event-logs/methodName?[parameters]
+----
+
+The 1 method(s) is listed in the table below.
+(API methods can have a shorthand alias name which can be used in the syntax instead of the name)
+
+[width="100%",cols="2,2,6",options="header"]
 |===
-| Method | Name | Description | Type
+| Method | Alias | Description
+| *getEnterpriseEvents* | events | Create an event stream with optional starting initial position and add listener that will be notified when an event is received
+|===
+
+The event-logs API method(s) has the following set of parameters listed in the table below:
+[width="100%",cols="2,2,4,2",options="header"]
+|===
+| Method | Parameter | Description | Type
 | getEnterpriseEvents | *after* | The lower bound on the timestamp of the events returned | Date
 | getEnterpriseEvents | *before* | The upper bound on the timestamp of the events returned | Date
 | getEnterpriseEvents | *position* | The starting position of the event stream. May be null in which case all events within bounds returned. | String
 | getEnterpriseEvents | *types* | An optional list of event types to filter by | Type[]
 |===
 
+In addition to the parameters above, the event-logs API can also use from the 38 endpoint query option
+which is listed in the _Query Parameters_ section.
 
 
 
 ==== collaborations
 
 
-The collaborations has 6 API method(s) which is represented by the following method signatures
+The collaborations API has 6 method(s) which is represented by the following method signatures
 (an API method may have multiple signatures due to overloading):
 
 [source,java]
@@ -407,10 +501,30 @@ com.box.sdk.BoxCollaboration updateCollaborationInfo(String collaborationId, com
 
 ----
 
-The API methods has the following set of options listed in the following table:
-[width="100%",cols="1,2,5,2",options="header"]
+The collaborations API is defined in the syntax as follows:
+
+----
+box:collaborations/methodName?[parameters]
+----
+
+The 6 method(s) is listed in the table below.
+(API methods can have a shorthand alias name which can be used in the syntax instead of the name)
+
+[width="100%",cols="2,2,6",options="header"]
 |===
-| Method | Name | Description | Type
+| Method | Alias | Description
+| *addFolderCollaboration* | add | Add a collaboration to this folder
+| *addFolderCollaborationByEmail* | addByEmail | Add a collaboration to this folder
+| *deleteCollaboration* | delete | Delete collaboration
+| *getCollaborationInfo* | info | Get collaboration information
+| *getFolderCollaborations* | collaborations | Get information about all of the collaborations for folder
+| *updateCollaborationInfo* | updateInfo | Update collaboration information
+|===
+
+The collaborations API method(s) has the following set of parameters listed in the table below:
+[width="100%",cols="2,2,4,2",options="header"]
+|===
+| Method | Parameter | Description | Type
 | addFolderCollaboration | *collaborator* | The collaborator to add | BoxCollaborator
 | addFolderCollaboration | *folderId* | The id of folder to add collaboration to | String
 | addFolderCollaboration | *role* | The role of the collaborator | Role
@@ -424,13 +538,15 @@ The API methods has the following set of options listed in the following table:
 | updateCollaborationInfo | *info* |  | Info
 |===
 
+In addition to the parameters above, the collaborations API can also use from the 38 endpoint query option
+which is listed in the _Query Parameters_ section.
 
 
 
 ==== tasks
 
 
-The tasks has 9 API method(s) which is represented by the following method signatures
+The tasks API has 9 method(s) which is represented by the following method signatures
 (an API method may have multiple signatures due to overloading):
 
 [source,java]
@@ -456,10 +572,33 @@ com.box.sdk.BoxTask updateTaskInfo(String taskId, com.box.sdk.BoxTask.Info info)
 
 ----
 
-The API methods has the following set of options listed in the following table:
-[width="100%",cols="1,2,5,2",options="header"]
+The tasks API is defined in the syntax as follows:
+
+----
+box:tasks/methodName?[parameters]
+----
+
+The 9 method(s) is listed in the table below.
+(API methods can have a shorthand alias name which can be used in the syntax instead of the name)
+
+[width="100%",cols="2,2,6",options="header"]
 |===
-| Method | Name | Description | Type
+| Method | Alias | Description
+| *addAssignmentToTask* | addAssignment | Add assignment for task
+| *addFileTask* | add | Add task to file
+| *deleteTask* | delete | Delete task
+| *deleteTaskAssignment* | deleteAssignment | Delete task assignment
+| *getFileTasks* | tasks | Get a list of any tasks on file
+| *getTaskAssignmentInfo* | assignmentInfo | Get task assignment information
+| *getTaskAssignments* | assignments | Get a list of any assignments for task
+| *getTaskInfo* | info | Get task information
+| *updateTaskInfo* | updateInfo | Update task information
+|===
+
+The tasks API method(s) has the following set of parameters listed in the table below:
+[width="100%",cols="2,2,4,2",options="header"]
+|===
+| Method | Parameter | Description | Type
 | addAssignmentToTask | *assignTo* | The user to assign to task | BoxUser
 | addAssignmentToTask | *taskId* | The id of task to add assignment for | String
 | addFileTask | *action* | The action the task assignee will be prompted to do | Action
@@ -476,13 +615,15 @@ The API methods has the following set of options listed in the following table:
 | updateTaskInfo | *taskId* | The id of task | String
 |===
 
+In addition to the parameters above, the tasks API can also use from the 38 endpoint query option
+which is listed in the _Query Parameters_ section.
 
 
 
 ==== events
 
 
-The events has 1 API method(s) which is represented by the following method signatures
+The events API has 1 method(s) which is represented by the following method signatures
 (an API method may have multiple signatures due to overloading):
 
 [source,java]
@@ -492,20 +633,37 @@ void listen(com.box.sdk.EventListener listener, Long startingPosition);
 
 ----
 
-The API methods has the following set of options listed in the following table:
-[width="100%",cols="1,2,5,2",options="header"]
+The events API is defined in the syntax as follows:
+
+----
+box:events/methodName?[parameters]
+----
+
+The 1 method(s) is listed in the table below.
+(API methods can have a shorthand alias name which can be used in the syntax instead of the name)
+
+[width="100%",cols="2,2,6",options="header"]
 |===
-| Method | Name | Description | Type
+| Method | Alias | Description
+| *listen* |  | Create an event stream with optional starting initial position and add listener that will be notified when an event is received
+|===
+
+The events API method(s) has the following set of parameters listed in the table below:
+[width="100%",cols="2,2,4,2",options="header"]
+|===
+| Method | Parameter | Description | Type
 | listen | *startingPosition* | The starting position of the event stream | Long
 |===
 
+In addition to the parameters above, the events API can also use from the 38 endpoint query option
+which is listed in the _Query Parameters_ section.
 
 
 
 ==== groups
 
 
-The groups has 9 API method(s) which is represented by the following method signatures
+The groups API has 9 method(s) which is represented by the following method signatures
 (an API method may have multiple signatures due to overloading):
 
 [source,java]
@@ -531,10 +689,33 @@ com.box.sdk.BoxGroupMembership updateGroupMembershipInfo(String groupMembershipI
 
 ----
 
-The API methods has the following set of options listed in the following table:
-[width="100%",cols="1,2,5,2",options="header"]
+The groups API is defined in the syntax as follows:
+
+----
+box:groups/methodName?[parameters]
+----
+
+The 9 method(s) is listed in the table below.
+(API methods can have a shorthand alias name which can be used in the syntax instead of the name)
+
+[width="100%",cols="2,2,6",options="header"]
 |===
-| Method | Name | Description | Type
+| Method | Alias | Description
+| *addGroupMembership* | addMembership | Add a member to group with the specified role
+| *createGroup* | create | Create a new group with a specified name and optional additional parameters
+| *deleteGroup* | delete | Delete group
+| *deleteGroupMembership* | deleteMembership | Delete group membership
+| *getGroupInfo* | info | Get group information
+| *getGroupMembershipInfo* | membershipInfo | Get group membership information
+| *getGroupMemberships* | memberships | Get information about all of the group memberships for this group
+| *updateGroupInfo* |  | Update group information
+| *updateGroupMembershipInfo* | updateMembershipInfo | Update group membership information
+|===
+
+The groups API method(s) has the following set of parameters listed in the table below:
+[width="100%",cols="2,2,4,2",options="header"]
+|===
+| Method | Parameter | Description | Type
 | addGroupMembership | *groupId* | The id of group | String
 | addGroupMembership | *role* | The role of the user in this group. Can be null to assign the default role. | Role
 | addGroupMembership | *userId* | The id of user to be added to group | String
@@ -555,13 +736,15 @@ The API methods has the following set of options listed in the following table:
 | updateGroupMembershipInfo | *info* | The updated information | Info
 |===
 
+In addition to the parameters above, the groups API can also use from the 38 endpoint query option
+which is listed in the _Query Parameters_ section.
 
 
 
 ==== users
 
 
-The users has 10 API method(s) which is represented by the following method signatures
+The users API has 10 method(s) which is represented by the following method signatures
 (an API method may have multiple signatures due to overloading):
 
 [source,java]
@@ -589,10 +772,34 @@ com.box.sdk.BoxUser updateUserInfo(String userId, com.box.sdk.BoxUser.Info info)
 
 ----
 
-The API methods has the following set of options listed in the following table:
-[width="100%",cols="1,2,5,2",options="header"]
+The users API is defined in the syntax as follows:
+
+----
+box:users/methodName?[parameters]
+----
+
+The 10 method(s) is listed in the table below.
+(API methods can have a shorthand alias name which can be used in the syntax instead of the name)
+
+[width="100%",cols="2,2,6",options="header"]
 |===
-| Method | Name | Description | Type
+| Method | Alias | Description
+| *addUserEmailAlias* | addEmailAlias | Add a new email alias to user's account
+| *createAppUser* | create | Provision a new app user in an enterprise with additional user information using Box Developer Edition
+| *createEnterpriseUser* | create | Provision a new user in an enterprise with additional user information
+| *deleteUser* | delete | Delete user from an enterprise account
+| *deleteUserEmailAlias* | deleteEmailAlias | Delete an email alias from user's account
+| *getAllEnterpriseOrExternalUsers* | users | Get any managed users that match the filter term as well as any external users that match the filter term
+| *getUserEmailAlias* | emailAlias | Get a collection of all the email aliases for user
+| *getUserInfo* | info | Get user information
+| *moveFolderToUser* |  | Move root folder for specified user to current user
+| *updateUserInfo* | updateInfo | Update user information
+|===
+
+The users API method(s) has the following set of parameters listed in the table below:
+[width="100%",cols="2,2,4,2",options="header"]
+|===
+| Method | Parameter | Description | Type
 | addUserEmailAlias | *email* | The email address to add as an alias | String
 | addUserEmailAlias | *userId* | The id of user | String
 | createAppUser | *name* | The name of the user | String
@@ -615,13 +822,15 @@ The API methods has the following set of options listed in the following table:
 | updateUserInfo | *userId* | The id of user to update | String
 |===
 
+In addition to the parameters above, the users API can also use from the 38 endpoint query option
+which is listed in the _Query Parameters_ section.
 
 
 
 ==== folders
 
 
-The folders has 10 API method(s) which is represented by the following method signatures
+The folders API has 10 method(s) which is represented by the following method signatures
 (an API method may have multiple signatures due to overloading):
 
 [source,java]
@@ -651,10 +860,34 @@ com.box.sdk.BoxFolder updateFolderInfo(String folderId, com.box.sdk.BoxFolder.In
 
 ----
 
-The API methods has the following set of options listed in the following table:
-[width="100%",cols="1,2,5,2",options="header"]
+The folders API is defined in the syntax as follows:
+
+----
+box:folders/methodName?[parameters]
+----
+
+The 10 method(s) is listed in the table below.
+(API methods can have a shorthand alias name which can be used in the syntax instead of the name)
+
+[width="100%",cols="2,2,6",options="header"]
 |===
-| Method | Name | Description | Type
+| Method | Alias | Description
+| *copyFolder* | copy | Copy folder to destination folder while optionally giving it a new name
+| *createFolder* | create | Create a folder specified by path from parent folder with given parentFolderId, creating intermediate directories as required
+| *createFolderSharedLink* | link | Create a shared link to folder
+| *deleteFolder* | delete | Delete folder
+| *getFolder* | folder | Return the Box folder referenced by path
+| *getFolderInfo* | info | Get folder information
+| *getFolderItems* | items | Returns a specific range of child items in folder and specifies which fields of each item to retrieve
+| *moveFolder* | move | Move folder to destination folder while optionally giving it a new name
+| *renameFolder* | rename | Rename folder giving it the name newName
+| *updateFolderInfo* | updateInfo | Update folder information
+|===
+
+The folders API method(s) has the following set of parameters listed in the table below:
+[width="100%",cols="2,2,4,2",options="header"]
+|===
+| Method | Parameter | Description | Type
 | copyFolder | *destinationFolderId* | The id of the destination folder | String
 | copyFolder | *folderId* | The id of folder to copy | String
 | copyFolder | *newName* | The new name for copied folder; if newName is null, the copied folder has same name as the original. | String
@@ -681,6 +914,9 @@ The API methods has the following set of options listed in the following table:
 | updateFolderInfo | *folderId* | The id of folder to update | String
 | updateFolderInfo | *info* | The updated information | Info
 |===
+
+In addition to the parameters above, the folders API can also use from the 38 endpoint query option
+which is listed in the _Query Parameters_ section.
 // endpoint options: END
 
 == URI format
