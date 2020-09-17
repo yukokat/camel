@@ -48,7 +48,9 @@ public final class MvelHelper {
     }
 
     public static String componentName(String scheme) {
-        return Character.toUpperCase(scheme.charAt(0)) + scheme.substring(1);
+        String text = SchemaHelper.dashToCamelCase(scheme);
+        // first char should be upper cased
+        return Character.toUpperCase(text.charAt(0)) + text.substring(1);
     }
 
     public static String formatSignature(String signature) {

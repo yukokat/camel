@@ -198,6 +198,13 @@ The settings API method(s) has the following set of parameters listed in the tab
 In addition to the parameters above, the settings API can also use from the 32 endpoint query option
 which is listed in the _Query Parameters_ section.
 
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelGoogleCalendarStream.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelGoogleCalendarStream.myParameterNameHere` header.
+
 
 
 ==== freebusy
@@ -237,6 +244,13 @@ The freebusy API method(s) has the following set of parameters listed in the tab
 
 In addition to the parameters above, the freebusy API can also use from the 32 endpoint query option
 which is listed in the _Query Parameters_ section.
+
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelGoogleCalendarStream.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelGoogleCalendarStream.myParameterNameHere` header.
 
 
 
@@ -331,6 +345,13 @@ The events API method(s) has the following set of parameters listed in the table
 In addition to the parameters above, the events API can also use from the 32 endpoint query option
 which is listed in the _Query Parameters_ section.
 
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelGoogleCalendarStream.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelGoogleCalendarStream.myParameterNameHere` header.
+
 
 
 ==== channels
@@ -370,6 +391,13 @@ The channels API method(s) has the following set of parameters listed in the tab
 
 In addition to the parameters above, the channels API can also use from the 32 endpoint query option
 which is listed in the _Query Parameters_ section.
+
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelGoogleCalendarStream.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelGoogleCalendarStream.myParameterNameHere` header.
 
 
 
@@ -443,6 +471,13 @@ The acl API method(s) has the following set of parameters listed in the table be
 In addition to the parameters above, the acl API can also use from the 32 endpoint query option
 which is listed in the _Query Parameters_ section.
 
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelGoogleCalendarStream.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelGoogleCalendarStream.myParameterNameHere` header.
+
 
 
 ==== calendars
@@ -505,6 +540,13 @@ The calendars API method(s) has the following set of parameters listed in the ta
 In addition to the parameters above, the calendars API can also use from the 32 endpoint query option
 which is listed in the _Query Parameters_ section.
 
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelGoogleCalendarStream.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelGoogleCalendarStream.myParameterNameHere` header.
+
 
 
 ==== list
@@ -566,6 +608,13 @@ The list API method(s) has the following set of parameters listed in the table b
 
 In addition to the parameters above, the list API can also use from the 32 endpoint query option
 which is listed in the _Query Parameters_ section.
+
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelGoogleCalendarStream.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelGoogleCalendarStream.myParameterNameHere` header.
 // endpoint options: END
 
 

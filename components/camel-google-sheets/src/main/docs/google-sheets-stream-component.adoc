@@ -212,6 +212,13 @@ The spreadsheets API method(s) has the following set of parameters listed in the
 In addition to the parameters above, the spreadsheets API can also use from the 34 endpoint query option
 which is listed in the _Query Parameters_ section.
 
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelGoogle-sheets-stream.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelGoogle-sheets-stream.myParameterNameHere` header.
+
 
 
 ==== data
@@ -299,6 +306,13 @@ The data API method(s) has the following set of parameters listed in the table b
 
 In addition to the parameters above, the data API can also use from the 34 endpoint query option
 which is listed in the _Query Parameters_ section.
+
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelGoogle-sheets-stream.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelGoogle-sheets-stream.myParameterNameHere` header.
 // endpoint options: END
 
 

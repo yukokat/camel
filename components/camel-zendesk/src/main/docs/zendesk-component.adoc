@@ -1360,6 +1360,13 @@ The DEFAULT API method(s) has the following set of parameters listed in the tabl
 
 In addition to the parameters above, the DEFAULT API can also use from the 28 endpoint query option
 which is listed in the _Query Parameters_ section.
+
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelZendesk.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelZendesk.myParameterNameHere` header.
 // endpoint options: END
 
 

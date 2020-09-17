@@ -213,6 +213,13 @@ The drive-channels API method(s) has the following set of parameters listed in t
 In addition to the parameters above, the drive-channels API can also use from the 30 endpoint query option
 which is listed in the _Query Parameters_ section.
 
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelGoogle-drive.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelGoogle-drive.myParameterNameHere` header.
+
 
 
 ==== drive-revisions
@@ -274,6 +281,13 @@ The drive-revisions API method(s) has the following set of parameters listed in 
 
 In addition to the parameters above, the drive-revisions API can also use from the 30 endpoint query option
 which is listed in the _Query Parameters_ section.
+
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelGoogle-drive.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelGoogle-drive.myParameterNameHere` header.
 
 
 
@@ -348,6 +362,13 @@ The drive-replies API method(s) has the following set of parameters listed in th
 In addition to the parameters above, the drive-replies API can also use from the 30 endpoint query option
 which is listed in the _Query Parameters_ section.
 
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelGoogle-drive.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelGoogle-drive.myParameterNameHere` header.
+
 
 
 ==== drive-permissions
@@ -419,6 +440,13 @@ The drive-permissions API method(s) has the following set of parameters listed i
 In addition to the parameters above, the drive-permissions API can also use from the 30 endpoint query option
 which is listed in the _Query Parameters_ section.
 
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelGoogle-drive.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelGoogle-drive.myParameterNameHere` header.
+
 
 
 ==== drive-parents
@@ -474,6 +502,13 @@ The drive-parents API method(s) has the following set of parameters listed in th
 In addition to the parameters above, the drive-parents API can also use from the 30 endpoint query option
 which is listed in the _Query Parameters_ section.
 
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelGoogle-drive.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelGoogle-drive.myParameterNameHere` header.
+
 
 
 ==== drive-apps
@@ -513,6 +548,13 @@ The drive-apps API method(s) has the following set of parameters listed in the t
 
 In addition to the parameters above, the drive-apps API can also use from the 30 endpoint query option
 which is listed in the _Query Parameters_ section.
+
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelGoogle-drive.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelGoogle-drive.myParameterNameHere` header.
 
 
 
@@ -557,6 +599,13 @@ The drive-changes API method(s) has the following set of parameters listed in th
 
 In addition to the parameters above, the drive-changes API can also use from the 30 endpoint query option
 which is listed in the _Query Parameters_ section.
+
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelGoogle-drive.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelGoogle-drive.myParameterNameHere` header.
 
 
 
@@ -625,6 +674,13 @@ The drive-comments API method(s) has the following set of parameters listed in t
 In addition to the parameters above, the drive-comments API can also use from the 30 endpoint query option
 which is listed in the _Query Parameters_ section.
 
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelGoogle-drive.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelGoogle-drive.myParameterNameHere` header.
+
 
 
 ==== drive-properties
@@ -692,6 +748,13 @@ The drive-properties API method(s) has the following set of parameters listed in
 In addition to the parameters above, the drive-properties API can also use from the 30 endpoint query option
 which is listed in the _Query Parameters_ section.
 
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelGoogle-drive.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelGoogle-drive.myParameterNameHere` header.
+
 
 
 ==== drive-realtime
@@ -738,6 +801,13 @@ The drive-realtime API method(s) has the following set of parameters listed in t
 
 In addition to the parameters above, the drive-realtime API can also use from the 30 endpoint query option
 which is listed in the _Query Parameters_ section.
+
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelGoogle-drive.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelGoogle-drive.myParameterNameHere` header.
 
 
 
@@ -793,6 +863,13 @@ The drive-children API method(s) has the following set of parameters listed in t
 
 In addition to the parameters above, the drive-children API can also use from the 30 endpoint query option
 which is listed in the _Query Parameters_ section.
+
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelGoogle-drive.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelGoogle-drive.myParameterNameHere` header.
 
 
 
@@ -884,6 +961,13 @@ The drive-files API method(s) has the following set of parameters listed in the 
 
 In addition to the parameters above, the drive-files API can also use from the 30 endpoint query option
 which is listed in the _Query Parameters_ section.
+
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelGoogle-drive.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelGoogle-drive.myParameterNameHere` header.
 // endpoint options: END
 
 

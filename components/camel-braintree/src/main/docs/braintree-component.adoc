@@ -184,6 +184,13 @@ The paymentMethodNonce API method(s) has the following set of parameters listed 
 In addition to the parameters above, the paymentMethodNonce API can also use from the 34 endpoint query option
 which is listed in the _Query Parameters_ section.
 
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelBraintree.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelBraintree.myParameterNameHere` header.
+
 
 
 ==== documentUpload
@@ -223,6 +230,13 @@ The documentUpload API method(s) has the following set of parameters listed in t
 
 In addition to the parameters above, the documentUpload API can also use from the 34 endpoint query option
 which is listed in the _Query Parameters_ section.
+
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelBraintree.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelBraintree.myParameterNameHere` header.
 
 
 
@@ -298,6 +312,13 @@ The subscription API method(s) has the following set of parameters listed in the
 In addition to the parameters above, the subscription API can also use from the 34 endpoint query option
 which is listed in the _Query Parameters_ section.
 
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelBraintree.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelBraintree.myParameterNameHere` header.
+
 
 
 ==== dispute
@@ -371,6 +392,13 @@ The dispute API method(s) has the following set of parameters listed in the tabl
 In addition to the parameters above, the dispute API can also use from the 34 endpoint query option
 which is listed in the _Query Parameters_ section.
 
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelBraintree.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelBraintree.myParameterNameHere` header.
+
 
 
 ==== settlementBatchSummary
@@ -413,6 +441,13 @@ The settlementBatchSummary API method(s) has the following set of parameters lis
 
 In addition to the parameters above, the settlementBatchSummary API can also use from the 34 endpoint query option
 which is listed in the _Query Parameters_ section.
+
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelBraintree.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelBraintree.myParameterNameHere` header.
 
 
 
@@ -471,6 +506,13 @@ The address API method(s) has the following set of parameters listed in the tabl
 In addition to the parameters above, the address API can also use from the 34 endpoint query option
 which is listed in the _Query Parameters_ section.
 
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelBraintree.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelBraintree.myParameterNameHere` header.
+
 
 
 ==== webhookNotification
@@ -515,6 +557,13 @@ The webhookNotification API method(s) has the following set of parameters listed
 
 In addition to the parameters above, the webhookNotification API can also use from the 34 endpoint query option
 which is listed in the _Query Parameters_ section.
+
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelBraintree.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelBraintree.myParameterNameHere` header.
 
 
 
@@ -563,6 +612,13 @@ The creditCardVerification API method(s) has the following set of parameters lis
 
 In addition to the parameters above, the creditCardVerification API can also use from the 34 endpoint query option
 which is listed in the _Query Parameters_ section.
+
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelBraintree.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelBraintree.myParameterNameHere` header.
 
 
 
@@ -670,6 +726,13 @@ The transaction API method(s) has the following set of parameters listed in the 
 In addition to the parameters above, the transaction API can also use from the 34 endpoint query option
 which is listed in the _Query Parameters_ section.
 
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelBraintree.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelBraintree.myParameterNameHere` header.
+
 
 
 ==== report
@@ -709,6 +772,13 @@ The report API method(s) has the following set of parameters listed in the table
 
 In addition to the parameters above, the report API can also use from the 34 endpoint query option
 which is listed in the _Query Parameters_ section.
+
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelBraintree.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelBraintree.myParameterNameHere` header.
 
 
 
@@ -777,6 +847,13 @@ The paymentMethod API method(s) has the following set of parameters listed in th
 In addition to the parameters above, the paymentMethod API can also use from the 34 endpoint query option
 which is listed in the _Query Parameters_ section.
 
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelBraintree.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelBraintree.myParameterNameHere` header.
+
 
 
 ==== clientToken
@@ -818,6 +895,13 @@ The clientToken API method(s) has the following set of parameters listed in the 
 
 In addition to the parameters above, the clientToken API can also use from the 34 endpoint query option
 which is listed in the _Query Parameters_ section.
+
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelBraintree.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelBraintree.myParameterNameHere` header.
 
 
 
@@ -875,6 +959,13 @@ The merchantAccount API method(s) has the following set of parameters listed in 
 
 In addition to the parameters above, the merchantAccount API can also use from the 34 endpoint query option
 which is listed in the _Query Parameters_ section.
+
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelBraintree.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelBraintree.myParameterNameHere` header.
 
 
 
@@ -935,6 +1026,13 @@ The customer API method(s) has the following set of parameters listed in the tab
 
 In addition to the parameters above, the customer API can also use from the 34 endpoint query option
 which is listed in the _Query Parameters_ section.
+
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelBraintree.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelBraintree.myParameterNameHere` header.
 // endpoint options: END
 
 == Producer Endpoints:

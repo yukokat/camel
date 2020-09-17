@@ -241,6 +241,13 @@ The update API method(s) has the following set of parameters listed in the table
 In addition to the parameters above, the update API can also use from the 46 endpoint query option
 which is listed in the _Query Parameters_ section.
 
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelFhir.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelFhir.myParameterNameHere` header.
+
 
 
 ==== create
@@ -287,6 +294,13 @@ The create API method(s) has the following set of parameters listed in the table
 In addition to the parameters above, the create API can also use from the 46 endpoint query option
 which is listed in the _Query Parameters_ section.
 
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelFhir.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelFhir.myParameterNameHere` header.
+
 
 
 ==== validate
@@ -330,6 +344,13 @@ The validate API method(s) has the following set of parameters listed in the tab
 
 In addition to the parameters above, the validate API can also use from the 46 endpoint query option
 which is listed in the _Query Parameters_ section.
+
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelFhir.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelFhir.myParameterNameHere` header.
 
 
 
@@ -414,6 +435,13 @@ The operation API method(s) has the following set of parameters listed in the ta
 In addition to the parameters above, the operation API can also use from the 46 endpoint query option
 which is listed in the _Query Parameters_ section.
 
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelFhir.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelFhir.myParameterNameHere` header.
+
 
 
 ==== search
@@ -455,6 +483,13 @@ The search API method(s) has the following set of parameters listed in the table
 In addition to the parameters above, the search API can also use from the 46 endpoint query option
 which is listed in the _Query Parameters_ section.
 
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelFhir.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelFhir.myParameterNameHere` header.
+
 
 
 ==== capabilities
@@ -495,6 +530,13 @@ The capabilities API method(s) has the following set of parameters listed in the
 
 In addition to the parameters above, the capabilities API can also use from the 46 endpoint query option
 which is listed in the _Query Parameters_ section.
+
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelFhir.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelFhir.myParameterNameHere` header.
 
 
 
@@ -548,6 +590,13 @@ The patch API method(s) has the following set of parameters listed in the table 
 
 In addition to the parameters above, the patch API can also use from the 46 endpoint query option
 which is listed in the _Query Parameters_ section.
+
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelFhir.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelFhir.myParameterNameHere` header.
 
 
 
@@ -614,6 +663,13 @@ The meta API method(s) has the following set of parameters listed in the table b
 In addition to the parameters above, the meta API can also use from the 46 endpoint query option
 which is listed in the _Query Parameters_ section.
 
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelFhir.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelFhir.myParameterNameHere` header.
+
 
 
 ==== history
@@ -676,6 +732,13 @@ The history API method(s) has the following set of parameters listed in the tabl
 In addition to the parameters above, the history API can also use from the 46 endpoint query option
 which is listed in the _Query Parameters_ section.
 
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelFhir.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelFhir.myParameterNameHere` header.
+
 
 
 ==== load-page
@@ -728,6 +791,13 @@ The load-page API method(s) has the following set of parameters listed in the ta
 In addition to the parameters above, the load-page API can also use from the 46 endpoint query option
 which is listed in the _Query Parameters_ section.
 
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelFhir.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelFhir.myParameterNameHere` header.
+
 
 
 ==== transaction
@@ -776,6 +846,13 @@ The transaction API method(s) has the following set of parameters listed in the 
 
 In addition to the parameters above, the transaction API can also use from the 46 endpoint query option
 which is listed in the _Query Parameters_ section.
+
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelFhir.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelFhir.myParameterNameHere` header.
 
 
 
@@ -855,6 +932,13 @@ The read API method(s) has the following set of parameters listed in the table b
 In addition to the parameters above, the read API can also use from the 46 endpoint query option
 which is listed in the _Query Parameters_ section.
 
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelFhir.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelFhir.myParameterNameHere` header.
+
 
 
 ==== delete
@@ -909,6 +993,13 @@ The delete API method(s) has the following set of parameters listed in the table
 
 In addition to the parameters above, the delete API can also use from the 46 endpoint query option
 which is listed in the _Query Parameters_ section.
+
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelFhir.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelFhir.myParameterNameHere` header.
 // endpoint options: END
 
 include::camel-spring-boot::page$fhir-starter.adoc[]

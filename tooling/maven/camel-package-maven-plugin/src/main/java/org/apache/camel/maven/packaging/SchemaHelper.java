@@ -20,6 +20,44 @@ import java.util.Locale;
 
 public final class SchemaHelper {
 
+    /**
+     * Converts the string from dash format into camel case (hello-great-world -> helloGreatWorld)
+     *
+     * @param  text the string
+     * @return      the string camel cased
+     */
+    public static String dashToCamelCase(String text) {
+        if (text == null) {
+            return null;
+        }
+        int length = text.length();
+        if (length == 0) {
+            return text;
+        }
+        if (text.indexOf('-') == -1) {
+            return text;
+        }
+
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < text.length(); i++) {
+            char c = text.charAt(i);
+            if (c == '-') {
+                i++;
+                sb.append(Character.toUpperCase(text.charAt(i)));
+            } else {
+                sb.append(c);
+            }
+        }
+        return sb.toString();
+    }
+
+    /**
+     * Converts the string from camel case into dash format (helloGreatWorld -> hello-great-world)
+     *
+     * @param  text the string
+     * @return      the string camel cased
+     */
     public static String camelCaseToDash(String text) {
         if (text == null || text.isEmpty()) {
             return text;

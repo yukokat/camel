@@ -329,6 +329,13 @@ The files API method(s) has the following set of parameters listed in the table 
 In addition to the parameters above, the files API can also use from the 38 endpoint query option
 which is listed in the _Query Parameters_ section.
 
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelBox.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelBox.myParameterNameHere` header.
+
 
 
 ==== search
@@ -369,6 +376,13 @@ The search API method(s) has the following set of parameters listed in the table
 
 In addition to the parameters above, the search API can also use from the 38 endpoint query option
 which is listed in the _Query Parameters_ section.
+
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelBox.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelBox.myParameterNameHere` header.
 
 
 
@@ -433,6 +447,13 @@ The comments API method(s) has the following set of parameters listed in the tab
 In addition to the parameters above, the comments API can also use from the 38 endpoint query option
 which is listed in the _Query Parameters_ section.
 
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelBox.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelBox.myParameterNameHere` header.
+
 
 
 ==== event-logs
@@ -475,6 +496,13 @@ The event-logs API method(s) has the following set of parameters listed in the t
 
 In addition to the parameters above, the event-logs API can also use from the 38 endpoint query option
 which is listed in the _Query Parameters_ section.
+
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelBox.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelBox.myParameterNameHere` header.
 
 
 
@@ -540,6 +568,13 @@ The collaborations API method(s) has the following set of parameters listed in t
 
 In addition to the parameters above, the collaborations API can also use from the 38 endpoint query option
 which is listed in the _Query Parameters_ section.
+
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelBox.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelBox.myParameterNameHere` header.
 
 
 
@@ -618,6 +653,13 @@ The tasks API method(s) has the following set of parameters listed in the table 
 In addition to the parameters above, the tasks API can also use from the 38 endpoint query option
 which is listed in the _Query Parameters_ section.
 
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelBox.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelBox.myParameterNameHere` header.
+
 
 
 ==== events
@@ -657,6 +699,13 @@ The events API method(s) has the following set of parameters listed in the table
 
 In addition to the parameters above, the events API can also use from the 38 endpoint query option
 which is listed in the _Query Parameters_ section.
+
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelBox.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelBox.myParameterNameHere` header.
 
 
 
@@ -738,6 +787,13 @@ The groups API method(s) has the following set of parameters listed in the table
 
 In addition to the parameters above, the groups API can also use from the 38 endpoint query option
 which is listed in the _Query Parameters_ section.
+
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelBox.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelBox.myParameterNameHere` header.
 
 
 
@@ -824,6 +880,13 @@ The users API method(s) has the following set of parameters listed in the table 
 
 In addition to the parameters above, the users API can also use from the 38 endpoint query option
 which is listed in the _Query Parameters_ section.
+
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelBox.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelBox.myParameterNameHere` header.
 
 
 
@@ -917,6 +980,13 @@ The folders API method(s) has the following set of parameters listed in the tabl
 
 In addition to the parameters above, the folders API can also use from the 38 endpoint query option
 which is listed in the _Query Parameters_ section.
+
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelBox.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelBox.myParameterNameHere` header.
 // endpoint options: END
 
 == URI format

@@ -197,6 +197,13 @@ The users API method(s) has the following set of parameters listed in the table 
 In addition to the parameters above, the users API can also use from the 30 endpoint query option
 which is listed in the _Query Parameters_ section.
 
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelGoogle-mail-stream.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelGoogle-mail-stream.myParameterNameHere` header.
+
 
 
 ==== threads
@@ -262,6 +269,13 @@ The threads API method(s) has the following set of parameters listed in the tabl
 
 In addition to the parameters above, the threads API can also use from the 30 endpoint query option
 which is listed in the _Query Parameters_ section.
+
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelGoogle-mail-stream.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelGoogle-mail-stream.myParameterNameHere` header.
 
 
 
@@ -338,6 +352,13 @@ The drafts API method(s) has the following set of parameters listed in the table
 In addition to the parameters above, the drafts API can also use from the 30 endpoint query option
 which is listed in the _Query Parameters_ section.
 
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelGoogle-mail-stream.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelGoogle-mail-stream.myParameterNameHere` header.
+
 
 
 ==== labels
@@ -405,6 +426,13 @@ The labels API method(s) has the following set of parameters listed in the table
 In addition to the parameters above, the labels API can also use from the 30 endpoint query option
 which is listed in the _Query Parameters_ section.
 
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelGoogle-mail-stream.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelGoogle-mail-stream.myParameterNameHere` header.
+
 
 
 ==== history
@@ -444,6 +472,13 @@ The history API method(s) has the following set of parameters listed in the tabl
 
 In addition to the parameters above, the history API can also use from the 30 endpoint query option
 which is listed in the _Query Parameters_ section.
+
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelGoogle-mail-stream.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelGoogle-mail-stream.myParameterNameHere` header.
 
 
 
@@ -486,6 +521,13 @@ The attachments API method(s) has the following set of parameters listed in the 
 
 In addition to the parameters above, the attachments API can also use from the 30 endpoint query option
 which is listed in the _Query Parameters_ section.
+
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelGoogle-mail-stream.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelGoogle-mail-stream.myParameterNameHere` header.
 
 
 
@@ -586,6 +628,13 @@ The messages API method(s) has the following set of parameters listed in the tab
 
 In addition to the parameters above, the messages API can also use from the 30 endpoint query option
 which is listed in the _Query Parameters_ section.
+
+==== Message headers and body
+
+Any of the parameters can be provided in either the endpoint URI, or dynamically in a message header.
+The message header name must be of the format `CamelGoogle-mail-stream.parameter`.
+The `inBody` parameter overrides message header, i.e. the endpoint parameter `inBody=myParameterNameHere`
+would override a `CamelGoogle-mail-stream.myParameterNameHere` header.
 // endpoint options: END
 
 

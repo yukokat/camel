@@ -835,6 +835,12 @@ public final class StringHelper {
         return m.matches();
     }
 
+    /**
+     * Converts the string from camel case into dash format (helloGreatWorld -> hello-great-world)
+     *
+     * @param  text the string
+     * @return      the string camel cased
+     */
     public static String camelCaseToDash(String text) {
         if (text == null || text.isEmpty()) {
             return text;
