@@ -303,6 +303,18 @@ public abstract class AbstractApiMethodGeneratorMojo extends AbstractApiMethodBa
         }
     }
 
+    public String getAliases() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("{");
+        if (!aliases.isEmpty()) {
+            StringJoiner sj = new StringJoiner(", ");
+            aliases.forEach(a -> sj.add("\"" + a.getMethodPattern() + "=" + a.getMethodAlias() + "\""));
+            sb.append(sj.toString());
+        }
+        sb.append("}");
+        return sb.toString();
+    }
+
     public static String getApiMethodsForParam(List<ApiMethodParser.ApiMethodModel> models, ApiMethodArg argument) {
         StringBuilder sb = new StringBuilder();
 
@@ -415,8 +427,6 @@ public abstract class AbstractApiMethodGeneratorMojo extends AbstractApiMethodBa
     }
 
     public String getApiMethods(List<ApiMethodParser.ApiMethodModel> models) {
-        // TODO: we should include alias information as well
-
         models.sort((o1, o2) -> o1.getName().compareToIgnoreCase(o2.getName()));
 
         // avoid duplicate methods as we only want them listed once
@@ -488,74 +498,9 @@ public abstract class AbstractApiMethodGeneratorMojo extends AbstractApiMethodBa
             return getCanonicalName(ClassUtils.primitiveToWrapper(type));
         }
 
-        if (argument.getRawTypeArgs() != null) {
-            String fqn = argument.getRawTypeArgs();
-            // the type may use $ for classloader, so replace it back with dot
-            fqn = fqn.replace('$', '.');
-            return fqn;
-        }
-
-        // TODO: Remove below when no longer needed
-
-        // get default name prefix
-        String canonicalName = getCanonicalName(type);
-
-        final String typeArgs = argument.getTypeArgs();
-        if (typeArgs != null) {
-
-            // add generic type arguments
-            StringBuilder parameterizedType = new StringBuilder(canonicalName);
-            parameterizedType.append('<');
-
-            // Note: its ok to split, since we don't support parsing nested type arguments
-            final String[] argTypes = typeArgs.split(",");
-            final int nTypes = argTypes.length;
-            int i = 0;
-            for (String argType : argTypes) {
-
-                // javadoc sometimes contains zero-width spaces
-                if (argType.charAt(0) == '\u200b') {
-                    argType = argType.substring(1);
-                }
-
-                if ("URL".equals(argType)) {
-                    parameterizedType.append("java.net.URL");
-                } else if ("URI".equals(argType)) {
-                    parameterizedType.append("java.net.URI");
-                } else {
-                    // try loading as is first
-                    try {
-                        parameterizedType.append(getCanonicalName(getProjectClassLoader().loadClass(argType)));
-                    } catch (ClassNotFoundException e) {
-                        // try loading with default java.lang package prefix
-                        try {
-                            if (log.isDebugEnabled()) {
-                                log.debug("Could not load " + argType + ", trying to load java.lang." + argType);
-                            }
-                            parameterizedType.append(
-                                    getCanonicalName(getProjectClassLoader().loadClass("java.lang." + argType)));
-                        } catch (ClassNotFoundException e1) {
-                            parameterizedType.append("?");
-                            // if the length of the artType is 1 or 2, we think that it's variable type parameter (like T in List<T>)
-                            // not perfect solution, but should work in most of the cases
-                            if (argType.trim().length() > 2) {
-                                log.warn("Ignoring type parameters <" + typeArgs + "> for argument " + argument.getName()
-                                         + ", unable to load parametric type argument " + argType,
-                                        e1);
-                            }
-                        }
-                    }
-                }
-
-                if (++i < nTypes) {
-                    parameterizedType.append(",");
-                }
-            }
-
-            parameterizedType.append('>');
-            canonicalName = parameterizedType.toString();
-        }
-
-        return canonicalName;
+        String fqn = argument.getRawTypeArgs();
+        // the type may use $ for classloader, so replace it back with dot
+        fqn = fqn.replace('$', '.');
+        return fqn;
     }
 }

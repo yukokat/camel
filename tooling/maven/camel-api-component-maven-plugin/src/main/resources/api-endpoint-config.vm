@@ -47,7 +47,7 @@ import org.apache.camel.spi.UriParams;
  * Camel endpoint configuration for {@link $proxyType.Name}.
  */
 @ApiParams(apiName = "$helper.getApiName($apiName)", description = "$helper.getApiDescription($apiDescription)",
-           apiMethods = $helper.getApiMethods($models))
+           apiMethods = $helper.getApiMethods($models), aliases = $helper.getAliases())
 @UriParams
 @Configurer
 public final class $configName extends ${componentName}Configuration {

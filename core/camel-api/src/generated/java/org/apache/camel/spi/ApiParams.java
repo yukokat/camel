@@ -51,4 +51,12 @@ public @interface ApiParams {
      */
     ApiMethod[] apiMethods();
 
+    /**
+     * Returns the method alias(s) of this api method. The syntax for an alias is pattern=name where pattern is a
+     * regular expression.
+     * <p/>
+     * This is used for documentation and tooling only.
+     */
+    String[] aliases() default "";
+
 }
