@@ -59,6 +59,12 @@ The @{api.name} API has @{api.methods.size} method(s) which is represented by th
 @end{}@end{}
 ----
 
+The @{api.name} API is defined in the syntax as follows:
+
+----
+@{scheme}:${api.name}/methodName?[parameters]
+----
+
 The @{api.methods.size} method(s) is listed in the table below.
 (API methods can have a shorthand alias name which can be used in the syntax instead of the name)
 
@@ -68,13 +74,15 @@ The @{api.methods.size} method(s) is listed in the table below.
 @foreach{method : api.methods}| *@{method.name}* | @{util.apiMethodAlias(api, method)} | @{method.description}
 @end{}|===
 
-The API methods has the following set of options listed in the table below:
+The @{api.name} API method(s) has the following set of parameters listed in the table below:
 [width="100%",cols="2,2,4,2",options="header"]
 |===@comment{ Render table cells. If description contains newline, prefix cell with `a`, so the content is rendered with formatting. }
-| Method | Name | Description | Type
+| Method | Parameter | Description | Type
 @foreach{method : api.methods}@foreach{row : method.options}| @{method.name} | *@{row.getShortName(30)}* @{row.description.?contains("\n") ? "a" : ""}| @{util.escape(row.description)} | @{row.getShortJavaType()}
 @end{}@end{}|===
 
+In addition to the parameters above, the @{api.name} API can also use from the @{endpointParameterOptions.size()} endpoint query option
+which is listed in the _Query Parameters_ section.
 
 @end{}
 @end{}
