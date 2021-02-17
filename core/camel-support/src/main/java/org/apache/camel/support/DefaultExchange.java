@@ -45,7 +45,7 @@ import org.apache.camel.util.ObjectHelper;
 public final class DefaultExchange implements ExtendedExchange {
 
     private final CamelContext context;
-    private final long created;
+    private long created;
     // optimize to create properties always and with a reasonable small size
     private final Map<String, Object> properties = new ConcurrentHashMap<>(8);
     private Message in;
@@ -113,6 +113,33 @@ public final class DefaultExchange implements ExtendedExchange {
         } else {
             return "Exchange[]";
         }
+    }
+
+    public void reset() {
+        this.properties.clear();
+        this.exchangeId = null;
+        this.created = System.currentTimeMillis();
+        this.out = null;
+        this.exception = null;
+        this.unitOfWork = null;
+        this.pattern = null;
+        this.fromEndpoint = null;
+        this.fromRouteId = null;
+        if (this.onCompletions != null) {
+            this.onCompletions.clear();
+        }
+        this.externalRedelivered = null;
+        this.historyNodeId = null;
+        this.historyNodeLabel = null;
+        this.transacted = false;
+        this.routeStop = false;
+        this.rollbackOnly = false;
+        this.rollbackOnlyLast = false;
+        this.notifyEvent = false;
+        this.interrupted = false;
+        this.interruptable = true;
+        this.redeliveryExhausted = false;
+        this.errorHandlerHandled = null;
     }
 
     @Override
