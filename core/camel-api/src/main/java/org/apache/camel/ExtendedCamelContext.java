@@ -36,6 +36,7 @@ import org.apache.camel.spi.DataFormatResolver;
 import org.apache.camel.spi.DeferServiceFactory;
 import org.apache.camel.spi.EndpointStrategy;
 import org.apache.camel.spi.EndpointUriFactory;
+import org.apache.camel.spi.ExchangeFactory;
 import org.apache.camel.spi.FactoryFinder;
 import org.apache.camel.spi.FactoryFinderResolver;
 import org.apache.camel.spi.HeadersMapFactory;
@@ -212,6 +213,16 @@ public interface ExtendedCamelContext extends CamelContext {
      * Returns an unmodifiable list of the services registered currently in this {@link CamelContext}.
      */
     List<Service> getServices();
+
+    /**
+     * Gets the exchange factory to use.
+     */
+    ExchangeFactory getExchangeFactory();
+
+    /**
+     * Sets a custom exchange factory to use.
+     */
+    void setExchangeFactory(ExchangeFactory exchangeFactory);
 
     /**
      * Returns the bean post processor used to do any bean customization.

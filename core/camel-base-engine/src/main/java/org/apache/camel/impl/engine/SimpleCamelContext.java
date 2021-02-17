@@ -41,6 +41,7 @@ import org.apache.camel.spi.ConfigurerResolver;
 import org.apache.camel.spi.DataFormatResolver;
 import org.apache.camel.spi.DeferServiceFactory;
 import org.apache.camel.spi.EndpointRegistry;
+import org.apache.camel.spi.ExchangeFactory;
 import org.apache.camel.spi.ExecutorServiceManager;
 import org.apache.camel.spi.FactoryFinder;
 import org.apache.camel.spi.FactoryFinderResolver;
@@ -540,6 +541,17 @@ public class SimpleCamelContext extends AbstractCamelContext {
     @Override
     protected StreamCachingStrategy createStreamCachingStrategy() {
         return new DefaultStreamCachingStrategy();
+    }
+
+    @Override
+    protected ExchangeFactory createExchangeFactory() {
+        Optional<ExchangeFactory> result = ResolverHelper.resolveService(
+                getCamelContextReference(),
+                getBootstrapFactoryFinder(),
+                ExchangeFactory.FACTORY,
+                ExchangeFactory.class);
+
+        return result.orElseGet(DefaultExchangeFactory::new);
     }
 
     @Override

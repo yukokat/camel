@@ -27,8 +27,10 @@ import org.apache.camel.Consumer;
 import org.apache.camel.Endpoint;
 import org.apache.camel.Exchange;
 import org.apache.camel.ExchangePattern;
+import org.apache.camel.ExtendedCamelContext;
 import org.apache.camel.PollingConsumer;
 import org.apache.camel.spi.ExceptionHandler;
+import org.apache.camel.spi.ExchangeFactory;
 import org.apache.camel.spi.HasId;
 import org.apache.camel.spi.Metadata;
 import org.apache.camel.spi.PropertyConfigurer;
@@ -54,6 +56,7 @@ public abstract class DefaultEndpoint extends ServiceSupport implements Endpoint
     private volatile String endpointUri;
     private CamelContext camelContext;
     private Component component;
+    private ExchangeFactory exchangeFactory;
 
     @Metadata(label = "advanced", defaultValue = "true",
               description = "Whether autowiring is enabled. This is used for automatic autowiring options (the option must be marked as autowired)"
@@ -96,6 +99,7 @@ public abstract class DefaultEndpoint extends ServiceSupport implements Endpoint
     protected DefaultEndpoint(String endpointUri, Component component) {
         this.camelContext = component == null ? null : component.getCamelContext();
         this.component = component;
+        this.exchangeFactory = camelContext.adapt(ExtendedCamelContext.class).getExchangeFactory();
         this.setEndpointUri(endpointUri);
     }
 
@@ -226,12 +230,14 @@ public abstract class DefaultEndpoint extends ServiceSupport implements Endpoint
 
     @Override
     public Exchange createExchange() {
-        return new DefaultExchange(this, getExchangePattern());
+        return createExchange(getExchangePattern());
     }
 
     @Override
     public Exchange createExchange(ExchangePattern pattern) {
-        return new DefaultExchange(this, pattern);
+        Exchange exchange = exchangeFactory.create(this);
+        exchange.setPattern(pattern);
+        return exchange;
     }
 
     /**
@@ -479,6 +485,10 @@ public abstract class DefaultEndpoint extends ServiceSupport implements Endpoint
     @Override
     protected void doInit() throws Exception {
         ObjectHelper.notNull(getCamelContext(), "camelContext");
+
+        if (exchangeFactory == null) {
+            exchangeFactory = camelContext.adapt(ExtendedCamelContext.class).getExchangeFactory();
+        }
 
         if (autowiredEnabled && getComponent() != null) {
             PropertyConfigurer configurer = getComponent().getEndpointPropertyConfigurer();

@@ -29,6 +29,7 @@ import org.apache.camel.CamelContextAware;
 import org.apache.camel.Exchange;
 import org.apache.camel.ExchangePattern;
 import org.apache.camel.Expression;
+import org.apache.camel.ExtendedCamelContext;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 import org.apache.camel.RuntimeCamelException;
@@ -41,7 +42,6 @@ import org.apache.camel.spi.RouteIdAware;
 import org.apache.camel.spi.ShutdownAware;
 import org.apache.camel.support.AsyncProcessorConverterHelper;
 import org.apache.camel.support.AsyncProcessorSupport;
-import org.apache.camel.support.DefaultExchange;
 import org.apache.camel.support.ExchangeHelper;
 import org.apache.camel.support.service.ServiceHelper;
 import org.apache.camel.util.ObjectHelper;
@@ -257,7 +257,10 @@ public class WireTapProcessor extends AsyncProcessorSupport
     }
 
     private Exchange configureNewExchange(Exchange exchange) {
-        return new DefaultExchange(exchange.getFromEndpoint(), ExchangePattern.InOnly);
+        Exchange answer
+                = camelContext.adapt(ExtendedCamelContext.class).getExchangeFactory().create(exchange.getFromEndpoint());
+        answer.setPattern(ExchangePattern.InOnly);
+        return answer;
     }
 
     public List<Processor> getNewExchangeProcessors() {
