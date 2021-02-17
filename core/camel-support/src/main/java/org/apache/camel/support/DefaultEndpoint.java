@@ -97,10 +97,12 @@ public abstract class DefaultEndpoint extends ServiceSupport implements Endpoint
      * @param component   the component that created this endpoint
      */
     protected DefaultEndpoint(String endpointUri, Component component) {
-        this.camelContext = component == null ? null : component.getCamelContext();
         this.component = component;
-        this.exchangeFactory = camelContext.adapt(ExtendedCamelContext.class).getExchangeFactory();
         this.setEndpointUri(endpointUri);
+        if (component != null) {
+            this.camelContext = component.getCamelContext();
+            this.exchangeFactory = camelContext.adapt(ExtendedCamelContext.class).getExchangeFactory();
+        }
     }
 
     /**
