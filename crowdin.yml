@@ -1,0 +1,7 @@
+files:
+  - source: /docs/components/modules/**/*.adoc
+    ignore:
+      - /docs/components/modules/**/nav.adoc
+      - /docs/components/modules/ROOT/assets
+      - /docs/components/modules/ROOT/examples
+    translation: '%original_file_name%-%language%.%file_extension%'
